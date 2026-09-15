@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StarCatalog from '../../components/StarCatalog';
+import { CATEGORIES, getStarsByCategory } from '../../data/stars';
+import { Sparkles, ArrowLeft, ShieldCheck, Zap, Cpu } from 'lucide-react';
+
+export function getStaticPaths() {
+  const categoryMetadata: Record<string, { title: string; metaTitle: string; description: string; keywords: string; heading: string; lead: string }> = {
+    futuristic: {
+      title: 'Futuristic & AI Generated Stars',
+      metaTitle: 'Futuristic & AI Star PNG - Holographic Cyber Stars & Quantum Vectors',
+      description: 'Download futuristic AI generated star PNG images with transparent backgrounds. Holographic orbital rings, sci-fi HUD reticles, quantum hyper-stars, and neural node vectors.',
+      keywords: 'ai star png, futuristic star png, holographic star png, sci-fi star transparent, quantum star vector, cyberpunk star png',
+      heading: 'Futuristic & AI Generated Star PNGs',
+      lead: 'Sci-fi holographic starbursts, quantum prism nodes, and AI-generated celestial geometries with optical energy rings. Ideal for web3, AI platforms, tech brands, and game HUDs.'
+    },
+    '3d': {
+      title: '3D & Glossy Stars',
+      metaTitle: '3D Star PNG - Glossy Volumetric Stars & Faceted Gem Vectors Transparent',
+      description: 'Download 3D star PNGs with real transparent backgrounds. Dynamic recolorable 3D glossy stars, faceted crystal gems, and isometric game level stars with specular highlights.',
+      keywords: '3d star png, glossy star png, 3d emoji star, crystal gem star png, isometric star vector, volumetric star transparent',
+      heading: '3D Glossy Star PNG & Faceted Crystal Gems',
+      lead: 'Volumetric 3D stars with realistic depth, ambient occlusion shadows, and dynamic specular glints. Fully recolorable in any custom hex color or preset.'
+    },
+    neon: {
+      title: 'Neon & Glow Stars',
+      metaTitle: 'Neon Star PNG - Glowing Cyberpunk Tube Stars & Radiant Pulsars',
+      description: 'High intensity neon star PNG images with glowing transparent auras. Vibrant cyan, electric pink, and pulsar light rings for dark mode UI, stream overlays, and flyers.',
+      keywords: 'neon star png, glowing star png, cyberpunk neon star, light tube star transparent, pulsar star graphic',
+      heading: 'Neon Glow Star PNG & Cyberpunk Light Tubes',
+      lead: 'Luminous neon tube stars with multi-layer outer radiation glows. Formatted for high contrast dark backgrounds, Twitch streaming overlays, and club event posters.'
+    },
+    ratings: {
+      title: '5-Star Ratings & Review Stars',
+      metaTitle: '5 Star Rating PNG - Free Transparent Review Stars & Rating Bars',
+      description: 'Download 100% transparent 5 star rating PNGs, 4.5 star bars, and customer review badges. Free for commercial e-commerce, websites, and trust badges.',
+      keywords: '5 star rating png, five star review png, review star png, customer rating icon, 4.5 star rating png',
+      heading: '5 Star Rating PNG & Customer Review Stars',
+      lead: 'Crisp, transparent 5-star and 4.5-star rating bars optimized for e-commerce conversion, testimonial widgets, and mobile apps. Copy directly to Figma or download high-res PNG.'
+    },
+    y2k: {
+      title: 'Y2K & Cyber Stars',
+      metaTitle: 'Y2K Star PNG - Retro Cyber Stars & Aesthetic Starbursts Transparent',
+      description: 'High-resolution Y2K star PNGs and cyber sparkle vector graphics with transparent backgrounds. Ideal for streetwear merch, Gen-Z thumbnails, and album artwork.',
+      keywords: 'y2k star png, cyber star png, y2k sparkle png, retro 2000s star, 8 point starburst png',
+      heading: 'Y2K Star PNG & Cyber Aesthetic Starbursts',
+      lead: 'Retro-futuristic 4-point and 8-point needle starbursts that define the 2000s cyber aesthetic. Copy directly to Canva or download up to 4K Ultra HD.'
+    },
+    gold: {
+      title: 'Gold & Metallic Stars',
+      metaTitle: 'Gold Star PNG - Shiny Metallic Gold Stars Transparent Background',
+      description: 'Download premium metallic gold star PNG images with real transparent backgrounds. Perfect for award certificates, gamified badges, and ranking graphics.',
+      keywords: 'gold star png, golden star transparent, metallic gold star, shiny star png, yellow star png',
+      heading: 'Gold Star PNG & Metallic Award Graphics',
+      lead: 'Gleaming 3D beveled and metallic gold star graphics. Clean alpha transparency without white halo edges, ideal for certificates, awards, and celebrations.'
+    },
+    sparkle: {
+      title: 'Sparkle & Twinkle Stars',
+      metaTitle: 'Sparkle Star PNG - Twinkle Stars & Shooting Star Comets Transparent',
+      description: 'Download sparkle star PNGs, twinkling celestial bursts, and shooting star comets with cosmic dust tails and transparent backgrounds.',
+      keywords: 'sparkle star png, twinkle star transparent, shooting star png, comet trail png, celestial star burst',
+      heading: 'Sparkle Star PNG & Celestial Twinkle Comets',
+      lead: 'Radiant sparkle clusters, twinkling cosmic points, and dramatic shooting stars with soft light gradients and transparent tails.'
+    },
+    aesthetic: {
+      title: 'Aesthetic & Cute Stars',
+      metaTitle: 'Aesthetic Star PNG - Cute Sparkles & Twinkle Stars Transparent',
+      description: 'Download aesthetic star PNGs and dreamy sparkle overlays with transparent backgrounds. High quality clipart for Canva, Instagram Stories, and scrapbooks.',
+      keywords: 'aesthetic star png, sparkle star png, cute star png, twinkle star transparent, doodle star png, kawaii star png',
+      heading: 'Aesthetic Star PNG & Cute Sparkle Clipart',
+      lead: 'Dreamy sparkle stars, hand-drawn doodle stars, and cute kawaii blushing stars. Built for aesthetic Instagram templates, Canva edits, and bullet journals.'
+    },
+    geometric: {
+      title: 'Geometric & Compass Stars',
+      metaTitle: 'Geometric Star PNG - North Star Polaris & Nautical Compass Vectors',
+      description: 'Geometric 8-point nautical star PNGs, Polaris compass roses, and minimalist 4-point diamond vectors with transparent backgrounds.',
+      keywords: 'north star png, polaris star png, compass star png, 8 point star png, 4 point diamond star vector',
+      heading: 'Geometric Star PNG & Compass Rose Vectors',
+      lead: 'Mathematical 4-point and 8-point celestial compass stars. Engineered for logos, cartography, navigation emblems, and minimalist tattoo flashes.'
+    },
+    outline: {
+      title: 'Outlines & Badges',
+      metaTitle: 'Star Outline PNG - Minimalist Star Shapes & Starburst Badges',
+      description: 'Free transparent star outline PNGs, vector stroke stars, and retail starburst sale badges. Clean line art for coloring sheets, UI icons, and promo stickers.',
+      keywords: 'star outline png, empty star png, star stroke vector, starburst sale badge png, sheriff star png',
+      heading: 'Star Outline PNG & Starburst Promo Badges',
+      lead: 'Clean minimalist vector strokes, sheriff badges, and high-energy retail starburst stickers. Perfect for coloring sheets, wireframes, and eye-catching discount badges.'
+    }
+  };
+
+  return Object.keys(categoryMetadata).map((catKey) => ({
+    params: { category: catKey },
+    props: {
+      categoryKey: catKey,
+      meta: categoryMetadata[catKey],
+      stars: getStarsByCategory(catKey)
+    }
+  }));
+}
+
+const { categoryKey, meta, stars } = Astro.props;
+
+const categorySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  'name': meta.heading,
+  'description': meta.description,
+  'url': `https://starpng.com/stars/${categoryKey}/`,
+  'mainEntity': {
+    '@type': 'ItemList',
+    'itemListElement': stars.map((star, idx) => ({
+      '@type': 'ImageObject',
+      'position': idx + 1,
+      'name': star.title,
+      'contentUrl': `https://starpng.com/stars/${star.slug}.png`,
+      'license': 'https://creativecommons.org/publicdomain/zero/1.0/'
+    }))
+  }
+};
+---
+
+<BaseLayout
+  title={meta.metaTitle}
+  description={meta.description}
+  keywords={meta.keywords}
+  schema={categorySchema}
+>
+  <div class="py-12 md:py-16 bg-[#fafafa]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Breadcrumb Bar */}
+      <div class="mb-6 flex items-center gap-2 text-xs text-[#8f8f8f]">
+        <a href="/" class="hover:text-[#171717] flex items-center gap-1">
+          <ArrowLeft class="w-3.5 h-3.5" /> Back to All Stars
+        </a>
+        <span>/</span>
+        <span class="text-[#171717] font-medium">{meta.title}</span>
+      </div>
+
+      {/* Category Hero Header */}
+      <div class="mb-10 p-8 md:p-10 bg-white rounded-2xl border border-[#ebebeb] shadow-xs relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 hero-mesh-gradient pointer-events-none opacity-50"></div>
+
+        <div class="relative z-10 max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#fafafa] border border-[#ebebeb] text-[11px] font-mono uppercase tracking-wider text-[#4d4d4d] mb-4">
+            <Sparkles class="w-3 h-3 text-amber-500" />
+            <span>Dedicated Category Collection ({stars.length} Assets)</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight leading-tight">
+            {meta.heading}
+          </h1>
+
+          <p class="mt-4 text-sm sm:text-base text-[#4d4d4d] leading-relaxed">
+            {meta.lead}
+          </p>
+
+          <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-[#8f8f8f]">
+            <span class="flex items-center gap-1.5 text-emerald-600 font-medium">
+              <ShieldCheck class="w-4 h-4" /> 100% True Transparent Alpha
+            </span>
+            <span>&bull;</span>
+            <span class="text-blue-600 font-medium flex items-center gap-1">
+              <Cpu class="w-3.5 h-3.5" /> 3D & AI Vector Shading
+            </span>
+            <span>&bull;</span>
+            <span>Instant 1-Click Clipboard Copy</span>
+            <span>&bull;</span>
+            <span>Free CC0 Commercial Use</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Filtered Catalog */}
+      <StarCatalog client:load initialCategory={categoryKey} />
+    </div>
+  </div>
+</BaseLayout>

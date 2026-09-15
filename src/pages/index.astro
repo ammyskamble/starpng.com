@@ -1,0 +1,398 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StarCatalog from '../components/StarCatalog';
+import StarGeneratorStudio from '../components/StarGeneratorStudio';
+import { ShieldCheck, Zap, Copy, Sparkles, Sliders, CheckCircle2, XCircle, ArrowRight, HelpCircle, Lock, Cpu, Wand2 } from 'lucide-react';
+import { STAR_ASSETS } from '../data/stars';
+
+// Generate ImageObject Schema for top assets
+const imageObjectSchemas = STAR_ASSETS.map((star) => ({
+  '@type': 'ImageObject',
+  'contentUrl': `https://starpng.com/stars/${star.slug}.png`,
+  'name': star.title,
+  'description': star.description,
+  'caption': `${star.title} with 100% verified transparent background`,
+  'license': 'https://creativecommons.org/publicdomain/zero/1.0/',
+  'acquireLicensePage': `https://starpng.com/stars/${star.slug}/`,
+  'creditText': 'StarPNG.com',
+  'creator': {
+    '@type': 'Organization',
+    'name': 'StarPNG'
+  }
+}));
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  'mainEntity': [
+    {
+      '@type': 'Question',
+      'name': 'Are all Star PNG files on StarPNG really transparent?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Yes, 100%. Every star image on StarPNG is generated with a pure 32-bit RGBA alpha transparency channel. You will never encounter fake baked-in grey checkerboard pixels or hidden white backgrounds.'
+      }
+    },
+    {
+      '@type': 'Question',
+      'name': 'How is StarPNG different from Flaticon?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'While Flaticon locks vector SVG downloads, Base64 strings, and commercial licensing behind a $12/month subscription and requires strict backlink attribution for free users, StarPNG provides 100% free vector SVGs, up to 4K 2048px PNGs, and a Creative Commons CC0 Public Domain license with zero attribution required.'
+      }
+    },
+    {
+      '@type': 'Question',
+      'name': 'Can I generate custom star shapes with specific point counts?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Yes! With our built-in Procedural Star Generator Studio, you can generate any star geometry from 3 to 32 points, customize the inner spike depth, switch between sharp and curved flared rays, apply 3D or neon shading, and export directly to 4K transparent PNG or vector SVG.'
+      }
+    },
+    {
+      '@type': 'Question',
+      'name': 'Can I copy a star PNG directly into Figma or Canva without downloading?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Yes! Simply click the "Quick Copy" or "Copy PNG to Clipboard" button. We render the transparent PNG directly into your operating system clipboard so you can immediately press Ctrl+V or Cmd+V directly inside Figma, Canva, Photoshop, or Google Slides.'
+      }
+    },
+    {
+      '@type': 'Question',
+      'name': 'Are these star PNG graphics free for commercial use?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Yes. All star graphics, 5-star rating bars, Y2K cyber stars, and gold stars on StarPNG are distributed under the Creative Commons CC0 Public Domain license. You may use them in personal, commercial, client work, web applications, and print projects without attribution.'
+      }
+    }
+  ]
+};
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    faqSchema,
+    ...imageObjectSchemas.slice(0, 10)
+  ]
+};
+---
+
+<BaseLayout
+  title="Star PNG - Free Transparent Star Images & Vector SVGs (100% Real Alpha)"
+  description="Download 100% verified transparent star PNG images and vector SVGs. Zero fake checkerboards, instant 1-click clipboard copy, infinite procedural star generator, and free commercial use for 5-star ratings, Y2K cyber stars, gold stars, and sparkles."
+  keywords="star png, gold star png, 5 star rating png, y2k star png, aesthetic star png, star transparent background, star vector svg, shooting star png, flaticon star alternative, star generator"
+  schema={pageSchema}
+>
+  <!-- Hero Section with Vercel Geist Mesh Gradient Bloom -->
+  <section class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden border-b border-[#ebebeb]">
+    <div class="absolute inset-0 hero-mesh-gradient pointer-events-none"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Eyebrow Tag (@DESIGN.md mono-eyebrow) -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#ebebeb] shadow-xs mb-6">
+        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+        <span class="font-mono text-xs uppercase tracking-wider text-[#4d4d4d]">
+          100% Verified Transparent PNG & Vector SVGs &bull; Infinite Procedural Variations
+        </span>
+      </div>
+
+      <!-- Main Display H1 (@DESIGN.md display-xl) -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#171717] tracking-tight leading-[1.08] max-w-4xl mx-auto">
+        Free Star PNG Images with <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">True Transparent</span> Backgrounds
+      </h1>
+
+      <!-- Subhead (@DESIGN.md body-lg) -->
+      <p class="mt-6 text-base sm:text-lg text-[#4d4d4d] max-w-2xl mx-auto leading-relaxed">
+        Stop downloading fake checkerboard JPEGs from Pinterest or paying $12/mo for Flaticon SVGs. Access genuine alpha star PNGs, 5-star review bars, Y2K cyber stars, and an infinite procedural star generator with 1-click clipboard copy.
+      </p>
+
+      <!-- Action Pill Buttons (@DESIGN.md button-primary & button-secondary) -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="#generator"
+          class="w-full sm:w-auto px-7 py-3 rounded-full bg-[#171717] text-white hover:bg-black font-medium text-sm transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <Wand2 class="w-4 h-4 text-amber-400" />
+          <span>Launch Star Generator</span>
+        </a>
+        <a
+          href="#catalog"
+          class="w-full sm:w-auto px-7 py-3 rounded-full bg-white border border-[#ebebeb] text-[#171717] hover:border-[#171717] font-medium text-sm transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>Browse Asset Catalog</span>
+          <ArrowRight class="w-4 h-4 text-[#8f8f8f]" />
+        </a>
+      </div>
+
+      <!-- Trust Bar / Feature Chips -->
+      <div class="mt-14 pt-8 border-t border-[#ebebeb] grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+        <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
+          <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+            <ShieldCheck class="w-3.5 h-3.5 text-emerald-500" />
+            True Alpha
+          </div>
+          <div class="text-sm font-semibold text-[#171717]">Zero Fake Grids</div>
+          <div class="text-xs text-[#8f8f8f] mt-0.5">Real 32-bit transparency</div>
+        </div>
+
+        <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
+          <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+            <Copy class="w-3.5 h-3.5 text-blue-500" />
+            1-Click Copy
+          </div>
+          <div class="text-sm font-semibold text-[#171717]">Figma & Canva Ready</div>
+          <div class="text-xs text-[#8f8f8f] mt-0.5">Paste directly via Ctrl+V</div>
+        </div>
+
+        <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
+          <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+            <Sliders class="w-3.5 h-3.5 text-violet-500" />
+            Infinite Engine
+          </div>
+          <div class="text-sm font-semibold text-[#171717]">Procedural Generator</div>
+          <div class="text-xs text-[#8f8f8f] mt-0.5">3 to 32 points on demand</div>
+        </div>
+
+        <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
+          <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
+            <Zap class="w-3.5 h-3.5 text-amber-500" />
+            Free Vectors
+          </div>
+          <div class="text-sm font-semibold text-[#171717]">100% Free SVG & CC0</div>
+          <div class="text-xs text-[#8f8f8f] mt-0.5">No paywalls or attribution</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Procedural Star Generator Tool Section -->
+  <section id="generator" class="py-16 bg-[#fafafa] border-b border-[#ebebeb]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <StarGeneratorStudio client:load />
+    </div>
+  </section>
+
+  <!-- Curated Star Catalog Section -->
+  <section id="catalog" class="py-16 bg-[#fafafa]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
+            Curated Asset Library
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
+            Explore Star PNGs & SVGs by Category
+          </h2>
+        </div>
+        <p class="text-xs text-[#8f8f8f] max-w-md mt-2 md:mt-0">
+          Click any star to open the in-browser customizer studio, or click <strong>Quick Copy</strong> to immediately copy the transparent image to your clipboard.
+        </p>
+      </div>
+
+      <!-- React Interactive Catalog Component -->
+      <StarCatalog client:load />
+    </div>
+  </section>
+
+  <!-- Comparison & Competitor Gap Section: StarPNG vs Flaticon vs Pinterest -->
+  <section id="comparison" class="py-16 bg-white border-y border-[#ebebeb]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-2">
+          Competitor Comparison
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
+          How StarPNG Solves Flaticon & Pinterest Restrictions
+        </h2>
+        <p class="mt-3 text-sm text-[#4d4d4d] leading-relaxed">
+          Flaticon advertises 160,000+ star icons, but locks SVG downloads behind a paid subscription, caps free PNGs at 512px, and requires mandatory legal attribution. Pinterest is flooded with fake checkerboard JPEGs. Here is how StarPNG compares:
+        </p>
+      </div>
+
+      <!-- Comparison Matrix Table -->
+      <div class="overflow-x-auto rounded-xl border border-[#ebebeb] shadow-xs">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="bg-[#fafafa] border-b border-[#ebebeb] text-[#171717]">
+              <th class="p-4 font-semibold">Feature / Quality</th>
+              <th class="p-4 font-semibold text-[#171717] bg-amber-50/50 border-x border-amber-200/60">
+                <span class="flex items-center gap-1.5 text-amber-900 font-bold">
+                  <Sparkles class="w-4 h-4 text-amber-500" /> StarPNG.com
+                </span>
+              </th>
+              <th class="p-4 font-semibold text-[#8f8f8f]">Flaticon (Freepik)</th>
+              <th class="p-4 font-semibold text-[#8f8f8f]">Pinterest Boards</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-[#ebebeb]">
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">Vector SVG Downloads</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700 flex items-center gap-1.5">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600" /> 100% Free SVG Vectors
+              </td>
+              <td class="p-4 text-rose-600 flex items-center gap-1.5">
+                <Lock class="w-3.5 h-3.5" /> Paywalled ($12/mo Premium)
+              </td>
+              <td class="p-4 text-rose-600 flex items-center gap-1.5">
+                <XCircle class="w-4 h-4 text-rose-500" /> Never Available
+              </td>
+            </tr>
+
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">Attribution Requirement</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> No Attribution (CC0)
+              </td>
+              <td class="p-4 text-rose-600">
+                <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> Mandatory credit link
+              </td>
+              <td class="p-4 text-[#8f8f8f]">Varies / copyright risks</td>
+            </tr>
+
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">Max PNG Resolution</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> 2048px (4K Ultra HD)
+              </td>
+              <td class="p-4 text-[#8f8f8f]">Capped at 512px max</td>
+              <td class="p-4 text-[#8f8f8f]">Random uncompressed pins</td>
+            </tr>
+
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">Procedural Custom Star Generator</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> Infinite Custom Stars (3-32 pts)
+              </td>
+              <td class="p-4 text-[#8f8f8f]">None (Static icons only)</td>
+              <td class="p-4 text-rose-600">
+                <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> None
+              </td>
+            </tr>
+
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">Direct OS Clipboard Copy</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> 1-Click to Figma/Canva
+              </td>
+              <td class="p-4 text-[#8f8f8f]">Only with attribution watermark</td>
+              <td class="p-4 text-rose-600">
+                <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> No direct PNG copy
+              </td>
+            </tr>
+
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">True Transparent Alpha Channel</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> 100% True Alpha
+              </td>
+              <td class="p-4 text-emerald-700">Transparent PNGs</td>
+              <td class="p-4 text-rose-600">
+                <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> Fake checkerboard JPEGs
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive SEO Guide (800 - 1200+ words) -->
+  <section class="py-16 bg-[#fafafa] border-b border-[#ebebeb]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-neutral max-w-none text-[#4d4d4d] space-y-10 leading-relaxed text-sm sm:text-base">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
+            Design Technical Guide
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight mb-4">
+            The Definitive Guide to Star PNGs: Alpha Channels, Vector Formats, and Quality Checks
+          </h2>
+          <p>
+            When searching for a <strong>star PNG</strong> for digital designs, website UI, or video editing, creators frequently encounter two frustrating barriers: either downloading a file with a fake, baked-in grey-and-white checkerboard background, or discovering that vector SVG downloads are locked behind costly subscription paywalls on platforms like Flaticon.
+          </p>
+          <p class="mt-3">
+            A genuine transparent star image must be saved as a 32-bit raster file (RGBA) where the 8-bit alpha channel defines the opacity of every individual pixel. At <strong>StarPNG</strong>, all graphics undergo automated alpha-channel validation. This ensures clean, anti-aliased edge boundaries without unsightly white halos, jagged pixel artifacts, or fake checkerboards.
+          </p>
+        </div>
+
+        <div class="p-6 bg-white rounded-xl border border-[#ebebeb] shadow-xs">
+          <h3 class="text-xl font-bold text-[#171717] mb-3">
+            Top Star PNG Categories & Best Use Cases
+          </h3>
+          <ul class="space-y-3 pl-4 list-disc marker:text-[#171717]">
+            <li>
+              <strong>Infinite Procedural Generator:</strong> Create any star on demand with 3 to 32 points, custom inner spike depths, and stroke thickness.
+            </li>
+            <li>
+              <strong>Futuristic & AI Generated Stars:</strong> Sci-fi holographic starbursts, quantum hyper-stars, and neural node graphics featuring orbital energy rings.
+            </li>
+            <li>
+              <strong>3D Glossy & Faceted Crystal Stars:</strong> Volumetric 3D stars with dynamic specular highlights and realistic light refraction, rendered cleanly with transparent alpha.
+            </li>
+            <li>
+              <strong>5-Star Rating PNGs & Review Bars:</strong> Essential for e-commerce conversion optimization and customer trust badges.
+            </li>
+            <li>
+              <strong>Y2K Cyber Stars & Retro Starbursts:</strong> The dominant aesthetic in contemporary streetwear branding, Gen-Z TikTok thumbnails, and music cover art.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Section with Schema Support -->
+  <section id="faq" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
+          Common Questions
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
+          Frequently Asked Questions About Star PNGs
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-5 rounded-xl border border-[#ebebeb] bg-[#fafafa]">
+          <h3 class="text-base font-semibold text-[#171717] flex items-center gap-2 mb-2">
+            <HelpCircle class="w-4 h-4 text-[#8f8f8f]" />
+            Are all Star PNG files on StarPNG really transparent?
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
+            Yes, 100%. Every star image on StarPNG is generated with a pure 32-bit RGBA alpha transparency channel. You will never encounter fake baked-in grey checkerboard pixels or hidden white backgrounds.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[#ebebeb] bg-[#fafafa]">
+          <h3 class="text-base font-semibold text-[#171717] flex items-center gap-2 mb-2">
+            <HelpCircle class="w-4 h-4 text-[#8f8f8f]" />
+            How does StarPNG compare to Flaticon?
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
+            While Flaticon locks vector SVG downloads, Base64 strings, and commercial licensing behind a $12/month subscription and requires strict backlink attribution for free users, StarPNG provides 100% free vector SVGs, up to 4K 2048px PNGs, an infinite custom star generator, and a Creative Commons CC0 Public Domain license with zero attribution required.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[#ebebeb] bg-[#fafafa]">
+          <h3 class="text-base font-semibold text-[#171717] flex items-center gap-2 mb-2">
+            <HelpCircle class="w-4 h-4 text-[#8f8f8f]" />
+            Can I generate custom star shapes with specific point counts?
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
+            Yes! With our built-in Procedural Star Generator Studio, you can generate any star geometry from 3 to 32 points, customize the inner spike depth, switch between sharp and curved flared rays, apply 3D or neon shading, and export directly to 4K transparent PNG or vector SVG.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[#ebebeb] bg-[#fafafa]">
+          <h3 class="text-base font-semibold text-[#171717] flex items-center gap-2 mb-2">
+            <HelpCircle class="w-4 h-4 text-[#8f8f8f]" />
+            Are these star PNG graphics free for commercial use?
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
+            Yes. All star graphics, 5-star rating bars, Y2K cyber stars, and gold stars on StarPNG are distributed under the Creative Commons CC0 Public Domain license. You may use them in personal, commercial, client work, web applications, and print projects without attribution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

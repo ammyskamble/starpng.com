@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  keywords?: string;
+  schema?: Record<string, any>;
+}
+
+const {
+  title = 'Star PNG - Free Transparent Star Images & Vector SVGs (100% Real Alpha)',
+  description = 'Download 100% verified transparent star PNG images and vector SVGs. Zero fake checkerboards, instant 1-click clipboard copy, and free commercial use for 5-star ratings, Y2K cyber stars, gold stars, and sparkles.',
+  canonical = Astro.url.href,
+  ogImage = 'https://starpng.com/og-image.png',
+  keywords = 'star png, gold star png, 5 star rating png, y2k star png, aesthetic star png, star transparent background, star vector svg, free star clipart',
+  schema,
+} = Astro.props;
+
+const defaultSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://starpng.com/#website',
+      'url': 'https://starpng.com/',
+      'name': 'StarPNG',
+      'description': 'Free Transparent Star PNG Images, Clipart & Vector SVGs',
+      'publisher': {
+        '@type': 'Organization',
+        '@id': 'https://starpng.com/#organization',
+        'name': 'StarPNG',
+        'url': 'https://starpng.com/',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': 'https://starpng.com/favicon.svg'
+        }
+      },
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': 'https://starpng.com/?q={search_term_string}',
+        'query-input': 'required name=search_term_string'
+      }
+    },
+    ...(schema ? [schema] : [])
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="StarPNG" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://starpng.com" />
+  </head>
+  <body class="bg-[#fafafa] text-[#4d4d4d] antialiased selection:bg-[#171717] selection:text-white min-h-screen flex flex-col justify-between">
+    <div>
+      <Navbar />
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,59 @@
+---
+import { Sparkles, Cpu } from 'lucide-react';
+---
+
+<header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-[#ebebeb]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a href="/" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-lg bg-[#171717] text-white flex items-center justify-center transition-transform group-hover:scale-105 shadow-xs">
+        <svg viewBox="0 0 100 100" class="w-4 h-4 fill-amber-400">
+          <polygon points="50,5 63,33 95,35 70,56 78,87 50,70 22,87 30,56 5,35 37,33" />
+        </svg>
+      </div>
+      <span class="font-semibold text-base text-[#171717] tracking-tight">
+        StarPNG<span class="text-[#8f8f8f] font-normal">.com</span>
+      </span>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="hidden md:flex items-center gap-1 text-xs lg:text-sm font-medium text-[#4d4d4d]">
+      <a href="/stars/futuristic/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors flex items-center gap-1 text-[#0070F3] font-semibold">
+        <Cpu class="w-3.5 h-3.5" />
+        AI & Futuristic
+      </a>
+      <a href="/stars/ratings/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        5-Star Ratings
+      </a>
+      <a href="/stars/3d/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        3D & Glossy
+      </a>
+      <a href="/stars/y2k/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Y2K & Cyber
+      </a>
+      <a href="/stars/gold/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Gold Stars
+      </a>
+      <a href="/stars/neon/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Neon Glow
+      </a>
+      <a href="/stars/aesthetic/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Aesthetic
+      </a>
+    </nav>
+
+    <!-- Right Badges / CTA -->
+    <div class="flex items-center gap-2.5">
+      <div class="hidden sm:flex items-center gap-1.5 text-xs font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>100% Free CC0</span>
+      </div>
+      <a
+        href="#catalog"
+        class="px-4 py-1.5 rounded-full bg-[#171717] text-white hover:bg-black text-xs font-medium transition-all shadow-xs"
+      >
+        Browse Assets
+      </a>
+    </div>
+  </div>
+</header>
