@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Icons Small — Local UI Interface Icon Suite</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --border: #EBEBEB;
+      --text: #171717;
+      --text-muted: #737373;
+      --accent: #F59E0B;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 24px;
+      line-height: 1.5;
+    }
+    .container { max-w: 1280px; margin: 0 auto; }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--text);
+      color: white;
+      border-color: var(--text);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .icon-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .icon-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .preview-box {
+      width: 100%;
+      height: 120px;
+      border-radius: 12px;
+      background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                        linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                        linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                        linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .preview-box img {
+      image-rendering: -webkit-optimize-contrast;
+      transition: transform 0.2s ease;
+    }
+    .icon-card:hover .preview-box img {
+      transform: scale(1.1);
+    }
+    .card-info {
+      width: 100%;
+      text-align: center;
+    }
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: #F4F4F5;
+      color: #52525B;
+      font-weight: 500;
+    }
+    .size-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #EFF6FF;
+      color: #2563EB;
+    }
+    .card-actions {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+    .btn {
+      flex: 1;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-download {
+      background: #171717;
+      color: white;
+      border-color: #171717;
+    }
+    .btn-download:hover { background: black; }
+    .btn-copy {
+      background: white;
+      color: var(--text);
+    }
+    .btn-copy:hover { background: #f4f4f5; }
+    .copied {
+      background: #10B981 !important;
+      color: white !important;
+      border-color: #10B981 !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Star Icons Small</h1>
+      <p class="subtitle">Complete local UI interface icon suite generated with 100% transparent alpha channels. Ready for immediate use in apps, web projects, and designs.</p>
+      
+      <div class="toolbar">
+        <button class="filter-btn active" onclick="filterIcons('all')">All (64)</button>
+        <button class="filter-btn" onclick="filterIcons('outline')">Outline Lineart</button>
+        <button class="filter-btn" onclick="filterIcons('solid')">Solid Glyph</button>
+        <button class="filter-btn" onclick="filterIcons('circle_badge')">Circular Badge</button>
+        <button class="filter-btn" onclick="filterIcons('rounded_square')">Rounded Square</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      
+        <div class="icon-card" data-subject="classic_star" data-style="outline">
+          <div class="preview-box">
+            <img src="01_classic_star_outline.png" alt="Classic Five-Pointed Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Classic Five-Pointed Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="01_classic_star_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('01_classic_star_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="classic_star" data-style="solid">
+          <div class="preview-box">
+            <img src="02_classic_star_solid.png" alt="Classic Five-Pointed Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Classic Five-Pointed Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="02_classic_star_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('02_classic_star_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="classic_star" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="03_classic_star_circle_badge.png" alt="Classic Five-Pointed Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Classic Five-Pointed Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="03_classic_star_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('03_classic_star_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="classic_star" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="04_classic_star_rounded_square.png" alt="Classic Five-Pointed Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Classic Five-Pointed Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="04_classic_star_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('04_classic_star_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="outline_star" data-style="outline">
+          <div class="preview-box">
+            <img src="05_outline_star_outline.png" alt="Clean Outline Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Clean Outline Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="05_outline_star_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('05_outline_star_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="outline_star" data-style="solid">
+          <div class="preview-box">
+            <img src="06_outline_star_solid.png" alt="Clean Outline Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Clean Outline Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="06_outline_star_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('06_outline_star_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="outline_star" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="07_outline_star_circle_badge.png" alt="Clean Outline Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Clean Outline Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="07_outline_star_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('07_outline_star_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="outline_star" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="08_outline_star_rounded_square.png" alt="Clean Outline Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Clean Outline Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="08_outline_star_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('08_outline_star_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="diamond_sparkle" data-style="outline">
+          <div class="preview-box">
+            <img src="09_diamond_sparkle_outline.png" alt="Four-Point Sparkle Diamond (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Four-Point Sparkle Diamond (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="09_diamond_sparkle_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('09_diamond_sparkle_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="diamond_sparkle" data-style="solid">
+          <div class="preview-box">
+            <img src="10_diamond_sparkle_solid.png" alt="Four-Point Sparkle Diamond (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Four-Point Sparkle Diamond (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="10_diamond_sparkle_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('10_diamond_sparkle_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="diamond_sparkle" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="11_diamond_sparkle_circle_badge.png" alt="Four-Point Sparkle Diamond (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Four-Point Sparkle Diamond (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="11_diamond_sparkle_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('11_diamond_sparkle_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="diamond_sparkle" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="12_diamond_sparkle_rounded_square.png" alt="Four-Point Sparkle Diamond (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Four-Point Sparkle Diamond (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="12_diamond_sparkle_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('12_diamond_sparkle_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="octagram_star" data-style="outline">
+          <div class="preview-box">
+            <img src="13_octagram_star_outline.png" alt="Eight-Pointed Octagram Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Eight-Pointed Octagram Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="13_octagram_star_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('13_octagram_star_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="octagram_star" data-style="solid">
+          <div class="preview-box">
+            <img src="14_octagram_star_solid.png" alt="Eight-Pointed Octagram Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Eight-Pointed Octagram Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="14_octagram_star_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('14_octagram_star_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="octagram_star" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="15_octagram_star_circle_badge.png" alt="Eight-Pointed Octagram Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Eight-Pointed Octagram Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="15_octagram_star_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('15_octagram_star_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="octagram_star" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="16_octagram_star_rounded_square.png" alt="Eight-Pointed Octagram Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Eight-Pointed Octagram Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="16_octagram_star_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('16_octagram_star_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shooting_star" data-style="outline">
+          <div class="preview-box">
+            <img src="17_shooting_star_outline.png" alt="Shooting Star with Trail (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shooting Star with Trail (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="17_shooting_star_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('17_shooting_star_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shooting_star" data-style="solid">
+          <div class="preview-box">
+            <img src="18_shooting_star_solid.png" alt="Shooting Star with Trail (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shooting Star with Trail (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="18_shooting_star_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('18_shooting_star_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shooting_star" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="19_shooting_star_circle_badge.png" alt="Shooting Star with Trail (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shooting Star with Trail (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="19_shooting_star_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('19_shooting_star_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shooting_star" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="20_shooting_star_rounded_square.png" alt="Shooting Star with Trail (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shooting Star with Trail (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="20_shooting_star_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('20_shooting_star_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="sparkle_cluster" data-style="outline">
+          <div class="preview-box">
+            <img src="21_sparkle_cluster_outline.png" alt="Cluster of Three Stars (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Cluster of Three Stars (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="21_sparkle_cluster_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('21_sparkle_cluster_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="sparkle_cluster" data-style="solid">
+          <div class="preview-box">
+            <img src="22_sparkle_cluster_solid.png" alt="Cluster of Three Stars (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Cluster of Three Stars (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="22_sparkle_cluster_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('22_sparkle_cluster_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="sparkle_cluster" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="23_sparkle_cluster_circle_badge.png" alt="Cluster of Three Stars (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Cluster of Three Stars (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="23_sparkle_cluster_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('23_sparkle_cluster_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="sparkle_cluster" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="24_sparkle_cluster_rounded_square.png" alt="Cluster of Three Stars (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Cluster of Three Stars (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="24_sparkle_cluster_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('24_sparkle_cluster_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="half_star" data-style="outline">
+          <div class="preview-box">
+            <img src="25_half_star_outline.png" alt="Half-Filled Rating Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Half-Filled Rating Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="25_half_star_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('25_half_star_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="half_star" data-style="solid">
+          <div class="preview-box">
+            <img src="26_half_star_solid.png" alt="Half-Filled Rating Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Half-Filled Rating Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="26_half_star_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('26_half_star_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="half_star" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="27_half_star_circle_badge.png" alt="Half-Filled Rating Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Half-Filled Rating Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="27_half_star_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('27_half_star_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="half_star" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="28_half_star_rounded_square.png" alt="Half-Filled Rating Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Half-Filled Rating Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="28_half_star_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('28_half_star_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="trophy_cup" data-style="outline">
+          <div class="preview-box">
+            <img src="29_trophy_cup_outline.png" alt="Trophy Cup with Star Emblem (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Trophy Cup with Star Emblem (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="29_trophy_cup_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('29_trophy_cup_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="trophy_cup" data-style="solid">
+          <div class="preview-box">
+            <img src="30_trophy_cup_solid.png" alt="Trophy Cup with Star Emblem (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Trophy Cup with Star Emblem (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="30_trophy_cup_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('30_trophy_cup_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="trophy_cup" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="31_trophy_cup_circle_badge.png" alt="Trophy Cup with Star Emblem (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Trophy Cup with Star Emblem (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="31_trophy_cup_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('31_trophy_cup_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="trophy_cup" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="32_trophy_cup_rounded_square.png" alt="Trophy Cup with Star Emblem (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Trophy Cup with Star Emblem (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="32_trophy_cup_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('32_trophy_cup_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="medal_badge" data-style="outline">
+          <div class="preview-box">
+            <img src="33_medal_badge_outline.png" alt="Circular Medal with Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Circular Medal with Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="33_medal_badge_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('33_medal_badge_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="medal_badge" data-style="solid">
+          <div class="preview-box">
+            <img src="34_medal_badge_solid.png" alt="Circular Medal with Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Circular Medal with Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="34_medal_badge_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('34_medal_badge_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="medal_badge" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="35_medal_badge_circle_badge.png" alt="Circular Medal with Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Circular Medal with Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="35_medal_badge_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('35_medal_badge_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="medal_badge" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="36_medal_badge_rounded_square.png" alt="Circular Medal with Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Circular Medal with Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="36_medal_badge_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('36_medal_badge_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shield_security" data-style="outline">
+          <div class="preview-box">
+            <img src="37_shield_security_outline.png" alt="Shield Badge with Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shield Badge with Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="37_shield_security_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('37_shield_security_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shield_security" data-style="solid">
+          <div class="preview-box">
+            <img src="38_shield_security_solid.png" alt="Shield Badge with Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shield Badge with Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="38_shield_security_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('38_shield_security_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shield_security" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="39_shield_security_circle_badge.png" alt="Shield Badge with Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shield Badge with Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="39_shield_security_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('39_shield_security_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="shield_security" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="40_shield_security_rounded_square.png" alt="Shield Badge with Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Shield Badge with Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="40_shield_security_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('40_shield_security_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="user_avatar" data-style="outline">
+          <div class="preview-box">
+            <img src="41_user_avatar_outline.png" alt="User Avatar with Star Accent (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">User Avatar with Star Accent (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="41_user_avatar_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('41_user_avatar_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="user_avatar" data-style="solid">
+          <div class="preview-box">
+            <img src="42_user_avatar_solid.png" alt="User Avatar with Star Accent (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">User Avatar with Star Accent (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="42_user_avatar_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('42_user_avatar_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="user_avatar" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="43_user_avatar_circle_badge.png" alt="User Avatar with Star Accent (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">User Avatar with Star Accent (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="43_user_avatar_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('43_user_avatar_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="user_avatar" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="44_user_avatar_rounded_square.png" alt="User Avatar with Star Accent (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">User Avatar with Star Accent (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="44_user_avatar_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('44_user_avatar_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="speech_bubble" data-style="outline">
+          <div class="preview-box">
+            <img src="45_speech_bubble_outline.png" alt="Speech Bubble Review with Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Speech Bubble Review with Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="45_speech_bubble_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('45_speech_bubble_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="speech_bubble" data-style="solid">
+          <div class="preview-box">
+            <img src="46_speech_bubble_solid.png" alt="Speech Bubble Review with Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Speech Bubble Review with Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="46_speech_bubble_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('46_speech_bubble_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="speech_bubble" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="47_speech_bubble_circle_badge.png" alt="Speech Bubble Review with Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Speech Bubble Review with Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="47_speech_bubble_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('47_speech_bubble_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="speech_bubble" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="48_speech_bubble_rounded_square.png" alt="Speech Bubble Review with Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Speech Bubble Review with Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="48_speech_bubble_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('48_speech_bubble_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="document_review" data-style="outline">
+          <div class="preview-box">
+            <img src="49_document_review_outline.png" alt="Document Review with Stars (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Document Review with Stars (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="49_document_review_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('49_document_review_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="document_review" data-style="solid">
+          <div class="preview-box">
+            <img src="50_document_review_solid.png" alt="Document Review with Stars (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Document Review with Stars (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="50_document_review_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('50_document_review_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="document_review" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="51_document_review_circle_badge.png" alt="Document Review with Stars (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Document Review with Stars (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="51_document_review_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('51_document_review_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="document_review" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="52_document_review_rounded_square.png" alt="Document Review with Stars (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Document Review with Stars (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="52_document_review_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('52_document_review_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="hand_star" data-style="outline">
+          <div class="preview-box">
+            <img src="53_hand_star_outline.png" alt="Hand Presenting Floating Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Hand Presenting Floating Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="53_hand_star_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('53_hand_star_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="hand_star" data-style="solid">
+          <div class="preview-box">
+            <img src="54_hand_star_solid.png" alt="Hand Presenting Floating Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Hand Presenting Floating Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="54_hand_star_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('54_hand_star_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="hand_star" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="55_hand_star_circle_badge.png" alt="Hand Presenting Floating Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Hand Presenting Floating Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="55_hand_star_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('55_hand_star_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="hand_star" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="56_hand_star_rounded_square.png" alt="Hand Presenting Floating Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Hand Presenting Floating Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="56_hand_star_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('56_hand_star_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="focus_brackets" data-style="outline">
+          <div class="preview-box">
+            <img src="57_focus_brackets_outline.png" alt="Star in Focus Brackets (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Star in Focus Brackets (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="57_focus_brackets_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('57_focus_brackets_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="focus_brackets" data-style="solid">
+          <div class="preview-box">
+            <img src="58_focus_brackets_solid.png" alt="Star in Focus Brackets (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Star in Focus Brackets (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="58_focus_brackets_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('58_focus_brackets_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="focus_brackets" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="59_focus_brackets_circle_badge.png" alt="Star in Focus Brackets (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Star in Focus Brackets (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="59_focus_brackets_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('59_focus_brackets_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="focus_brackets" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="60_focus_brackets_rounded_square.png" alt="Star in Focus Brackets (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Star in Focus Brackets (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="60_focus_brackets_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('60_focus_brackets_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="ribbon_bookmark" data-style="outline">
+          <div class="preview-box">
+            <img src="61_ribbon_bookmark_outline.png" alt="Ribbon Bookmark with Star (Outline Lineart)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Ribbon Bookmark with Star (Outline Lineart)</div>
+            <div class="card-meta">
+              <span class="badge">Outline Lineart</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="61_ribbon_bookmark_outline.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('61_ribbon_bookmark_outline.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="ribbon_bookmark" data-style="solid">
+          <div class="preview-box">
+            <img src="62_ribbon_bookmark_solid.png" alt="Ribbon Bookmark with Star (Solid Glyph)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Ribbon Bookmark with Star (Solid Glyph)</div>
+            <div class="card-meta">
+              <span class="badge">Solid Glyph</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="62_ribbon_bookmark_solid.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('62_ribbon_bookmark_solid.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="ribbon_bookmark" data-style="circle_badge">
+          <div class="preview-box">
+            <img src="63_ribbon_bookmark_circle_badge.png" alt="Ribbon Bookmark with Star (Circular Badge)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Ribbon Bookmark with Star (Circular Badge)</div>
+            <div class="card-meta">
+              <span class="badge">Circular Badge</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="63_ribbon_bookmark_circle_badge.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('63_ribbon_bookmark_circle_badge.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="icon-card" data-subject="ribbon_bookmark" data-style="rounded_square">
+          <div class="preview-box">
+            <img src="64_ribbon_bookmark_rounded_square.png" alt="Ribbon Bookmark with Star (Rounded Square Button)" width="64" height="64" />
+          </div>
+          <div class="card-info">
+            <div class="card-title">Ribbon Bookmark with Star (Rounded Square Button)</div>
+            <div class="card-meta">
+              <span class="badge">Rounded Square Button</span>
+              <span class="size-badge">96x96</span>
+            </div>
+            <div class="card-actions">
+              <a href="64_ribbon_bookmark_rounded_square.png" download class="btn btn-download">Download</a>
+              <button class="btn btn-copy" onclick="copyPath('64_ribbon_bookmark_rounded_square.png', this)">Copy</button>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+  </div>
+
+  <script>
+    function filterIcons(style) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      const cards = document.querySelectorAll('.icon-card');
+      cards.forEach(card => {
+        if (style === 'all' || card.dataset.style === style) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function copyPath(filename, btn) {
+      navigator.clipboard.writeText(filename).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('copied');
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StarGeneratorStudio from '../components/StarGeneratorStudio';
+import { ArrowLeft, Wand2, Sparkles, ShieldCheck, Zap, Download } from 'lucide-react';
+
+const generatorSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  'name': 'StarPNG Procedural Star Generator Studio',
+  'url': 'https://starpng.com/generator',
+  'description': 'Free online procedural star generator. Create any star shape from 3 to 32 points, apply 3D faceted materials, lens flares, neon glows, and rating bars. Export transparent PNG up to 4K or vector SVG.',
+  'applicationCategory': 'DesignApplication',
+  'operatingSystem': 'Web Browser',
+  'offers': {
+    '@type': 'Offer',
+    'price': '0',
+    'priceCurrency': 'USD'
+  },
+  'featureList': [
+    'Procedural star geometry (3-32 points)',
+    '3D faceted gem stars with directional lighting',
+    'Lens flare and sparkle dust generator',
+    'Neon glow with multi-layer radiation rings',
+    '5-star rating bar generator',
+    '4K 2048px transparent PNG export',
+    'Vector SVG export',
+    '1-click clipboard copy',
+    'Custom hex color + 8 presets'
+  ]
+};
+---
+
+<BaseLayout
+  title="Star Generator Studio - Create Custom Stars, Rating Bars & Neon Stars | StarPNG"
+  description="Free online procedural star generator. Create any star shape from 3 to 32 points, apply 3D faceted gem materials, optical lens flares, neon glow effects, and rating bars. Export transparent 4K PNG or SVG with 1-click."
+  keywords="star generator, star maker online, custom star png, procedural star svg, star shape generator, 5 star rating bar generator, neon star generator, 3d star maker"
+  schema={generatorSchema}
+>
+  <!-- Page Header -->
+  <div class="bg-white border-b border-[#ebebeb] py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3 text-xs text-[#8f8f8f]">
+          <a href="/" class="hover:text-[#171717] flex items-center gap-1 transition-colors">
+            <ArrowLeft class="w-3.5 h-3.5" />
+            StarPNG
+          </a>
+          <span>/</span>
+          <span class="text-[#171717] font-medium flex items-center gap-1.5">
+            <Wand2 class="w-3.5 h-3.5 text-amber-500" />
+            Generator Studio
+          </span>
+        </div>
+        <!-- Feature chips -->
+        <div class="hidden md:flex items-center gap-2 text-[11px]">
+          <span class="flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-medium">
+            <ShieldCheck class="w-3 h-3" /> 100% Free CC0
+          </span>
+          <span class="flex items-center gap-1 text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200 font-medium">
+            <Download class="w-3 h-3" /> 4K PNG Export
+          </span>
+          <span class="flex items-center gap-1 text-violet-700 bg-violet-50 px-2.5 py-1 rounded-full border border-violet-200 font-medium">
+            <Zap class="w-3 h-3" /> 5 Generator Modes
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generator Studio (heavy client JS isolated here) -->
+  <section class="py-8 bg-[#fafafa] min-h-[calc(100vh-140px)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <StarGeneratorStudio client:load />
+    </div>
+  </section>
+
+  <!-- Bottom cross-link to catalog -->
+  <section class="py-10 bg-white border-t border-[#ebebeb]">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <Sparkles class="w-6 h-6 text-amber-400 mx-auto mb-3" />
+      <p class="text-sm text-[#4d4d4d] mb-4">
+        Prefer a ready-made design? Browse 160+ curated transparent star PNGs, stickers, frames, and icon sets - all free CC0 with 1-click copy.
+      </p>
+      <div class="flex items-center justify-center gap-3 flex-wrap">
+        <a href="/#catalog" class="px-5 py-2.5 rounded-full bg-[#171717] text-white text-xs font-medium hover:bg-black transition-colors">
+          Browse Full Catalog
+        </a>
+        <a href="/stars/stickers/" class="px-5 py-2.5 rounded-full border border-[#ebebeb] text-xs font-medium text-[#171717] hover:border-[#171717] transition-colors">
+          Star Stickers
+        </a>
+        <a href="/stars/frames/" class="px-5 py-2.5 rounded-full border border-[#ebebeb] text-xs font-medium text-[#171717] hover:border-[#171717] transition-colors">
+          Frames & Borders
+        </a>
+        <a href="/stars/ratings/" class="px-5 py-2.5 rounded-full border border-[#ebebeb] text-xs font-medium text-[#171717] hover:border-[#171717] transition-colors">
+          5-Star Ratings
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,3 +1,5 @@
+import { EXTRA_STAR_ASSETS } from './extra/index.ts';
+
 export type StarLevel = 'basic' | 'moderate' | 'high';
 export type AnimationType = 'twinkle' | 'pulse' | 'spin' | 'float' | 'shooting';
 
@@ -47,7 +49,7 @@ export const CATEGORIES = [
   { id: 'outline', name: 'Outlines & Seals', slug: 'outline' },
 ] as const;
 
-export const STAR_ASSETS: StarAsset[] = [
+const BASE_STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   // 1. 5-STAR RATINGS, REVIEWS & TRUST BADGES (FLATICON BESTSELLERS)
   // =========================================================================
@@ -404,7 +406,7 @@ export const STAR_ASSETS: StarAsset[] = [
     featured: false,
   },
   {
-    id: 'frosted-glassmorphism-star',
+    id: 'glassmorphism-star',
     level: 'high',
     title: 'Glassmorphism Star PNG',
     slug: 'glassmorphism-star-png',
@@ -3119,6 +3121,467 @@ export const STAR_ASSETS: StarAsset[] = [
     featured: true
   },
   {
+    id: "lavender-crescent-botanical-sticker",
+    title: "Lavender Crescent Moon & Botanical Leaves Sticker PNG",
+    slug: "lavender-crescent-botanical-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Cute pastel lavender crescent moon decorated with delicate dark botanical leaves, twinkling star gems, and tiny sparkle dots. Whimsical celestial sticker with thick white die-cut border.",
+    tags: ["lavender moon sticker", "botanical crescent moon png", "celestial leaf sticker", "aesthetic moon decal", "pastel moon star sticker"],
+    searchVolume: "22,400/mo",
+    defaultColor: "#C084FC",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Backing Silhouette -->
+        <path d="M 46 8 C 72 8, 92 32, 85 64 C 76 88, 52 100, 24 96 C 14 94, 18 84, 26 80 C 48 76, 68 58, 64 34 C 62 20, 52 14, 46 8 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- Lavender Crescent Moon Body -->
+        <path d="M 48 12 C 70 12, 86 34, 80 62 C 72 84, 50 94, 28 92 C 48 84, 64 64, 60 36 C 58 24, 52 16, 48 12 Z" fill="{{STAR_MAIN}}" stroke="#9333EA" stroke-width="1.8" stroke-linejoin="round" />
+        <!-- Delicate Botanical Vines & Leaves along the Outer Curve -->
+        <path d="M 54 18 Q 78 40 76 72" stroke="#334155" stroke-width="2" fill="none" stroke-linecap="round" />
+        <!-- Leaf 1 -->
+        <path d="M 64 26 C 68 22, 74 24, 72 30 C 68 32, 64 30, 64 26 Z" fill="#1E293B" />
+        <!-- Leaf 2 -->
+        <path d="M 72 38 C 78 36, 82 40, 80 46 C 74 46, 70 42, 72 38 Z" fill="#1E293B" />
+        <!-- Leaf 3 -->
+        <path d="M 76 54 C 82 54, 84 60, 80 66 C 76 64, 74 58, 76 54 Z" fill="#1E293B" />
+        <!-- Leaf 4 -->
+        <path d="M 70 68 C 74 70, 74 76, 68 80 C 66 76, 66 70, 70 68 Z" fill="#1E293B" />
+        <!-- Twinkling Star Accent Gems -->
+        <polygon fill="#FDE047" stroke="#D97706" stroke-width="1" points="36,46 38,50 42,51 39,53 40,57 36,55 32,57 33,53 30,51 34,50" />
+        <polygon fill="#FDE047" points="26,62 27,64 30,64 28,66 29,68 26,67 24,68 25,66 23,64 25,64" />
+        <circle cx="50" cy="40" r="2" fill="#ffffff" />
+        <circle cx="42" cy="70" r="1.5" fill="#ffffff" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "pastel-star-wand-striped-handle-sticker",
+    title: "Magical Star Wand with Striped Handle Sticker PNG",
+    slug: "magic-star-wand-striped-handle-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "twinkle",
+    description: "Magical fantasy wand with a cute pastel yellow star head, diagonal purple and white striped handle, and sparkling fairy dust glints. Flat cartoon vector sticker with clean black outline and white die-cut border.",
+    tags: ["magic star wand sticker", "pastel wand decal", "fairy star wand png", "striped wand sticker", "cute star wand cartoon"],
+    searchVolume: "24,100/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- White Die-Cut Backing Outline -->
+        <path d="M 50 4 C 65 4, 88 20, 84 44 C 82 50, 76 56, 70 62 L 32 100 C 26 104, 18 100, 14 94 C 10 88, 14 80, 20 74 L 38 48 C 34 38, 36 18, 50 4 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- Diagonal Wand Shaft with Purple & White Stripes -->
+        <line x1="62" y1="52" x2="22" y2="92" stroke="#9333EA" stroke-width="7" stroke-linecap="round" />
+        <!-- White Candy Stripes -->
+        <line x1="56" y1="58" x2="52" y2="62" stroke="#ffffff" stroke-width="6" />
+        <line x1="44" y1="70" x2="40" y2="74" stroke="#ffffff" stroke-width="6" />
+        <line x1="32" y1="82" x2="28" y2="86" stroke="#ffffff" stroke-width="6" />
+        <!-- Golden Wand Pommel -->
+        <circle cx="20" cy="94" r="5" fill="#F59E0B" stroke="#B45309" stroke-width="1.5" />
+        <!-- Pastel Yellow 5-Point Star Head -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" points="62,10 70,26 88,26 74,38 79,56 62,46 46,56 51,38 36,26 54,26" />
+        <!-- Kawaii Star Eyes & Smile -->
+        <circle cx="58" cy="30" r="2.2" fill="#1E293B" />
+        <circle cx="68" cy="30" r="2.2" fill="#1E293B" />
+        <path d="M 61 35 Q 63 38 66 35" stroke="#1E293B" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        <ellipse cx="55" cy="33" rx="2" ry="1.2" fill="#FB7185" opacity="0.85" />
+        <ellipse cx="71" cy="33" rx="2" ry="1.2" fill="#FB7185" opacity="0.85" />
+        <!-- Floating Magic Starburst Glints -->
+        <polygon fill="#C084FC" points="84,12 86,16 90,17 87,19 88,23 84,21 80,23 81,19 78,17 82,16" />
+        <polygon fill="#38BDF8" points="36,44 37,47 40,47 38,49 39,52 36,50 33,52 34,49 32,47 35,47" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "golden-star-excellent-award-badge-sticker",
+    title: "Golden Star 'EXCELLENT' Award Ribbon Badge Sticker PNG",
+    slug: "golden-star-excellent-ribbon-badge-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "pulse",
+    description: "Golden five-pointed star award badge centered above royal blue ribbon tails with curved vibrant lettering reading 'EXCELLENT' and small celebratory confetti sparks. School and corporate achievement vector trophy sticker.",
+    tags: ["excellent star sticker", "star award badge png", "golden star ribbon sticker", "teacher praise star sticker", "trophy star decal"],
+    searchVolume: "31,000/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 110",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Dual Blue Ribbon Tails -->
+        <polygon points="34,60 22,98 34,90 46,98 42,60" fill="#1D4ED8" stroke="#ffffff" stroke-width="2" />
+        <polygon points="66,60 54,98 66,90 78,98 66,60" fill="#1E40AF" stroke="#ffffff" stroke-width="2" />
+        <!-- Medal Outer Rosette / Backing -->
+        <circle cx="50" cy="46" r="38" fill="#ffffff" stroke="#CBD5E1" stroke-width="3" />
+        <circle cx="50" cy="46" r="34" fill="#FEF08A" stroke="#CA8A04" stroke-width="2" />
+        <circle cx="50" cy="46" r="30" fill="#F59E0B" />
+        <!-- Big Golden Star in Rosette Center -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" points="50,22 56,36 72,36 60,46 64,62 50,52 36,62 40,46 28,36 44,36" />
+        <!-- Curved Banner with 'EXCELLENT' Text -->
+        <path d="M 12 74 Q 50 82 88 74 L 84 62 Q 50 70 16 62 Z" fill="#2563EB" stroke="#ffffff" stroke-width="2" />
+        <text x="50" y="73" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="1">EXCELLENT</text>
+        <!-- Confetti Sparks -->
+        <polygon fill="#EF4444" points="16,30 18,33 22,33 19,35 20,38 16,36 13,38 14,35 11,33 15,33" />
+        <polygon fill="#10B981" points="82,26 84,29 88,29 85,31 86,34 82,32 79,34 80,31 77,29 81,29" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "shooting-star-trajectory-path-sticker",
+    title: "Elegant Shooting Star Trajectory Path Sticker PNG",
+    slug: "shooting-star-trajectory-path-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "shooting",
+    description: "Elegant shooting star trajectory path made of dotted curved motion lines, graduated stardust trail, and varied four-point sparkle stars. Minimalist modern vector decal with clean die-cut edges.",
+    tags: ["shooting star trajectory sticker", "curved star path png", "minimalist shooting star decal", "dotted star trail sticker", "celestial trajectory vector"],
+    searchVolume: "19,800/mo",
+    defaultColor: "#38BDF8",
+    viewBox: "0 0 105 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.13))">
+        <!-- White Die-Cut Contour Area -->
+        <path d="M 10 88 C 30 84, 55 72, 70 54 C 74 48, 80 40, 86 24 C 92 14, 98 10, 94 6 C 90 2, 82 8, 72 16 C 56 30, 40 50, 10 74 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- Curved Trajectory Dotted & Dashed Lines -->
+        <path d="M 14 84 Q 45 75 75 25" stroke="#94A3B8" stroke-width="3" stroke-dasharray="3 4" fill="none" stroke-linecap="round" />
+        <path d="M 22 90 Q 52 82 82 32" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="2 3" fill="none" stroke-linecap="round" />
+        <!-- Leading 4-Point Diamond Shooting Star Head -->
+        <path fill="{{STAR_MAIN}}" stroke="#0284C7" stroke-width="1.8" d="M 82 10 C 82 22, 88 28, 100 28 C 88 28, 82 34, 82 46 C 82 34, 76 28, 64 28 C 76 28, 82 22, 82 10 Z" />
+        <circle cx="82" cy="28" r="4" fill="#ffffff" />
+        <!-- Trailing Stars Along the Path -->
+        <polygon fill="#FBBF24" points="60,46 62,49 66,49 63,51 64,54 60,52 57,54 58,51 55,49 59,49" />
+        <polygon fill="#38BDF8" points="42,62 43,64 46,64 44,66 45,68 42,67 39,68 40,66 38,64 41,64" />
+        <circle cx="28" cy="74" r="2.5" fill="#F59E0B" />
+        <circle cx="18" cy="80" r="1.8" fill="#38BDF8" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "doodle-character-very-good-sticker",
+    title: "Doodle Character 'Very GOOD' Celebration Sticker PNG",
+    slug: "doodle-character-very-good-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "pulse",
+    description: "Cute minimalist doodle character raising both hands in celebration with curved bold lettering reading 'Very GOOD' and tiny twinkling star accents. Clean black lineart teacher praise and planner sticker.",
+    tags: ["very good star sticker", "celebration doodle sticker", "teacher praise star png", "cute character star decal", "minimalist star sticker"],
+    searchVolume: "27,500/mo",
+    defaultColor: "#10B981",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Envelope -->
+        <path d="M 14 36 C 24 16, 76 16, 86 36 C 94 52, 88 88, 76 96 C 60 102, 40 102, 24 96 C 12 88, 6 52, 14 36 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- Curved Banner with 'Very GOOD' Text -->
+        <path d="M 18 36 Q 50 20 82 36" stroke="#10B981" stroke-width="12" fill="none" stroke-linecap="round" />
+        <text x="50" y="32" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="1">VERY GOOD!</text>
+        <!-- Minimalist Doodle Character Body -->
+        <ellipse cx="50" cy="68" rx="22" ry="18" fill="#F8FAFC" stroke="#1E293B" stroke-width="2.5" />
+        <!-- Happy Eyes & Broad Cheerful Grin -->
+        <path d="M 40 64 Q 44 60 48 64" stroke="#1E293B" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <path d="M 52 64 Q 56 60 60 64" stroke="#1E293B" stroke-width="2.5" fill="none" stroke-linecap="round" />
+        <path d="M 44 70 Q 50 78 56 70" fill="#EF4444" stroke="#1E293B" stroke-width="2" />
+        <ellipse cx="36" cy="68" rx="3.5" ry="2" fill="#FB7185" opacity="0.8" />
+        <ellipse cx="64" cy="68" rx="3.5" ry="2" fill="#FB7185" opacity="0.8" />
+        <!-- Arms Raised High in Joy -->
+        <path d="M 30 68 Q 20 54 18 46" stroke="#1E293B" stroke-width="3" fill="none" stroke-linecap="round" />
+        <path d="M 70 68 Q 80 54 82 46" stroke="#1E293B" stroke-width="3" fill="none" stroke-linecap="round" />
+        <!-- Golden Star Accents -->
+        <polygon fill="#FBBF24" stroke="#D97706" stroke-width="1.2" points="18,38 20,41 23,41 21,43 22,46 18,44 15,46 16,43 13,41 16,41" />
+        <polygon fill="#FBBF24" stroke="#D97706" stroke-width="1.2" points="82,38 84,41 87,41 85,43 86,46 82,44 79,46 80,43 77,41 80,41" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "faceted-geometric-gold-star-sticker",
+    title: "Faceted Geometric Gold Star 3D Sticker PNG",
+    slug: "faceted-geometric-gold-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "high",
+    animationType: "pulse",
+    description: "Clean geometric five-pointed gold star with faceted dimensional origami folds, subtle warm amber shading, and high-contrast reflective facets. Thick white die-cut decal border on transparent background.",
+    tags: ["faceted gold star sticker", "geometric star decal", "3d origami star png", "dimensional gold star sticker", "faceted star badge"],
+    searchVolume: "25,300/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.16))">
+        <!-- White Die-Cut Border -->
+        <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 63,33 96,33 69,54 80,87 50,66 20,87 31,54 4,33 37,33" />
+        <!-- Faceted Triangles with Alternating Light & Dark Shading -->
+        <!-- Top Tip -->
+        <polygon points="50,10 50,50 60,35" fill="#FEF08A" />
+        <polygon points="50,10 50,50 40,35" fill="#F59E0B" />
+        <!-- Right Tip -->
+        <polygon points="90,35 50,50 66,52" fill="#FDE047" />
+        <polygon points="90,35 50,50 60,35" fill="#D97706" />
+        <!-- Bottom Right Tip -->
+        <polygon points="76,82 50,50 50,64" fill="#FBBF24" />
+        <polygon points="76,82 50,50 66,52" fill="#B45309" />
+        <!-- Bottom Left Tip -->
+        <polygon points="24,82 50,50 34,52" fill="#FDE047" />
+        <polygon points="24,82 50,50 50,64" fill="#92400E" />
+        <!-- Left Tip -->
+        <polygon points="10,35 50,50 40,35" fill="#FEF08A" />
+        <polygon points="10,35 50,50 34,52" fill="#D97706" />
+        <!-- Center Gem Highlight -->
+        <circle cx="50" cy="50" r="3" fill="#ffffff" opacity="0.9" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "origami-polygon-star-ribbon-sticker",
+    title: "Origami Polygon Ring Star Ribbon Sticker PNG",
+    slug: "origami-polygon-star-ribbon-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "high",
+    animationType: "spin",
+    description: "Interlocking geometric polygon ring star ribbon in vivid bright pink, magenta, and coral red tones. Modern abstract 3D origami badge sticker with clean die-cut white outline.",
+    tags: ["origami star sticker", "polygon star decal", "geometric star ribbon png", "abstract 3d star sticker", "modern star badge"],
+    searchVolume: "18,900/mo",
+    defaultColor: "#F43F5E",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- White Die-Cut Backing -->
+        <polygon points="50,4 63,32 96,32 70,54 80,86 50,66 20,86 30,54 4,32 37,32" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- 5 Interlocking Origami Polygon Ribbon Segments -->
+        <!-- Segment 1 (Top) -->
+        <polygon points="50,10 61,35 50,45 39,35" fill="#F43F5E" stroke="#BE123C" stroke-width="1.5" />
+        <polygon points="50,10 61,35 50,30" fill="#FDA4AF" />
+        <!-- Segment 2 (Top Right) -->
+        <polygon points="90,35 68,54 58,45 61,35" fill="#E11D48" stroke="#9F1239" stroke-width="1.5" />
+        <polygon points="90,35 68,54 75,44" fill="#FB7185" />
+        <!-- Segment 3 (Bottom Right) -->
+        <polygon points="76,82 50,64 50,52 68,54" fill="#BE123C" stroke="#881337" stroke-width="1.5" />
+        <polygon points="76,82 50,64 64,68" fill="#F43F5E" />
+        <!-- Segment 4 (Bottom Left) -->
+        <polygon points="24,82 32,54 50,52 50,64" fill="#E11D48" stroke="#9F1239" stroke-width="1.5" />
+        <polygon points="24,82 32,54 36,68" fill="#FB7185" />
+        <!-- Segment 5 (Top Left) -->
+        <polygon points="10,35 39,35 42,45 32,54" fill="#FB7185" stroke="#BE123C" stroke-width="1.5" />
+        <polygon points="10,35 39,35 25,44" fill="#FECDD3" />
+        <!-- Center Hollow Polygon Ring Opening -->
+        <polygon points="50,45 58,45 50,52 42,45" fill="#ffffff" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "happy-yellow-star-blue-clouds-sticker",
+    title: "Happy Yellow Star with Blue Clouds Sticker PNG",
+    slug: "happy-yellow-star-blue-clouds-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "twinkle",
+    description: "Adorable bright yellow star character with round blue eyes, cheerful open smile, rosy blushing cheeks, and floating miniature sky blue clouds and sparkle accents. Kawaii die-cut vector decal.",
+    tags: ["cute yellow star sticker", "kawaii star with clouds png", "smiling star decal", "nursery star sticker", "pastel cloud star cartoon"],
+    searchVolume: "28,900/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 105 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Envelope -->
+        <path d="M 52 4 C 68 4, 98 22, 98 44 C 98 62, 92 84, 76 96 C 60 102, 36 102, 22 92 C 8 80, 4 60, 6 42 C 8 20, 36 4, 52 4 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Smiling Chubby Yellow Star Base -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" points="52,10 63,36 92,36 68,54 77,82 52,65 27,82 36,54 12,36 41,36" />
+        <!-- Big Round Blue Eyes with Anime Sparkle Highlights -->
+        <ellipse cx="42" cy="46" rx="4.5" ry="6" fill="#0284C7" stroke="#1E293B" stroke-width="1.8" />
+        <circle cx="40" cy="43" r="2.2" fill="#ffffff" />
+        <ellipse cx="62" cy="46" rx="4.5" ry="6" fill="#0284C7" stroke="#1E293B" stroke-width="1.8" />
+        <circle cx="60" cy="43" r="2.2" fill="#ffffff" />
+        <!-- Rosy Blush Cheeks -->
+        <ellipse cx="34" cy="54" rx="4.5" ry="2.8" fill="#FB7185" opacity="0.85" />
+        <ellipse cx="70" cy="54" rx="4.5" ry="2.8" fill="#FB7185" opacity="0.85" />
+        <!-- Cheerful Open Mouth Smile -->
+        <path d="M 46 54 Q 52 62 58 54 Z" fill="#DC2626" stroke="#1E293B" stroke-width="1.8" />
+        <!-- Two Miniature Sky Blue Clouds Hugging Bottom -->
+        <path d="M 16 78 C 16 70, 24 66, 30 68 C 34 62, 44 64, 46 72 C 50 74, 50 82, 44 86 L 20 86 C 16 84, 16 80, 16 78 Z" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.8" />
+        <path d="M 64 78 C 64 70, 72 66, 78 68 C 82 62, 92 64, 94 72 C 98 74, 98 82, 92 86 L 68 86 C 64 84, 64 80, 64 78 Z" fill="#BAE6FD" stroke="#0284C7" stroke-width="1.8" />
+        <!-- Sparkle Star Accents -->
+        <polygon fill="#F59E0B" points="88,22 90,25 93,25 91,27 92,30 88,28 85,30 86,27 84,25 87,25" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "good-work-rainbow-badge-sticker",
+    title: "Smiling Star 'GOOD WORK!' Rainbow Badge Sticker PNG",
+    slug: "good-work-rainbow-badge-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Circular badge sticker featuring an enthusiastic smiling star character framed by curved rainbow bands and bold arched typography reading 'GOOD WORK!'. Iconic classroom reward and motivation decal.",
+    tags: ["good work star sticker", "rainbow star badge png", "teacher praise sticker", "reward star decal", "classroom motivation star sticker"],
+    searchVolume: "34,200/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Outer Circular Die-Cut -->
+        <circle cx="50" cy="50" r="46" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" />
+        <!-- 3 Curved Rainbow Stripes Across Top Half -->
+        <path d="M 12 50 A 38 38 0 0 1 88 50" fill="none" stroke="#EF4444" stroke-width="6" />
+        <path d="M 18 50 A 32 32 0 0 1 82 50" fill="none" stroke="#FBBF24" stroke-width="6" />
+        <path d="M 24 50 A 26 26 0 0 1 76 50" fill="none" stroke="#10B981" stroke-width="6" />
+        <!-- Blue Sky Base in Center -->
+        <circle cx="50" cy="50" r="23" fill="#E0F2FE" />
+        <!-- Smiling Golden Star Character -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#D97706" stroke-width="1.8" stroke-linejoin="round" points="50,30 55,42 67,42 57,50 61,62 50,55 39,62 43,50 33,42 45,42" />
+        <circle cx="47" cy="46" r="1.8" fill="#1E293B" />
+        <circle cx="53" cy="46" r="1.8" fill="#1E293B" />
+        <path d="M 48 50 Q 50 53 52 50" stroke="#1E293B" stroke-width="1.2" fill="none" stroke-linecap="round" />
+        <!-- Arched Bottom Banner reading 'GOOD WORK!' -->
+        <path d="M 10 74 Q 50 88 90 74 L 86 86 Q 50 96 14 86 Z" fill="#2563EB" stroke="#ffffff" stroke-width="2" />
+        <text x="50" y="83" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="10" fill="#ffffff" text-anchor="middle" letter-spacing="1">GOOD WORK!</text>
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "pastel-shooting-star-rainbow-ribbon-sticker",
+    title: "Pastel Shooting Star with Rainbow Ribbon Sticker PNG",
+    slug: "pastel-shooting-star-rainbow-ribbon-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "shooting",
+    description: "Pastel shooting star character trailing a curved flowing multi-colored rainbow ribbon tail with tiny floating accent stars. Whimsical flat vector die-cut decal with bold contours.",
+    tags: ["rainbow shooting star sticker", "pastel star decal", "rainbow tail star png", "cute shooting star sticker", "celestial rainbow decal"],
+    searchVolume: "26,700/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 105 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- White Die-Cut Backing Envelope -->
+        <path d="M 10 86 C 24 86, 42 76, 56 60 C 66 48, 76 34, 88 16 C 98 6, 102 14, 98 26 C 92 46, 80 64, 60 78 C 44 90, 22 96, 10 86 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- Flowing Curved 4-Color Pastel Rainbow Ribbon -->
+        <path d="M 16 84 Q 50 78 84 26" stroke="#F43F5E" stroke-width="5" fill="none" stroke-linecap="round" />
+        <path d="M 20 89 Q 54 83 88 31" stroke="#FBBF24" stroke-width="5" fill="none" stroke-linecap="round" />
+        <path d="M 24 94 Q 58 88 92 36" stroke="#34D399" stroke-width="5" fill="none" stroke-linecap="round" />
+        <path d="M 28 99 Q 62 93 96 41" stroke="#60A5FA" stroke-width="5" fill="none" stroke-linecap="round" />
+        <!-- Cute Pastel Star Character at the Front -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" points="80,12 86,25 100,25 89,34 93,48 80,40 67,48 71,34 60,25 74,25" />
+        <circle cx="76" cy="28" r="2.2" fill="#1E293B" />
+        <circle cx="84" cy="28" r="2.2" fill="#1E293B" />
+        <path d="M 78 33 Q 80 36 82 33" stroke="#1E293B" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        <ellipse cx="73" cy="31" rx="2" ry="1.2" fill="#FB7185" opacity="0.85" />
+        <ellipse cx="87" cy="31" rx="2" ry="1.2" fill="#FB7185" opacity="0.85" />
+        <!-- Floating Accent Stars -->
+        <polygon fill="#FBBF24" points="48,54 50,57 53,57 51,59 52,62 48,60 45,62 46,59 44,57 47,57" />
+        <polygon fill="#C084FC" points="32,70 33,72 36,72 34,74 35,76 32,75 29,76 30,74 28,72 31,72" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "golden-star-trophy-cup-confetti-sticker",
+    title: "Golden Star Trophy Cup with Confetti Sticker PNG",
+    slug: "golden-star-trophy-cup-confetti-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "high",
+    animationType: "pulse",
+    description: "Shining golden star trophy cup on an ornate pedestal base surrounded by celebratory star confetti and hand-drawn sparkle squiggles. Winner victory award sticker with bold vector lineart.",
+    tags: ["star trophy sticker", "champion star cup png", "victory award sticker", "first place trophy decal", "star celebration sticker"],
+    searchVolume: "29,400/mo",
+    defaultColor: "#EAB308",
+    viewBox: "0 0 100 110",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.16))">
+        <!-- White Die-Cut Envelope -->
+        <path d="M 18 20 C 14 36, 12 60, 26 72 C 34 80, 36 90, 28 98 C 40 104, 60 104, 72 98 C 64 90, 66 80, 74 72 C 88 60, 86 36, 82 20 Z" fill="#ffffff" stroke="#CBD5E1" stroke-width="4" stroke-linejoin="round" />
+        <!-- Trophy Handles -->
+        <path d="M 28 32 C 14 32, 14 54, 28 58" stroke="#D97706" stroke-width="4" fill="none" stroke-linecap="round" />
+        <path d="M 72 32 C 86 32, 86 54, 72 58" stroke="#D97706" stroke-width="4" fill="none" stroke-linecap="round" />
+        <!-- Golden Cup Basin -->
+        <path d="M 28 24 L 72 24 L 68 56 C 66 70, 34 70, 32 56 Z" fill="{{STAR_MAIN}}" stroke="#B45309" stroke-width="2.5" />
+        <ellipse cx="50" cy="24" rx="22" ry="5" fill="#FEF08A" stroke="#B45309" stroke-width="2" />
+        <!-- Embossed Big Star on Trophy Front -->
+        <polygon fill="#ffffff" stroke="#CA8A04" stroke-width="1.8" points="50,32 53,40 61,40 55,46 57,54 50,49 43,54 45,46 39,40 47,40" />
+        <!-- Trophy Neck & Ornate Pedestal Base -->
+        <rect x="46" y="66" width="8" height="12" fill="#D97706" stroke="#92400E" stroke-width="1.5" />
+        <rect x="34" y="78" width="32" height="10" rx="3" fill="#1E293B" stroke="#0F172A" stroke-width="2" />
+        <rect x="30" y="88" width="40" height="8" rx="2" fill="#475569" stroke="#1E293B" stroke-width="1.5" />
+        <!-- Gold Plate on Base -->
+        <rect x="40" y="80" width="20" height="6" rx="1.5" fill="#FBBF24" />
+        <!-- Exploding Confetti Stars & Sparks -->
+        <polygon fill="#EF4444" points="16,14 18,17 21,17 19,19 20,22 16,20 13,22 14,19 12,17 15,17" />
+        <polygon fill="#3B82F6" points="84,12 86,15 89,15 87,17 88,20 84,18 81,20 82,17 80,15 83,15" />
+        <circle cx="20" cy="40" r="2.5" fill="#10B981" />
+        <circle cx="80" cy="42" r="2.5" fill="#EC4899" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "twin-shooting-stars-rainbow-flight-sticker",
+    title: "Twin Shooting Stars Flying Rainbow Trail Sticker PNG",
+    slug: "twin-shooting-stars-rainbow-flight-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "shooting",
+    description: "Twin shooting star characters with cute happy faces trailing parallel pastel rainbow trails together in high-speed flight. Playful celestial best-friends vector sticker with thick white die-cut border.",
+    tags: ["twin stars sticker", "shooting stars friends png", "rainbow flight star decal", "cute double star sticker", "celestial duo sticker"],
+    searchVolume: "22,100/mo",
+    defaultColor: "#38BDF8",
+    viewBox: "0 0 110 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- White Die-Cut Silhouette Envelope -->
+        <path d="M 8 84 C 20 84, 40 76, 56 60 C 66 50, 78 30, 94 14 C 104 6, 108 20, 104 36 C 96 58, 80 76, 58 88 C 38 98, 16 98, 8 84 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="4" stroke-linejoin="round" />
+        <!-- Parallel Rainbow Vapor Trails -->
+        <path d="M 12 80 Q 48 76 78 30" stroke="#F472B6" stroke-width="4.5" fill="none" stroke-linecap="round" />
+        <path d="M 16 86 Q 52 82 82 36" stroke="#FBBF24" stroke-width="4.5" fill="none" stroke-linecap="round" />
+        <path d="M 20 92 Q 56 88 86 42" stroke="#38BDF8" stroke-width="4.5" fill="none" stroke-linecap="round" />
+        <!-- Star Character 1 (Top Blue Star) -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#0284C7" stroke-width="2" stroke-linejoin="round" points="84,10 88,20 99,20 91,27 94,37 84,31 74,37 77,27 69,20 80,20" />
+        <circle cx="81" cy="22" r="1.8" fill="#1E293B" />
+        <circle cx="87" cy="22" r="1.8" fill="#1E293B" />
+        <path d="M 82 26 Q 84 28 86 26" stroke="#1E293B" stroke-width="1.2" fill="none" stroke-linecap="round" />
+        <!-- Star Character 2 (Bottom Yellow Star Following) -->
+        <polygon fill="#FDE047" stroke="#D97706" stroke-width="2" stroke-linejoin="round" points="62,38 66,48 77,48 69,55 72,65 62,59 52,65 55,55 47,48 58,48" />
+        <circle cx="59" cy="50" r="1.8" fill="#1E293B" />
+        <circle cx="65" cy="50" r="1.8" fill="#1E293B" />
+        <path d="M 60 54 Q 62 56 64 54" stroke="#1E293B" stroke-width="1.2" fill="none" stroke-linecap="round" />
+        <ellipse cx="56" cy="52" rx="1.8" ry="1" fill="#FB7185" opacity="0.8" />
+        <ellipse cx="68" cy="52" rx="1.8" ry="1" fill="#FB7185" opacity="0.8" />
+        <!-- Tiny Floating Stardust Sparkles -->
+        <polygon fill="#FBBF24" points="98,40 100,43 103,43 101,45 102,48 98,46 95,48 96,45 94,43 97,43" />
+        <polygon fill="#38BDF8" points="40,68 41,70 44,70 42,72 43,74 40,73 37,74 38,72 36,70 39,70" />
+      </g>
+    `,
+    featured: true
+  },
+  {
     id: "animated-twinkling-sparkle-star",
     title: "Animated Twinkling Sparkle Star PNG & SVG",
     slug: "animated-twinkling-star-png",
@@ -3280,6 +3743,603 @@ export const STAR_ASSETS: StarAsset[] = [
     featured: false,
   },
   {
+    id: "solid-black-star-glyph-icon",
+    title: "Solid Star Glyph UI Interface Icon PNG",
+    slug: "solid-black-star-glyph-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Solid five-pointed star glyph silhouette for app interface controls, favorites, ratings, and active bookmark states. Minimalist flat vector design.",
+    tags: ["star glyph icon", "solid star icon", "ui star glyph", "interface star png", "minimal star icon"],
+    searchVolume: "95,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="24,3 29.5,16.5 44,18 33,28 36,42 24,34.5 12,42 15,28 4,18 18.5,16.5" />
+    `,
+    featured: true
+  },
+  {
+    id: "circular-medal-star-icon",
+    title: "Circular Medal Star Badge Linear Icon PNG",
+    slug: "circular-medal-star-icon-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Round circular medal badge containing an outlined five-pointed star inside. Minimalist linear interface vector icon for gamification and achievements.",
+    tags: ["medal star icon", "circular star badge", "achievement medal icon", "ui medal star png"],
+    searchVolume: "28,400/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <circle cx="24" cy="24" r="20" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" />
+      <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linejoin="round" points="24,10 27.5,18 36,19 29.5,25 31.5,33.5 24,29 16.5,33.5 18.5,25 12,19 20.5,18" />
+    `,
+    featured: false
+  },
+  {
+    id: "customer-review-document-stars-icon",
+    title: "Customer Review Document with Rating Stars Icon PNG",
+    slug: "customer-review-document-stars-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Customer review document sheet with three small five-pointed rating stars on top. Clean vector UI icon for client testimonials and feedback forms.",
+    tags: ["review document icon", "star rating document", "customer feedback icon", "testimonial star sheet"],
+    searchVolume: "33,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <path d="M 12 4 L 28 4 L 38 14 L 38 44 L 12 44 Z" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" />
+      <path d="M 28 4 L 28 14 L 38 14" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" />
+      <!-- 3 Small Stars -->
+      <g fill="{{STAR_MAIN}}">
+        <polygon points="18,22 19.5,25.5 23,26 20.5,28.5 21,32 18,30 15,32 15.5,28.5 13,26 16.5,25.5" />
+        <polygon points="25,22 26.5,25.5 30,26 27.5,28.5 28,32 25,30 22,32 22.5,28.5 20,26 23.5,25.5" />
+        <polygon points="32,22 33.5,25.5 37,26 34.5,28.5 35,32 32,30 29,32 29.5,28.5 27,26 30.5,25.5" />
+      </g>
+      <!-- Review Text Lines Below -->
+      <line x1="18" y1="37" x2="32" y2="37" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "clean-outline-star-linear-icon",
+    title: "Clean Outline Star Linear Interface Icon PNG",
+    slug: "clean-outline-star-linear-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Clean outline five-pointed star with uniform thin stroke line art. Essential minimalist interface icon for unselected favorites, bookmarks, and ratings.",
+    tags: ["outline star icon", "linear star png", "stroke star icon", "empty star favorite", "hollow star vector"],
+    searchVolume: "78,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="24,4 29.5,17 43.5,18.5 33,28 36,42 24,34.5 12,42 15,28 4.5,18.5 18.5,17" />
+    `,
+    featured: true
+  },
+  {
+    id: "four-point-sparkle-dust-icon",
+    title: "Four-Point Sparkle Twinkle Star Icon PNG",
+    slug: "four-point-sparkle-twinkle-icon-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Four-point sparkle star surrounded by motion dust speckles. Magical twinkle vector glyph for AI features, new enhancements, and clean UI badges.",
+    tags: ["sparkle twinkle icon", "4 point star icon", "ai sparkle icon", "magic star glyph", "clean sparkle vector"],
+    searchVolume: "54,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" d="M 24 4 C 24 16, 28 20, 40 24 C 28 28, 24 32, 24 44 C 24 32, 20 28, 8 24 C 20 20, 24 16, 24 4 Z" />
+      <circle cx="10" cy="10" r="2" fill="{{STAR_MAIN}}" />
+      <circle cx="38" cy="10" r="2.5" fill="{{STAR_MAIN}}" />
+      <circle cx="38" cy="38" r="2" fill="{{STAR_MAIN}}" />
+      <circle cx="12" cy="36" r="1.5" fill="{{STAR_MAIN}}" />
+    `,
+    featured: false
+  },
+  {
+    id: "clipboard-review-checklist-stars-icon",
+    title: "Clipboard Checklist Star Review UI Icon PNG",
+    slug: "clipboard-review-checklist-stars-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Clipboard review checklist with three stars and horizontal text lines. Flat UI interface icon for evaluation, QA audits, and product ratings.",
+    tags: ["clipboard star icon", "checklist review star", "audit star icon", "rating checklist png", "ui clipboard rating"],
+    searchVolume: "26,100/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Clipboard Board -->
+      <rect x="10" y="8" width="28" height="36" rx="4" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" />
+      <!-- Clip Top -->
+      <path d="M 18 10 L 18 5 L 30 5 L 30 10 Z" fill="{{STAR_MAIN}}" />
+      <!-- 3 Rating Stars -->
+      <g fill="{{STAR_MAIN}}">
+        <polygon points="17,19 18.2,21.8 21,22.2 19,24.2 19.5,27 17,25.5 14.5,27 15,24.2 13,22.2 15.8,21.8" />
+        <polygon points="24,19 25.2,21.8 28,22.2 26,24.2 26.5,27 24,25.5 21.5,27 22,24.2 20,22.2 22.8,21.8" />
+        <polygon points="31,19 32.2,21.8 35,22.2 33,24.2 33.5,27 31,25.5 28.5,27 29,24.2 27,22.2 29.8,21.8" />
+      </g>
+      <!-- Horizontal Checklist Lines -->
+      <line x1="16" y1="33" x2="32" y2="33" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="16" y1="38" x2="26" y2="38" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "hand-holding-floating-star-icon",
+    title: "Hand Presenting Floating Star Talent Icon PNG",
+    slug: "hand-presenting-floating-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Open palm hand holding or presenting a floating five-pointed star. Creative icon representing talent, achievement, bonus reward, and feedback.",
+    tags: ["hand holding star", "star in hand icon", "talent star icon", "reward star icon", "give star rating png"],
+    searchVolume: "29,500/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Floating Star Above -->
+      <polygon fill="{{STAR_MAIN}}" points="24,4 27.5,14 38,14.5 29.5,21 32,31 24,25 16,31 18.5,21 10,14.5 20.5,14" />
+      <!-- Open Palm Hand Silhouette Below -->
+      <path d="M 6 36 C 14 33, 20 35, 26 33 C 32 31, 38 27, 42 29 C 44 31, 42 34, 38 36 C 30 40, 22 42, 12 42 L 6 42 Z" fill="{{STAR_MAIN}}" />
+    `,
+    featured: true
+  },
+  {
+    id: "outlined-shooting-star-speed-lines-icon",
+    title: "Outlined Shooting Star with Speed Lines Icon PNG",
+    slug: "outlined-shooting-star-speed-lines-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Outlined shooting star with three diagonal trailing motion speed lines. Linear vector interface icon for speed, success, and high-velocity performance.",
+    tags: ["shooting star line icon", "linear shooting star", "speed lines star", "fast star icon", "falling star outline"],
+    searchVolume: "37,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Linear Star Head -->
+      <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linejoin="round" points="34,6 37.5,14.5 46.5,15.5 39.5,22 41.5,31 34,26 26.5,31 28.5,22 21.5,15.5 30.5,14.5" />
+      <!-- 3 Diagonal Speed Trailing Lines -->
+      <line x1="22" y1="26" x2="6" y2="42" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="28" y1="34" x2="16" y2="46" stroke="{{STAR_MAIN}}" stroke-width="2" stroke-linecap="round" />
+      <line x1="18" y1="18" x2="4" y2="32" stroke="{{STAR_MAIN}}" stroke-width="2" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "nested-dual-stars-rating-icon",
+    title: "Nested Dual Stars Rating UI Icon PNG",
+    slug: "nested-dual-stars-rating-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Large outlined five-pointed star with a smaller star nested beside it. Minimalist UI rating icon for bookmark collections and premium tier status.",
+    tags: ["dual stars icon", "double star png", "nested stars icon", "two stars rating", "favorite stars ui"],
+    searchVolume: "21,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Big Outlined Star -->
+      <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.8" stroke-linejoin="round" points="20,6 24.5,17 36.5,18 27.5,26 30,38 20,31.5 10,38 12.5,26 3.5,18 15.5,17" />
+      <!-- Small Companion Star -->
+      <polygon fill="{{STAR_MAIN}}" points="38,24 40,29 45,29.5 41,33 42,38 38,35.5 34,38 35,33 31,29.5 36,29" />
+    `,
+    featured: false
+  },
+  {
+    id: "smartphone-app-star-rating-icon",
+    title: "Smartphone Screen Star Rating UI Icon PNG",
+    slug: "smartphone-app-star-rating-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Smartphone mobile screen displaying three rating stars in the center. App store review feedback and mobile UX evaluation icon.",
+    tags: ["mobile star rating", "smartphone review icon", "app rating star png", "phone star icon", "mobile feedback star"],
+    searchVolume: "34,800/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Mobile Phone Body -->
+      <rect x="13" y="4" width="22" height="40" rx="4" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" />
+      <line x1="21" y1="8" x2="27" y2="8" stroke="{{STAR_MAIN}}" stroke-width="2" stroke-linecap="round" />
+      <circle cx="24" cy="39" r="1.5" fill="{{STAR_MAIN}}" />
+      <!-- 3 Rating Stars Centered on Screen -->
+      <g fill="{{STAR_MAIN}}">
+        <polygon points="18,20 19,22.2 21.5,22.5 19.5,24 20,26.5 18,25 16,26.5 16.5,24 14.5,22.5 17,22.2" />
+        <polygon points="24,20 25,22.2 27.5,22.5 25.5,24 26,26.5 24,25 22,26.5 22.5,24 20.5,22.5 23,22.2" />
+        <polygon points="30,20 31,22.2 33.5,22.5 31.5,24 32,26.5 30,25 28,26.5 28.5,24 26.5,22.5 29,22.2" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "solid-shooting-star-streak-icon",
+    title: "Solid Shooting Star Meteor Streak Icon PNG",
+    slug: "solid-shooting-star-meteor-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Solid black shooting star silhouette streaking downward with speed trail dashes. Clean vector icon for celestial events, speed, and night sky UI.",
+    tags: ["solid shooting star", "meteor silhouette icon", "falling star glyph", "star speed trail png", "space meteor icon"],
+    searchVolume: "42,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Star Head Silhouette -->
+      <polygon fill="{{STAR_MAIN}}" points="36,4 39,12 47,13 41,18 43,26 36,21 29,26 31,18 25,13 33,12" />
+      <!-- Tapered Meteor Tail -->
+      <path d="M 28 17 L 8 37 C 6 39, 4 43, 6 44 C 7 45, 11 43, 13 41 L 33 21 Z" fill="{{STAR_MAIN}}" />
+      <!-- Dash Accents -->
+      <line x1="20" y1="13" x2="10" y2="23" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="33" y1="28" x2="25" y2="36" stroke="{{STAR_MAIN}}" stroke-width="2" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "geometric-diamond-sparkle-glyph-icon",
+    title: "Geometric Diamond Sparkle Star Glyph Icon PNG",
+    slug: "geometric-diamond-sparkle-glyph-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Geometric four-pointed diamond sparkle star glyph with solid black fill. Minimalist UI element for AI tools, prompts, and smart features.",
+    tags: ["diamond star glyph", "four point star png", "ai prompt star", "geometric sparkle icon", "solid diamond star"],
+    searchVolume: "67,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" d="M 24 2 C 24 15, 27 21, 44 24 C 27 27, 24 33, 24 46 C 24 33, 21 27, 4 24 C 21 21, 24 15, 24 2 Z" />
+    `,
+    featured: true
+  },
+  {
+    id: "shooting-star-parallel-streaks-icon",
+    title: "Shooting Star with Parallel Streaks Icon PNG",
+    slug: "shooting-star-parallel-streaks-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Solid silhouette shooting star with two clean parallel streak motion lines. High-speed vector interface icon for quick actions and milestone launches.",
+    tags: ["parallel streak star", "shooting star icon", "fast star vector", "meteor icon png", "velocity star glyph"],
+    searchVolume: "25,400/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Solid 5-Point Star -->
+      <polygon fill="{{STAR_MAIN}}" points="36,8 39,17 48,17.5 41,23.5 43.5,32 36,27 28.5,32 31,23.5 24,17.5 33,17" />
+      <!-- Two Parallel Horizontal / Diagonal Streaks -->
+      <line x1="22" y1="18" x2="4" y2="18" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" />
+      <line x1="24" y1="28" x2="8" y2="28" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "user-avatar-favorite-star-icon",
+    title: "User Profile Avatar with Favorite Star Icon PNG",
+    slug: "user-avatar-favorite-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "User profile avatar silhouette next to a small five-pointed star. Standard interface icon for favorite users, VIP members, and top contributors.",
+    tags: ["user star icon", "favorite user avatar", "profile star png", "vip member icon", "top user badge"],
+    searchVolume: "38,500/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- User Head & Shoulders -->
+      <circle cx="20" cy="16" r="8" fill="{{STAR_MAIN}}" />
+      <path d="M 6 40 C 6 30, 12 28, 20 28 C 28 28, 34 30, 34 40 Z" fill="{{STAR_MAIN}}" />
+      <!-- VIP Star Top-Right -->
+      <polygon fill="{{STAR_MAIN}}" points="36,4 38.5,10 45,10.5 40,14.5 41.5,21 36,17.5 30.5,21 32,14.5 27,10.5 33.5,10" />
+    `,
+    featured: false
+  },
+  {
+    id: "hand-giving-star-feedback-icon",
+    title: "Hand Giving Star Feedback Gesture Icon PNG",
+    slug: "hand-giving-star-feedback-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Hand holding a small floating star silhouette, giving feedback or reward gesture. Clean vector icon for user rating input and gratuity tips.",
+    tags: ["give star rating", "hand feedback star", "rate app icon", "user rating gesture", "star tip icon"],
+    searchVolume: "27,200/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Small Star Pinched Above Hand -->
+      <polygon fill="{{STAR_MAIN}}" points="24,4 26,9 31,9.5 27,13 28,18 24,15.5 20,18 21,13 17,9.5 22,9" />
+      <!-- Hand Gesture Silhouette Holding Star -->
+      <path d="M 12 28 C 16 24, 21 22, 25 22 C 27 22, 28 24, 27 26 C 24 28, 20 30, 16 33 L 14 33 L 4 33 L 4 42 L 28 42 C 34 42, 38 38, 42 34 C 44 32, 42 30, 40 30 C 37 30, 34 32, 32 32 L 26 32 C 29 29, 33 26, 32 23 C 31 20, 26 19, 21 21 C 16 23, 11 26, 8 28 Z" fill="{{STAR_MAIN}}" />
+    `,
+    featured: false
+  },
+  {
+    id: "classic-sharp-star-silhouette-icon",
+    title: "Classic Sharp Star Silhouette UI Icon PNG",
+    slug: "classic-sharp-star-silhouette-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Classic sharp five-pointed star with solid black geometric silhouette. Minimal flat interface glyph for ratings, bookmarks, and UI controls.",
+    tags: ["sharp star icon", "classic star silhouette", "flat star glyph", "solid star png", "geometric star icon"],
+    searchVolume: "110,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="24,2 30.5,15.5 45.5,17.5 34.5,28 37.5,43 24,35.5 10.5,43 13.5,28 2.5,17.5 17.5,15.5" />
+    `,
+    featured: false
+  },
+  {
+    id: "octagram-starburst-badge-icon",
+    title: "Eight-Pointed Octagram Starburst Badge Icon PNG",
+    slug: "eight-pointed-octagram-starburst-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Eight-pointed faceted starburst badge silhouette, octagram geometric star icon with bold black fill. Ideal for discount seals, sale tags, and verified badges.",
+    tags: ["octagram star icon", "8 point starburst", "star badge glyph", "discount star seal", "geometric octagram png"],
+    searchVolume: "31,800/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="24,3 29,13 39,9 35,19 45,24 35,29 39,39 29,35 24,45 19,35 9,39 13,29 3,24 13,19 9,9 19,13" />
+    `,
+    featured: true
+  },
+  {
+    id: "document-review-checkmark-stars-icon",
+    title: "Document Review Star Rating & Checkmark Icon PNG",
+    slug: "document-review-checkmarks-stars-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Paper sheet document review with star rating and checkmarks. Minimalist vector glyph for approved contracts, rated resumes, and QA inspections.",
+    tags: ["approved document star", "review checkmark icon", "contract rating png", "verified document star", "qa inspection icon"],
+    searchVolume: "24,500/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Document Outline -->
+      <path d="M 10 4 L 28 4 L 38 14 L 38 44 L 10 44 Z" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" />
+      <path d="M 28 4 L 28 14 L 38 14" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" />
+      <!-- Star at Top Left of Sheet -->
+      <polygon fill="{{STAR_MAIN}}" points="18,16 19.5,19.5 23,20 20.5,22.5 21,26 18,24 15,26 15.5,22.5 13,20 16.5,19.5" />
+      <!-- Checkmark List Items -->
+      <path d="M 16 32 L 19 35 L 25 29" fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <line x1="28" y1="32" x2="34" y2="32" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="16" y1="39" x2="32" y2="39" stroke="{{STAR_MAIN}}" stroke-width="2.5" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "outlined-star-accent-floating-icon",
+    title: "Outlined Star with Top-Right Accent Star Icon PNG",
+    slug: "outlined-star-accent-floating-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Outlined five-pointed star with a smaller accent star floating to the top right. Clean modern line art for favorites, premium tier, and wishlist interactions.",
+    tags: ["outline star with accent", "twinkle star linear", "double star lineart", "favorite accent star", "modern star icon"],
+    searchVolume: "28,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Main Outlined Star -->
+      <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.8" stroke-linejoin="round" points="20,10 24.5,20 35.5,21 27.5,28 30,39 20,33 10,39 12.5,28 4.5,21 15.5,20" />
+      <!-- Floating Accent Star -->
+      <polygon fill="{{STAR_MAIN}}" points="40,6 41.5,10 45,10.5 42,13 43,16.5 40,14.5 37,16.5 38,13 35,10.5 38.5,10" />
+    `,
+    featured: false
+  },
+  {
+    id: "championship-trophy-star-cup-icon",
+    title: "Championship Trophy Cup with Embossed Star Icon PNG",
+    slug: "championship-trophy-embossed-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Championship trophy cup silhouette with a five-pointed star embossed on the cup. Milestone victory and achievement award vector icon.",
+    tags: ["trophy star cup", "championship star icon", "winner cup star", "award trophy icon", "achievement star cup"],
+    searchVolume: "46,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Trophy Handles -->
+      <path d="M 12 12 C 4 12, 4 26, 12 28" stroke="{{STAR_MAIN}}" stroke-width="3" fill="none" stroke-linecap="round" />
+      <path d="M 36 12 C 44 12, 44 26, 36 28" stroke="{{STAR_MAIN}}" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- Cup Basin -->
+      <path d="M 12 8 L 36 8 L 34 26 C 32 34, 16 34, 14 26 Z" fill="{{STAR_MAIN}}" />
+      <!-- Embossed Center Star (Hollow Cutout) -->
+      <polygon fill="#ffffff" points="24,13 25.8,17.5 30.5,17.8 27,21 28,25.5 24,23 20,25.5 21,21 17.5,17.8 22.2,17.5" />
+      <!-- Pedestal Stem & Base -->
+      <rect x="22" y="32" width="4" height="6" fill="{{STAR_MAIN}}" />
+      <rect x="14" y="38" width="20" height="4" rx="2" fill="{{STAR_MAIN}}" />
+    `,
+    featured: true
+  },
+  {
+    id: "user-experience-star-sparkles-icon",
+    title: "User Experience Customer Satisfaction Star Icon PNG",
+    slug: "user-experience-star-sparkles-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "User experience feedback icon featuring a human face profile with small star sparkles. Minimalist vector for customer happiness and delight.",
+    tags: ["customer satisfaction star", "user experience icon", "delighted user star", "cx star feedback", "nps star icon"],
+    searchVolume: "23,900/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Smiling Face Profile / Head -->
+      <circle cx="20" cy="24" r="16" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" />
+      <circle cx="16" cy="21" r="2" fill="{{STAR_MAIN}}" />
+      <circle cx="24" cy="21" r="2" fill="{{STAR_MAIN}}" />
+      <path d="M 16 28 Q 20 34 24 28" stroke="{{STAR_MAIN}}" stroke-width="2.5" fill="none" stroke-linecap="round" />
+      <!-- Star Sparkle of Delight -->
+      <polygon fill="{{STAR_MAIN}}" points="38,8 39.5,12.5 44,13 40.5,16 41.5,20.5 38,18 34.5,20.5 35.5,16 32,13 36.5,12.5" />
+      <circle cx="44" cy="26" r="1.5" fill="{{STAR_MAIN}}" />
+    `,
+    featured: false
+  },
+  {
+    id: "half-filled-rating-star-icon",
+    title: "Half-Filled Rating Star UI Icon PNG",
+    slug: "half-filled-rating-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Half-filled five-pointed rating star icon with precise 50% vertical split. Essential interface asset for displaying fractional 4.5 star ratings and reviews.",
+    tags: ["half star rating", "half filled star icon", "4.5 star rating png", "fractional rating star", "split star ui"],
+    searchVolume: "64,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <defs>
+        <clipPath id="halfStarLeftClip">
+          <rect x="0" y="0" width="24" height="48" />
+        </clipPath>
+      </defs>
+      <!-- Background Outline Star -->
+      <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" points="24,4 29.5,17 43.5,18.5 33,28 36,42 24,34.5 12,42 15,28 4.5,18.5 18.5,17" />
+      <!-- Left Half Solid Fill -->
+      <polygon fill="{{STAR_MAIN}}" clip-path="url(#halfStarLeftClip)" points="24,4 29.5,17 43.5,18.5 33,28 36,42 24,34.5 12,42 15,28 4.5,18.5 18.5,17" />
+    `,
+    featured: true
+  },
+  {
+    id: "cluster-three-twinkling-stars-icon",
+    title: "Cluster of Three Twinkling Stars Icon PNG",
+    slug: "cluster-three-twinkling-stars-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Constellation cluster of three twinkling 4-point sparkle stars with dynamic sizing. Universal symbol for AI generation, magic prompts, and new features.",
+    tags: ["three stars cluster", "ai sparkle trio", "twinkling stars group", "constellation star icon", "magic star cluster"],
+    searchVolume: "52,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Primary Big Star (Center-Left) -->
+      <path fill="{{STAR_MAIN}}" d="M 20 6 C 20 16, 23 19, 33 22 C 23 25, 20 28, 20 38 C 20 28, 17 25, 7 22 C 17 19, 20 16, 20 6 Z" />
+      <!-- Secondary Upper-Right Star -->
+      <path fill="{{STAR_MAIN}}" d="M 36 6 C 36 11, 38 13, 43 15 C 38 17, 36 19, 36 24 C 36 19, 34 17, 29 15 C 34 13, 36 11, 36 6 Z" />
+      <!-- Tertiary Lower-Right Star -->
+      <path fill="{{STAR_MAIN}}" d="M 34 30 C 34 33, 35 34, 38 36 C 35 38, 34 39, 34 42 C 34 39, 33 38, 30 36 C 33 34, 34 33, 34 30 Z" />
+    `,
+    featured: true
+  },
+  {
+    id: "speech-bubble-star-review-icon",
+    title: "Speech Bubble Review with Star Icon PNG",
+    slug: "speech-bubble-star-review-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Chat speech bubble containing an embedded five-pointed star. Interface vector icon for customer review quotes, feedback forums, and testimonials.",
+    tags: ["speech bubble star", "testimonial star icon", "review bubble png", "feedback chat star", "comment star icon"],
+    searchVolume: "29,800/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Speech Bubble Outline -->
+      <path d="M 24 6 C 12.95 6, 4 14.05, 4 24 C 4 29.5, 6.7 34.3, 11 37.6 L 8 44 L 16.5 41.2 C 18.8 41.7, 21.3 42, 24 42 C 35.05 42, 44 33.95, 44 24 C 44 14.05, 35.05 6, 24 6 Z" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" />
+      <!-- Centered Star Inside Bubble -->
+      <polygon fill="{{STAR_MAIN}}" points="24,13 26.5,19 33,19.5 28,24 29.5,30.5 24,27 18.5,30.5 20,24 15,19.5 21.5,19" />
+    `,
+    featured: false
+  },
+  {
+    id: "star-focus-corner-brackets-icon",
+    title: "Star Framed by Focus Corner Brackets Icon PNG",
+    slug: "star-focus-corner-brackets-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Five-pointed star framed by four corner focus viewfinder brackets. High-tech icon for selection mode, camera target, priority focus, and spotlight items.",
+    tags: ["focus star icon", "viewfinder star", "camera focus star", "selection brackets star", "spotlight star icon"],
+    searchVolume: "19,400/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- 4 Corner Focus Brackets -->
+      <path d="M 6 14 L 6 6 L 14 6" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 34 6 L 42 6 L 42 14" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 42 34 L 42 42 L 34 42" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M 14 42 L 6 42 L 6 34" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Centered Star -->
+      <polygon fill="{{STAR_MAIN}}" points="24,12 26.5,18.5 33.5,19 28.5,24 30,31 24,27.5 18,31 19.5,24 14.5,19 21.5,18.5" />
+    `,
+    featured: false
+  },
+  {
+    id: "vertical-ribbon-bookmark-star-icon",
+    title: "Vertical Ribbon Bookmark with Star Icon PNG",
+    slug: "vertical-ribbon-bookmark-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Vertical hanging ribbon bookmark with an embossed five-pointed star and notched fishtail end. E-commerce interface icon for saved products and wishlists.",
+    tags: ["ribbon bookmark star", "saved item ribbon", "bookmark tag star png", "wishlist ribbon icon", "ecommerce bookmark star"],
+    searchVolume: "36,200/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Hanging Ribbon Silhouette with V-Notch -->
+      <path d="M 12 4 L 36 4 L 36 44 L 24 34 L 12 44 Z" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" stroke-linejoin="round" />
+      <!-- Star Centered in Ribbon Head -->
+      <polygon fill="{{STAR_MAIN}}" points="24,12 26.5,18 33,18.5 28,23 29.5,29.5 24,26 18.5,29.5 20,23 15,18.5 21.5,18" />
+    `,
+    featured: false
+  },
+  {
+    id: "circular-badge-knockout-star-icon",
+    title: "Solid Circular Badge with Knockout Star Icon PNG",
+    slug: "circular-badge-knockout-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Solid circular badge button featuring a clean negative-space white knockout star in the center. Bold modern UI button for favorites and rating controls.",
+    tags: ["circular star button", "knockout star badge", "negative space star", "solid circle star icon", "round star button png"],
+    searchVolume: "48,000/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Solid Circle Base -->
+      <circle cx="24" cy="24" r="21" fill="{{STAR_MAIN}}" />
+      <!-- White Knockout Star -->
+      <polygon fill="#ffffff" points="24,10 27.5,18.5 36.5,19.5 30,26 31.8,35 24,30.5 16.2,35 18,26 11.5,19.5 20.5,18.5" />
+    `,
+    featured: false
+  },
+  {
+    id: "rounded-square-button-star-icon",
+    title: "Outlined Rounded Square Star Button Icon PNG",
+    slug: "rounded-square-button-star-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    description: "Outlined squircle / rounded square app icon container enclosing a centered five-pointed star. Sleek mobile app button for bookmarking and ratings.",
+    tags: ["square star button", "app icon star button", "rounded square star", "squircle star icon", "ui star container"],
+    searchVolume: "32,500/mo",
+    defaultColor: "#1E293B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <!-- Outlined Rounded Square -->
+      <rect x="5" y="5" width="38" height="38" rx="10" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" />
+      <!-- Centered Star -->
+      <polygon fill="{{STAR_MAIN}}" points="24,12 27,18.5 34,19 29,24 30.5,31 24,27.5 17.5,31 19,24 14,19 21,18.5" />
+    `,
+    featured: false
+  },
+  {
     id: "award-rosette-star-ribbon",
     title: "First Place Star Rosette Ribbon PNG",
     slug: "star-rosette-ribbon-png",
@@ -3362,8 +4422,470 @@ export const STAR_ASSETS: StarAsset[] = [
       <polygon points="50,50 25,38 43,43" fill="#FEF08A" />
     `,
     featured: true,
-  }
+  },
+
+  // =========================================================================
+  // FRAMES & BORDERS — Decorative Star Frames for Photos, Cards & Certificates
+  // =========================================================================
+  {
+    id: 'four-corner-star-frame',
+    title: 'Four Corner Star Frame PNG',
+    slug: 'four-corner-star-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'basic',
+    description: 'Elegant square photo frame with bold 5-point stars at all four corners and thin rule border. Perfect for certificates, portrait cards, and social media posts.',
+    tags: ['star frame png', 'corner star frame', 'photo frame transparent', 'star border png', 'certificate frame star'],
+    searchVolume: '18,000/mo',
+    defaultColor: '#F59E0B',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Border rectangle -->
+      <rect x="10" y="10" width="180" height="180" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" rx="4"/>
+      <rect x="16" y="16" width="168" height="168" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1" rx="2" stroke-dasharray="4 3"/>
+      <!-- Corner stars -->
+      <polygon fill="{{STAR_MAIN}}" points="10,2 12,8 18,8 13,12 15,18 10,14 5,18 7,12 2,8 8,8"/>
+      <polygon fill="{{STAR_MAIN}}" points="190,2 192,8 198,8 193,12 195,18 190,14 185,18 187,12 182,8 188,8"/>
+      <polygon fill="{{STAR_MAIN}}" points="10,182 12,188 18,188 13,192 15,198 10,194 5,198 7,192 2,188 8,188"/>
+      <polygon fill="{{STAR_MAIN}}" points="190,182 192,188 198,188 193,192 195,198 190,194 185,198 187,192 182,188 188,188"/>
+    `,
+    featured: true,
+  },
+  {
+    id: 'starburst-circle-frame',
+    title: 'Starburst Circle Frame PNG',
+    slug: 'starburst-circle-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'moderate',
+    description: 'Circular photo frame surrounded by radiating starburst rays. A retro sunburst border ideal for profile photos, product spotlights, and sale announcements.',
+    tags: ['starburst frame png', 'circle star frame', 'sunburst border png', 'circular star frame', 'burst photo frame'],
+    searchVolume: '12,400/mo',
+    defaultColor: '#EAB308',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Sunburst rays -->
+      <g fill="{{STAR_MAIN}}" opacity="0.85">
+        <polygon points="100,5 103,28 97,28"/>
+        <polygon points="100,195 103,172 97,172"/>
+        <polygon points="5,100 28,103 28,97"/>
+        <polygon points="195,100 172,103 172,97"/>
+        <polygon points="29,29 47,44 43,48"/>
+        <polygon points="171,29 153,44 157,48"/>
+        <polygon points="29,171 47,156 43,152"/>
+        <polygon points="171,171 153,156 157,152"/>
+        <polygon points="63,10 68,33 63,34"/>
+        <polygon points="137,10 132,33 137,34"/>
+        <polygon points="10,63 33,68 34,63"/>
+        <polygon points="190,63 167,68 166,63"/>
+        <polygon points="10,137 33,132 34,137"/>
+        <polygon points="190,137 167,132 166,137"/>
+        <polygon points="63,190 68,167 63,166"/>
+        <polygon points="137,190 132,167 137,166"/>
+      </g>
+      <!-- Circle frame ring -->
+      <circle cx="100" cy="100" r="72" fill="none" stroke="{{STAR_MAIN}}" stroke-width="5"/>
+      <circle cx="100" cy="100" r="66" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5" stroke-dasharray="3 3"/>
+    `,
+    featured: true,
+  },
+  {
+    id: 'gold-ornate-star-certificate-frame',
+    title: 'Gold Ornate Certificate Star Frame PNG',
+    slug: 'gold-ornate-certificate-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'high',
+    description: 'Premium gold ornate rectangle frame with embellished corner star medallions and decorative side filigree lines. Ideal for award certificates, diplomas, and VIP invitations.',
+    tags: ['certificate frame png', 'gold frame transparent', 'ornate border png', 'award frame star', 'diploma frame transparent'],
+    searchVolume: '22,000/mo',
+    defaultColor: '#D97706',
+    viewBox: '0 0 280 200',
+    svgContent: `
+      <!-- Outer border -->
+      <rect x="6" y="6" width="268" height="188" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3" rx="6"/>
+      <!-- Inner border -->
+      <rect x="14" y="14" width="252" height="172" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5" rx="4"/>
+      <!-- Thin inner rule -->
+      <rect x="20" y="20" width="240" height="160" fill="none" stroke="{{STAR_MAIN}}" stroke-width="0.7" rx="2" opacity="0.6"/>
+      <!-- Corner medallions TL -->
+      <circle cx="14" cy="14" r="12" fill="{{STAR_MAIN}}" opacity="0.2" stroke="{{STAR_MAIN}}" stroke-width="1.5"/>
+      <polygon fill="{{STAR_MAIN}}" points="14,6 16,11 21,11 17,14 19,19 14,16 9,19 11,14 7,11 12,11"/>
+      <!-- Corner medallions TR -->
+      <circle cx="266" cy="14" r="12" fill="{{STAR_MAIN}}" opacity="0.2" stroke="{{STAR_MAIN}}" stroke-width="1.5"/>
+      <polygon fill="{{STAR_MAIN}}" points="266,6 268,11 273,11 269,14 271,19 266,16 261,19 263,14 259,11 264,11"/>
+      <!-- Corner medallions BL -->
+      <circle cx="14" cy="186" r="12" fill="{{STAR_MAIN}}" opacity="0.2" stroke="{{STAR_MAIN}}" stroke-width="1.5"/>
+      <polygon fill="{{STAR_MAIN}}" points="14,178 16,183 21,183 17,186 19,191 14,188 9,191 11,186 7,183 12,183"/>
+      <!-- Corner medallions BR -->
+      <circle cx="266" cy="186" r="12" fill="{{STAR_MAIN}}" opacity="0.2" stroke="{{STAR_MAIN}}" stroke-width="1.5"/>
+      <polygon fill="{{STAR_MAIN}}" points="266,178 268,183 273,183 269,186 271,191 266,188 261,191 263,186 259,183 264,183"/>
+      <!-- Top center star accent -->
+      <polygon fill="{{STAR_MAIN}}" points="140,10 142,16 148,16 143,20 145,26 140,22 135,26 137,20 132,16 138,16"/>
+      <!-- Bottom center star accent -->
+      <polygon fill="{{STAR_MAIN}}" points="140,190 142,196 148,196 143,200 145,206 140,202 135,206 137,200 132,196 138,196"/>
+      <!-- Side filigree lines -->
+      <line x1="30" y1="100" x2="50" y2="100" stroke="{{STAR_MAIN}}" stroke-width="1.5" opacity="0.7"/>
+      <line x1="230" y1="100" x2="250" y2="100" stroke="{{STAR_MAIN}}" stroke-width="1.5" opacity="0.7"/>
+    `,
+    featured: true,
+  },
+  {
+    id: 'constellation-star-frame',
+    title: 'Constellation Border Frame PNG',
+    slug: 'constellation-star-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'moderate',
+    description: 'Magical night-sky constellation frame with small star dots connected by thin dotted lines forming a border pattern. Ideal for astrology, fantasy, and celestial-themed designs.',
+    tags: ['constellation frame png', 'star border transparent', 'night sky frame', 'astronomy border png', 'celestial frame png'],
+    searchVolume: '8,600/mo',
+    defaultColor: '#6366F1',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Connecting dotted border lines -->
+      <rect x="14" y="14" width="172" height="172" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1" stroke-dasharray="2 6" opacity="0.5"/>
+      <!-- Top edge stars -->
+      <circle cx="30" cy="14" r="3" fill="{{STAR_MAIN}}"/>
+      <circle cx="60" cy="10" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <circle cx="100" cy="14" r="4" fill="{{STAR_MAIN}}"/>
+      <circle cx="140" cy="10" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <circle cx="170" cy="14" r="3" fill="{{STAR_MAIN}}"/>
+      <!-- Bottom edge stars -->
+      <circle cx="30" cy="186" r="3" fill="{{STAR_MAIN}}"/>
+      <circle cx="60" cy="190" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <circle cx="100" cy="186" r="4" fill="{{STAR_MAIN}}"/>
+      <circle cx="140" cy="190" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <circle cx="170" cy="186" r="3" fill="{{STAR_MAIN}}"/>
+      <!-- Left edge stars -->
+      <circle cx="14" cy="30" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <circle cx="10" cy="60" r="3" fill="{{STAR_MAIN}}"/>
+      <circle cx="14" cy="100" r="4" fill="{{STAR_MAIN}}"/>
+      <circle cx="10" cy="140" r="3" fill="{{STAR_MAIN}}"/>
+      <circle cx="14" cy="170" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <!-- Right edge stars -->
+      <circle cx="186" cy="30" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <circle cx="190" cy="60" r="3" fill="{{STAR_MAIN}}"/>
+      <circle cx="186" cy="100" r="4" fill="{{STAR_MAIN}}"/>
+      <circle cx="190" cy="140" r="3" fill="{{STAR_MAIN}}"/>
+      <circle cx="186" cy="170" r="2" fill="{{STAR_MAIN}}" opacity="0.7"/>
+      <!-- Corner 4-point sparkle stars -->
+      <path fill="{{STAR_MAIN}}" d="M14,3 L16,12 L25,14 L16,16 L14,25 L12,16 L3,14 L12,12 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M186,3 L188,12 L197,14 L188,16 L186,25 L184,16 L175,14 L184,12 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M14,175 L16,184 L25,186 L16,188 L14,197 L12,188 L3,186 L12,184 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M186,175 L188,184 L197,186 L188,188 L186,197 L184,188 L175,186 L184,184 Z"/>
+    `,
+    featured: true,
+  },
+  {
+    id: 'retro-star-badge-frame',
+    title: 'Retro Star Badge Seal Frame PNG',
+    slug: 'retro-star-badge-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'moderate',
+    description: 'Vintage-style circular seal frame with 16-point starburst outer edge and double ring border. Classic retro stamp aesthetic for labels, logos, and promotional badges.',
+    tags: ['retro frame png', 'badge seal frame', 'starburst seal border', 'vintage frame transparent', 'circular badge border'],
+    searchVolume: '10,200/mo',
+    defaultColor: '#B45309',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- 16-point starburst outer edge -->
+      <polygon fill="{{STAR_MAIN}}" opacity="0.15" points="
+        100,5 108,36 122,12 118,44 138,24 123,52 148,40 121,61 150,58 114,71 144,80 103,82 128,97 88,88 104,108 68,90 73,113 44,87 38,110 18,78 3,98 0,63 -8,82
+        3,50 -8,18 18,37 0,2 38,30 44,7 68,38 73,15 88,52 104,32 128,63 144,40 150,62 121,89
+      "/>
+      <!-- Outer starburst clean version -->
+      <path fill="{{STAR_MAIN}}" opacity="0.9" d="
+        M100 8 L105 32 L118 14 L116 38 L132 22 L122 44 L142 34 L124 52 L148 48 L122 62 L146 64 L115 72 L136 80 L104 82 L118 96 L86 90 L92 108 L64 94 L60 116 L38 94 L26 114 L12 86 L-2 100 L0 68 L-14 74 L-2 44 L-14 42 L8 16 L2 8 L28 22 L30 8 L52 30 L58 18 L76 46 L88 36 Z
+      " transform="scale(0.7) translate(42,42)"/>
+      <!-- Outer ring circle (clean) -->
+      <circle cx="100" cy="100" r="88" fill="none" stroke="{{STAR_MAIN}}" stroke-width="4"/>
+      <circle cx="100" cy="100" r="80" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5"/>
+      <circle cx="100" cy="100" r="74" fill="none" stroke="{{STAR_MAIN}}" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.6"/>
+    `,
+    featured: false,
+  },
+  {
+    id: 'polaroid-star-frame',
+    title: 'Polaroid Star Photo Frame PNG',
+    slug: 'polaroid-star-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'basic',
+    description: 'Instant Polaroid-style photo frame with star confetti decorations scattered around the white border. Cute scrapbook aesthetic for social media memory posts and print layouts.',
+    tags: ['polaroid frame png', 'photo frame stars', 'scrapbook frame transparent', 'instant photo border', 'memory frame stars'],
+    searchVolume: '15,500/mo',
+    defaultColor: '#EC4899',
+    viewBox: '0 0 180 210',
+    svgContent: `
+      <!-- Polaroid body -->
+      <rect x="8" y="8" width="164" height="194" rx="4" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3"/>
+      <!-- Photo area box -->
+      <rect x="18" y="18" width="144" height="140" rx="2" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5" opacity="0.5"/>
+      <!-- Caption line at bottom of polaroid -->
+      <line x1="40" y1="178" x2="140" y2="178" stroke="{{STAR_MAIN}}" stroke-width="1.5" opacity="0.4"/>
+      <!-- Scattered star confetti -->
+      <polygon fill="{{STAR_MAIN}}" opacity="0.8" points="26,172 27.5,176.5 32,176.5 28.5,179.5 30,184 26,181 22,184 23.5,179.5 20,176.5 24.5,176.5"/>
+      <polygon fill="{{STAR_MAIN}}" opacity="0.6" points="155,168 156,171 159,171 157,173 158,176 155,174 152,176 153,173 151,171 154,171"/>
+      <polygon fill="{{STAR_MAIN}}" opacity="0.9" points="50,192 51.5,196.5 56,196.5 52.5,199.5 54,204 50,201 46,204 47.5,199.5 44,196.5 48.5,196.5"/>
+      <polygon fill="{{STAR_MAIN}}" opacity="0.7" points="130,195 131,198 134,198 132,200 133,203 130,201 127,203 128,200 126,198 129,198"/>
+      <polygon fill="{{STAR_MAIN}}" opacity="0.5" points="90,196 91,199 94,199 92,201 93,204 90,202 87,204 88,201 86,199 89,199"/>
+      <!-- Corner tiny stars -->
+      <path fill="{{STAR_MAIN}}" d="M18,10 L19,14 L23,14 L20,17 L21,21 L18,18 L15,21 L16,17 L13,14 L17,14 Z" opacity="0.7"/>
+      <path fill="{{STAR_MAIN}}" d="M162,10 L163,14 L167,14 L164,17 L165,21 L162,18 L159,21 L160,17 L157,14 L161,14 Z" opacity="0.7"/>
+    `,
+    featured: false,
+  },
+  {
+    id: 'diamond-star-grid-frame',
+    title: 'Diamond Star Grid Border PNG',
+    slug: 'diamond-star-grid-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'moderate',
+    description: 'Geometric frame made of repeating small diamonds and 4-point star motifs arranged in a continuous border pattern. Modern, graphic design-forward frame for editorial layouts.',
+    tags: ['geometric frame png', 'diamond border transparent', 'star grid frame', 'modern border png', 'editorial frame'],
+    searchVolume: '7,800/mo',
+    defaultColor: '#7C3AED',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Top border row of diamonds -->
+      <g fill="{{STAR_MAIN}}">
+        <path d="M20,8 L26,14 L20,20 L14,14 Z"/>
+        <path d="M46,8 L52,14 L46,20 L40,14 Z"/>
+        <path d="M72,8 L78,14 L72,20 L66,14 Z"/>
+        <path d="M98,8 L104,14 L98,20 L92,14 Z"/>
+        <path d="M124,8 L130,14 L124,20 L118,14 Z"/>
+        <path d="M150,8 L156,14 L150,20 L144,14 Z"/>
+        <path d="M176,8 L182,14 L176,20 L170,14 Z"/>
+        <!-- Bottom border -->
+        <path d="M20,180 L26,186 L20,192 L14,186 Z"/>
+        <path d="M46,180 L52,186 L46,192 L40,186 Z"/>
+        <path d="M72,180 L78,186 L72,192 L66,186 Z"/>
+        <path d="M98,180 L104,186 L98,192 L92,186 Z"/>
+        <path d="M124,180 L130,186 L124,192 L118,186 Z"/>
+        <path d="M150,180 L156,186 L150,192 L144,186 Z"/>
+        <path d="M176,180 L182,186 L176,192 L170,186 Z"/>
+        <!-- Left border -->
+        <path d="M8,34 L14,40 L8,46 L2,40 Z"/>
+        <path d="M8,60 L14,66 L8,72 L2,66 Z"/>
+        <path d="M8,86 L14,92 L8,98 L2,92 Z"/>
+        <path d="M8,112 L14,118 L8,124 L2,118 Z"/>
+        <path d="M8,138 L14,144 L8,150 L2,144 Z"/>
+        <path d="M8,164 L14,170 L8,176 L2,170 Z"/>
+        <!-- Right border -->
+        <path d="M192,34 L198,40 L192,46 L186,40 Z"/>
+        <path d="M192,60 L198,66 L192,72 L186,66 Z"/>
+        <path d="M192,86 L198,92 L192,98 L186,92 Z"/>
+        <path d="M192,112 L198,118 L192,124 L186,118 Z"/>
+        <path d="M192,138 L198,144 L192,150 L186,144 Z"/>
+        <path d="M192,164 L198,170 L192,176 L186,170 Z"/>
+        <!-- Corners — 4-point stars -->
+        <path d="M8,8 L10,14 L16,14 L11,18 L13,24 L8,20 L3,24 L5,18 L0,14 L6,14 Z"/>
+        <path d="M192,8 L194,14 L200,14 L195,18 L197,24 L192,20 L187,24 L189,18 L184,14 L190,14 Z"/>
+        <path d="M8,176 L10,182 L16,182 L11,186 L13,192 L8,188 L3,192 L5,186 L0,182 L6,182 Z"/>
+        <path d="M192,176 L194,182 L200,182 L195,186 L197,192 L192,188 L187,192 L189,186 L184,182 L190,182 Z"/>
+      </g>
+    `,
+    featured: false,
+  },
+  {
+    id: 'glitter-star-photo-border',
+    title: 'Glitter Star Sparkle Photo Border PNG',
+    slug: 'glitter-star-sparkle-border-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'high',
+    description: 'Glamorous sparkle photo frame with 4-point glitter star bursts of varying sizes scattered around a rounded rectangle border. Perfect for beauty, fashion, and celebratory content.',
+    tags: ['glitter frame png', 'sparkle border transparent', 'glamour photo frame', 'star sparkle frame', 'celebration border png'],
+    searchVolume: '19,300/mo',
+    defaultColor: '#F472B6',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Rounded rectangle frame border -->
+      <rect x="22" y="22" width="156" height="156" rx="12" fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.5" opacity="0.7"/>
+      <!-- Large glitter star bursts -->
+      <path fill="{{STAR_MAIN}}" d="M16,16 L18,24 L26,16 L18,8 Z M16,16 L24,18 L16,26 L8,18 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M184,16 L186,24 L194,16 L186,8 Z M184,16 L192,18 L184,26 L176,18 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M16,184 L18,192 L26,184 L18,176 Z M16,184 L24,186 L16,194 L8,186 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M184,184 L186,192 L194,184 L186,176 Z M184,184 L192,186 L184,194 L176,186 Z"/>
+      <!-- Medium sparkles around border -->
+      <path fill="{{STAR_MAIN}}" opacity="0.8" d="M100,14 L101.5,19 L107,14 L101.5,9 Z M100,14 L105,15.5 L100,21 L95,15.5 Z"/>
+      <path fill="{{STAR_MAIN}}" opacity="0.8" d="M100,186 L101.5,191 L107,186 L101.5,181 Z M100,186 L105,187.5 L100,193 L95,187.5 Z"/>
+      <path fill="{{STAR_MAIN}}" opacity="0.8" d="M14,100 L15.5,105 L21,100 L15.5,95 Z M14,100 L19,101.5 L14,107 L9,101.5 Z"/>
+      <path fill="{{STAR_MAIN}}" opacity="0.8" d="M186,100 L187.5,105 L193,100 L187.5,95 Z M186,100 L191,101.5 L186,107 L181,101.5 Z"/>
+      <!-- Small dot sparkles -->
+      <circle cx="50" cy="18" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="150" cy="18" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="50" cy="182" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="150" cy="182" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="18" cy="50" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="18" cy="150" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="182" cy="50" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="182" cy="150" r="2.5" fill="{{STAR_MAIN}}" opacity="0.6"/>
+    `,
+    featured: true,
+  },
+  {
+    id: 'minimalist-star-line-frame',
+    title: 'Minimalist Star Line Frame PNG',
+    slug: 'minimalist-star-line-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'basic',
+    description: 'Clean minimal thin-line rectangle frame with a single centered star accent on each side. Modern typographic border for business cards, invitations, and menu designs.',
+    tags: ['minimal frame png', 'thin line frame transparent', 'simple star border', 'modern frame png', 'clean border transparent'],
+    searchVolume: '13,700/mo',
+    defaultColor: '#374151',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Outer thin rectangle -->
+      <rect x="8" y="8" width="184" height="184" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5"/>
+      <!-- Inner thin rectangle -->
+      <rect x="14" y="14" width="172" height="172" fill="none" stroke="{{STAR_MAIN}}" stroke-width="0.7" opacity="0.5"/>
+      <!-- Top center star -->
+      <polygon fill="{{STAR_MAIN}}" points="100,4 101.8,9.5 107.5,9.5 103,13 104.8,18.5 100,15.2 95.2,18.5 97,13 92.5,9.5 98.2,9.5"/>
+      <!-- Bottom center star -->
+      <polygon fill="{{STAR_MAIN}}" points="100,196 101.8,190.5 107.5,190.5 103,187 104.8,181.5 100,184.8 95.2,181.5 97,187 92.5,190.5 98.2,190.5"/>
+      <!-- Left center star -->
+      <polygon fill="{{STAR_MAIN}}" points="4,100 9.5,98.2 9.5,92.5 13,97 18.5,95.2 15.2,100 18.5,104.8 13,103 9.5,107.5 9.5,101.8"/>
+      <!-- Right center star -->
+      <polygon fill="{{STAR_MAIN}}" points="196,100 190.5,98.2 190.5,92.5 187,97 181.5,95.2 184.8,100 181.5,104.8 187,103 190.5,107.5 190.5,101.8"/>
+      <!-- Corner dots -->
+      <circle cx="8" cy="8" r="2" fill="{{STAR_MAIN}}"/>
+      <circle cx="192" cy="8" r="2" fill="{{STAR_MAIN}}"/>
+      <circle cx="8" cy="192" r="2" fill="{{STAR_MAIN}}"/>
+      <circle cx="192" cy="192" r="2" fill="{{STAR_MAIN}}"/>
+    `,
+    featured: false,
+  },
+  {
+    id: 'star-wreath-oval-frame',
+    title: 'Star Wreath Oval Frame PNG',
+    slug: 'star-wreath-oval-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'moderate',
+    description: 'Elegant oval portrait frame decorated with a wreath of small 5-point stars arranged in a continuous ring. Refined design for wedding, graduation, and achievement portraits.',
+    tags: ['oval frame png', 'star wreath frame', 'portrait frame transparent', 'wedding frame stars', 'graduation frame png'],
+    searchVolume: '16,000/mo',
+    defaultColor: '#D97706',
+    viewBox: '0 0 200 220',
+    svgContent: `
+      <!-- Oval frame ring -->
+      <ellipse cx="100" cy="110" rx="82" ry="100" fill="none" stroke="{{STAR_MAIN}}" stroke-width="3"/>
+      <ellipse cx="100" cy="110" rx="75" ry="93" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>
+      <!-- Stars arranged around oval (24 stars) -->
+      <g fill="{{STAR_MAIN}}">
+        <polygon points="100,6 101.5,11 106.5,11 102.5,14 104,19 100,16 96,19 97.5,14 93.5,11 98.5,11"/>
+        <polygon points="122,10 123.5,15 128.5,15 124.5,18 126,23 122,20 118,23 119.5,18 115.5,15 120.5,15"/>
+        <polygon points="142,20 143.5,25 148.5,25 144.5,28 146,33 142,30 138,33 139.5,28 135.5,25 140.5,25"/>
+        <polygon points="157,36 158.5,41 163.5,41 159.5,44 161,49 157,46 153,49 154.5,44 150.5,41 155.5,41"/>
+        <polygon points="168,56 169.5,61 174.5,61 170.5,64 172,69 168,66 164,69 165.5,64 161.5,61 166.5,61"/>
+        <polygon points="175,79 176.5,84 181.5,84 177.5,87 179,92 175,89 171,92 172.5,87 168.5,84 173.5,84"/>
+        <polygon points="178,104 179.5,109 184.5,109 180.5,112 182,117 178,114 174,117 175.5,112 171.5,109 176.5,109"/>
+        <polygon points="175,130 176.5,135 181.5,135 177.5,138 179,143 175,140 171,143 172.5,138 168.5,135 173.5,135"/>
+        <polygon points="168,155 169.5,160 174.5,160 170.5,163 172,168 168,165 164,168 165.5,163 161.5,160 166.5,160"/>
+        <polygon points="157,176 158.5,181 163.5,181 159.5,184 161,189 157,186 153,189 154.5,184 150.5,181 155.5,181"/>
+        <polygon points="142,192 143.5,197 148.5,197 144.5,200 146,205 142,202 138,205 139.5,200 135.5,197 140.5,197"/>
+        <polygon points="122,204 123.5,209 128.5,209 124.5,212 126,217 122,214 118,217 119.5,212 115.5,209 120.5,209"/>
+        <polygon points="100,208 101.5,213 106.5,213 102.5,216 104,221 100,218 96,221 97.5,216 93.5,213 98.5,213"/>
+        <polygon points="78,204 79.5,209 84.5,209 80.5,212 82,217 78,214 74,217 75.5,212 71.5,209 76.5,209"/>
+        <polygon points="58,192 59.5,197 64.5,197 60.5,200 62,205 58,202 54,205 55.5,200 51.5,197 56.5,197"/>
+        <polygon points="43,176 44.5,181 49.5,181 45.5,184 47,189 43,186 39,189 40.5,184 36.5,181 41.5,181"/>
+        <polygon points="32,155 33.5,160 38.5,160 34.5,163 36,168 32,165 28,168 29.5,163 25.5,160 30.5,160"/>
+        <polygon points="25,130 26.5,135 31.5,135 27.5,138 29,143 25,140 21,143 22.5,138 18.5,135 23.5,135"/>
+        <polygon points="22,104 23.5,109 28.5,109 24.5,112 26,117 22,114 18,117 19.5,112 15.5,109 20.5,109"/>
+        <polygon points="25,79 26.5,84 31.5,84 27.5,87 29,92 25,89 21,92 22.5,87 18.5,84 23.5,84"/>
+        <polygon points="32,56 33.5,61 38.5,61 34.5,64 36,69 32,66 28,69 29.5,64 25.5,61 30.5,61"/>
+        <polygon points="43,36 44.5,41 49.5,41 45.5,44 47,49 43,46 39,49 40.5,44 36.5,41 41.5,41"/>
+        <polygon points="58,20 59.5,25 64.5,25 60.5,28 62,33 58,30 54,33 55.5,28 51.5,25 56.5,25"/>
+        <polygon points="78,10 79.5,15 84.5,15 80.5,18 82,23 78,20 74,23 75.5,18 71.5,15 76.5,15"/>
+      </g>
+    `,
+    featured: true,
+  },
+  {
+    id: 'neon-star-glow-frame',
+    title: 'Neon Glow Star Frame PNG',
+    slug: 'neon-star-glow-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'high',
+    description: 'Electric neon-style glowing frame with star corner accents and pulsing double-border effect in vivid pink or cyan. Perfect for gaming thumbnails, nightlife events, and modern digital art.',
+    tags: ['neon frame png', 'glow border transparent', 'electric star frame', 'gaming frame png', 'neon border photo'],
+    searchVolume: '24,000/mo',
+    defaultColor: '#06B6D4',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Outer glow border (thick, transparent) -->
+      <rect x="6" y="6" width="188" height="188" rx="8" fill="none" stroke="{{STAR_MAIN}}" stroke-width="6" opacity="0.2"/>
+      <rect x="10" y="10" width="180" height="180" rx="6" fill="none" stroke="{{STAR_MAIN}}" stroke-width="4" opacity="0.4"/>
+      <!-- Main neon border -->
+      <rect x="14" y="14" width="172" height="172" rx="4" fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.5"/>
+      <!-- Inner hairline -->
+      <rect x="20" y="20" width="160" height="160" rx="3" fill="none" stroke="{{STAR_MAIN}}" stroke-width="0.8" opacity="0.7"/>
+      <!-- Corner neon star bursts (4-point cross) -->
+      <path fill="{{STAR_MAIN}}" d="M14,4 L16,12 L24,14 L16,16 L14,24 L12,16 L4,14 L12,12 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M186,4 L188,12 L196,14 L188,16 L186,24 L184,16 L176,14 L184,12 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M14,176 L16,184 L24,186 L16,188 L14,196 L12,188 L4,186 L12,184 Z"/>
+      <path fill="{{STAR_MAIN}}" d="M186,176 L188,184 L196,186 L188,188 L186,196 L184,188 L176,186 L184,184 Z"/>
+      <!-- Glow halos on corners -->
+      <circle cx="14" cy="14" r="10" fill="{{STAR_MAIN}}" opacity="0.12"/>
+      <circle cx="186" cy="14" r="10" fill="{{STAR_MAIN}}" opacity="0.12"/>
+      <circle cx="14" cy="186" r="10" fill="{{STAR_MAIN}}" opacity="0.12"/>
+      <circle cx="186" cy="186" r="10" fill="{{STAR_MAIN}}" opacity="0.12"/>
+      <!-- Mid-edge glow dots -->
+      <circle cx="100" cy="14" r="4" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="100" cy="186" r="4" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="14" cy="100" r="4" fill="{{STAR_MAIN}}" opacity="0.6"/>
+      <circle cx="186" cy="100" r="4" fill="{{STAR_MAIN}}" opacity="0.6"/>
+    `,
+    featured: true,
+  },
+  {
+    id: 'six-star-arch-frame',
+    title: 'Star Arch Banner Frame PNG',
+    slug: 'star-arch-banner-frame-png',
+    category: 'frames',
+    categoryName: 'Frames & Borders',
+    level: 'moderate',
+    description: 'Decorative arch-shaped banner frame with a symmetrical row of 6 stars along the curved top edge. Ideal for celebration cards, event posters, and social media story templates.',
+    tags: ['arch frame png', 'banner frame transparent', 'star arch border', 'celebration frame', 'event frame png'],
+    searchVolume: '9,100/mo',
+    defaultColor: '#7C3AED',
+    viewBox: '0 0 200 200',
+    svgContent: `
+      <!-- Arch top path -->
+      <path fill="none" stroke="{{STAR_MAIN}}" stroke-width="2.5" d="M20,120 Q20,20 100,20 Q180,20 180,120"/>
+      <!-- Bottom straight sides and base -->
+      <line x1="20" y1="120" x2="20" y2="190" stroke="{{STAR_MAIN}}" stroke-width="2.5"/>
+      <line x1="180" y1="120" x2="180" y2="190" stroke="{{STAR_MAIN}}" stroke-width="2.5"/>
+      <line x1="20" y1="190" x2="180" y2="190" stroke="{{STAR_MAIN}}" stroke-width="2.5"/>
+      <!-- Inner arch hairline -->
+      <path fill="none" stroke="{{STAR_MAIN}}" stroke-width="1" opacity="0.4" d="M28,120 Q28,32 100,32 Q172,32 172,120"/>
+      <!-- Stars along the arch top -->
+      <polygon fill="{{STAR_MAIN}}" points="100,6 102,13 109,13 103,18 105,25 100,21 95,25 97,18 91,13 98,13"/>
+      <polygon fill="{{STAR_MAIN}}" points="66,18 68,25 75,25 69,30 71,37 66,33 61,37 63,30 57,25 64,25"/>
+      <polygon fill="{{STAR_MAIN}}" points="134,18 136,25 143,25 137,30 139,37 134,33 129,37 131,30 125,25 132,25"/>
+      <polygon fill="{{STAR_MAIN}}" points="38,44 39.5,50 46,50 41,54 43,60 38,56 33,60 35,54 30,50 36.5,50"/>
+      <polygon fill="{{STAR_MAIN}}" points="162,44 163.5,50 170,50 165,54 167,60 162,56 157,60 159,54 154,50 160.5,50"/>
+      <polygon fill="{{STAR_MAIN}}" points="23,80 24.5,86 31,86 26,90 28,96 23,92 18,96 20,90 15,86 21.5,86"/>
+      <polygon fill="{{STAR_MAIN}}" points="177,80 178.5,86 185,86 180,90 182,96 177,92 172,96 174,90 169,86 175.5,86"/>
+      <!-- Base corner stars -->
+      <polygon fill="{{STAR_MAIN}}" points="20,185 21.5,190 27,190 22.5,193.5 24.5,199 20,196 15.5,199 17.5,193.5 13,190 18.5,190"/>
+      <polygon fill="{{STAR_MAIN}}" points="180,185 181.5,190 187,190 182.5,193.5 184.5,199 180,196 175.5,199 177.5,193.5 173,190 178.5,190"/>
+    `,
+    featured: false,
+  },
 ];
+
+export const STAR_ASSETS: StarAsset[] = [
+  ...BASE_STAR_ASSETS,
+  ...EXTRA_STAR_ASSETS,
+];
+
 
 export function getStarsByLevel(level: string): StarAsset[] {
   if (!level || level === 'all') return STAR_ASSETS;

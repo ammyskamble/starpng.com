@@ -1,0 +1,12 @@
+{
+  "name": "star-icons-gallery",
+  "version": "1.0.0",
+  "description": "Star Interface Icons Express Showcase Gallery",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

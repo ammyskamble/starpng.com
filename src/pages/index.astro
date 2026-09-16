@@ -1,24 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import StarCatalog from '../components/StarCatalog';
-import StarGeneratorStudio from '../components/StarGeneratorStudio';
 import { ShieldCheck, Zap, Copy, Sparkles, Sliders, CheckCircle2, XCircle, ArrowRight, HelpCircle, Lock, Cpu, Wand2 } from 'lucide-react';
-import { STAR_ASSETS } from '../data/stars';
+import { STAR_ASSETS, CATEGORIES } from '../data/stars';
+import { injectColorShades } from '../utils/colorUtils';
 
-// Generate ImageObject Schema for top assets
-const imageObjectSchemas = STAR_ASSETS.map((star) => ({
+// Build static category showcase: 6 featured categories × 3 assets each
+const showcaseCategories = [
+  { id: 'stickers',    emoji: '✨', label: 'Star Stickers & Decals' },
+  { id: 'ratings',     emoji: '⭐', label: '5-Star Ratings' },
+  { id: '3d',          emoji: '💎', label: '3D & Glossy Stars' },
+  { id: 'frames',      emoji: '🖼️', label: 'Frames & Borders' },
+  { id: 'characters',  emoji: '🧸', label: 'Star Bears & Mascots' },
+  { id: 'animated',    emoji: '💫', label: 'Animated Stars' },
+];
+
+// For each showcase category, get 6 assets (prefer featured)
+const showcase = showcaseCategories.map((cat) => {
+  const all = STAR_ASSETS.filter((s) => s.category === cat.id);
+  const featured = all.filter((s) => s.featured);
+  const picks = (featured.length >= 6 ? featured.slice(0, 6) : [...featured, ...all.filter((s) => !s.featured)]).slice(0, 6);
+  return {
+    ...cat,
+    slug: CATEGORIES.find((c) => c.id === cat.id)?.slug ?? cat.id,
+    total: all.length,
+    assets: picks,
+  };
+});
+
+// Build static preview SVGs at build time — zero JS on page
+function buildStaticSvg(svgContent: string, defaultColor: string, id: string): string {
+  return injectColorShades(svgContent, defaultColor, `hp_${id}`);
+}
+
+// Generate ImageObject Schema for top assets (homepage keeps schema)
+const imageObjectSchemas = STAR_ASSETS.filter((s) => s.featured).slice(0, 10).map((star) => ({
   '@type': 'ImageObject',
-  'contentUrl': `https://starpng.com/stars/${star.slug}.png`,
+  'contentUrl': `https://starpng.com/star/${star.slug}.png`,
   'name': star.title,
   'description': star.description,
   'caption': `${star.title} with 100% verified transparent background`,
   'license': 'https://creativecommons.org/publicdomain/zero/1.0/',
-  'acquireLicensePage': `https://starpng.com/stars/${star.slug}/`,
+  'acquireLicensePage': `https://starpng.com/star/${star.slug}/`,
   'creditText': 'StarPNG.com',
-  'creator': {
-    '@type': 'Organization',
-    'name': 'StarPNG'
-  }
+  'creator': { '@type': 'Organization', 'name': 'StarPNG' }
 }));
 
 const faqSchema = {
@@ -86,52 +110,52 @@ const pageSchema = {
 
 <BaseLayout
   title="Star PNG - Free Transparent Star Images, Stickers, Animated SVGs & Icons (100% Real Alpha)"
-  description="Download 110+ verified transparent star PNG images, 30+ die-cut stickers, animated stars, UI interface icons, star frames, star & moon, and cute star bear mascots. 100% real alpha, zero fake checkerboards, instant 1-click clipboard copy, and infinite procedural generator."
-  keywords="star png, star sticker png, animated star png, star icon png, star badge png, star frame png, star moon png, bear with star png, gold star png, 5 star rating png, y2k star png, star vector svg, transparent star background"
+  description="Download 160+ verified transparent star PNG images, 40+ die-cut stickers, 25+ UI interface icons, animated stars, star frames, star & moon, and cute star bear mascots. 100% real alpha, zero fake checkerboards, instant 1-click clipboard copy, and infinite procedural generator."
+  keywords="star png, star icon png, star ui icon, star sticker png, animated star png, star badge png, star frame png, star moon png, gold star png, 5 star rating png, y2k star png, star vector svg, transparent star background"
   schema={pageSchema}
 >
-  <!-- Hero Section with Vercel Geist Mesh Gradient Bloom -->
+  <!-- Hero Section -->
   <section class="relative pt-20 pb-16 md:pt-28 md:pb-24 overflow-hidden border-b border-[#ebebeb]">
     <div class="absolute inset-0 hero-mesh-gradient pointer-events-none"></div>
 
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <!-- Eyebrow Tag (@DESIGN.md mono-eyebrow) -->
+      <!-- Eyebrow Tag -->
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#ebebeb] shadow-xs mb-6">
         <span class="w-2 h-2 rounded-full bg-amber-400"></span>
         <span class="font-mono text-xs uppercase tracking-wider text-[#4d4d4d]">
-          110+ Curated Assets &bull; 30+ Flaticon-Style Stickers, Animated Stars & Star Bears &bull; 100% CC0 Real Alpha
+          160+ Curated Assets &bull; 40+ Stickers, 25+ UI Icons &amp; Animated Stars &bull; 100% CC0 Real Alpha
         </span>
       </div>
 
-      <!-- Main Display H1 (@DESIGN.md display-xl) -->
+      <!-- H1 -->
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#171717] tracking-tight leading-[1.08] max-w-4xl mx-auto">
-        Free Star PNGs, Stickers & Icons with <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">True Transparent</span> Backgrounds
+        Free Star PNGs, Stickers &amp; Icons with <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">True Transparent</span> Backgrounds
       </h1>
 
-      <!-- Subhead (@DESIGN.md body-lg) -->
+      <!-- Subhead -->
       <p class="mt-6 text-base sm:text-lg text-[#4d4d4d] max-w-2xl mx-auto leading-relaxed">
         Stop downloading fake checkerboard JPEGs from Pinterest or paying $12/mo for Flaticon SVGs. Access genuine alpha star PNGs, die-cut stickers, animated twinkling stars, star badges, ornate frames, celestial moon duos, and kawaii star bear mascots with 1-click clipboard copy.
       </p>
 
-      <!-- Action Pill Buttons (@DESIGN.md button-primary & button-secondary) -->
+      <!-- CTA Buttons -->
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
         <a
-          href="#generator"
-          class="w-full sm:w-auto px-7 py-3 rounded-full bg-[#171717] text-white hover:bg-black font-medium text-sm transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+          href="/generator"
+          class="w-full sm:w-auto px-7 py-3 rounded-full bg-[#171717] text-white hover:bg-black font-medium text-sm transition-all shadow-sm flex items-center justify-center gap-2"
         >
           <Wand2 class="w-4 h-4 text-amber-400" />
           <span>Launch Star Generator</span>
         </a>
         <a
           href="#catalog"
-          class="w-full sm:w-auto px-7 py-3 rounded-full bg-white border border-[#ebebeb] text-[#171717] hover:border-[#171717] font-medium text-sm transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer"
+          class="w-full sm:w-auto px-7 py-3 rounded-full bg-white border border-[#ebebeb] text-[#171717] hover:border-[#171717] font-medium text-sm transition-all shadow-xs flex items-center justify-center gap-2"
         >
           <span>Browse Asset Catalog</span>
           <ArrowRight class="w-4 h-4 text-[#8f8f8f]" />
         </a>
       </div>
 
-      <!-- Trust Bar / Feature Chips -->
+      <!-- Trust Bar -->
       <div class="mt-14 pt-8 border-t border-[#ebebeb] grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
         <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
           <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
@@ -141,16 +165,14 @@ const pageSchema = {
           <div class="text-sm font-semibold text-[#171717]">Zero Fake Grids</div>
           <div class="text-xs text-[#8f8f8f] mt-0.5">Real 32-bit transparency</div>
         </div>
-
         <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
           <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
             <Copy class="w-3.5 h-3.5 text-blue-500" />
             1-Click Copy
           </div>
-          <div class="text-sm font-semibold text-[#171717]">Figma & Canva Ready</div>
+          <div class="text-sm font-semibold text-[#171717]">Figma &amp; Canva Ready</div>
           <div class="text-xs text-[#8f8f8f] mt-0.5">Paste directly via Ctrl+V</div>
         </div>
-
         <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
           <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
             <Sliders class="w-3.5 h-3.5 text-violet-500" />
@@ -159,64 +181,181 @@ const pageSchema = {
           <div class="text-sm font-semibold text-[#171717]">Procedural Generator</div>
           <div class="text-xs text-[#8f8f8f] mt-0.5">3 to 32 points on demand</div>
         </div>
-
         <div class="p-3 bg-white/70 backdrop-blur-xs rounded-xl border border-[#ebebeb]">
           <div class="font-mono text-xs text-[#8f8f8f] uppercase tracking-wider mb-1 flex items-center gap-1.5">
             <Zap class="w-3.5 h-3.5 text-amber-500" />
             Free Vectors
           </div>
-          <div class="text-sm font-semibold text-[#171717]">100% Free SVG & CC0</div>
+          <div class="text-sm font-semibold text-[#171717]">100% Free SVG &amp; CC0</div>
           <div class="text-xs text-[#8f8f8f] mt-0.5">No paywalls or attribution</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive Procedural Star Generator Tool Section -->
-  <section id="generator" class="py-16 bg-[#fafafa] border-b border-[#ebebeb]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <StarGeneratorStudio client:load />
+  <!-- Generator Teaser Card (static — links to /generator) -->
+  <section class="py-12 bg-white border-b border-[#ebebeb]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl bg-[#171717] overflow-hidden relative">
+        <!-- Decorative star background pattern -->
+        <div class="absolute inset-0 opacity-[0.06] pointer-events-none" aria-hidden="true">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <polygon fill="white" points="50,10 54,22 67,23 57,30 60,43 50,36 40,43 43,30 33,23 46,22"/>
+            <polygon fill="white" points="150,5 154,17 167,18 157,25 160,38 150,31 140,38 143,25 133,18 146,17"/>
+            <polygon fill="white" points="250,15 254,27 267,28 257,35 260,48 250,41 240,48 243,35 233,28 246,27"/>
+            <polygon fill="white" points="350,8 354,20 367,21 357,28 360,41 350,34 340,41 343,28 333,21 346,20"/>
+            <polygon fill="white" points="100,100 104,112 117,113 107,120 110,133 100,126 90,133 93,120 83,113 96,112"/>
+            <polygon fill="white" points="200,90 204,102 217,103 207,110 210,123 200,116 190,123 193,110 183,103 196,102"/>
+            <polygon fill="white" points="300,95 304,107 317,108 307,115 310,128 300,121 290,128 293,115 283,108 296,107"/>
+            <path fill="white" d="M30,150 L31.5,155 L37,155 L33,158 L34.5,163 L30,160 L25.5,163 L27,158 L23,155 L28.5,155 Z"/>
+            <path fill="white" d="M180,160 L181.5,165 L187,165 L183,168 L184.5,173 L180,170 L175.5,173 L177,168 L173,165 L178.5,165 Z"/>
+            <path fill="white" d="M370,145 L372,152 L379,152 L374,156 L376,163 L370,159 L364,163 L366,156 L361,152 L368,152 Z"/>
+          </svg>
+        </div>
+
+        <div class="relative z-10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+          <!-- Left: Text content -->
+          <div class="flex-1 text-white">
+            <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-[11px] font-mono uppercase tracking-wider mb-4">
+              <Cpu class="w-3 h-3 text-amber-400" />
+              Procedural Star Generator Studio
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight leading-tight mb-3">
+              Build Any Star, Instantly
+            </h2>
+            <p class="text-sm text-[#a0a0a0] leading-relaxed mb-6 max-w-md">
+              Create custom star shapes with 3 to 32 points. Apply 3D faceted gem materials, optical lens flares, neon glow rings, or rating bars — then export transparent PNG up to 4K or vector SVG.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {['Geometric', '3D Faceted', 'Lens Flare', 'Neon Glow', 'Rating Bar'].map((mode) => (
+                <span class="text-[11px] px-2.5 py-1 rounded-full bg-white/10 border border-white/20 text-white/80">
+                  {mode}
+                </span>
+              ))}
+            </div>
+            <a
+              href="/generator"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-400 text-[#171717] font-semibold text-sm hover:bg-amber-300 transition-colors shadow-lg"
+            >
+              <Wand2 class="w-4 h-4" />
+              Open Generator Studio
+            </a>
+          </div>
+
+          <!-- Right: Static star preview grid -->
+          <div class="shrink-0 grid grid-cols-3 gap-2.5 w-full max-w-[240px]">
+            {STAR_ASSETS.filter((s) => s.featured && s.category !== 'stickers').slice(0, 6).map((star) => {
+              const svg = buildStaticSvg(star.svgContent, star.defaultColor, star.id);
+              return (
+                <div class="aspect-square bg-white/10 rounded-xl flex items-center justify-center p-2.5 border border-white/10">
+                  <svg viewBox={star.viewBox} xmlns="http://www.w3.org/2000/svg" class="w-full h-full" set:html={svg} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Curated Star Catalog Section -->
-  <section id="catalog" class="py-16 bg-[#fafafa]">
+  <!-- Static Category Showcase (zero client JS) -->
+  <section id="catalog" class="py-14 bg-[#fafafa]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
         <div>
-          <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
-            Curated Asset Library
-          </span>
+          <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">Curated Asset Library</span>
           <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
-            Explore Star PNGs & SVGs by Category
+            Explore Star PNGs &amp; SVGs by Category
           </h2>
         </div>
-        <p class="text-xs text-[#8f8f8f] max-w-md mt-2 md:mt-0">
-          Click any star to open the in-browser customizer studio, or click <strong>Quick Copy</strong> to immediately copy the transparent image to your clipboard.
+        <p class="text-xs text-[#8f8f8f] max-w-xs mt-2 md:mt-0 leading-relaxed">
+          Click any asset to open the full detail page with 1-click copy and 4K download.
         </p>
       </div>
 
-      <!-- React Interactive Catalog Component -->
-      <StarCatalog client:load />
+      <!-- Category Sections -->
+      <div class="space-y-12">
+        {showcase.map((cat) => (
+          <div>
+            <!-- Category row header -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <span class="text-lg">{cat.emoji}</span>
+                <div>
+                  <h3 class="text-base font-bold text-[#171717]">{cat.label}</h3>
+                  <span class="text-xs text-[#8f8f8f] font-mono">{cat.total} assets</span>
+                </div>
+              </div>
+              <a
+                href={`/stars/${cat.slug}/`}
+                class="flex items-center gap-1 text-xs font-medium text-[#4d4d4d] hover:text-[#171717] border border-[#ebebeb] hover:border-[#171717] px-3 py-1.5 rounded-full transition-all"
+              >
+                Explore all {cat.total} <ArrowRight class="w-3 h-3" />
+              </a>
+            </div>
+
+            <!-- 6-asset compact static grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+              {cat.assets.map((asset) => {
+                const svg = buildStaticSvg(asset.svgContent, asset.defaultColor, asset.id);
+                return (
+                  <a href={`/star/${asset.slug}/`} class="group block">
+                    <div class="h-28 sm:h-32 bg-white rounded-xl border border-[#ebebeb] p-3 flex items-center justify-center group-hover:border-[#171717] group-hover:shadow-xs transition-all relative overflow-hidden">
+                      <div class="w-full h-full flex items-center justify-center">
+                        <svg
+                          viewBox={asset.viewBox}
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="max-w-full max-h-full transition-transform duration-200 group-hover:scale-105"
+                          style="max-height: 64px; max-width: 120px;"
+                          set:html={svg}
+                        />
+                      </div>
+                    </div>
+                    <div class="mt-2 px-0.5">
+                      <p class="text-xs font-medium text-[#171717] truncate group-hover:text-amber-600 transition-colors" title={asset.title}>
+                        {asset.title}
+                      </p>
+                      <p class="text-[11px] text-[#8f8f8f] font-mono mt-0.5">{asset.searchVolume}</p>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Browse All CTA -->
+      <div class="mt-12 text-center pt-8 border-t border-[#ebebeb]">
+        <p class="text-sm text-[#4d4d4d] mb-4">Browse all 16 categories with full filtering, search, and 1-click copy</p>
+        <div class="flex flex-wrap items-center justify-center gap-2">
+          {CATEGORIES.filter((c) => c.id !== 'all').map((cat) => (
+            <a
+              href={`/stars/${cat.slug}/`}
+              class="px-3.5 py-2 rounded-full border border-[#ebebeb] text-xs font-medium text-[#4d4d4d] hover:border-[#171717] hover:text-[#171717] transition-all bg-white"
+            >
+              {cat.name}
+            </a>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Comparison & Competitor Gap Section: StarPNG vs Flaticon vs Pinterest -->
+  <!-- Comparison Table -->
   <section id="comparison" class="py-16 bg-white border-y border-[#ebebeb]">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-2">
-          Competitor Comparison
-        </span>
+        <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-2">Competitor Comparison</span>
         <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
-          How StarPNG Solves Flaticon & Pinterest Restrictions
+          How StarPNG Solves Flaticon &amp; Pinterest Restrictions
         </h2>
         <p class="mt-3 text-sm text-[#4d4d4d] leading-relaxed">
           Flaticon advertises 160,000+ star icons, but locks SVG downloads behind a paid subscription, caps free PNGs at 512px, and requires mandatory legal attribution. Pinterest is flooded with fake checkerboard JPEGs. Here is how StarPNG compares:
         </p>
       </div>
 
-      <!-- Comparison Matrix Table -->
       <div class="overflow-x-auto rounded-xl border border-[#ebebeb] shadow-xs">
         <table class="w-full text-left border-collapse text-xs sm:text-sm">
           <thead>
@@ -244,7 +383,6 @@ const pageSchema = {
                 <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> Never Available
               </td>
             </tr>
-
             <tr>
               <td class="p-4 font-medium text-[#171717]">Attribution Requirement</td>
               <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
@@ -255,7 +393,6 @@ const pageSchema = {
               </td>
               <td class="p-4 text-[#8f8f8f]">Varies / copyright risks</td>
             </tr>
-
             <tr>
               <td class="p-4 font-medium text-[#171717]">Max PNG Resolution</td>
               <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
@@ -264,7 +401,6 @@ const pageSchema = {
               <td class="p-4 text-[#8f8f8f]">Capped at 512px max</td>
               <td class="p-4 text-[#8f8f8f]">Random uncompressed pins</td>
             </tr>
-
             <tr>
               <td class="p-4 font-medium text-[#171717]">Procedural Custom Star Generator</td>
               <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
@@ -275,18 +411,6 @@ const pageSchema = {
                 <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> None
               </td>
             </tr>
-
-            <tr>
-              <td class="p-4 font-medium text-[#171717]">Complexity Variety (Basic to 3D)</td>
-              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
-                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> 3 Tiers: Basic, Moderate & High-Level 3D/FX
-              </td>
-              <td class="p-4 text-[#8f8f8f]">Flat 2D icons primarily</td>
-              <td class="p-4 text-rose-600">
-                <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> Inconsistent & low-res
-              </td>
-            </tr>
-
             <tr>
               <td class="p-4 font-medium text-[#171717]">Direct OS Clipboard Copy</td>
               <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
@@ -297,7 +421,6 @@ const pageSchema = {
                 <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> No direct PNG copy
               </td>
             </tr>
-
             <tr>
               <td class="p-4 font-medium text-[#171717]">True Transparent Alpha Channel</td>
               <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
@@ -314,14 +437,12 @@ const pageSchema = {
     </div>
   </section>
 
-  <!-- Comprehensive SEO Guide (800 - 1200+ words) -->
+  <!-- SEO Guide -->
   <section class="py-16 bg-[#fafafa] border-b border-[#ebebeb]">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="prose prose-neutral max-w-none text-[#4d4d4d] space-y-10 leading-relaxed text-sm sm:text-base">
         <div>
-          <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
-            Design Technical Guide
-          </span>
+          <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">Design Technical Guide</span>
           <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight mb-4">
             The Definitive Guide to Star PNGs: Alpha Channels, Vector Formats, and Quality Checks
           </h2>
@@ -334,50 +455,28 @@ const pageSchema = {
         </div>
 
         <div class="p-6 bg-white rounded-xl border border-[#ebebeb] shadow-xs">
-          <h3 class="text-xl font-bold text-[#171717] mb-3">
-            Top Star PNG Categories & Best Use Cases
-          </h3>
+          <h3 class="text-xl font-bold text-[#171717] mb-3">Top Star PNG Categories &amp; Best Use Cases</h3>
           <ul class="space-y-3 pl-4 list-disc marker:text-[#171717]">
-            <li>
-              <strong>Infinite Procedural Generator:</strong> Create any star on demand with 3 to 32 points, custom inner spike depths, 3D faceted gemstones, lens flares, and neon glow.
-            </li>
-            <li>
-              <strong>Star Stickers & Y2K Aesthetic Decals:</strong> Thick white die-cut borders, holographic prisms, retro groovy designs, and vaporwave sticker graphics ready for physical print or digital overlays.
-            </li>
-            <li>
-              <strong>Live Animated Star SVGs:</strong> Smooth CSS keyframe animations featuring twinkling celestial stars, pulsating neon stars, rotating 3D coins, floating baby stars, and shooting meteors.
-            </li>
-            <li>
-              <strong>UI & Interface Star Icons:</strong> Web-optimized favorite buttons, verified checkmark star shields, bookmark ribbons, and rating badges formatted with crisp SVG paths.
-            </li>
-            <li>
-              <strong>Star Badges & Medals:</strong> Military rank insignias, Wild West sheriff 5-point badges, award rosettes with hanging ribbons, and circular VIP seals.
-            </li>
-            <li>
-              <strong>Star Frames, Borders & Garlands:</strong> Circular avatar wreaths, Instagram/Polaroid decorative star frames, photo borders, and hanging fairy-light garlands.
-            </li>
-            <li>
-              <strong>Celestial & Star Bears:</strong> Adorable kawaii teddy bears hugging glowing stars, sleeping cartoon bears nestled on crescent moons, and dreamy night-sky nursery illustrations.
-            </li>
-            <li>
-              <strong>5-Star Rating PNGs & Review Bars:</strong> Essential for e-commerce conversion optimization, Shopify stores, and Trustpilot-style customer feedback widgets.
-            </li>
-            <li>
-              <strong>3D Glossy & Faceted Crystal Stars:</strong> Volumetric 3D stars with dynamic specular highlights and realistic light refraction, rendered cleanly with transparent alpha.
-            </li>
+            <li><strong>Infinite Procedural Generator:</strong> Create any star on demand with 3 to 32 points, custom inner spike depths, 3D faceted gemstones, lens flares, and neon glow.</li>
+            <li><strong>Star Stickers &amp; Y2K Aesthetic Decals:</strong> Thick white die-cut borders, holographic prisms, retro groovy designs, and vaporwave sticker graphics ready for physical print or digital overlays.</li>
+            <li><strong>Live Animated Star SVGs:</strong> Smooth CSS keyframe animations featuring twinkling celestial stars, pulsating neon stars, rotating 3D coins, floating baby stars, and shooting meteors.</li>
+            <li><strong>UI &amp; Interface Star Icons:</strong> Web-optimized favorite buttons, verified checkmark star shields, bookmark ribbons, and rating badges formatted with crisp SVG paths.</li>
+            <li><strong>Star Badges &amp; Medals:</strong> Military rank insignias, Wild West sheriff 5-point badges, award rosettes with hanging ribbons, and circular VIP seals.</li>
+            <li><strong>Star Frames, Borders &amp; Garlands:</strong> Circular avatar wreaths, Instagram/Polaroid decorative star frames, photo borders, and hanging fairy-light garlands.</li>
+            <li><strong>Celestial &amp; Star Bears:</strong> Adorable kawaii teddy bears hugging glowing stars, sleeping cartoon bears nestled on crescent moons, and dreamy night-sky nursery illustrations.</li>
+            <li><strong>5-Star Rating PNGs &amp; Review Bars:</strong> Essential for e-commerce conversion optimization, Shopify stores, and Trustpilot-style customer feedback widgets.</li>
+            <li><strong>3D Glossy &amp; Faceted Crystal Stars:</strong> Volumetric 3D stars with dynamic specular highlights and realistic light refraction, rendered cleanly with transparent alpha.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Interactive FAQ Section with Schema Support -->
+  <!-- FAQ Section -->
   <section id="faq" class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
-          Common Questions
-        </span>
+        <span class="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">Common Questions</span>
         <h2 class="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
           Frequently Asked Questions About Star PNGs
         </h2>
@@ -400,7 +499,7 @@ const pageSchema = {
             Can I download star stickers, animated stars, star frames, and star bear mascots?
           </h3>
           <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
-            Yes! StarPNG goes far beyond isolated stars. Our catalog includes die-cut star stickers, live CSS/SVG animated stars (twinkle, pulse, spin, float), UI interface icons (favorites, bookmarks, rating shields), ornate star frames/borders, celestial moon & stars, and cute kawaii star bear mascots.
+            Yes! StarPNG goes far beyond isolated stars. Our catalog includes die-cut star stickers, live CSS/SVG animated stars (twinkle, pulse, spin, float), UI interface icons (favorites, bookmarks, rating shields), ornate star frames/borders, celestial moon &amp; stars, and cute kawaii star bear mascots.
           </p>
         </div>
 
@@ -420,7 +519,7 @@ const pageSchema = {
             Can I generate custom star shapes with specific point counts?
           </h3>
           <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
-            Yes! With our built-in Procedural Star Generator Studio, you can generate any star geometry from 3 to 32 points, customize the inner spike depth, switch between sharp and curved flared rays, apply 3D or neon shading, and export directly to 4K transparent PNG or vector SVG.
+            Yes! With our built-in <a href="/generator" class="text-amber-600 hover:underline">Procedural Star Generator Studio</a>, you can generate any star geometry from 3 to 32 points, customize the inner spike depth, switch between sharp and curved flared rays, apply 3D or neon shading, and export directly to 4K transparent PNG or vector SVG.
           </p>
         </div>
 

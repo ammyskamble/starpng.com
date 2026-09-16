@@ -118,14 +118,6 @@ export function getStaticPaths() {
       heading: 'Interface Star Icons & App Navigation Badges',
       lead: 'Pixel-aligned UI star icons engineered on 24px and 48px grids. Optimized for web apps, mobile navigation bars, e-commerce wishlist buttons, and trust badges.'
     },
-    frames: {
-      title: 'Star Frames & Borders',
-      metaTitle: 'Star Frame PNG - Circular Avatar Wreaths, Polaroids & Party Garlands',
-      description: 'Free transparent star frame PNGs and decorative borders. Constellation circular avatar frames, polaroid photo frames with scattered stars, and hanging party garlands.',
-      keywords: 'star frame png, star border png, avatar star frame, polaroid star frame, hanging star garland',
-      heading: 'Star Frames, Borders & Hanging Garlands',
-      lead: 'Decorative star photo borders, circular constellation avatar rings, and festive star bunting garlands with pure alpha transparency.'
-    },
     celestial: {
       title: 'Moon & Celestial Stars',
       metaTitle: 'Star Moon PNG - Crescent Moons, Nursery Clouds & Celestial Talismans',
@@ -141,6 +133,14 @@ export function getStaticPaths() {
       keywords: 'star badge png, star rosette ribbon, sheriff star badge png, first place star medal, vip star seal',
       heading: 'Star Badges, Rosette Ribbons & Award Seals',
       lead: 'Prestigious ceremonial award rosette ribbons, authentic western sheriff badges, and executive VIP presidential star seals for certifications and achievements.'
+    },
+    frames: {
+      title: 'Star Frames & Borders',
+      metaTitle: 'Star Frame PNG - Photo Frames, Certificate Borders & Neon Star Borders Transparent',
+      description: 'Download transparent star frame PNGs and decorative borders. Corner-star photo frames, ornate gold certificate borders, constellation frames, polaroid star borders, neon glow frames, and star wreath oval portraits.',
+      keywords: 'star frame png, photo frame transparent, certificate frame png, star border png, neon frame png, constellation frame, star wreath frame, ornate gold border',
+      heading: 'Star Frames, Borders & Decorative Photo Overlays',
+      lead: 'Premium decorative star frames for portraits, certificates, and social media content. From minimal 4-corner star borders to elaborate ornate gold diploma frames and electric neon glow borders.'
     }
   };
 
@@ -227,7 +227,7 @@ const categorySchema = {
       </div>
 
       {/* Interactive Filtered Catalog */}
-      <StarCatalog client:load initialCategory={categoryKey} />
+      <StarCatalog client:visible initialCategory={categoryKey} />
     </div>
   </div>
 </BaseLayout>
