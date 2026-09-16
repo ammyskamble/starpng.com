@@ -1,40 +1,43 @@
 import React, { useState, useMemo } from 'react';
-import { STAR_ASSETS, CATEGORIES, type StarAsset } from '../data/stars';
+import { STAR_ASSETS, CATEGORIES, LEVELS, type StarAsset } from '../data/stars';
 import { injectColorShades } from '../utils/colorUtils';
 import StarStudioModal from './StarStudioModal';
-import { Search, Sliders, Copy, Check, Download, Sparkles, Zap, ShieldCheck, Cpu, Tag, FileCode, CheckCircle2, Lock } from 'lucide-react';
+import { Search, Sliders, Copy, Check, Download, Sparkles, Zap, ShieldCheck, Cpu, Tag, FileCode, CheckCircle2, Lock, Layers } from 'lucide-react';
 
 interface StarCatalogProps {
   initialCategory?: string;
 }
 
 const POPULAR_TAGS = [
+  { label: 'Star Bears', query: 'bear' },
+  { label: 'Star Stickers', query: 'sticker' },
+  { label: 'Animated Stars', query: 'animated' },
+  { label: 'Star Moon', query: 'moon' },
+  { label: 'Star Frames', query: 'frame' },
+  { label: 'UI Star Icons', query: 'ui-' },
   { label: '5-Star Rating', query: 'rating' },
-  { label: 'Gold Star', query: 'gold' },
-  { label: 'Futuristic AI', query: 'ai' },
-  { label: '3D Glossy', query: '3d' },
+  { label: '3D Faceted Gold', query: 'faceted' },
+  { label: 'Lens Flare FX', query: 'flare' },
   { label: 'Y2K Cyber', query: 'y2k' },
-  { label: 'Aesthetic Sparkle', query: 'sparkle' },
-  { label: 'Star Outline', query: 'outline' },
-  { label: 'Shooting Star', query: 'shooting' },
-  { label: 'North Star', query: 'north' },
-  { label: 'Neon Glow', query: 'neon' },
-  { label: 'Award Badge', query: 'badge' },
-  { label: 'Cute Kawaii', query: 'cute' },
+  { label: 'Star Badges', query: 'badge' },
+  { label: 'Cute Kawaii', query: 'kawaii' },
 ];
 
 export default function StarCatalog({ initialCategory = 'all' }: StarCatalogProps) {
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
+  const [activeLevel, setActiveLevel] = useState<string>('all');
+  const [isLiveAnimated, setIsLiveAnimated] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [selectedStar, setSelectedStar] = useState<StarAsset | null>(null);
   const [isStudioOpen, setIsStudioOpen] = useState<boolean>(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  // Filter stars by category, search query, and active tags
+  // Filter stars by category, level, search query, and active tags
   const filteredStars = useMemo(() => {
     return STAR_ASSETS.filter((star) => {
       const matchesCategory = activeCategory === 'all' || star.category === activeCategory;
+      const matchesLevel = activeLevel === 'all' || star.level === activeLevel;
       const query = searchQuery.toLowerCase().trim();
       const tag = selectedTag ? selectedTag.toLowerCase().trim() : '';
 
@@ -49,11 +52,12 @@ export default function StarCatalog({ initialCategory = 'all' }: StarCatalogProp
         star.title.toLowerCase().includes(tag) ||
         star.description.toLowerCase().includes(tag) ||
         star.tags.some((t) => t.toLowerCase().includes(tag)) ||
-        star.category.toLowerCase().includes(tag);
+        star.category.toLowerCase().includes(tag) ||
+        star.level.toLowerCase().includes(tag);
 
-      return matchesCategory && matchesSearch && matchesTag;
+      return matchesCategory && matchesLevel && matchesSearch && matchesTag;
     });
-  }, [activeCategory, searchQuery, selectedTag]);
+  }, [activeCategory, activeLevel, searchQuery, selectedTag]);
 
   const openStudio = (star: StarAsset) => {
     setSelectedStar(star);
@@ -159,9 +163,22 @@ export default function StarCatalog({ initialCategory = 'all' }: StarCatalogProp
             )}
           </div>
 
-          {/* Quick Metrics Badge */}
-          <div className="hidden lg:flex items-center gap-3 text-xs text-[#8f8f8f] font-mono">
-            <span className="flex items-center gap-1 text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+          {/* Quick Metrics Badge & Live Animation Toggle */}
+          <div className="flex items-center gap-2.5 text-xs text-[#8f8f8f] font-mono">
+            <button
+              type="button"
+              onClick={() => setIsLiveAnimated(!isLiveAnimated)}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border transition-colors cursor-pointer ${
+                isLiveAnimated
+                  ? 'bg-amber-50 border-amber-300 text-amber-900 font-semibold'
+                  : 'bg-white border-[#ebebeb] text-[#8f8f8f]'
+              }`}
+              title="Toggle live animations on stars"
+            >
+              <Sparkles className={`w-3.5 h-3.5 ${isLiveAnimated ? 'text-amber-500 animate-spin' : 'text-[#8f8f8f]'}`} />
+              <span>{isLiveAnimated ? 'Live Animation ON' : 'Animation OFF'}</span>
+            </button>
+            <span className="hidden lg:flex items-center gap-1 text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
               <Cpu className="w-3.5 h-3.5" /> AI & 3D Vector Shading
             </span>
             <span className="text-[#171717] font-semibold">{filteredStars.length} Assets Found</span>
@@ -187,6 +204,33 @@ export default function StarCatalog({ initialCategory = 'all' }: StarCatalogProp
                 }`}
               >
                 {tag.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Complexity Level Filter Pills (Basic, Moderate, High-Level) */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+          <span className="text-[#8f8f8f] font-mono text-[11px] uppercase tracking-wider mr-1 flex items-center gap-1 shrink-0">
+            <Layers className="w-3 h-3 text-[#8f8f8f]" /> Complexity:
+          </span>
+          {LEVELS.map((lvl) => {
+            const isLevelActive = activeLevel === lvl.id;
+            return (
+              <button
+                key={lvl.id}
+                type="button"
+                onClick={() => setActiveLevel(lvl.id)}
+                className={`whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+                  isLevelActive
+                    ? 'bg-[#171717] text-white shadow-xs'
+                    : 'bg-white border border-[#ebebeb] text-[#4d4d4d] hover:border-[#171717] hover:text-[#171717]'
+                }`}
+              >
+                {lvl.id === 'basic' && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>}
+                {lvl.id === 'moderate' && <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>}
+                {lvl.id === 'high' && <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>}
+                {lvl.name}
               </button>
             );
           })}
@@ -227,6 +271,7 @@ export default function StarCatalog({ initialCategory = 'all' }: StarCatalogProp
             type="button"
             onClick={() => {
               setActiveCategory('all');
+              setActiveLevel('all');
               setSearchQuery('');
               setSelectedTag(null);
             }}
@@ -247,23 +292,45 @@ export default function StarCatalog({ initialCategory = 'all' }: StarCatalogProp
               >
                 {/* Visual Preview Stage */}
                 <div className="relative w-full aspect-square p-6 flex items-center justify-center checkerboard-bg border-b border-[#ebebeb] overflow-hidden">
-                  {/* Category Pill Tag */}
-                  <div className="absolute top-2.5 left-2.5 z-10">
+                  {/* Category Pill Tag & Level Badge */}
+                  <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5">
                     <span className="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider bg-white/90 backdrop-blur-xs text-[#4d4d4d] rounded-sm border border-[#ebebeb]">
                       {star.categoryName}
                     </span>
+                    {star.level === 'high' && (
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono font-semibold text-amber-800 bg-amber-100/90 backdrop-blur-xs rounded-sm border border-amber-300">
+                        3D / FX
+                      </span>
+                    )}
+                    {star.level === 'moderate' && (
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono text-purple-700 bg-purple-50/90 backdrop-blur-xs rounded-sm border border-purple-200">
+                        Stylized
+                      </span>
+                    )}
+                    {star.level === 'basic' && (
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono text-emerald-700 bg-emerald-50/90 backdrop-blur-xs rounded-sm border border-emerald-200">
+                        Basic
+                      </span>
+                    )}
                   </div>
 
-                  {/* Free SVG Badge */}
+                  {/* Right Header Badges: Animated & SVG */}
                   <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-1">
+                    {star.animationType && (
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono font-bold text-violet-700 bg-violet-100/90 backdrop-blur-xs rounded-sm border border-violet-300 flex items-center gap-0.5">
+                        <Sparkles className="w-2.5 h-2.5" /> LIVE
+                      </span>
+                    )}
                     <span className="px-1.5 py-0.5 text-[9px] font-mono font-bold text-blue-700 bg-blue-50/95 backdrop-blur-xs rounded-sm border border-blue-200">
                       SVG+PNG
                     </span>
                   </div>
 
-                  {/* SVG Star Illustration with dynamic 3D gradient / shading */}
+                  {/* SVG Star Illustration with dynamic 3D gradient / shading & live animation */}
                   <div
-                    className="w-3/4 h-3/4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 drop-shadow-sm"
+                    className={`w-3/4 h-3/4 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 drop-shadow-sm ${
+                      isLiveAnimated && star.animationType ? `animate-star-${star.animationType}` : ''
+                    }`}
                     dangerouslySetInnerHTML={{
                       __html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${star.viewBox}" class="w-full h-full">${injectColorShades(star.svgContent, star.defaultColor, star.id)}</svg>`
                     }}

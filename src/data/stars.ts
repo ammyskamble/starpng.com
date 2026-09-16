@@ -1,9 +1,15 @@
+export type StarLevel = 'basic' | 'moderate' | 'high';
+export type AnimationType = 'twinkle' | 'pulse' | 'spin' | 'float' | 'shooting';
+
 export interface StarAsset {
   id: string;
   title: string;
   slug: string;
-  category: 'ratings' | 'y2k' | 'futuristic' | 'gold' | '3d' | 'sparkle' | 'aesthetic' | 'geometric' | 'neon' | 'outline';
+  category: 'ratings' | 'y2k' | 'futuristic' | 'gold' | '3d' | 'sparkle' | 'aesthetic' | 'geometric' | 'neon' | 'outline' | 'stickers' | 'animated' | 'interface' | 'frames' | 'badges' | 'celestial' | 'characters';
   categoryName: string;
+  level: StarLevel;
+  animationType?: AnimationType;
+  isAnimated?: boolean;
   description: string;
   tags: string[];
   searchVolume: string;
@@ -13,8 +19,22 @@ export interface StarAsset {
   featured?: boolean;
 }
 
+export const LEVELS = [
+  { id: 'all', name: 'All Levels' },
+  { id: 'basic', name: 'Basic (UI & Minimal)' },
+  { id: 'moderate', name: 'Moderate (Y2K, Glow & Aesthetic)' },
+  { id: 'high', name: 'High-Level (3D, Flares & FX)' },
+] as const;
+
 export const CATEGORIES = [
   { id: 'all', name: 'All Stars', slug: '' },
+  { id: 'characters', name: 'Star Bears & Mascots', slug: 'characters' },
+  { id: 'stickers', name: 'Star Stickers', slug: 'stickers' },
+  { id: 'animated', name: 'Animated Stars', slug: 'animated' },
+  { id: 'interface', name: 'UI & Interface Icons', slug: 'interface' },
+  { id: 'frames', name: 'Frames & Borders', slug: 'frames' },
+  { id: 'celestial', name: 'Moon & Celestial', slug: 'celestial' },
+  { id: 'badges', name: 'Badges & Ribbons', slug: 'badges' },
   { id: 'ratings', name: '5-Star Ratings', slug: 'ratings' },
   { id: 'futuristic', name: 'Futuristic & AI', slug: 'futuristic' },
   { id: 'y2k', name: 'Y2K & Cyber', slug: 'y2k' },
@@ -24,7 +44,7 @@ export const CATEGORIES = [
   { id: 'sparkle', name: 'Sparkle & Twinkle', slug: 'sparkle' },
   { id: 'aesthetic', name: 'Aesthetic & Cute', slug: 'aesthetic' },
   { id: 'geometric', name: 'Geometric & Compass', slug: 'geometric' },
-  { id: 'outline', name: 'Outlines & Badges', slug: 'outline' },
+  { id: 'outline', name: 'Outlines & Seals', slug: 'outline' },
 ] as const;
 
 export const STAR_ASSETS: StarAsset[] = [
@@ -33,6 +53,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'five-star-rating-row',
+    level: 'basic',
     title: '5 Star Rating PNG',
     slug: '5-star-rating-png',
     category: 'ratings',
@@ -55,6 +76,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'four-half-star-rating',
+    level: 'basic',
     title: '4.5 Star Rating PNG',
     slug: '4-5-star-rating-png',
     category: 'ratings',
@@ -83,6 +105,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'four-star-rating-row',
+    level: 'basic',
     title: '4 Star Rating PNG',
     slug: '4-star-rating-png',
     category: 'ratings',
@@ -105,6 +128,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'single-half-star-bisected',
+    level: 'basic',
     title: 'Half Star Rating PNG',
     slug: 'half-star-rating-png',
     category: 'ratings',
@@ -124,6 +148,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'star-medal-award-ribbon',
+    level: 'moderate',
     title: 'Star Medal Ribbon PNG',
     slug: 'star-medal-ribbon-png',
     category: 'ratings',
@@ -147,6 +172,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'star-favorite-circle-badge',
+    level: 'basic',
     title: 'Star in Circle Favorite Icon PNG',
     slug: 'star-in-circle-png',
     category: 'ratings',
@@ -164,6 +190,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'trust-badge-verified-star',
+    level: 'moderate',
     title: 'Trust Badge Star PNG',
     slug: 'trust-badge-star-png',
     category: 'ratings',
@@ -185,6 +212,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'ai-hologram-cyber-star',
+    level: 'high',
     title: 'AI Hologram Cyber Star PNG',
     slug: 'ai-hologram-cyber-star-png',
     category: 'futuristic',
@@ -213,6 +241,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'ai-quantum-hyper-star',
+    level: 'high',
     title: 'AI Quantum Hyper Star PNG',
     slug: 'ai-quantum-hyper-star-png',
     category: 'futuristic',
@@ -239,6 +268,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'ai-digital-glitch-star',
+    level: 'moderate',
     title: 'AI Digital Matrix Glitch Star PNG',
     slug: 'ai-digital-glitch-star-png',
     category: 'futuristic',
@@ -266,6 +296,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'ai-cyber-hud-star',
+    level: 'high',
     title: 'Sci-Fi HUD Target Star PNG',
     slug: 'scifi-hud-star-png',
     category: 'futuristic',
@@ -292,6 +323,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'glossy-3d-star',
+    level: 'high',
     title: '3D Glossy Star PNG',
     slug: '3d-star-png',
     category: '3d',
@@ -322,6 +354,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'faceted-3d-gem-star',
+    level: 'high',
     title: '3D Faceted Crystal Star PNG',
     slug: '3d-faceted-gem-star-png',
     category: '3d',
@@ -347,6 +380,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'isometric-3d-star-block',
+    level: 'high',
     title: 'Isometric 3D Extruded Star PNG',
     slug: 'isometric-3d-star-png',
     category: '3d',
@@ -371,6 +405,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'frosted-glassmorphism-star',
+    level: 'high',
     title: 'Glassmorphism Star PNG',
     slug: 'glassmorphism-star-png',
     category: '3d',
@@ -396,6 +431,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'y2k-cyber-sparkle-star',
+    level: 'moderate',
     title: 'Y2K Cyber Star PNG',
     slug: 'y2k-star-png',
     category: 'y2k',
@@ -412,6 +448,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'y2k-eight-point-cross',
+    level: 'moderate',
     title: 'Y2K 8-Point Starburst PNG',
     slug: 'y2k-starburst-png',
     category: 'y2k',
@@ -429,6 +466,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'y2k-chrome-liquid-star',
+    level: 'high',
     title: 'Y2K Liquid Chrome Star PNG',
     slug: 'y2k-chrome-star-png',
     category: 'y2k',
@@ -454,6 +492,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'y2k-orbital-wireframe-star',
+    level: 'moderate',
     title: 'Y2K Orbital Wireframe Star PNG',
     slug: 'y2k-wireframe-star-png',
     category: 'y2k',
@@ -478,6 +517,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'gold-classic-5-point-star',
+    level: 'moderate',
     title: 'Gold Star PNG',
     slug: 'gold-star-png',
     category: 'gold',
@@ -506,6 +546,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'royal-gold-award-star',
+    level: 'high',
     title: 'Royal Gold Award Star PNG',
     slug: 'royal-gold-star-png',
     category: 'gold',
@@ -531,6 +572,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'gold-coin-star-emblem',
+    level: 'high',
     title: 'Gold Coin Star Token PNG',
     slug: 'gold-coin-star-png',
     category: 'gold',
@@ -556,6 +598,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // ==========================================
   {
     id: 'cyberpunk-neon-star',
+    level: 'moderate',
     title: 'Cyberpunk Neon Star PNG',
     slug: 'neon-star-png',
     category: 'neon',
@@ -574,6 +617,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'neon-multi-ring-star',
+    level: 'high',
     title: 'Neon Pulsar Star PNG',
     slug: 'neon-pulsar-star-png',
     category: 'neon',
@@ -597,6 +641,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'aesthetic-sparkle-star',
+    level: 'moderate',
     title: 'Aesthetic Sparkle Star PNG',
     slug: 'aesthetic-star-png',
     category: 'sparkle',
@@ -617,6 +662,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'shooting-star-comet',
+    level: 'moderate',
     title: 'Shooting Star PNG',
     slug: 'shooting-star-png',
     category: 'sparkle',
@@ -644,6 +690,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'magic-wand-star-sparkle',
+    level: 'moderate',
     title: 'Magic Wand Star Sparkle PNG',
     slug: 'magic-wand-star-png',
     category: 'sparkle',
@@ -672,6 +719,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'cute-kawaii-star',
+    level: 'moderate',
     title: 'Cute Kawaii Star PNG',
     slug: 'cute-kawaii-star-png',
     category: 'aesthetic',
@@ -693,6 +741,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'hand-drawn-doodle-star',
+    level: 'basic',
     title: 'Hand-Drawn Doodle Star PNG',
     slug: 'hand-drawn-star-png',
     category: 'aesthetic',
@@ -710,6 +759,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'crescent-moon-and-star',
+    level: 'moderate',
     title: 'Crescent Moon with Star PNG',
     slug: 'crescent-moon-star-png',
     category: 'aesthetic',
@@ -733,6 +783,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'north-star-polaris',
+    level: 'moderate',
     title: 'North Star PNG (Polaris)',
     slug: 'north-star-png',
     category: 'geometric',
@@ -751,6 +802,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'four-point-star-minimal',
+    level: 'basic',
     title: '4-Point Star PNG',
     slug: '4-point-star-png',
     category: 'geometric',
@@ -767,6 +819,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'six-point-hexagram-star',
+    level: 'basic',
     title: '6-Point Hexagram Star PNG',
     slug: '6-point-star-png',
     category: 'geometric',
@@ -784,6 +837,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'nautical-compass-rose-star',
+    level: 'moderate',
     title: 'Nautical Compass Rose Star PNG',
     slug: 'compass-rose-star-png',
     category: 'geometric',
@@ -819,6 +873,7 @@ export const STAR_ASSETS: StarAsset[] = [
   // =========================================================================
   {
     id: 'clean-star-outline',
+    level: 'basic',
     title: 'Star Outline PNG',
     slug: 'star-outline-png',
     category: 'outline',
@@ -835,6 +890,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'starburst-sale-badge',
+    level: 'basic',
     title: 'Starburst Badge PNG',
     slug: 'starburst-png',
     category: 'outline',
@@ -854,6 +910,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'sheriff-badge-star',
+    level: 'basic',
     title: 'Sheriff Badge Star PNG',
     slug: 'sheriff-star-png',
     category: 'outline',
@@ -876,6 +933,7 @@ export const STAR_ASSETS: StarAsset[] = [
   },
   {
     id: 'military-circled-star',
+    level: 'basic',
     title: 'Military Star in Circle PNG',
     slug: 'military-star-png',
     category: 'outline',
@@ -892,8 +950,1237 @@ export const STAR_ASSETS: StarAsset[] = [
       <polygon fill="{{STAR_MAIN}}" points="50,14 58,37 84,38 64,52 70,76 50,62 30,76 36,52 16,38 42,37" />
     `,
     featured: false,
+  },
+
+  // =========================================================================
+  // 11. EXPANDED COMPETITOR CATALOG ADDITIONS (BASIC, MODERATE, HIGH-LEVEL)
+  // =========================================================================
+  {
+    id: 'one-star-rating-row',
+    title: '1 Star Rating PNG',
+    slug: '1-star-rating-png',
+    category: 'ratings',
+    categoryName: '5-Star Ratings',
+    level: 'basic',
+    description: 'Crisp 1 star rating graphic with 1 solid gold star and 4 empty grey stars. Used for customer review filters, critique badges, and feedback metrics.',
+    tags: ['1 star rating png', 'one star review png', 'single star rating', 'poor rating icon'],
+    searchVolume: '5,800/mo',
+    defaultColor: '#F59E0B',
+    viewBox: '0 0 260 50',
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="25,5 31,18 45,19 34,29 37,43 25,36 13,43 16,29 5,19 19,18" />
+      <g fill="#E5E7EB">
+        <polygon points="75,5 81,18 95,19 84,29 87,43 75,36 63,43 66,29 55,19 69,18" />
+        <polygon points="125,5 131,18 145,19 134,29 137,43 125,36 113,43 116,29 105,19 119,18" />
+        <polygon points="175,5 181,18 195,19 184,29 187,43 175,36 163,43 166,29 155,19 169,18" />
+        <polygon points="225,5 231,18 245,19 234,29 237,43 225,36 213,43 216,29 205,19 219,18" />
+      </g>
+    `,
+    featured: false,
+  },
+  {
+    id: 'two-star-rating-row',
+    title: '2 Star Rating PNG',
+    slug: '2-star-rating-png',
+    category: 'ratings',
+    categoryName: '5-Star Ratings',
+    level: 'basic',
+    description: 'Transparent 2 star review rating bar with 2 solid gold stars and 3 empty stars. Ideal for feedback forms, review breakdown charts, and rating selectors.',
+    tags: ['2 star rating png', 'two star review png', 'rating breakdown bar'],
+    searchVolume: '4,100/mo',
+    defaultColor: '#F59E0B',
+    viewBox: '0 0 260 50',
+    svgContent: `
+      <g fill="{{STAR_MAIN}}">
+        <polygon points="25,5 31,18 45,19 34,29 37,43 25,36 13,43 16,29 5,19 19,18" />
+        <polygon points="75,5 81,18 95,19 84,29 87,43 75,36 63,43 66,29 55,19 69,18" />
+      </g>
+      <g fill="#E5E7EB">
+        <polygon points="125,5 131,18 145,19 134,29 137,43 125,36 113,43 116,29 105,19 119,18" />
+        <polygon points="175,5 181,18 195,19 184,29 187,43 175,36 163,43 166,29 155,19 169,18" />
+        <polygon points="225,5 231,18 245,19 234,29 237,43 225,36 213,43 216,29 205,19 219,18" />
+      </g>
+    `,
+    featured: false,
+  },
+  {
+    id: 'three-star-rating-row',
+    title: '3 Star Rating PNG',
+    slug: '3-star-rating-png',
+    category: 'ratings',
+    categoryName: '5-Star Ratings',
+    level: 'basic',
+    description: 'Clean 3-star rating bar with 3 solid gold stars and 2 inactive stars. Perfect for neutral feedback indicators, Amazon rating filters, and customer evaluation scores.',
+    tags: ['3 star rating png', 'three star review png', 'average rating star bar'],
+    searchVolume: '6,400/mo',
+    defaultColor: '#F59E0B',
+    viewBox: '0 0 260 50',
+    svgContent: `
+      <g fill="{{STAR_MAIN}}">
+        <polygon points="25,5 31,18 45,19 34,29 37,43 25,36 13,43 16,29 5,19 19,18" />
+        <polygon points="75,5 81,18 95,19 84,29 87,43 75,36 63,43 66,29 55,19 69,18" />
+        <polygon points="125,5 131,18 145,19 134,29 137,43 125,36 113,43 116,29 105,19 119,18" />
+      </g>
+      <g fill="#E5E7EB">
+        <polygon points="175,5 181,18 195,19 184,29 187,43 175,36 163,43 166,29 155,19 169,18" />
+        <polygon points="225,5 231,18 245,19 234,29 237,43 225,36 213,43 216,29 205,19 219,18" />
+      </g>
+    `,
+    featured: false,
+  },
+  {
+    id: 'seven-point-heptagram',
+    title: '7-Point Star Heptagram PNG',
+    slug: '7-point-star-png',
+    category: 'geometric',
+    categoryName: 'Geometric & Compass',
+    level: 'basic',
+    description: 'Mystical 7-point star heptagram vector PNG with geometric symmetry. Associated with sacred geometry, elven stars, astronomy, and mystical emblems.',
+    tags: ['7 point star png', 'heptagram star png', 'sacred geometry star', 'elven star png'],
+    searchVolume: '5,300/mo',
+    defaultColor: '#8B5CF6',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="50,5 59.4,24.1 80.7,21.5 73.1,41.6 91.8,52.2 73.7,63.9 82.2,83.5 61.1,80 50,98 38.9,80 17.8,83.5 26.3,63.9 8.2,52.2 26.9,41.6 19.3,21.5 40.6,24.1" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'ten-point-decagram',
+    title: '10-Point Star Decagram PNG',
+    slug: '10-point-star-png',
+    category: 'geometric',
+    categoryName: 'Geometric & Compass',
+    level: 'basic',
+    description: 'Harmonious 10-point decagram star PNG with crisp mathematical symmetry. Frequently used for rosette insignias, police badge bases, and astronomical diagrams.',
+    tags: ['10 point star png', 'decagram star png', 'geometric star badge', 'star rosette'],
+    searchVolume: '4,800/mo',
+    defaultColor: '#0EA5E9',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="50,5 57,25 76,14 74,35 95,35 83,52 98,67 79,72 82,93 63,84 50,98 37,84 18,93 21,72 2,67 17,52 5,35 26,35 24,14 43,25" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'thirty-two-point-sunburst-seal',
+    title: '32-Point Sunburst Certificate Seal PNG',
+    slug: '32-point-sunburst-png',
+    category: 'outline',
+    categoryName: 'Outlines & Badges',
+    level: 'basic',
+    description: 'Official 32-point notary and diploma sunburst certificate seal PNG. Transparent background with high density teeth, ideal for wax seal stamps and guarantee stickers.',
+    tags: ['32 point starburst', 'certificate seal png', 'notary seal star', 'diploma stamp star'],
+    searchVolume: '12,400/mo',
+    defaultColor: '#CA8A04',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <defs>
+        <radialGradient id="sealGrad" cx="40%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="{{STAR_HIGHLIGHT}}" />
+          <stop offset="70%" stop-color="{{STAR_MAIN}}" />
+          <stop offset="100%" stop-color="{{STAR_DARK}}" />
+        </radialGradient>
+      </defs>
+      <circle cx="50" cy="50" r="48" fill="none" stroke="{{STAR_DEEP}}" stroke-width="1.5" />
+      <circle cx="50" cy="50" r="41" fill="url(#sealGrad)" />
+      <circle cx="50" cy="50" r="34" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.8" />
+      <polygon fill="#ffffff" points="50,22 55,34 68,35 58,44 62,56 50,49 38,56 42,44 32,35 45,34" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'soft-rounded-star',
+    title: 'Rounded Soft Star PNG',
+    slug: 'rounded-soft-star-png',
+    category: 'aesthetic',
+    categoryName: 'Aesthetic & Cute',
+    level: 'basic',
+    description: 'Friendly soft rounded 5-point star with smooth pillowed tips. Essential for kids app interfaces, sticker packs, preschool printouts, and plush UI buttons.',
+    tags: ['rounded star png', 'soft star png', 'cute star vector', 'curved star transparent'],
+    searchVolume: '8,700/mo',
+    defaultColor: '#FBBF24',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" stroke="{{STAR_DARK}}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" d="M50 10 Q54 28 65 32 Q85 36 78 52 Q68 62 70 78 Q55 72 45 80 Q43 65 30 55 Q22 40 40 33 Q48 28 50 10 Z" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'minimal-bookmark-star',
+    title: 'Star Bookmark Ribbon PNG',
+    slug: 'star-bookmark-png',
+    category: 'outline',
+    categoryName: 'Outlines & Badges',
+    level: 'basic',
+    description: 'Vertical bookmark banner ribbon with star cut-out. Used for reading apps, wishlist save buttons, e-commerce sale tags, and priority labels.',
+    tags: ['bookmark star png', 'ribbon star png', 'reading save star', 'favorite bookmark'],
+    searchVolume: '5,900/mo',
+    defaultColor: '#E11D48',
+    viewBox: '0 0 80 100',
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" d="M10 5 L70 5 L70 95 L40 75 L10 95 Z" />
+      <polygon fill="#ffffff" points="40,25 43,34 52,35 45,42 48,51 40,46 32,51 35,42 28,35 37,34" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'hexagon-shield-star',
+    title: 'Hexagon Shield Star Badge PNG',
+    slug: 'hexagon-shield-star-png',
+    category: 'outline',
+    categoryName: 'Outlines & Badges',
+    level: 'basic',
+    description: 'Modern geometric hexagon shield with embossed center star. High conversion graphic for security compliance badges, ISO certifications, and pro member tags.',
+    tags: ['hexagon star badge', 'shield star png', 'security star seal', 'guarantee badge'],
+    searchVolume: '7,100/mo',
+    defaultColor: '#2563EB',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" stroke="{{STAR_LIGHT}}" stroke-width="2" points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" />
+      <polygon fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5" points="50,12 82,30 82,70 50,88 18,70 18,30" />
+      <polygon fill="#ffffff" points="50,25 55,39 70,40 58,50 62,65 50,55 38,65 42,50 30,40 45,39" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'ai-twin-sparkle',
+    title: 'AI Twin Sparkle PNG',
+    slug: 'ai-twin-sparkle-png',
+    category: 'futuristic',
+    categoryName: 'Futuristic & AI',
+    level: 'moderate',
+    description: 'Modern AI twin sparkle graphic featuring a primary 4-point curved twinkle star paired with an orbiting companion star. The definitive icon for artificial intelligence, prompt magic, and generative features.',
+    tags: ['ai twin sparkle', 'gemini star png', 'ai sparkle png', 'magic sparkle star', 'prompt icon png'],
+    searchVolume: '28,000/mo',
+    defaultColor: '#3B82F6',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <defs>
+        <linearGradient id="aiSparkleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="{{STAR_HIGHLIGHT}}" />
+          <stop offset="50%" stop-color="{{STAR_MAIN}}" />
+          <stop offset="100%" stop-color="#8B5CF6" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#aiSparkleGrad)" d="M42 5 C42 26 50 35 70 35 C50 35 42 44 42 65 C42 44 34 35 14 35 C34 35 42 26 42 5 Z" />
+      <path fill="url(#aiSparkleGrad)" d="M74 52 C74 65 79 70 92 70 C79 70 74 75 74 88 C74 75 69 70 56 70 C69 70 74 65 74 52 Z" />
+      <circle cx="25" cy="75" r="3.5" fill="{{STAR_HIGHLIGHT}}" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'dual-concentric-star',
+    title: 'Dual Concentric Echo Star PNG',
+    slug: 'dual-concentric-star-png',
+    category: 'geometric',
+    categoryName: 'Geometric & Compass',
+    level: 'moderate',
+    description: 'Concentric star-within-a-star graphic with alternating negative space. Striking visual for retro sports branding, university patches, and varsity crests.',
+    tags: ['concentric star png', 'double star png', 'echo star vector', 'varsity star logo'],
+    searchVolume: '6,700/mo',
+    defaultColor: '#F97316',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="50,5 63,33 95,35 71,57 78,88 50,71 22,88 29,57 5,35 37,33" />
+      <polygon fill="#ffffff" points="50,22 58,40 78,41 62,55 67,74 50,63 33,74 38,55 22,41 42,40" />
+      <polygon fill="{{STAR_DEEP}}" points="50,34 54,44 64,45 56,52 58,61 50,56 42,61 44,52 36,45 46,44" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'retro-sunset-gradient-star',
+    title: 'Retro Sunset Gradient Star PNG',
+    slug: 'retro-sunset-gradient-star-png',
+    category: 'y2k',
+    categoryName: 'Y2K & Cyber',
+    level: 'moderate',
+    description: 'Vibrant 80s synthwave sunset star with smooth magenta-to-orange gradient and segmented horizontal blind stripes. Ideal for retro wave posters and arcade graphics.',
+    tags: ['synthwave star', 'sunset gradient star', '80s retro star', 'vaporwave star png'],
+    searchVolume: '9,500/mo',
+    defaultColor: '#FF0080',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <defs>
+        <linearGradient id="retroSunsetGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#FF0080" />
+          <stop offset="50%" stop-color="#F59E0B" />
+          <stop offset="100%" stop-color="#EF4444" />
+        </linearGradient>
+      </defs>
+      <polygon fill="url(#retroSunsetGrad)" points="50,5 62,35 95,35 68,55 78,85 50,66 22,85 32,55 5,35 38,35" />
+      <line x1="25" y1="55" x2="75" y2="55" stroke="#ffffff" stroke-width="1.5" opacity="0.7" />
+      <line x1="28" y1="63" x2="72" y2="63" stroke="#ffffff" stroke-width="2" opacity="0.8" />
+      <line x1="32" y1="71" x2="68" y2="71" stroke="#ffffff" stroke-width="2.5" opacity="0.9" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'electric-cyber-sparkle',
+    title: 'Electric Cyber Sparkle PNG',
+    slug: 'electric-cyber-sparkle-png',
+    category: 'y2k',
+    categoryName: 'Y2K & Cyber',
+    level: 'moderate',
+    description: 'Razor-sharp Y2K needle sparkle with crossing 45-degree satellite needles and metallic central glare. Popular for album covers, streetwear logos, and rave aesthetics.',
+    tags: ['cyber sparkle png', 'needle star png', 'y2k cross star', 'rave star png'],
+    searchVolume: '13,200/mo',
+    defaultColor: '#00F0FF',
+    viewBox: '0 0 120 120',
+    svgContent: `
+      <defs>
+        <radialGradient id="cyberCore" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="40%" stop-color="{{STAR_MAIN}}" />
+          <stop offset="100%" stop-color="{{STAR_DARK}}" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+      <polygon fill="{{STAR_MAIN}}" points="60,57 5,60 60,63 115,60" />
+      <polygon fill="{{STAR_MAIN}}" points="57,60 60,5 63,60 60,115" />
+      <polygon fill="{{STAR_LIGHT}}" points="58,58 20,20 62,62 100,100" opacity="0.8" />
+      <polygon fill="{{STAR_LIGHT}}" points="62,58 100,20 58,62 20,100" opacity="0.8" />
+      <circle cx="60" cy="60" r="14" fill="url(#cyberCore)" />
+      <circle cx="60" cy="60" r="4" fill="#ffffff" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'shooting-star-comet-tail',
+    title: 'Shooting Comet with Cosmic Dust Trail PNG',
+    slug: 'shooting-comet-star-png',
+    category: 'sparkle',
+    categoryName: 'Sparkle & Twinkle',
+    level: 'moderate',
+    description: 'Dynamic shooting star comet with glowing gradient speed trail and dissolving stardust meteors. Adds energy to space artwork, night sky visuals, and game animations.',
+    tags: ['shooting star comet', 'meteor star png', 'stardust trail', 'falling star png'],
+    searchVolume: '15,000/mo',
+    defaultColor: '#F59E0B',
+    viewBox: '0 0 140 100',
+    svgContent: `
+      <defs>
+        <linearGradient id="cometTail" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="{{STAR_MAIN}}" stop-opacity="0" />
+          <stop offset="70%" stop-color="{{STAR_LIGHT}}" stop-opacity="0.6" />
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+        </linearGradient>
+      </defs>
+      <path fill="url(#cometTail)" d="M10 20 Q50 35 105 65 L102 72 Q45 42 8 28 Z" />
+      <path fill="url(#cometTail)" opacity="0.7" d="M25 10 Q65 28 108 62 L106 67 Q60 34 22 17 Z" />
+      <circle cx="20" cy="35" r="2.5" fill="{{STAR_HIGHLIGHT}}" opacity="0.6" />
+      <circle cx="45" cy="48" r="3" fill="{{STAR_MAIN}}" opacity="0.7" />
+      <circle cx="75" cy="60" r="2" fill="{{STAR_HIGHLIGHT}}" opacity="0.8" />
+      <g transform="translate(105, 65)">
+        <polygon fill="#ffffff" points="0,-18 5,-5 18,0 5,5 0,18 -5,5 -18,0 -5,-5" />
+        <circle cx="0" cy="0" r="8" fill="{{STAR_HIGHLIGHT}}" opacity="0.8" />
+        <circle cx="0" cy="0" r="3" fill="#ffffff" />
+      </g>
+    `,
+    featured: false,
+  },
+  {
+    id: 'kawaii-winking-star',
+    title: 'Kawaii Cute Winking Star PNG',
+    slug: 'kawaii-winking-star-png',
+    category: 'aesthetic',
+    categoryName: 'Aesthetic & Cute',
+    level: 'moderate',
+    description: 'Charming kawaii cartoon star with an expressive winking anime eye, open happy smile, and blushing cheeks. Irresistible asset for stickers, preschool badges, and plush logos.',
+    tags: ['kawaii star png', 'cute anime star', 'winking star png', 'chibi star character'],
+    searchVolume: '11,800/mo',
+    defaultColor: '#FDE047',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" stroke="#451A03" stroke-width="3.5" stroke-linejoin="round" d="M50 8 C53 25 68 28 85 35 C73 50 78 68 88 84 C70 82 58 75 50 88 C42 75 30 82 12 84 C22 68 27 50 15 35 C32 28 47 25 50 8 Z" />
+      <ellipse cx="38" cy="48" rx="4.5" ry="6" fill="#1E293B" />
+      <circle cx="36.5" cy="45.5" r="2" fill="#ffffff" />
+      <path fill="none" stroke="#1E293B" stroke-width="3" stroke-linecap="round" d="M58 48 Q64 43 70 48" />
+      <ellipse cx="32" cy="56" rx="5" ry="3" fill="#FB7185" opacity="0.8" />
+      <ellipse cx="68" cy="56" rx="5" ry="3" fill="#FB7185" opacity="0.8" />
+      <path fill="#1E293B" d="M47 54 Q50 62 53 54 Z" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'nautical-sailor-compass-rose',
+    title: 'Nautical Mariner Compass Rose PNG',
+    slug: 'nautical-compass-rose-png',
+    category: 'geometric',
+    categoryName: 'Geometric & Compass',
+    level: 'moderate',
+    description: 'Authentic 8-point nautical mariner compass rose star with contrasting bisected directional points. Essential for maritime maps, vintage charts, and compass logos.',
+    tags: ['nautical compass rose', 'mariner star png', 'vintage compass star', 'sea navigation emblem'],
+    searchVolume: '14,200/mo',
+    defaultColor: '#0F172A',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <circle cx="50" cy="50" r="46" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5" />
+      <circle cx="50" cy="50" r="42" fill="none" stroke="{{STAR_MAIN}}" stroke-width="0.8" stroke-dasharray="2 4" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 50,6 44,50" />
+      <polygon fill="#94A3B8" points="50,50 50,6 56,50" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 50,94 56,50" />
+      <polygon fill="#94A3B8" points="50,50 50,94 44,50" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 94,50 50,44" />
+      <polygon fill="#94A3B8" points="50,50 94,50 50,56" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 6,50 50,56" />
+      <polygon fill="#94A3B8" points="50,50 6,50 50,44" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 80,20 53,47" />
+      <polygon fill="#CBD5E1" points="50,50 80,20 47,53" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 20,80 47,53" />
+      <polygon fill="#CBD5E1" points="50,50 20,80 53,47" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 80,80 47,47" />
+      <polygon fill="#CBD5E1" points="50,50 80,80 53,53" />
+      <polygon fill="{{STAR_MAIN}}" points="50,50 20,20 53,53" />
+      <polygon fill="#CBD5E1" points="50,50 20,20 47,47" />
+      <circle cx="50" cy="50" r="5" fill="#ffffff" stroke="{{STAR_MAIN}}" stroke-width="1.5" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'prismatic-iridescent-star',
+    title: 'Prismatic Iridescent Star PNG',
+    slug: 'prismatic-iridescent-star-png',
+    category: 'futuristic',
+    categoryName: 'Futuristic & AI',
+    level: 'moderate',
+    description: 'Iridescent holographic prismatic star with dynamic rainbow spectrum refraction gradients. Captures the viral Y2K oil-spill chrome aesthetic for music festivals and fashion graphics.',
+    tags: ['prismatic star png', 'iridescent star png', 'rainbow holographic star', 'chrome spectrum star'],
+    searchVolume: '8,400/mo',
+    defaultColor: '#A855F7',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <defs>
+        <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8" />
+          <stop offset="25%" stop-color="#A855F7" />
+          <stop offset="50%" stop-color="#EC4899" />
+          <stop offset="75%" stop-color="#EAB308" />
+          <stop offset="100%" stop-color="#10B981" />
+        </linearGradient>
+      </defs>
+      <polygon fill="url(#prismGrad)" points="50,4 62,35 96,35 69,56 79,88 50,68 21,88 31,56 4,35 38,35" />
+      <polygon fill="#ffffff" opacity="0.35" points="50,14 59,38 84,38 64,53 71,76 50,61 29,76 36,53 16,38 41,38" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'faceted-3d-gold-trophy-star',
+    title: '3D Faceted Gold Trophy Star PNG',
+    slug: '3d-faceted-gold-star-png',
+    category: 'gold',
+    categoryName: 'Gold & Metallic',
+    level: 'high',
+    description: 'Masterpiece 3D faceted gold trophy star with 10 individually illuminated triangular bevel planes. Photorealistic directional lighting delivers deep metallic ridge contrast and brilliant specular glints.',
+    tags: ['3d faceted gold star', '3d gold star png', 'gold trophy star', 'beveled gold star', 'metallic award star'],
+    searchVolume: '24,000/mo',
+    defaultColor: '#F59E0B',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <defs>
+        <filter id="goldGlint" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" />
+        </filter>
+      </defs>
+      <polygon points="50,50 50,6 38,38" fill="#FEF08A" stroke="#FEF08A" stroke-width="0.3" />
+      <polygon points="50,50 50,6 62,38" fill="#F59E0B" stroke="#F59E0B" stroke-width="0.3" />
+      <polygon points="50,50 96,36 62,38" fill="#FBBF24" stroke="#FBBF24" stroke-width="0.3" />
+      <polygon points="50,50 96,36 71,60" fill="#D97706" stroke="#D97706" stroke-width="0.3" />
+      <polygon points="50,50 78,92 71,60" fill="#B45309" stroke="#B45309" stroke-width="0.3" />
+      <polygon points="50,50 78,92 50,72" fill="#78350F" stroke="#78350F" stroke-width="0.3" />
+      <polygon points="50,50 22,92 50,72" fill="#92400E" stroke="#92400E" stroke-width="0.3" />
+      <polygon points="50,50 22,92 29,60" fill="#B45309" stroke="#B45309" stroke-width="0.3" />
+      <polygon points="50,50 4,36 29,60" fill="#D97706" stroke="#D97706" stroke-width="0.3" />
+      <polygon points="50,50 4,36 38,38" fill="#FDE047" stroke="#FDE047" stroke-width="0.3" />
+      <circle cx="42" cy="28" r="4" fill="#ffffff" opacity="0.9" filter="url(#goldGlint)" />
+      <circle cx="42" cy="28" r="1.8" fill="#ffffff" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'faceted-3d-platinum-chrome-star',
+    title: '3D Faceted Platinum Chrome Star PNG',
+    slug: '3d-platinum-star-png',
+    category: '3d',
+    categoryName: '3D & Glossy',
+    level: 'high',
+    description: 'Ultra-luxurious 3D faceted platinum and mirror chrome star PNG. Features high-contrast monochrome bevel planes and glossy metallic reflections for luxury VIP packaging.',
+    tags: ['platinum star png', 'chrome star 3d', 'silver faceted star', 'luxury vip star'],
+    searchVolume: '11,500/mo',
+    defaultColor: '#E2E8F0',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <polygon points="50,50 50,6 38,38" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.3" />
+      <polygon points="50,50 50,6 62,38" fill="#CBD5E1" stroke="#CBD5E1" stroke-width="0.3" />
+      <polygon points="50,50 96,36 62,38" fill="#E2E8F0" stroke="#E2E8F0" stroke-width="0.3" />
+      <polygon points="50,50 96,36 71,60" fill="#94A3B8" stroke="#94A3B8" stroke-width="0.3" />
+      <polygon points="50,50 78,92 71,60" fill="#64748B" stroke="#64748B" stroke-width="0.3" />
+      <polygon points="50,50 78,92 50,72" fill="#334155" stroke="#334155" stroke-width="0.3" />
+      <polygon points="50,50 22,92 50,72" fill="#475569" stroke="#475569" stroke-width="0.3" />
+      <polygon points="50,50 22,92 29,60" fill="#64748B" stroke="#64748B" stroke-width="0.3" />
+      <polygon points="50,50 4,36 29,60" fill="#94A3B8" stroke="#94A3B8" stroke-width="0.3" />
+      <polygon points="50,50 4,36 38,38" fill="#F8FAFC" stroke="#F8FAFC" stroke-width="0.3" />
+      <ellipse cx="48" cy="35" rx="14" ry="4" fill="#ffffff" opacity="0.6" transform="rotate(-35 48 35)" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'optical-anamorphic-lens-flare',
+    title: 'Optical Anamorphic Lens Flare Star PNG',
+    slug: 'optical-lens-flare-star-png',
+    category: 'sparkle',
+    categoryName: 'Sparkle & Twinkle',
+    level: 'high',
+    description: 'Cinema-quality anamorphic lens flare star featuring a piercing white laser core, horizontal anamorphic flare streak, multi-point diffraction spikes, and glowing atmospheric halo.',
+    tags: ['optical lens flare png', 'anamorphic flare star', 'camera light burst', 'diffraction spike star'],
+    searchVolume: '21,000/mo',
+    defaultColor: '#38BDF8',
+    viewBox: '0 0 160 120',
+    svgContent: `
+      <defs>
+        <radialGradient id="optCoreGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+          <stop offset="30%" stop-color="{{STAR_MAIN}}" stop-opacity="0.85" />
+          <stop offset="75%" stop-color="{{STAR_MAIN}}" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="{{STAR_MAIN}}" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="optStreak" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="{{STAR_MAIN}}" stop-opacity="0" />
+          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.95" />
+          <stop offset="100%" stop-color="{{STAR_MAIN}}" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <circle cx="80" cy="60" r="32" fill="none" stroke="{{STAR_MAIN}}" stroke-width="1.5" opacity="0.4" stroke-dasharray="6 4" />
+      <line x1="80" y1="5" x2="80" y2="115" stroke="{{STAR_MAIN}}" stroke-width="2" opacity="0.85" />
+      <polygon points="78,10 82,10 84,60 82,110 78,110 76,60" fill="{{STAR_MAIN}}" opacity="0.3" />
+      <line x1="30" y1="22" x2="130" y2="98" stroke="{{STAR_MAIN}}" stroke-width="1.2" opacity="0.6" />
+      <line x1="130" y1="22" x2="30" y2="98" stroke="{{STAR_MAIN}}" stroke-width="1.2" opacity="0.6" />
+      <ellipse cx="80" cy="60" rx="75" ry="3.5" fill="url(#optStreak)" />
+      <circle cx="80" cy="60" r="26" fill="url(#optCoreGlow)" />
+      <circle cx="80" cy="60" r="6" fill="#ffffff" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'stardust-galaxy-starburst-cluster',
+    title: 'Stardust Galaxy Starburst Cluster PNG',
+    slug: 'stardust-galaxy-cluster-png',
+    category: 'sparkle',
+    categoryName: 'Sparkle & Twinkle',
+    level: 'high',
+    description: 'Radiant celestial stardust explosion cluster packed with 30+ glistening micro-stars, diamond sparkles, and cosmic dust clouds. Perfect for magical overlays and fantasy game visuals.',
+    tags: ['stardust cluster png', 'galaxy sparkle star', 'glitter burst png', 'magic dust explosion'],
+    searchVolume: '16,700/mo',
+    defaultColor: '#EAB308',
+    viewBox: '0 0 120 120',
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" d="M60 20 C60 46 74 60 100 60 C74 60 60 74 60 100 C60 74 46 60 20 60 C46 60 60 46 60 20 Z" />
+      <path fill="#ffffff" opacity="0.8" d="M60 35 C60 52 68 60 85 60 C68 60 60 68 60 85 C60 68 52 60 35 60 C52 60 60 52 60 35 Z" />
+      <polygon fill="{{STAR_LIGHT}}" points="25,25 28,33 36,36 28,39 25,47 22,39 14,36 22,33" />
+      <polygon fill="{{STAR_HIGHLIGHT}}" points="95,25 97,31 103,33 97,35 95,41 93,35 87,33 93,31" />
+      <polygon fill="{{STAR_LIGHT}}" points="95,95 97,101 103,103 97,105 95,111 93,105 87,103 93,101" />
+      <polygon fill="{{STAR_HIGHLIGHT}}" points="25,95 27,101 33,103 27,105 25,111 23,105 17,103 23,101" />
+      <circle cx="42" cy="28" r="2.5" fill="#ffffff" />
+      <circle cx="78" cy="26" r="2" fill="{{STAR_HIGHLIGHT}}" />
+      <circle cx="88" cy="52" r="2.5" fill="#ffffff" />
+      <circle cx="32" cy="72" r="3" fill="{{STAR_LIGHT}}" />
+      <circle cx="72" cy="88" r="2" fill="#ffffff" />
+      <circle cx="50" cy="15" r="1.5" fill="{{STAR_MAIN}}" />
+      <circle cx="68" cy="105" r="1.8" fill="{{STAR_HIGHLIGHT}}" />
+      <circle cx="15" cy="60" r="2" fill="#ffffff" />
+      <circle cx="105" cy="62" r="2" fill="{{STAR_MAIN}}" />
+    `,
+    featured: true,
+  },
+  {
+    id: 'frosted-glassmorphism-star',
+    level: 'high',
+    title: 'Frosted Glassmorphism Crystal Star PNG',
+    slug: 'frosted-glassmorphism-star-png',
+    category: '3d',
+    categoryName: '3D & Glossy',
+    description: 'Futuristic frosted glassmorphism star with translucent refractive glass surface, chromatic aberration bevel border, and soft diffuse inner glow. Designed for modern macOS/iOS UI mockups.',
+    tags: ['glassmorphism star png', 'frosted glass star', 'crystal star transparent', 'translucent 3d star'],
+    searchVolume: '13,500/mo',
+    defaultColor: '#60A5FA',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <defs>
+        <linearGradient id="glassBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+          <stop offset="40%" stop-color="{{STAR_MAIN}}" stop-opacity="0.5" />
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0.2" />
+        </linearGradient>
+        <linearGradient id="glassFill" x1="20%" y1="0%" x2="80%" y2="100%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.45" />
+          <stop offset="50%" stop-color="{{STAR_MAIN}}" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="{{STAR_DARK}}" stop-opacity="0.35" />
+        </linearGradient>
+      </defs>
+      <polygon fill="url(#glassFill)" stroke="url(#glassBorder)" stroke-width="2.5" stroke-linejoin="round" points="50,8 62,35 94,35 68,55 78,85 50,66 22,85 32,55 6,35 38,35" />
+      <path fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.75" d="M50 18 L58 36 L78 37" />
+      <circle cx="50" cy="50" r="6" fill="#ffffff" opacity="0.5" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'hollywood-walk-of-fame-star',
+    title: 'Hollywood Walk of Fame Star Plaque PNG',
+    slug: 'hollywood-walk-of-fame-star-png',
+    category: 'gold',
+    categoryName: 'Gold & Metallic',
+    level: 'high',
+    description: 'Iconic Hollywood Walk of Fame sidewalk star plaque featuring charcoal terrazzo stone border, brass polished rim, and coral pink star plate. Classic emblem for celebrity and cinema graphics.',
+    tags: ['hollywood star png', 'walk of fame star', 'celebrity star plaque', 'cinema star badge'],
+    searchVolume: '17,800/mo',
+    defaultColor: '#F43F5E',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <rect x="4" y="4" width="92" height="92" rx="4" fill="#1E293B" stroke="#475569" stroke-width="1.5" />
+      <polygon fill="none" stroke="#F59E0B" stroke-width="3" stroke-linejoin="round" points="50,10 61,36 90,36 67,54 75,82 50,65 25,82 33,54 10,36 39,36" />
+      <polygon fill="#FB7185" points="50,12 60,37 87,37 65,53 73,79 50,63 27,79 35,53 13,37 40,37" />
+      <circle cx="50" cy="52" r="10" fill="#F59E0B" stroke="#D97706" stroke-width="1" />
+      <polygon fill="#1E293B" points="50,45 52,50 57,50 53,53 55,58 50,55 45,58 47,53 43,50 48,50" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'moravian-polyhedral-3d-star',
+    title: 'Moravian 3D Bethlehem Star Ornament PNG',
+    slug: 'moravian-star-png',
+    category: '3d',
+    categoryName: '3D & Glossy',
+    level: 'high',
+    description: 'Exquisite 26-point Moravian Bethlehem star ornament PNG with polyhedral volumetric spikes and illuminated core. Popular for Christmas holiday banners, church programs, and winter decor.',
+    tags: ['moravian star png', 'bethlehem star 3d', 'christmas star ornament', 'polyhedral star'],
+    searchVolume: '10,600/mo',
+    defaultColor: '#EAB308',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <g opacity="0.75">
+        <polygon points="50,50 20,20 28,45" fill="#D97706" />
+        <polygon points="50,50 20,20 45,28" fill="#F59E0B" />
+        <polygon points="50,50 80,20 72,45" fill="#B45309" />
+        <polygon points="50,50 80,20 55,28" fill="#D97706" />
+        <polygon points="50,50 80,80 72,55" fill="#78350F" />
+        <polygon points="50,50 80,80 55,72" fill="#92400E" />
+        <polygon points="50,50 20,80 28,55" fill="#B45309" />
+        <polygon points="50,50 20,80 45,72" fill="#D97706" />
+      </g>
+      <polygon points="50,50 50,5 42,42" fill="#FEF08A" />
+      <polygon points="50,50 50,5 58,42" fill="#F59E0B" />
+      <polygon points="50,50 95,50 58,42" fill="#FBBF24" />
+      <polygon points="50,50 95,50 58,58" fill="#D97706" />
+      <polygon points="50,50 50,95 58,58" fill="#B45309" />
+      <polygon points="50,50 50,95 42,58" fill="#78350F" />
+      <polygon points="50,50 5,50 42,58" fill="#D97706" />
+      <polygon points="50,50 5,50 42,42" fill="#FDE047" />
+      <polygon points="50,42 58,50 50,58 42,50" fill="#ffffff" opacity="0.9" />
+    `,
+    featured: false,
+  },
+  {
+    id: "cute-teddy-bear-hugging-star",
+    title: "Cute Teddy Bear Hugging Star PNG",
+    slug: "cute-teddy-bear-star-png",
+    category: "characters",
+    categoryName: "Star Bears & Mascots",
+    level: "moderate",
+    animationType: "float",
+    
+    description: "Adorable plush brown teddy bear tightly hugging a glowing golden star with blushing rosy cheeks. Essential clipart for nursery room decor, baby shower cards, and children storybooks.",
+    tags: ["bear with star png","teddy bear star","cute bear holding star","kawaii bear star clipart","nursery bear star"],
+    searchVolume: "15,500/mo",
+    defaultColor: "#D97706",
+    viewBox: "0 0 120 120",
+    svgContent: `
+      <!-- Teddy Bear Ears -->
+      <circle cx="36" cy="32" r="14" fill="#B45309" />
+      <circle cx="36" cy="32" r="8" fill="#FDE68A" />
+      <circle cx="84" cy="32" r="14" fill="#B45309" />
+      <circle cx="84" cy="32" r="8" fill="#FDE68A" />
+      <!-- Bear Head -->
+      <ellipse cx="60" cy="52" rx="34" ry="30" fill="#B45309" />
+      <!-- Muzzle / Snout -->
+      <ellipse cx="60" cy="58" rx="14" ry="11" fill="#FDE68A" />
+      <ellipse cx="60" cy="54" rx="5" ry="3.5" fill="#451A03" />
+      <path fill="none" stroke="#451A03" stroke-width="2" stroke-linecap="round" d="M60 57.5 L60 62 M56 62 Q60 66 64 62" />
+      <!-- Eyes & Blushing Cheeks -->
+      <circle cx="46" cy="48" r="3.5" fill="#451A03" />
+      <circle cx="45" cy="46.5" r="1.2" fill="#ffffff" />
+      <circle cx="74" cy="48" r="3.5" fill="#451A03" />
+      <circle cx="73" cy="46.5" r="1.2" fill="#ffffff" />
+      <ellipse cx="38" cy="57" rx="5" ry="3" fill="#F43F5E" opacity="0.65" />
+      <ellipse cx="82" cy="57" rx="5" ry="3" fill="#F43F5E" opacity="0.65" />
+      <!-- Bear Body -->
+      <ellipse cx="60" cy="88" rx="28" ry="24" fill="#B45309" />
+      <ellipse cx="60" cy="90" rx="16" ry="14" fill="#FDE68A" />
+      <!-- Hugged Golden Star in Center -->
+      <polygon fill="{{STAR_MAIN}}" points="60,65 65,77 78,78 68,87 72,99 60,92 48,99 52,87 42,78 55,77" filter="drop-shadow(0 0 6px rgba(245,158,11,0.5))" />
+      <circle cx="60" cy="84" r="3" fill="#ffffff" opacity="0.75" />
+      <!-- Bear Hugging Paws Clamping the Star -->
+      <ellipse cx="44" cy="80" rx="9" ry="7" fill="#B45309" transform="rotate(25 44 80)" />
+      <ellipse cx="44" cy="80" rx="5" ry="4" fill="#FDE68A" transform="rotate(25 44 80)" />
+      <ellipse cx="76" cy="80" rx="9" ry="7" fill="#B45309" transform="rotate(-25 76 80)" />
+      <ellipse cx="76" cy="80" rx="5" ry="4" fill="#FDE68A" transform="rotate(-25 76 80)" />
+      <!-- Feet -->
+      <ellipse cx="40" cy="108" rx="10" ry="7" fill="#B45309" />
+      <ellipse cx="40" cy="108" rx="6" ry="4" fill="#FDE68A" />
+      <ellipse cx="80" cy="108" rx="10" ry="7" fill="#B45309" />
+      <ellipse cx="80" cy="108" rx="6" ry="4" fill="#FDE68A" />
+    `,
+    featured: true,
+  },
+  {
+    id: "sleeping-bear-on-crescent-moon",
+    title: "Sleeping Bear on Crescent Moon with Stars PNG",
+    slug: "sleeping-bear-moon-stars-png",
+    category: "characters",
+    categoryName: "Star Bears & Mascots",
+    level: "moderate",
+    animationType: "float",
+    
+    description: "Chubby baby teddy bear sound asleep on a smiling golden crescent moon surrounded by twinkling stars and night clouds. Perfect for baby nursery prints, nightlights, and lullaby videos.",
+    tags: ["sleeping bear on moon","bear moon stars png","goodnight bear star","nursery lullaby bear","baby shower bear star"],
+    searchVolume: "12,800/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 120 120",
+    svgContent: `
+      <!-- Crescent Moon -->
+      <path fill="{{STAR_MAIN}}" d="M75 10 C45 15 25 42 25 72 C25 102 50 115 75 118 C40 108 42 35 75 10 Z" />
+      <!-- Sleeping Bear on Moon Curve -->
+      <g transform="translate(38, 48) rotate(-15)">
+        <circle cx="8" cy="4" r="5" fill="#92400E" />
+        <ellipse cx="18" cy="14" rx="12" ry="10" fill="#B45309" />
+        <ellipse cx="28" cy="18" rx="14" ry="11" fill="#B45309" />
+        <path fill="none" stroke="#451A03" stroke-width="1.8" stroke-linecap="round" d="M12 14 Q15 17 18 14" />
+        <!-- Sleeping Nightcap -->
+        <path fill="#3B82F6" d="M10 6 Q20 -6 32 4 L22 10 Z" />
+        <circle cx="33" cy="4" r="3" fill="#ffffff" />
+        <!-- Paw clutching little star -->
+        <ellipse cx="24" cy="22" rx="4" ry="3" fill="#B45309" />
+        <polygon fill="#FEF08A" points="28,22 30,25 34,25 31,28 32,31 29,29 26,31 27,28 24,25 28,25" />
+      </g>
+      <!-- Floating Dangling Stars -->
+      <polygon fill="#FEF08A" points="92,20 94,26 100,26 95,29 97,35 92,31 87,35 89,29 84,26 90,26" />
+      <polygon fill="#FEF08A" points="85,60 86.5,64 91,64 87.5,66.5 89,71 85,68 81,71 82.5,66.5 79,64 83.5,64" />
+      <polygon fill="#FEF08A" points="95,85 96.5,89 101,89 97.5,91.5 99,96 95,93 91,96 92.5,91.5 89,89 93.5,89" />
+      <!-- Soft Night Cloud at Base -->
+      <path fill="#ffffff" opacity="0.85" d="M15 110 C15 102 22 96 30 96 C33 96 36 97 38 99 C42 93 50 93 55 98 C58 96 62 96 65 99 C70 95 78 96 82 102 C86 102 90 106 90 110 Z" />
+    `,
+    featured: true,
+  },
+  {
+    id: "kawaii-bunny-reaching-star",
+    title: "Kawaii Bunny Reaching for Star PNG",
+    slug: "kawaii-bunny-star-png",
+    category: "characters",
+    categoryName: "Star Bears & Mascots",
+    level: "basic",
+    animationType: "float",
+    
+    description: "Charming white kawaii bunny rabbit standing on tiptoes reaching upward toward a sparkling magic star. Sweet anime pastel graphic for Easter cards, digital planning stickers, and baby apparel.",
+    tags: ["bunny star png","rabbit reaching star","kawaii animal star","cute bunny clipart","rabbit wishing on a star"],
+    searchVolume: "8,900/mo",
+    defaultColor: "#EC4899",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- Big Glowing Wish Star -->
+      <polygon fill="#F59E0B" points="50,6 54,16 65,16 56,23 59,33 50,27 41,33 44,23 35,16 46,16" filter="drop-shadow(0 0 4px rgba(245,158,11,0.6))" />
+      <circle cx="50" cy="20" r="2.5" fill="#ffffff" />
+      <!-- Sparkle Rays around Star -->
+      <line x1="50" y1="0" x2="50" y2="4" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+      <line x1="68" y1="12" x2="72" y2="10" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="32" y1="12" x2="28" y2="10" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round" />
+      <!-- Bunny Long Ears -->
+      <ellipse cx="44" cy="42" rx="4.5" ry="14" fill="#ffffff" stroke="#1E293B" stroke-width="2" transform="rotate(-8 44 42)" />
+      <ellipse cx="44" cy="42" rx="2" ry="9" fill="#FBCFE8" transform="rotate(-8 44 42)" />
+      <ellipse cx="56" cy="42" rx="4.5" ry="14" fill="#ffffff" stroke="#1E293B" stroke-width="2" transform="rotate(8 56 42)" />
+      <ellipse cx="56" cy="42" rx="2" ry="9" fill="#FBCFE8" transform="rotate(8 56 42)" />
+      <!-- Bunny Head -->
+      <ellipse cx="50" cy="58" rx="16" ry="13" fill="#ffffff" stroke="#1E293B" stroke-width="2" />
+      <path fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" d="M42 58 Q45 55 48 58" />
+      <path fill="none" stroke="#1E293B" stroke-width="2" stroke-linecap="round" d="M52 58 Q55 55 58 58" />
+      <polygon points="50,62 48.5,60 51.5,60" fill="#EC4899" />
+      <circle cx="39" cy="62" r="3" fill="#FBCFE8" />
+      <circle cx="61" cy="62" r="3" fill="#FBCFE8" />
+      <!-- Bunny Body Reaching Up -->
+      <ellipse cx="50" cy="80" rx="14" ry="15" fill="#ffffff" stroke="#1E293B" stroke-width="2" />
+      <ellipse cx="44" cy="66" rx="3.5" ry="7" fill="#ffffff" stroke="#1E293B" stroke-width="1.8" transform="rotate(-20 44 66)" />
+      <ellipse cx="56" cy="66" rx="3.5" ry="7" fill="#ffffff" stroke="#1E293B" stroke-width="1.8" transform="rotate(20 56 66)" />
+      <ellipse cx="43" cy="94" rx="5" ry="3.5" fill="#ffffff" stroke="#1E293B" stroke-width="1.8" />
+      <ellipse cx="57" cy="94" rx="5" ry="3.5" fill="#ffffff" stroke="#1E293B" stroke-width="1.8" />
+      <circle cx="64" cy="85" r="4.5" fill="#ffffff" stroke="#1E293B" stroke-width="1.5" />
+    `,
+    featured: false,
+  },
+  {
+    id: "crescent-moon-sleeping-star",
+    title: "Crescent Moon Cradling Sleeping Star PNG",
+    slug: "crescent-moon-sleeping-star-png",
+    category: "celestial",
+    categoryName: "Moon & Celestial",
+    level: "moderate",
+    animationType: "float",
+    
+    description: "Dreamy golden crescent moon gently cradling a sleeping star wearing a striped nightcap. Iconic bedtime celestial art for storybooks, nursery wall murals, and baby shower stationery.",
+    tags: ["star moon png","crescent moon sleeping star","moon and stars transparent","celestial bedtime star","night sky lullaby"],
+    searchVolume: "36,000/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- Crescent Moon -->
+      <path fill="{{STAR_MAIN}}" d="M60 8 C36 12 20 34 20 58 C20 82 40 92 60 94 C32 86 34 28 60 8 Z" />
+      <!-- Sleeping Star Resting in Moon's Curve -->
+      <g transform="translate(36, 44)">
+        <polygon fill="#FEF08A" points="20,5 24,15 35,16 26,24 29,34 20,28 11,34 14,24 5,16 16,15" />
+        <path fill="none" stroke="#451A03" stroke-width="1.8" stroke-linecap="round" d="M15 20 Q18 24 21 20" />
+        <path fill="none" stroke="#451A03" stroke-width="1.8" stroke-linecap="round" d="M23 20 Q26 24 29 20" />
+        <ellipse cx="14" cy="24" rx="2.5" ry="1.5" fill="#F43F5E" opacity="0.7" />
+        <ellipse cx="30" cy="24" rx="2.5" ry="1.5" fill="#F43F5E" opacity="0.7" />
+        <path fill="#3B82F6" d="M12 15 Q20 2 34 10 L26 18 Z" />
+        <line x1="16" y1="13" x2="22" y2="7" stroke="#ffffff" stroke-width="2" />
+        <line x1="22" y1="16" x2="28" y2="10" stroke="#ffffff" stroke-width="2" />
+        <circle cx="35" cy="10" r="3" fill="#ffffff" />
+      </g>
+      <polygon fill="#FEF08A" points="75,22 76.5,25.5 80,25.5 77,27.5 78.5,31 75,29 71.5,31 73,27.5 70,25.5 73.5,25.5" />
+      <polygon fill="#FEF08A" points="78,58 79,61 82,61 79.5,63 80.5,66 78,64.5 75.5,66 76.5,63 74,61 77,61" />
+    `,
+    featured: true,
+  },
+  {
+    id: "cloud-hanging-stars-mobile",
+    title: "Nursery Cloud with Hanging Stars PNG",
+    slug: "cloud-hanging-stars-png",
+    category: "celestial",
+    categoryName: "Moon & Celestial",
+    level: "basic",
+    animationType: "float",
+    
+    description: "Soft fluffy white nursery cloud with hanging golden stars suspended by delicate strings. Standard graphic for baby shower invitations, crib decor, and lullaby videos.",
+    tags: ["cloud with hanging stars","cloud and stars png","nursery star mobile","baby room stars","hanging stars transparent"],
+    searchVolume: "24,500/mo",
+    defaultColor: "#EAB308",
+    viewBox: "0 0 120 100",
+    svgContent: `
+      <path fill="#ffffff" stroke="#CBD5E1" stroke-width="2" stroke-linejoin="round" d="M30 45 C20 45 12 53 12 62 C12 72 21 80 32 80 L92 80 C102 80 110 72 110 62 C110 54 104 47 96 45 C95 34 85 26 74 26 C67 26 61 29 57 34 C53 30 46 28 40 32 C34 36 31 40 30 45 Z" />
+      <path fill="none" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" d="M48 55 Q52 59 56 55" />
+      <path fill="none" stroke="#64748B" stroke-width="1.8" stroke-linecap="round" d="M64 55 Q68 59 72 55" />
+      <ellipse cx="44" cy="60" rx="3" ry="2" fill="#FBCFE8" />
+      <ellipse cx="76" cy="60" rx="3" ry="2" fill="#FBCFE8" />
+      <line x1="32" y1="80" x2="32" y2="92" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="2 2" />
+      <polygon fill="{{STAR_MAIN}}" points="32,88 34,92 38,92 35,94.5 36,98 32,96 28,98 29,94.5 26,92 30,92" />
+      <line x1="50" y1="80" x2="50" y2="96" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="2 2" />
+      <polygon fill="{{STAR_MAIN}}" points="50,91 52.5,96 58,96 53.5,99.5 55,105 50,102 45,105 46.5,99.5 42,96 47.5,96" />
+      <line x1="72" y1="80" x2="72" y2="92" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="2 2" />
+      <polygon fill="{{STAR_MAIN}}" points="72,88 74,92 78,92 75,94.5 76,98 72,96 68,98 69,94.5 66,92 70,92" />
+      <line x1="90" y1="80" x2="90" y2="96" stroke="#94A3B8" stroke-width="1.2" stroke-dasharray="2 2" />
+      <polygon fill="{{STAR_MAIN}}" points="90,91 92.5,96 98,96 93.5,99.5 95,105 90,102 85,105 86.5,99.5 82,96 87.5,96" />
+    `,
+    featured: false,
+  },
+  {
+    id: "circular-star-wreath-avatar-frame",
+    title: "Circular Star Wreath Avatar Frame PNG",
+    slug: "star-wreath-avatar-frame-png",
+    category: "frames",
+    categoryName: "Frames & Borders",
+    level: "moderate",
+    animationType: "spin",
+    
+    description: "Circular wreath ring frame forged from sparkling diamond stars and geometric compass points. Perfect transparent border overlay for Discord avatars, Twitch icons, and Instagram profile pictures.",
+    tags: ["star frame png","star circle frame","avatar star border","profile star ring","star wreath png"],
+    searchVolume: "21,500/mo",
+    defaultColor: "#EAB308",
+    viewBox: "0 0 120 120",
+    svgContent: `
+      <circle cx="60" cy="60" r="44" fill="none" stroke="{{STAR_MAIN}}" stroke-width="2" stroke-dasharray="6 4" opacity="0.75" />
+      <circle cx="60" cy="60" r="48" fill="none" stroke="{{STAR_LIGHT}}" stroke-width="1" opacity="0.4" />
+      <polygon fill="{{STAR_MAIN}}" points="60,6 63,14 71,15 65,20 67,28 60,23 53,28 55,20 49,15 57,14" />
+      <polygon fill="{{STAR_MAIN}}" points="60,114 63,106 71,105 65,100 67,92 60,97 53,92 55,100 49,105 57,106" />
+      <polygon fill="{{STAR_MAIN}}" points="114,60 106,63 105,71 100,65 92,67 97,60 92,53 100,55 105,49 106,57" />
+      <polygon fill="{{STAR_MAIN}}" points="6,60 14,63 15,71 20,65 28,67 23,60 28,53 20,55 15,49 14,57" />
+      <polygon fill="{{STAR_LIGHT}}" points="95,25 97,31 103,32 98,36 100,42 95,38 90,42 92,36 87,32 93,31" />
+      <polygon fill="{{STAR_LIGHT}}" points="25,95 27,89 33,88 28,84 30,78 25,82 20,78 22,84 17,88 23,89" />
+      <polygon fill="{{STAR_LIGHT}}" points="95,95 89,97 88,103 84,98 78,100 82,95 78,90 84,92 88,87 89,93" />
+      <polygon fill="{{STAR_LIGHT}}" points="25,25 31,27 32,33 36,28 42,30 38,25 42,20 36,22 32,17 31,23" />
+      <circle cx="78" cy="18" r="2.5" fill="#ffffff" />
+      <circle cx="18" cy="78" r="2.5" fill="#ffffff" />
+      <circle cx="102" cy="78" r="2.5" fill="#ffffff" />
+      <circle cx="18" cy="42" r="2.5" fill="#ffffff" />
+    `,
+    featured: true,
+  },
+  {
+    id: "polaroid-scattered-stars-frame",
+    title: "Polaroid Star Photo Frame PNG",
+    slug: "polaroid-star-photo-frame-png",
+    category: "frames",
+    categoryName: "Frames & Borders",
+    level: "basic",
+    
+    
+    description: "Vintage white Polaroid instant photo frame accented with whimsical gold and pastel sparkle stars along its borders. Drag-and-drop frame for Canva, scrapbooks, and photo collages.",
+    tags: ["polaroid star frame","photo frame stars png","aesthetic picture frame stars","instant photo star border"],
+    searchVolume: "16,000/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 120",
+    svgContent: `
+      <rect x="5" y="5" width="90" height="110" rx="4" fill="#ffffff" stroke="#E2E8F0" stroke-width="2" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.06))" />
+      <rect x="14" y="14" width="72" height="72" rx="2" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 3" />
+      <polygon fill="{{STAR_MAIN}}" points="12,10 13.5,13.5 17,14 14.5,16 15,19.5 12,18 9,19.5 9.5,16 7,14 10.5,13.5" />
+      <circle cx="19" cy="8" r="1.5" fill="{{STAR_HIGHLIGHT}}" />
+      <polygon fill="#EC4899" points="88,12 89.5,15.5 93,16 90.5,18 91,21.5 88,20 85,21.5 85.5,18 83,16 86.5,15.5" />
+      <circle cx="82" cy="10" r="1.2" fill="#3B82F6" />
+      <polygon fill="{{STAR_MAIN}}" points="78,96 80,100 84,100.5 81,102.5 82,106.5 78,104.5 74,106.5 75,102.5 72,100.5 76,100" />
+      <polygon fill="#3B82F6" points="22,98 23.5,101.5 27,102 24.5,104 25,107.5 22,106 19,107.5 19.5,104 17,102 20.5,101.5" />
+      <circle cx="50" cy="102" r="2" fill="{{STAR_MAIN}}" />
+      <circle cx="36" cy="104" r="1.5" fill="#EC4899" />
+      <circle cx="64" cy="100" r="1.5" fill="#10B981" />
+    `,
+    featured: false,
+  },
+  {
+    id: "hanging-star-garland-bunting",
+    title: "Hanging Star Garland Party Banner PNG",
+    slug: "star-garland-bunting-png",
+    category: "frames",
+    categoryName: "Frames & Borders",
+    level: "basic",
+    
+    
+    description: "Festive horizontal hanging party garland banner with metallic gold stars suspended on a draped string. Essential banner for birthdays, Christmas celebrations, and New Year party graphics.",
+    tags: ["star garland png","star bunting banner","hanging star garland transparent","party star border"],
+    searchVolume: "14,300/mo",
+    defaultColor: "#EAB308",
+    viewBox: "0 0 160 60",
+    svgContent: `
+      <path fill="none" stroke="#94A3B8" stroke-width="1.5" d="M0 8 Q40 25 80 8 Q120 25 160 8" />
+      <line x1="20" y1="14" x2="20" y2="28" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_MAIN}}" points="20,25 22,30 27,30 23,33 24.5,38 20,35 15.5,38 17,33 13,30 18,30" />
+      <line x1="40" y1="18" x2="40" y2="36" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_HIGHLIGHT}}" points="40,32 42.5,38 48,38 44,42 46,47 40,44 34,47 36,42 32,38 37.5,38" />
+      <line x1="60" y1="14" x2="60" y2="26" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_MAIN}}" points="60,23 62,28 67,28 63,31 64.5,36 60,33 55.5,36 57,31 53,28 58,28" />
+      <line x1="80" y1="8" x2="80" y2="34" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_MAIN}}" points="80,30 83,37 90,37 85,42 87,48 80,45 73,48 75,42 70,37 77,37" />
+      <line x1="100" y1="14" x2="100" y2="26" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_MAIN}}" points="100,23 102,28 107,28 103,31 104.5,36 100,33 95.5,36 97,31 93,28 98,28" />
+      <line x1="120" y1="18" x2="120" y2="36" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_HIGHLIGHT}}" points="120,32 122.5,38 128,38 124,42 126,47 120,44 114,47 116,42 112,38 117.5,38" />
+      <line x1="140" y1="14" x2="140" y2="28" stroke="#94A3B8" stroke-width="1" />
+      <polygon fill="{{STAR_MAIN}}" points="140,25 142,30 147,30 143,33 144.5,38 140,35 135.5,38 137,33 133,30 138,30" />
+    `,
+    featured: false,
+  },
+  {
+    id: "die-cut-kawaii-star-sticker",
+    title: "Die-Cut Kawaii Star Sticker PNG",
+    slug: "kawaii-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "twinkle",
+    
+    description: "Charming pastel yellow star sticker with a thick white die-cut decal border, soft drop shadow, cute anime smile, and blushing cheeks. Optimized for GoodNotes planners and Cricut cutting.",
+    tags: ["star sticker png","kawaii star sticker","die cut star decal","white border star sticker","planner star sticker"],
+    searchVolume: "32,000/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="2" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))" />
+      <polygon fill="{{STAR_MAIN}}" points="50,10 61,35 91,35 66,54 75,82 50,65 25,82 34,54 9,35 39,35" />
+      <ellipse cx="40" cy="48" rx="4" ry="5.5" fill="#1E293B" />
+      <circle cx="38.5" cy="46" r="1.8" fill="#ffffff" />
+      <ellipse cx="60" cy="48" rx="4" ry="5.5" fill="#1E293B" />
+      <circle cx="58.5" cy="46" r="1.8" fill="#ffffff" />
+      <ellipse cx="33" cy="56" rx="5" ry="3" fill="#FB7185" opacity="0.85" />
+      <ellipse cx="67" cy="56" rx="5" ry="3" fill="#FB7185" opacity="0.85" />
+      <path fill="#1E293B" d="M46 54 Q50 63 54 54 Z" />
+      <ellipse cx="38" cy="28" rx="5" ry="2.5" fill="#ffffff" opacity="0.75" transform="rotate(-30 38 28)" />
+    `,
+    featured: true,
+  },
+  {
+    id: "holographic-y2k-star-sticker",
+    title: "Holographic Y2K Cyber Star Sticker PNG",
+    slug: "holographic-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "twinkle",
+    
+    description: "Retro 2000s holographic foil star sticker with white vinyl die-cut border, iridescent rainbow chrome sheen, and 4-point cyber needles. Trending sticker for Gen-Z streetwear and music artwork.",
+    tags: ["holographic star sticker","y2k star decal","chrome star sticker","rainbow foil star png"],
+    searchVolume: "23,000/mo",
+    defaultColor: "#38BDF8",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <defs>
+        <linearGradient id="holoFoilGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#38BDF8" />
+          <stop offset="25%" stop-color="#EC4899" />
+          <stop offset="50%" stop-color="#FACC15" />
+          <stop offset="75%" stop-color="#A855F7" />
+          <stop offset="100%" stop-color="#10B981" />
+        </linearGradient>
+      </defs>
+      <path fill="#ffffff" stroke="#CBD5E1" stroke-width="2" d="M50 2 C50 26 58 36 82 42 C82 42 98 46 98 50 C98 54 82 58 82 58 C58 64 50 74 50 98 C50 98 46 98 46 98 C46 74 38 64 14 58 C14 58 2 54 2 50 C2 46 14 42 14 42 C38 36 46 26 46 2 Z" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))" />
+      <path fill="url(#holoFoilGrad)" d="M50 8 C50 30 56 40 78 45 C78 45 92 48 92 50 C92 52 78 55 78 55 C56 60 50 70 50 92 C50 70 44 60 22 55 C22 55 8 52 8 50 C8 48 22 45 22 45 C44 40 50 30 50 8 Z" />
+      <polygon fill="#ffffff" opacity="0.65" points="50,14 52,38 76,46 52,50 50,74 48,50 24,46 48,38" />
+      <circle cx="50" cy="50" r="4" fill="#ffffff" />
+    `,
+    featured: true,
+  },
+  {
+    id: "animated-twinkling-sparkle-star",
+    title: "Animated Twinkling Sparkle Star PNG & SVG",
+    slug: "animated-twinkling-star-png",
+    category: "animated",
+    categoryName: "Animated Stars",
+    level: "moderate",
+    animationType: "twinkle",
+    isAnimated: true,
+    description: "Seamlessly looping twinkling sparkle star with dynamic pulsation and light glow. Ready to download as transparent PNG or live animated vector SVG.",
+    tags: ["animated star png","twinkling star animation","sparkle star gif","animated star vector svg","twinkling star transparent"],
+    searchVolume: "29,000/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <g class="animate-star-twinkle">
+        <path fill="{{STAR_MAIN}}" d="M50 10 C50 34 58 42 82 50 C58 58 50 66 50 90 C50 66 42 58 18 50 C42 42 50 34 50 10 Z" />
+        <circle cx="50" cy="50" r="8" fill="#ffffff" />
+      </g>
+      <g class="animate-star-pulse">
+        <circle cx="26" cy="26" r="3.5" fill="{{STAR_HIGHLIGHT}}" />
+        <circle cx="74" cy="74" r="3" fill="{{STAR_LIGHT}}" />
+        <polygon fill="#ffffff" points="76,24 78,28 82,28 79,30 80,34 76,32 72,34 73,30 70,28 74,28" opacity="0.85" />
+      </g>
+    `,
+    featured: true,
+  },
+  {
+    id: "animated-pulsing-neon-star",
+    title: "Animated Pulsing Neon Tube Star PNG & SVG",
+    slug: "animated-neon-star-png",
+    category: "animated",
+    categoryName: "Animated Stars",
+    level: "high",
+    animationType: "pulse",
+    isAnimated: true,
+    description: "Electrifying neon star that pulses with high-contrast cyberpunk light auras. Ideal for live Twitch streams, dark-mode web banners, and gaming overlays.",
+    tags: ["animated neon star","pulsing star gif","neon star animation","cyberpunk light star"],
+    searchVolume: "21,000/mo",
+    defaultColor: "#7928CA",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <g class="animate-star-pulse">
+        <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="12" stroke-linejoin="round" opacity="0.3" points="50,8 62,35 94,35 68,55 78,85 50,66 22,85 32,55 6,35 38,35" />
+        <polygon fill="none" stroke="{{STAR_MAIN}}" stroke-width="6" stroke-linejoin="round" opacity="0.75" points="50,8 62,35 94,35 68,55 78,85 50,66 22,85 32,55 6,35 38,35" />
+        <polygon fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round" points="50,8 62,35 94,35 68,55 78,85 50,66 22,85 32,55 6,35 38,35" />
+      </g>
+    `,
+    featured: true,
+  },
+  {
+    id: "animated-spinning-3d-star",
+    title: "Animated Spinning 3D Star PNG & SVG",
+    slug: "animated-spinning-star-png",
+    category: "animated",
+    categoryName: "Animated Stars",
+    level: "high",
+    animationType: "spin",
+    isAnimated: true,
+    description: "Smoothly rotating continuous 3D gold faceted star. Perfect for video game coins, loading indicators, and achievement popups.",
+    tags: ["animated spinning star","rotating star 3d","spinning star gif","game coin star animation"],
+    searchVolume: "19,500/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <g class="animate-star-spin" style="transform-origin: 50px 50px;">
+        <polygon points="50,50 50,8 38,38" fill="#FEF08A" />
+        <polygon points="50,50 50,8 62,38" fill="#F59E0B" />
+        <polygon points="50,50 94,36 62,38" fill="#FBBF24" />
+        <polygon points="50,50 94,36 70,60" fill="#D97706" />
+        <polygon points="50,50 78,92 70,60" fill="#B45309" />
+        <polygon points="50,50 78,92 50,72" fill="#78350F" />
+        <polygon points="50,50 22,92 50,72" fill="#92400E" />
+        <polygon points="50,50 22,92 30,60" fill="#B45309" />
+        <polygon points="50,50 6,36 30,60" fill="#D97706" />
+        <polygon points="50,50 6,36 38,38" fill="#FDE047" />
+        <circle cx="50" cy="50" r="6" fill="#ffffff" opacity="0.8" />
+      </g>
+    `,
+    featured: false,
+  },
+  {
+    id: "ui-star-favorite-bookmark",
+    title: "Star Favorite Bookmark UI Icon PNG",
+    slug: "star-favorite-icon-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    
+    
+    description: "Clean geometric star icon for app navigation, favorite lists, browser bookmarks, and wishlist toggles. Crisp grid alignment with pure alpha transparency.",
+    tags: ["star icon","favorite star icon","bookmark star png","ui star vector","star app icon"],
+    searchVolume: "160,000/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" stroke="{{STAR_MAIN}}" stroke-width="1.5" stroke-linejoin="round" points="24,4 30,16 44,17 33,26 36,40 24,33 12,40 15,26 4,17 18,16" />
+    `,
+    featured: true,
+  },
+  {
+    id: "ui-star-add-plus",
+    title: "Add to Favorites Star Plus Icon PNG",
+    slug: "star-add-plus-icon-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    
+    
+    description: "Interactive UI star with corner plus badge. The standard e-commerce button for \"Add to Wishlist\" and \"Save to Favorites\".",
+    tags: ["star plus icon","add to favorite star","wishlist plus star","save star button"],
+    searchVolume: "24,000/mo",
+    defaultColor: "#10B981",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" stroke-linejoin="round" points="22,4 27,15 40,16 30,25 33,38 22,31 11,38 14,25 4,16 17,15" />
+      <circle cx="34" cy="34" r="11" fill="{{STAR_MAIN}}" stroke="#ffffff" stroke-width="2" />
+      <path fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" d="M34 28 L34 40 M28 34 L40 34" />
+    `,
+    featured: false,
+  },
+  {
+    id: "ui-star-shield-security",
+    title: "Star Shield Security Guarantee Icon PNG",
+    slug: "star-shield-icon-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    
+    
+    description: "Cybersecurity shield emblem with embedded 5-point star. Essential icon for checkout trust badges, money-back guarantees, and warranty seals.",
+    tags: ["star shield icon","security star png","guarantee star badge","trust shield star"],
+    searchVolume: "18,500/mo",
+    defaultColor: "#2563EB",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <path fill="{{STAR_MAIN}}" stroke="{{STAR_DEEP}}" stroke-width="1.5" d="M24 3 L42 9 C42 27 24 43 24 43 C24 43 6 27 6 9 Z" />
+      <polygon fill="#ffffff" points="24,12 26.5,19 34,19.5 28,24 30.5,31 24,27 17.5,31 20,24 14,19.5 21.5,19" />
+    `,
+    featured: false,
+  },
+  {
+    id: "ui-star-verified-check",
+    title: "Verified Star Checkmark Badge Icon PNG",
+    slug: "verified-star-checkmark-png",
+    category: "interface",
+    categoryName: "UI & Interface Icons",
+    level: "basic",
+    
+    
+    description: "Official verification star badge enclosing a bold checkmark. Recognized symbol for authenticated users, VIP status, and confirmed quality.",
+    tags: ["verified star png","star checkmark badge","official star icon","authenticated star"],
+    searchVolume: "22,000/mo",
+    defaultColor: "#0EA5E9",
+    viewBox: "0 0 48 48",
+    svgContent: `
+      <polygon fill="{{STAR_MAIN}}" points="24,3 28.5,8.5 35.5,6.5 37.5,13.5 44.5,16 43,23 48,27.5 43,32 44.5,39 37.5,41.5 35.5,48.5 28.5,46.5 24,52 19.5,46.5 12.5,48.5 10.5,41.5 3.5,39 5,32 0,27.5 5,23 3.5,16 10.5,13.5 12.5,6.5 19.5,8.5" transform="scale(0.88) translate(3, 1)" />
+      <path fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" d="M16 25 L22 31 L32 19" />
+    `,
+    featured: false,
+  },
+  {
+    id: "award-rosette-star-ribbon",
+    title: "First Place Star Rosette Ribbon PNG",
+    slug: "star-rosette-ribbon-png",
+    category: "badges",
+    categoryName: "Badges & Ribbons",
+    level: "moderate",
+    
+    
+    description: "Pleated ceremonial blue and gold rosette ribbon with central winner star medal. Classic prize award for contests, horse shows, science fairs, and sports championships.",
+    tags: ["star rosette ribbon","award ribbon star","first place star badge","prize ribbon png"],
+    searchVolume: "17,500/mo",
+    defaultColor: "#2563EB",
+    viewBox: "0 0 100 120",
+    svgContent: `
+      <polygon fill="#1D4ED8" points="35,60 22,114 45,98 50,114 45,60" />
+      <polygon fill="#1E40AF" points="65,60 78,114 55,98 50,114 55,60" />
+      <circle cx="50" cy="50" r="38" fill="{{STAR_MAIN}}" stroke="#F59E0B" stroke-width="2.5" />
+      <circle cx="50" cy="50" r="28" fill="#FBBF24" stroke="#D97706" stroke-width="1.5" />
+      <circle cx="50" cy="50" r="23" fill="none" stroke="#78350F" stroke-width="1" stroke-dasharray="2 2" />
+      <polygon fill="#ffffff" stroke="#D97706" stroke-width="1" points="50,32 54,43 66,44 57,52 61,64 50,56 39,64 43,52 34,44 46,43" />
+    `,
+    featured: true,
+  },
+  {
+    id: "western-brass-sheriff-badge",
+    title: "Western Sheriff Ball-Tipped Star Badge PNG",
+    slug: "western-sheriff-badge-png",
+    category: "badges",
+    categoryName: "Badges & Ribbons",
+    level: "basic",
+    
+    
+    description: "Authentic 6-point ball-tipped western sheriff badge in burnished brass with embossed star studs. Essential for wild west graphics and deputy badges.",
+    tags: ["western sheriff badge","deputy star png","sheriff star badge","wild west star badge"],
+    searchVolume: "16,200/mo",
+    defaultColor: "#CA8A04",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <circle cx="50" cy="8" r="5" fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="1.5" />
+      <circle cx="86" cy="29" r="5" fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="1.5" />
+      <circle cx="86" cy="71" r="5" fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="1.5" />
+      <circle cx="50" cy="92" r="5" fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="1.5" />
+      <circle cx="14" cy="71" r="5" fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="1.5" />
+      <circle cx="14" cy="29" r="5" fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="1.5" />
+      <polygon fill="{{STAR_MAIN}}" stroke="#78350F" stroke-width="2" points="50,8 60,30 86,29 70,50 86,71 60,70 50,92 40,70 14,71 30,50 14,29 40,30" />
+      <circle cx="50" cy="50" r="16" fill="#FEF08A" stroke="#78350F" stroke-width="1.5" />
+      <circle cx="50" cy="50" r="13" fill="none" stroke="#78350F" stroke-width="1" stroke-dasharray="2 2" />
+      <polygon fill="#78350F" points="50,40 52,46 58,46 53,50 55,56 50,52 45,56 47,50 42,46 48,46" />
+    `,
+    featured: false,
+  },
+  {
+    id: 'golden-laurel-wreath-star',
+    title: 'Golden Laurel Wreath VIP Star Coin PNG',
+    slug: 'golden-laurel-wreath-star-png',
+    category: 'gold',
+    categoryName: 'Gold & Metallic',
+    level: 'high',
+    description: 'Prestigious presidential VIP gold medallion featuring an embossed 5-point star framed by classical victory laurel leaves and beaded rim. High value asset for winner trophies and gaming ranks.',
+    tags: ['laurel wreath star png', 'gold star coin', 'presidential star medal', 'victory star emblem'],
+    searchVolume: '14,800/mo',
+    defaultColor: '#EAB308',
+    viewBox: '0 0 100 100',
+    svgContent: `
+      <circle cx="50" cy="50" r="47" fill="#D97706" stroke="#92400E" stroke-width="2" />
+      <circle cx="50" cy="50" r="42" fill="#FBBF24" />
+      <circle cx="50" cy="50" r="37" fill="#B45309" />
+      <circle cx="50" cy="50" r="35" fill="#FEF08A" />
+      <path fill="#B45309" d="M24 45 Q22 38 28 35 Q30 42 24 45 Z M22 55 Q18 50 25 47 Q27 53 22 55 Z M25 65 Q22 62 29 58 Q29 65 25 65 Z" />
+      <path fill="#B45309" d="M76 45 Q78 38 72 35 Q70 42 76 45 Z M78 55 Q82 50 75 47 Q73 53 78 55 Z M75 65 Q78 62 71 58 Q71 65 75 65 Z" />
+      <polygon points="50,50 50,22 43,43" fill="#ffffff" />
+      <polygon points="50,50 50,22 57,43" fill="#D97706" />
+      <polygon points="50,50 75,38 57,43" fill="#F59E0B" />
+      <polygon points="50,50 75,38 60,54" fill="#B45309" />
+      <polygon points="50,50 64,68 60,54" fill="#92400E" />
+      <polygon points="50,50 64,68 50,58" fill="#78350F" />
+      <polygon points="50,50 36,68 50,58" fill="#92400E" />
+      <polygon points="50,50 36,68 40,54" fill="#B45309" />
+      <polygon points="50,50 25,38 40,54" fill="#D97706" />
+      <polygon points="50,50 25,38 43,43" fill="#FEF08A" />
+    `,
+    featured: true,
   }
 ];
+
+export function getStarsByLevel(level: string): StarAsset[] {
+  if (!level || level === 'all') return STAR_ASSETS;
+  return STAR_ASSETS.filter((s) => s.level === level);
+}
 
 export function getStarBySlug(slug: string): StarAsset | undefined {
   return STAR_ASSETS.find((s) => s.slug === slug);

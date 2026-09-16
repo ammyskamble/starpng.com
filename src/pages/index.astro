@@ -34,6 +34,14 @@ const faqSchema = {
     },
     {
       '@type': 'Question',
+      'name': 'Can I download star stickers, animated stars, star frames, and star bear mascots?',
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': 'Yes! StarPNG goes far beyond isolated stars. Our catalog includes die-cut star stickers, live CSS/SVG animated stars (twinkle, pulse, spin, float), UI interface icons (favorites, bookmarks, rating shields), ornate star frames/borders, celestial moon & stars, and cute kawaii star bear mascots.'
+      }
+    },
+    {
+      '@type': 'Question',
       'name': 'How is StarPNG different from Flaticon?',
       'acceptedAnswer': {
         '@type': 'Answer',
@@ -61,7 +69,7 @@ const faqSchema = {
       'name': 'Are these star PNG graphics free for commercial use?',
       'acceptedAnswer': {
         '@type': 'Answer',
-        'text': 'Yes. All star graphics, 5-star rating bars, Y2K cyber stars, and gold stars on StarPNG are distributed under the Creative Commons CC0 Public Domain license. You may use them in personal, commercial, client work, web applications, and print projects without attribution.'
+        'text': 'Yes. All star graphics, 5-star rating bars, Y2K cyber stars, star stickers, animated SVGs, and star bear mascots on StarPNG are distributed under the Creative Commons CC0 Public Domain license. You may use them in personal, commercial, client work, web applications, and print projects without attribution.'
       }
     }
   ]
@@ -77,9 +85,9 @@ const pageSchema = {
 ---
 
 <BaseLayout
-  title="Star PNG - Free Transparent Star Images & Vector SVGs (100% Real Alpha)"
-  description="Download 100% verified transparent star PNG images and vector SVGs. Zero fake checkerboards, instant 1-click clipboard copy, infinite procedural star generator, and free commercial use for 5-star ratings, Y2K cyber stars, gold stars, and sparkles."
-  keywords="star png, gold star png, 5 star rating png, y2k star png, aesthetic star png, star transparent background, star vector svg, shooting star png, flaticon star alternative, star generator"
+  title="Star PNG - Free Transparent Star Images, Stickers, Animated SVGs & Icons (100% Real Alpha)"
+  description="Download 80+ verified transparent star PNG images, die-cut stickers, animated stars, UI interface icons, star frames, star & moon, and cute star bear mascots. 100% real alpha, zero fake checkerboards, instant 1-click clipboard copy, and infinite procedural generator."
+  keywords="star png, star sticker png, animated star png, star icon png, star badge png, star frame png, star moon png, bear with star png, gold star png, 5 star rating png, y2k star png, star vector svg, transparent star background"
   schema={pageSchema}
 >
   <!-- Hero Section with Vercel Geist Mesh Gradient Bloom -->
@@ -91,18 +99,18 @@ const pageSchema = {
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-[#ebebeb] shadow-xs mb-6">
         <span class="w-2 h-2 rounded-full bg-amber-400"></span>
         <span class="font-mono text-xs uppercase tracking-wider text-[#4d4d4d]">
-          100% Verified Transparent PNG & Vector SVGs &bull; Infinite Procedural Variations
+          80+ Curated Assets &bull; Stickers, Animated Stars, UI Icons, Frames & Star Bears &bull; 100% CC0 Real Alpha
         </span>
       </div>
 
       <!-- Main Display H1 (@DESIGN.md display-xl) -->
       <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-[#171717] tracking-tight leading-[1.08] max-w-4xl mx-auto">
-        Free Star PNG Images with <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">True Transparent</span> Backgrounds
+        Free Star PNGs, Stickers & Icons with <span class="bg-gradient-to-r from-amber-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">True Transparent</span> Backgrounds
       </h1>
 
       <!-- Subhead (@DESIGN.md body-lg) -->
       <p class="mt-6 text-base sm:text-lg text-[#4d4d4d] max-w-2xl mx-auto leading-relaxed">
-        Stop downloading fake checkerboard JPEGs from Pinterest or paying $12/mo for Flaticon SVGs. Access genuine alpha star PNGs, 5-star review bars, Y2K cyber stars, and an infinite procedural star generator with 1-click clipboard copy.
+        Stop downloading fake checkerboard JPEGs from Pinterest or paying $12/mo for Flaticon SVGs. Access genuine alpha star PNGs, die-cut stickers, animated twinkling stars, star badges, ornate frames, celestial moon duos, and kawaii star bear mascots with 1-click clipboard copy.
       </p>
 
       <!-- Action Pill Buttons (@DESIGN.md button-primary & button-secondary) -->
@@ -260,11 +268,22 @@ const pageSchema = {
             <tr>
               <td class="p-4 font-medium text-[#171717]">Procedural Custom Star Generator</td>
               <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
-                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> Infinite Custom Stars (3-32 pts)
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> 5 Generator Modes (3D Faceted, Flare, Rating Bar, Neon, Polygons)
               </td>
               <td class="p-4 text-[#8f8f8f]">None (Static icons only)</td>
               <td class="p-4 text-rose-600">
                 <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> None
+              </td>
+            </tr>
+
+            <tr>
+              <td class="p-4 font-medium text-[#171717]">Complexity Variety (Basic to 3D)</td>
+              <td class="p-4 bg-amber-50/30 border-x border-amber-200/60 font-semibold text-emerald-700">
+                <CheckCircle2 class="w-4 h-4 text-emerald-600 inline mr-1" /> 3 Tiers: Basic, Moderate & High-Level 3D/FX
+              </td>
+              <td class="p-4 text-[#8f8f8f]">Flat 2D icons primarily</td>
+              <td class="p-4 text-rose-600">
+                <XCircle class="w-4 h-4 text-rose-500 inline mr-1" /> Inconsistent & low-res
               </td>
             </tr>
 
@@ -320,19 +339,31 @@ const pageSchema = {
           </h3>
           <ul class="space-y-3 pl-4 list-disc marker:text-[#171717]">
             <li>
-              <strong>Infinite Procedural Generator:</strong> Create any star on demand with 3 to 32 points, custom inner spike depths, and stroke thickness.
+              <strong>Infinite Procedural Generator:</strong> Create any star on demand with 3 to 32 points, custom inner spike depths, 3D faceted gemstones, lens flares, and neon glow.
             </li>
             <li>
-              <strong>Futuristic & AI Generated Stars:</strong> Sci-fi holographic starbursts, quantum hyper-stars, and neural node graphics featuring orbital energy rings.
+              <strong>Star Stickers & Y2K Aesthetic Decals:</strong> Thick white die-cut borders, holographic prisms, retro groovy designs, and vaporwave sticker graphics ready for physical print or digital overlays.
+            </li>
+            <li>
+              <strong>Live Animated Star SVGs:</strong> Smooth CSS keyframe animations featuring twinkling celestial stars, pulsating neon stars, rotating 3D coins, floating baby stars, and shooting meteors.
+            </li>
+            <li>
+              <strong>UI & Interface Star Icons:</strong> Web-optimized favorite buttons, verified checkmark star shields, bookmark ribbons, and rating badges formatted with crisp SVG paths.
+            </li>
+            <li>
+              <strong>Star Badges & Medals:</strong> Military rank insignias, Wild West sheriff 5-point badges, award rosettes with hanging ribbons, and circular VIP seals.
+            </li>
+            <li>
+              <strong>Star Frames, Borders & Garlands:</strong> Circular avatar wreaths, Instagram/Polaroid decorative star frames, photo borders, and hanging fairy-light garlands.
+            </li>
+            <li>
+              <strong>Celestial & Star Bears:</strong> Adorable kawaii teddy bears hugging glowing stars, sleeping cartoon bears nestled on crescent moons, and dreamy night-sky nursery illustrations.
+            </li>
+            <li>
+              <strong>5-Star Rating PNGs & Review Bars:</strong> Essential for e-commerce conversion optimization, Shopify stores, and Trustpilot-style customer feedback widgets.
             </li>
             <li>
               <strong>3D Glossy & Faceted Crystal Stars:</strong> Volumetric 3D stars with dynamic specular highlights and realistic light refraction, rendered cleanly with transparent alpha.
-            </li>
-            <li>
-              <strong>5-Star Rating PNGs & Review Bars:</strong> Essential for e-commerce conversion optimization and customer trust badges.
-            </li>
-            <li>
-              <strong>Y2K Cyber Stars & Retro Starbursts:</strong> The dominant aesthetic in contemporary streetwear branding, Gen-Z TikTok thumbnails, and music cover art.
             </li>
           </ul>
         </div>
@@ -366,6 +397,16 @@ const pageSchema = {
         <div class="p-5 rounded-xl border border-[#ebebeb] bg-[#fafafa]">
           <h3 class="text-base font-semibold text-[#171717] flex items-center gap-2 mb-2">
             <HelpCircle class="w-4 h-4 text-[#8f8f8f]" />
+            Can I download star stickers, animated stars, star frames, and star bear mascots?
+          </h3>
+          <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
+            Yes! StarPNG goes far beyond isolated stars. Our catalog includes die-cut star stickers, live CSS/SVG animated stars (twinkle, pulse, spin, float), UI interface icons (favorites, bookmarks, rating shields), ornate star frames/borders, celestial moon & stars, and cute kawaii star bear mascots.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-[#ebebeb] bg-[#fafafa]">
+          <h3 class="text-base font-semibold text-[#171717] flex items-center gap-2 mb-2">
+            <HelpCircle class="w-4 h-4 text-[#8f8f8f]" />
             How does StarPNG compare to Flaticon?
           </h3>
           <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
@@ -389,7 +430,7 @@ const pageSchema = {
             Are these star PNG graphics free for commercial use?
           </h3>
           <p class="text-xs sm:text-sm text-[#4d4d4d] leading-relaxed pl-6">
-            Yes. All star graphics, 5-star rating bars, Y2K cyber stars, and gold stars on StarPNG are distributed under the Creative Commons CC0 Public Domain license. You may use them in personal, commercial, client work, web applications, and print projects without attribution.
+            Yes. All star graphics, 5-star rating bars, Y2K cyber stars, star stickers, animated SVGs, and star bear mascots on StarPNG are distributed under the Creative Commons CC0 Public Domain license. You may use them in personal, commercial, client work, web applications, and print projects without attribution.
           </p>
         </div>
       </div>

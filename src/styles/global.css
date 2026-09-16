@@ -74,3 +74,84 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #a3a3a3;
 }
+
+/* Star Dynamic Animations */
+@keyframes starTwinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.4));
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.88);
+    filter: drop-shadow(0 0 1px rgba(245, 158, 11, 0.1));
+  }
+}
+
+@keyframes starPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px currentColor);
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 20px currentColor);
+  }
+}
+
+@keyframes starSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes starFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+@keyframes starShooting {
+  0% {
+    transform: translate(-10px, -10px) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(10px, 10px) scale(1.05);
+    opacity: 0;
+  }
+}
+
+.animate-star-twinkle {
+  animation: starTwinkle 2s ease-in-out infinite;
+}
+
+.animate-star-pulse {
+  animation: starPulse 2.4s ease-in-out infinite;
+}
+
+.animate-star-spin {
+  animation: starSpin 8s linear infinite;
+}
+
+.animate-star-float {
+  animation: starFloat 3s ease-in-out infinite;
+}
+
+.animate-star-shooting {
+  animation: starShooting 2.5s ease-in-out infinite;
+}
+

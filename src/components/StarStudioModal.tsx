@@ -36,6 +36,7 @@ export default function StarStudioModal({ star, isOpen, onClose }: StarStudioMod
   const [customHex, setCustomHex] = useState<string>(star.defaultColor);
   const [resolution, setResolution] = useState<number>(1024);
   const [bgMode, setBgMode] = useState<'checker' | 'dark' | 'white'>('checker');
+  const [isAnimatedPreview, setIsAnimatedPreview] = useState<boolean>(true);
   const [copiedStatus, setCopiedStatus] = useState<string | null>(null);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const previewRef = useRef<HTMLDivElement>(null);
@@ -171,37 +172,54 @@ export default function StarStudioModal({ star, isOpen, onClose }: StarStudioMod
             </span>
 
             {/* Canvas Background Controls */}
-            <div className="flex items-center gap-1 bg-white p-1 rounded-full border border-[#ebebeb] shadow-xs">
-              <button
-                type="button"
-                onClick={() => setBgMode('checker')}
-                title="Transparent Grid"
-                className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${
-                  bgMode === 'checker' ? 'bg-[#171717] text-white' : 'text-[#4d4d4d] hover:text-[#171717]'
-                }`}
-              >
-                Grid
-              </button>
-              <button
-                type="button"
-                onClick={() => setBgMode('dark')}
-                title="Dark Canvas"
-                className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${
-                  bgMode === 'dark' ? 'bg-[#171717] text-white' : 'text-[#4d4d4d] hover:text-[#171717]'
-                }`}
-              >
-                Dark
-              </button>
-              <button
-                type="button"
-                onClick={() => setBgMode('white')}
-                title="White Canvas"
-                className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${
-                  bgMode === 'white' ? 'bg-[#171717] text-white' : 'text-[#4d4d4d] hover:text-[#171717]'
-                }`}
-              >
-                White
-              </button>
+            <div className="flex items-center gap-2">
+              {star.animationType && (
+                <button
+                  type="button"
+                  onClick={() => setIsAnimatedPreview(!isAnimatedPreview)}
+                  className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors cursor-pointer flex items-center gap-1 ${
+                    isAnimatedPreview
+                      ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                      : 'bg-white border border-[#ebebeb] text-[#8f8f8f]'
+                  }`}
+                  title="Toggle live animation"
+                >
+                  <Sparkles className="w-3 h-3 text-amber-500" />
+                  <span>{isAnimatedPreview ? 'Animated' : 'Static'}</span>
+                </button>
+              )}
+              <div className="flex items-center gap-1 bg-white p-0.5 rounded-full border border-[#ebebeb] shadow-xs">
+                <button
+                  type="button"
+                  onClick={() => setBgMode('checker')}
+                  title="Checkerboard Canvas"
+                  className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${
+                    bgMode === 'checker' ? 'bg-[#171717] text-white' : 'text-[#4d4d4d] hover:text-[#171717]'
+                  }`}
+                >
+                  Grid
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBgMode('dark')}
+                  title="Dark Canvas"
+                  className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${
+                    bgMode === 'dark' ? 'bg-[#171717] text-white' : 'text-[#4d4d4d] hover:text-[#171717]'
+                  }`}
+                >
+                  Dark
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBgMode('white')}
+                  title="White Canvas"
+                  className={`px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors ${
+                    bgMode === 'white' ? 'bg-[#171717] text-white' : 'text-[#4d4d4d] hover:text-[#171717]'
+                  }`}
+                >
+                  White
+                </button>
+              </div>
             </div>
           </div>
 
@@ -213,7 +231,9 @@ export default function StarStudioModal({ star, isOpen, onClose }: StarStudioMod
             }`}
           >
             <div 
-              className="w-full h-full flex items-center justify-center drop-shadow-md transition-transform duration-300 hover:scale-105"
+              className={`w-full h-full flex items-center justify-center drop-shadow-md transition-transform duration-300 hover:scale-105 ${
+                isAnimatedPreview && star.animationType ? `animate-star-${star.animationType}` : ''
+              }`}
               dangerouslySetInnerHTML={{
                 __html: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${star.viewBox}" class="w-full h-full">${injectColorShades(star.svgContent, activeColor, 'modal_preview')}</svg>`
               }}
@@ -235,9 +255,26 @@ export default function StarStudioModal({ star, isOpen, onClose }: StarStudioMod
             {/* Header with Title & Close */}
             <div className="flex items-start justify-between mb-4">
               <div>
-                <span className="font-mono text-xs uppercase tracking-wider text-[#8f8f8f] block mb-1">
-                  {star.categoryName}
-                </span>
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#8f8f8f]">
+                    {star.categoryName}
+                  </span>
+                  {star.level === 'high' && (
+                    <span className="px-1.5 py-0.5 text-[9px] font-mono font-semibold text-amber-800 bg-amber-100 rounded-sm border border-amber-300">
+                      3D / FX
+                    </span>
+                  )}
+                  {star.level === 'moderate' && (
+                    <span className="px-1.5 py-0.5 text-[9px] font-mono text-purple-700 bg-purple-50 rounded-sm border border-purple-200">
+                      Stylized
+                    </span>
+                  )}
+                  {star.level === 'basic' && (
+                    <span className="px-1.5 py-0.5 text-[9px] font-mono text-emerald-700 bg-emerald-50 rounded-sm border border-emerald-200">
+                      Basic
+                    </span>
+                  )}
+                </div>
                 <h3 className="text-xl font-semibold text-[#171717] tracking-tight">
                   {star.title}
                 </h3>
