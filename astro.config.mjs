@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://starpng.com',
+  site: process.env.SITE_URL || 'https://starpng.pages.dev',
   trailingSlash: 'always',
 
   build: {
