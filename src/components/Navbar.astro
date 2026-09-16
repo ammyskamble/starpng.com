@@ -1,11 +1,11 @@
 ---
-import { Sparkles, Cpu } from 'lucide-react';
+import { Sparkles, Cpu, Menu, X, Wand2, ArrowRight } from 'lucide-react';
 ---
 
-<header class="sticky top-0 z-40 w-full bg-white/90 backdrop-blur-md border-b border-[#ebebeb]">
+<header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-[#ebebeb]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     <!-- Brand Logo -->
-    <a href="/" class="flex items-center gap-2.5 group">
+    <a href="/" class="flex items-center gap-2.5 group shrink-0">
       <div class="w-8 h-8 rounded-lg bg-[#171717] text-white flex items-center justify-center transition-transform group-hover:scale-105 shadow-xs">
         <svg viewBox="0 0 100 100" class="w-4 h-4 fill-amber-400">
           <polygon points="50,5 63,33 95,35 70,56 78,87 50,70 22,87 30,56 5,35 37,33" />
@@ -16,44 +16,161 @@ import { Sparkles, Cpu } from 'lucide-react';
       </span>
     </a>
 
-    <!-- Navigation Links -->
-    <nav class="hidden md:flex items-center gap-1 text-xs lg:text-sm font-medium text-[#4d4d4d]">
-      <a href="/stars/futuristic/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors flex items-center gap-1 text-[#0070F3] font-semibold">
-        <Cpu class="w-3.5 h-3.5" />
-        AI & Futuristic
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-0.5 text-xs font-medium text-[#4d4d4d]">
+      <a href="/stars/stickers/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors font-semibold text-amber-700 bg-amber-50/70 border border-amber-200/50">
+        ✨ Stickers
       </a>
-      <a href="/stars/ratings/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+      <a href="/stars/animated/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Live Animated
+      </a>
+      <a href="/stars/characters/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Star Bears
+      </a>
+      <a href="/stars/ratings/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
         5-Star Ratings
       </a>
-      <a href="/stars/3d/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+      <a href="/stars/3d/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
         3D & Glossy
       </a>
-      <a href="/stars/y2k/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
-        Y2K & Cyber
+      <a href="/stars/y2k/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        Y2K
       </a>
-      <a href="/stars/gold/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
-        Gold Stars
+      <a href="/stars/interface/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
+        UI Icons
       </a>
-      <a href="/stars/neon/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
-        Neon Glow
-      </a>
-      <a href="/stars/aesthetic/" class="px-3 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors">
-        Aesthetic
+      <a href="/stars/futuristic/" class="px-2.5 py-1.5 rounded-full hover:text-[#171717] hover:bg-[#fafafa] transition-colors flex items-center gap-1 text-[#0070F3] font-semibold">
+        <Cpu class="w-3.5 h-3.5" />
+        AI Stars
       </a>
     </nav>
 
-    <!-- Right Badges / CTA -->
-    <div class="flex items-center gap-2.5">
-      <div class="hidden sm:flex items-center gap-1.5 text-xs font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+    <!-- Right Badges, CTA & Mobile Toggle -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <div class="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
         <span>100% Free CC0</span>
       </div>
+
+      <a
+        href="#generator"
+        class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white border border-[#ebebeb] hover:border-[#171717] text-xs font-medium text-[#171717] transition-all shadow-2xs"
+      >
+        <Wand2 class="w-3.5 h-3.5 text-amber-500" />
+        <span>Generator</span>
+      </a>
+
       <a
         href="#catalog"
-        class="px-4 py-1.5 rounded-full bg-[#171717] text-white hover:bg-black text-xs font-medium transition-all shadow-xs"
+        class="px-3.5 py-1.5 rounded-full bg-[#171717] text-white hover:bg-black text-xs font-medium transition-all shadow-xs"
       >
         Browse Assets
       </a>
+
+      <!-- Mobile Hamburger Menu Button -->
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        class="lg:hidden p-1.5 rounded-lg text-[#4d4d4d] hover:text-[#171717] hover:bg-[#fafafa] border border-[#ebebeb] transition-colors cursor-pointer"
+      >
+        <svg id="menu-icon-open" class="w-5 h-5 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Navigation Drawer -->
+  <div
+    id="mobile-menu-drawer"
+    class="hidden lg:hidden border-t border-[#ebebeb] bg-white px-4 py-5 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200"
+  >
+    <div class="mb-3">
+      <span class="font-mono text-[10px] uppercase tracking-wider text-[#8f8f8f] block mb-2 px-2">
+        Popular Star Categories
+      </span>
+      <div class="grid grid-cols-2 gap-1.5 text-xs font-medium">
+        <a href="/stars/stickers/" class="p-2.5 rounded-lg bg-amber-50/70 hover:bg-amber-100/70 text-amber-950 flex items-center justify-between border border-amber-200/60">
+          <span>✨ Star Stickers</span>
+          <span class="text-[10px] bg-amber-200/80 px-1.5 py-0.5 rounded font-bold">16</span>
+        </a>
+        <a href="/stars/animated/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717] flex items-center justify-between">
+          <span>💫 Live Animated</span>
+          <span class="text-[10px] text-emerald-600 font-bold">LIVE</span>
+        </a>
+        <a href="/stars/characters/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          🧸 Star Bears & Mascots
+        </a>
+        <a href="/stars/interface/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          🔖 UI & Interface Icons
+        </a>
+        <a href="/stars/ratings/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          ⭐ 5-Star Ratings
+        </a>
+        <a href="/stars/3d/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          💎 3D & Faceted
+        </a>
+        <a href="/stars/y2k/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          ⚡ Y2K Cyber Stars
+        </a>
+        <a href="/stars/gold/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          🏆 Gold Stars & Medals
+        </a>
+        <a href="/stars/badges/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          🎖️ Badges & Seals
+        </a>
+        <a href="/stars/frames/" class="p-2.5 rounded-lg bg-[#fafafa] hover:bg-[#f0f0f0] text-[#171717]">
+          🖼️ Frames & Borders
+        </a>
+      </div>
+    </div>
+
+    <div class="pt-3 border-t border-[#ebebeb] flex flex-col gap-2">
+      <a
+        href="/#generator"
+        class="w-full py-2.5 px-4 rounded-xl bg-[#171717] text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-xs"
+      >
+        <Wand2 class="w-4 h-4 text-amber-400" />
+        <span>Launch Procedural Star Generator</span>
+      </a>
+      <div class="flex items-center justify-between px-2 pt-1 text-[11px] text-[#8f8f8f]">
+        <span>100% Real Alpha &bull; No Checkerboards</span>
+        <span class="text-emerald-600 font-semibold">Free CC0 Public Domain</span>
+      </div>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('mobile-menu-btn');
+    const drawer = document.getElementById('mobile-menu-drawer');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    if (btn && drawer && iconOpen && iconClose) {
+      btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+        drawer.classList.toggle('hidden');
+        iconOpen.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+      });
+
+      // Close drawer when clicking any link inside it
+      drawer.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          btn.setAttribute('aria-expanded', 'false');
+          drawer.classList.add('hidden');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        });
+      });
+    }
+  });
+</script>

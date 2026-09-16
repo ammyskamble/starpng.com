@@ -60,6 +60,8 @@ export default function StarGeneratorStudio() {
   const [rotation, setRotation] = useState<number>(0);
   const [isOutline, setIsOutline] = useState<boolean>(false);
   const [strokeWidth, setStrokeWidth] = useState<number>(4);
+  const [isStickerMode, setIsStickerMode] = useState<boolean>(false);
+  const [stickerBorderWidth, setStickerBorderWidth] = useState<number>(12);
 
   // 3D Faceted Mode Parameters
   const [points3D, setPoints3D] = useState<number>(5);
@@ -94,6 +96,21 @@ export default function StarGeneratorStudio() {
   const PRESET_LIBRARY: PresetItem[] = [
     // --- BASIC PRESETS ---
     {
+      name: 'Flaticon Die-Cut Sticker',
+      level: 'basic',
+      mode: 'geometric',
+      apply: () => {
+        setActiveMode('geometric');
+        setPoints(5);
+        setInnerRadius(0.42);
+        setCurved(false);
+        setIsOutline(false);
+        setIsStickerMode(true);
+        setStickerBorderWidth(12);
+        setActiveColor('#FDE047');
+      },
+    },
+    {
       name: 'Classic 5-Star',
       level: 'basic',
       mode: 'geometric',
@@ -103,6 +120,7 @@ export default function StarGeneratorStudio() {
         setInnerRadius(0.42);
         setCurved(false);
         setIsOutline(false);
+        setIsStickerMode(false);
         setActiveColor('#F59E0B');
       },
     },
@@ -367,7 +385,18 @@ export default function StarGeneratorStudio() {
     const geom = curved ? `<path d="${curvedPath}" />` : `<polygon points="${polygonPoints}" />`;
 
     let content = '';
-    if (isOutline) {
+    if (isStickerMode) {
+      content = `
+        <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.16))">
+          <!-- White Die-Cut Vinyl Contour -->
+          <g fill="#ffffff" stroke="#ffffff" stroke-width="${stickerBorderWidth}" stroke-linejoin="round" stroke-linecap="round">${geom}</g>
+          <!-- Star Core Body -->
+          <g fill="${shades.main}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round">${geom}</g>
+          <!-- Specular Pill Highlight -->
+          <ellipse cx="38" cy="27" rx="5.5" ry="2.5" fill="#ffffff" opacity="0.8" transform="rotate(-30 38 27)" />
+        </g>
+      `;
+    } else if (isOutline) {
       content = `<g fill="none" stroke="${shades.main}" stroke-width="${strokeWidth}" stroke-linejoin="round" stroke-linecap="round">${geom}</g>`;
     } else {
       content = `<g fill="${shades.main}">${geom}</g>`;
@@ -493,11 +522,11 @@ export default function StarGeneratorStudio() {
         </div>
 
         {/* Engine Mode Tabs */}
-        <div className="flex items-center gap-1.5 p-1 bg-[#fafafa] border border-[#ebebeb] rounded-xl overflow-x-auto scrollbar-none">
+        <div className="w-full md:w-auto flex items-center gap-1.5 p-1 bg-[#fafafa] border border-[#ebebeb] rounded-xl overflow-x-auto scrollbar-none max-w-full touch-pan-x shrink-0">
           <button
             type="button"
             onClick={() => setActiveMode('geometric')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
               activeMode === 'geometric' ? 'bg-[#171717] text-white shadow-xs' : 'text-[#4d4d4d] hover:text-[#171717]'
             }`}
           >
@@ -507,7 +536,7 @@ export default function StarGeneratorStudio() {
           <button
             type="button"
             onClick={() => setActiveMode('3d-faceted')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
               activeMode === '3d-faceted' ? 'bg-[#171717] text-white shadow-xs' : 'text-[#4d4d4d] hover:text-[#171717]'
             }`}
           >
@@ -517,7 +546,7 @@ export default function StarGeneratorStudio() {
           <button
             type="button"
             onClick={() => setActiveMode('lens-flare')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
               activeMode === 'lens-flare' ? 'bg-[#171717] text-white shadow-xs' : 'text-[#4d4d4d] hover:text-[#171717]'
             }`}
           >
@@ -527,7 +556,7 @@ export default function StarGeneratorStudio() {
           <button
             type="button"
             onClick={() => setActiveMode('rating-bar')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
               activeMode === 'rating-bar' ? 'bg-[#171717] text-white shadow-xs' : 'text-[#4d4d4d] hover:text-[#171717]'
             }`}
           >
@@ -537,7 +566,7 @@ export default function StarGeneratorStudio() {
           <button
             type="button"
             onClick={() => setActiveMode('neon')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+            className={`shrink-0 whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
               activeMode === 'neon' ? 'bg-[#171717] text-white shadow-xs' : 'text-[#4d4d4d] hover:text-[#171717]'
             }`}
           >
@@ -772,7 +801,10 @@ export default function StarGeneratorStudio() {
                   )}
                   <button
                     type="button"
-                    onClick={() => setIsOutline(!isOutline)}
+                    onClick={() => {
+                      setIsOutline(!isOutline);
+                      if (!isOutline) setIsStickerMode(false);
+                    }}
                     className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
                       isOutline ? 'bg-[#171717]' : 'bg-[#e5e7eb]'
                     }`}
@@ -780,6 +812,48 @@ export default function StarGeneratorStudio() {
                     <span
                       className={`block w-4 h-4 rounded-full bg-white transition-transform ${
                         isOutline ? 'translate-x-6' : 'translate-x-1'
+                      }`}
+                    />
+                  </button>
+                </div>
+              </div>
+
+              {/* Flaticon Die-Cut Sticker Mode Toggle */}
+              <div className="p-3.5 bg-[#fafafa] rounded-xl border border-[#ebebeb] flex items-center justify-between">
+                <div>
+                  <span className="text-xs font-semibold text-[#171717] flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                    Flaticon Die-Cut Sticker Style
+                  </span>
+                  <span className="text-[11px] text-[#8f8f8f]">White vinyl border, drop shadow & glossy highlight</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  {isStickerMode && (
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-mono text-[#8f8f8f]">Width:</span>
+                      <input
+                        type="range"
+                        min="6"
+                        max="24"
+                        value={stickerBorderWidth}
+                        onChange={(e) => setStickerBorderWidth(Number(e.target.value))}
+                        className="w-20 accent-[#171717] cursor-pointer"
+                      />
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsStickerMode(!isStickerMode);
+                      if (!isStickerMode) setIsOutline(false);
+                    }}
+                    className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
+                      isStickerMode ? 'bg-[#171717]' : 'bg-[#e5e7eb]'
+                    }`}
+                  >
+                    <span
+                      className={`block w-4 h-4 rounded-full bg-white transition-transform ${
+                        isStickerMode ? 'translate-x-6' : 'translate-x-1'
                       }`}
                     />
                   </button>

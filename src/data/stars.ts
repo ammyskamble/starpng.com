@@ -1931,6 +1931,1194 @@ export const STAR_ASSETS: StarAsset[] = [
     featured: true,
   },
   {
+    id: "winking-kawaii-star-sticker",
+    title: "Winking Kawaii Star Sticker PNG",
+    slug: "winking-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "twinkle",
+    description: "Playful winking kawaii star sticker with thick die-cut white border, sparkling star pupil eye, winking arc, and rosy blushing cheeks. Popular for digital scrapbooking and chat emojis.",
+    tags: ["winking star sticker","kawaii star png","wink star emoji","cute star sticker","die cut star decal"],
+    searchVolume: "28,500/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Border with Drop Shadow -->
+      <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="2.5" stroke-linejoin="round" points="50,3 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))" />
+      <!-- Star Body -->
+      <polygon fill="{{STAR_MAIN}}" stroke="#2C3E50" stroke-width="2.5" stroke-linejoin="round" points="50,9 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+      <!-- Winking Left Eye (Curved Arc) -->
+      <path d="M 32 47 Q 38 40 44 47" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none" />
+      <!-- Open Sparkling Right Eye -->
+      <ellipse cx="62" cy="46" rx="4.5" ry="6" fill="#1E293B" />
+      <circle cx="60.5" cy="44" r="1.8" fill="#ffffff" />
+      <circle cx="64" cy="48" r="1" fill="#ffffff" />
+      <!-- Rosy Blush Cheeks -->
+      <ellipse cx="30" cy="54" rx="5" ry="3" fill="#FB7185" opacity="0.85" />
+      <ellipse cx="70" cy="54" rx="5" ry="3" fill="#FB7185" opacity="0.85" />
+      <!-- Smiling Tongue Mouth -->
+      <path fill="#EF4444" stroke="#1E293B" stroke-width="2" stroke-linecap="round" d="M 47 53 Q 50 63 53 53 Z" />
+      <!-- Specular Pill Highlight -->
+      <ellipse cx="37" cy="26" rx="5.5" ry="2.5" fill="#ffffff" opacity="0.85" transform="rotate(-30 37 26)" />
+    `,
+    featured: true
+  },
+  {
+    id: "sleeping-star-cloud-sticker",
+    title: "Sleeping Star on Fluffy Cloud Sticker PNG",
+    slug: "sleeping-star-on-cloud-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Peaceful sleeping pastel star wearing a cozy nightcap resting on a puffy white cloud. Beautiful sticker for baby nursery stationery, goodnight cards, and dream journals.",
+    tags: ["sleeping star sticker","star on cloud png","nursery star decal","baby star sticker","nightcap star png"],
+    searchVolume: "24,000/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Border -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.13))">
+        <!-- Cloud Base -->
+        <path d="M 16 75 A 12 12 0 0 1 30 63 A 16 16 0 0 1 58 59 A 14 14 0 0 1 80 65 A 12 12 0 0 1 84 82 L 18 82 Z" fill="#ffffff" stroke="#CBD5E1" stroke-width="2" />
+        <path d="M 22 76 A 8 8 0 0 1 32 68 A 12 12 0 0 1 56 65 A 10 10 0 0 1 76 71 A 8 8 0 0 1 80 80 L 22 80 Z" fill="#F8FAFC" />
+        <!-- Sleeping Star Silhouette -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#2C3E50" stroke-width="2" stroke-linejoin="round" points="50,15 58,35 80,36 62,50 69,72 50,58 31,72 38,50 20,36 42,35" />
+        <!-- Nightcap (Cozy Sleep Cap) -->
+        <path d="M 44 26 C 42 16, 26 12, 20 18 C 16 22, 24 28, 36 28 Z" fill="#6366F1" stroke="#2C3E50" stroke-width="1.5" />
+        <circle cx="19" cy="18" r="4" fill="#ffffff" stroke="#2C3E50" stroke-width="1.5" />
+        <!-- Closed Peaceful Curved Eyes -->
+        <path d="M 39 46 Q 43 51 47 46" stroke="#1E293B" stroke-width="2" stroke-linecap="round" fill="none" />
+        <path d="M 53 46 Q 57 51 61 46" stroke="#1E293B" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Soft Blush Dots -->
+        <circle cx="36" cy="51" r="3" fill="#FB7185" opacity="0.8" />
+        <circle cx="64" cy="51" r="3" fill="#FB7185" opacity="0.8" />
+        <!-- Peaceful Smile -->
+        <path d="M 47 52 Q 50 55 53 52" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" fill="none" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "cool-sunglasses-star-sticker",
+    title: "Cool Sunglasses Star Sticker PNG",
+    slug: "cool-sunglasses-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "pulse",
+    description: "Sleek cool star sticker rocking dark sunglasses with white reflection glare and a confident smirk. Fun sticker for summer camp badges, gaming achievements, and stickers.",
+    tags: ["cool star sticker","star with sunglasses png","sunglasses star decal","shades star png"],
+    searchVolume: "21,200/mo",
+    defaultColor: "#FBBF24",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Contour -->
+      <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))" />
+      <!-- Star Body -->
+      <polygon fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" points="50,10 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+      <!-- Black Aviator Sunglasses -->
+      <!-- Left Lens -->
+      <path d="M 28 42 L 46 42 C 46 54, 32 54, 28 46 Z" fill="#0F172A" stroke="#0F172A" stroke-width="1.5" stroke-linejoin="round" />
+      <!-- Right Lens -->
+      <path d="M 54 42 L 72 42 C 72 46, 68 54, 54 54 Z" fill="#0F172A" stroke="#0F172A" stroke-width="1.5" stroke-linejoin="round" />
+      <!-- Bridge -->
+      <line x1="45" y1="44" x2="55" y2="44" stroke="#0F172A" stroke-width="3" stroke-linecap="round" />
+      <!-- White Specular Glare Slashes -->
+      <line x1="33" y1="44" x2="38" y2="50" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.8" />
+      <line x1="59" y1="44" x2="64" y2="50" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" opacity="0.8" />
+      <!-- Confident Smirk -->
+      <path d="M 45 61 Q 54 64 57 58" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Specular Highlight Top Point -->
+      <ellipse cx="37" cy="27" rx="5" ry="2.5" fill="#ffffff" opacity="0.75" transform="rotate(-30 37 27)" />
+    `,
+    featured: true
+  },
+  {
+    id: "star-struck-sparkling-sticker",
+    title: "Star-Struck Sparkling Emoji Sticker PNG",
+    slug: "star-struck-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "twinkle",
+    description: "Enthusiastic star-struck character sticker with 4-point golden star pupils, beaming wide open smile, and floating magic sparkle dust. Expresses awe and excitement.",
+    tags: ["star struck sticker","star eyes emoji png","excited star decal","sparkle eyes star sticker"],
+    searchVolume: "26,000/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Base -->
+      <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))" />
+      <!-- Main Star Body -->
+      <polygon fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" points="50,10 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+      <!-- Star-Struck Eyes: Left Star Eye -->
+      <g transform="translate(36, 45)">
+        <polygon fill="#F59E0B" stroke="#B45309" stroke-width="1" points="0,-8 2,-2 8,0 2,2 0,8 -2,2 -8,0 -2,-2" />
+        <circle cx="0" cy="0" r="1.5" fill="#ffffff" />
+      </g>
+      <!-- Right Star Eye -->
+      <g transform="translate(64, 45)">
+        <polygon fill="#F59E0B" stroke="#B45309" stroke-width="1" points="0,-8 2,-2 8,0 2,2 0,8 -2,2 -8,0 -2,-2" />
+        <circle cx="0" cy="0" r="1.5" fill="#ffffff" />
+      </g>
+      <!-- Big Happy Mouth -->
+      <path d="M 43 54 Q 50 68 57 54 Z" fill="#DC2626" stroke="#1E293B" stroke-width="2" />
+      <path d="M 46 60 Q 50 65 54 60 Z" fill="#FB7185" />
+      <!-- Pink Blush -->
+      <ellipse cx="28" cy="54" rx="4.5" ry="3" fill="#FB7185" opacity="0.85" />
+      <ellipse cx="72" cy="54" rx="4.5" ry="3" fill="#FB7185" opacity="0.85" />
+      <!-- Satellite Sparkle Diamond -->
+      <polygon fill="#FBBF24" points="86,22 88,27 93,28 88,29 86,34 84,29 79,28 84,27" />
+    `,
+    featured: true
+  },
+  {
+    id: "rainbow-trail-shooting-star-sticker",
+    title: "Rainbow Trail Shooting Star Sticker PNG",
+    slug: "rainbow-shooting-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "shooting",
+    description: "Iconic Flaticon bestseller shooting star sticker with a vibrant 4-color curved rainbow swoosh tail, glowing yellow star head, and trail sparkles. Perfect for pride and joy themes.",
+    tags: ["rainbow shooting star sticker","shooting star decal","rainbow star png","rainbow streak star"],
+    searchVolume: "34,500/mo",
+    defaultColor: "#FBBF24",
+    viewBox: "0 0 110 100",
+    svgContent: `
+      <!-- White Die-Cut Backing For Whole Sticker -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- 4 Curved Parallel Rainbow Bands -->
+        <!-- Red Band -->
+        <path d="M 8 82 C 30 65, 55 52, 75 35 L 82 43 C 60 60, 35 73, 14 90 Z" fill="#F43F5E" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" />
+        <!-- Yellow Band -->
+        <path d="M 14 90 C 35 73, 60 60, 82 43 L 88 51 C 66 68, 41 81, 20 98 Z" fill="#FACC15" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" />
+        <!-- Cyan Band -->
+        <path d="M 20 98 C 41 81, 66 68, 88 51 L 94 59 C 72 76, 47 89, 26 106 Z" fill="#38BDF8" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" />
+        <!-- Purple Band -->
+        <path d="M 26 106 C 47 89, 72 76, 94 59 L 98 65 C 76 82, 51 95, 30 112 Z" fill="#A855F7" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" />
+        <!-- Leading Star Head with White Border -->
+        <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="2.5" stroke-linejoin="round" points="80,4 88,22 107,22 92,34 98,52 80,41 62,52 68,34 53,22 72,22" />
+        <polygon fill="{{STAR_MAIN}}" stroke="#2C3E50" stroke-width="2" stroke-linejoin="round" points="80,9 86,24 102,24 89,34 94,48 80,39 66,48 71,34 58,24 74,24" />
+        <!-- Cute Face on Star Head -->
+        <circle cx="75" cy="28" r="2" fill="#1E293B" />
+        <circle cx="85" cy="28" r="2" fill="#1E293B" />
+        <path d="M 78 33 Q 80 37 82 33" stroke="#1E293B" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        <circle cx="72" cy="32" r="1.8" fill="#FB7185" />
+        <circle cx="88" cy="32" r="1.8" fill="#FB7185" />
+        <!-- Trail Sparkles -->
+        <circle cx="36" cy="50" r="2.5" fill="#FDE047" stroke="#ffffff" stroke-width="1" />
+        <circle cx="22" cy="68" r="2" fill="#38BDF8" stroke="#ffffff" stroke-width="1" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "great-job-reward-star-sticker",
+    title: "Great Job Award Ribbon Star Sticker PNG",
+    slug: "great-job-reward-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "School teacher praise sticker featuring a scalloped crimson rosette ribbon, gold star medal, and bold curved banner reading 'GREAT JOB'. Classic motivation sticker for kids.",
+    tags: ["great job star sticker","reward star sticker","teacher star decal","well done star badge","praise star png"],
+    searchVolume: "29,000/mo",
+    defaultColor: "#DC2626",
+    viewBox: "0 0 100 115",
+    svgContent: `
+      <!-- White Die-Cut Backing -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Hanging Swallowtail Ribbon Tails -->
+        <polygon fill="#B91C1C" points="35,65 24,108 45,95 50,108 45,65" stroke="#ffffff" stroke-width="2" />
+        <polygon fill="#991B1B" points="65,65 76,108 55,95 50,108 55,65" stroke="#ffffff" stroke-width="2" />
+        <!-- Scalloped Rosette Outer Rim -->
+        <circle cx="50" cy="46" r="38" fill="#ffffff" />
+        <circle cx="50" cy="46" r="35" fill="{{STAR_MAIN}}" stroke="#991B1B" stroke-width="2" />
+        <!-- Inner Gold Rim -->
+        <circle cx="50" cy="46" r="26" fill="#FBBF24" stroke="#D97706" stroke-width="2" />
+        <circle cx="50" cy="46" r="22" fill="#FEF3C7" />
+        <!-- Central Golden Star -->
+        <polygon fill="#F59E0B" stroke="#B45309" stroke-width="1.5" points="50,28 54,39 66,40 57,48 61,59 50,52 39,59 43,48 34,40 46,39" />
+        <!-- Arched Text Banner -->
+        <rect x="15" y="65" width="70" height="18" rx="5" fill="#1E293B" stroke="#ffffff" stroke-width="2" />
+        <text x="50" y="77" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="900" fill="#FDE047" text-anchor="middle" letter-spacing="0.5">GREAT JOB!</text>
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "number-one-gold-star-medal-sticker",
+    title: "#1 First Place Gold Medal Star Sticker PNG",
+    slug: "number-one-gold-medal-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "spin",
+    description: "First place winner gold star medal sticker with striped blue and red champion neck ribbon, embossed numeral 1, and glossy bevels. Essential for tournaments and sports apps.",
+    tags: ["first place star sticker","number one star medal","champion star badge","1st place star decal"],
+    searchVolume: "22,800/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 115",
+    svgContent: `
+      <!-- White Die-Cut Contour with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- Striped Neck Ribbons -->
+        <polygon fill="#2563EB" points="30,10 42,10 50,45 38,45" stroke="#ffffff" stroke-width="2" />
+        <polygon fill="#DC2626" points="70,10 58,10 50,45 62,45" stroke="#ffffff" stroke-width="2" />
+        <polygon fill="#ffffff" points="46,10 54,10 52,45 48,45" />
+        <!-- Golden Outer Medallion -->
+        <circle cx="50" cy="65" r="36" fill="#ffffff" />
+        <circle cx="50" cy="65" r="33" fill="{{STAR_MAIN}}" stroke="#B45309" stroke-width="2.5" />
+        <circle cx="50" cy="65" r="27" fill="#FBBF24" />
+        <circle cx="50" cy="65" r="23" fill="#D97706" />
+        <circle cx="50" cy="65" r="21" fill="#FEF08A" />
+        <!-- Bold #1 Text -->
+        <text x="50" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#78350F" text-anchor="middle">1</text>
+        <!-- Surrounding 4 Mini Stars -->
+        <polygon fill="#F59E0B" points="50,47 51,50 54,50 52,52 53,55 50,53 47,55 48,52 46,50 49,50" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "magic-wand-star-burst-sticker",
+    title: "Magic Wand Star Burst Sticker PNG",
+    slug: "magic-wand-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "twinkle",
+    description: "Magical fairy tale wand sticker with a diagonal purple handle, glowing golden star tip, and explosive diamond sparkle dust. Ideal for fantasy, witchy, and celebratory graphics.",
+    tags: ["magic wand star sticker","fairy wand star decal","star burst wand png","sparkle wand sticker"],
+    searchVolume: "25,300/mo",
+    defaultColor: "#8B5CF6",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Border with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Tilted Wand Shaft with Striped Grip -->
+        <rect x="18" y="65" width="10" height="42" rx="4" transform="rotate(-45 18 65)" fill="{{STAR_MAIN}}" stroke="#ffffff" stroke-width="2.5" />
+        <line x1="28" y1="62" x2="33" y2="67" stroke="#ffffff" stroke-width="2" />
+        <line x1="35" y1="69" x2="40" y2="74" stroke="#ffffff" stroke-width="2" />
+        <!-- Big Radiant Star Wand Top -->
+        <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="68,6 77,24 97,24 81,36 87,54 68,43 49,54 55,36 39,24 59,24" />
+        <polygon fill="#FBBF24" stroke="#D97706" stroke-width="2" stroke-linejoin="round" points="68,11 75,26 91,26 78,36 83,50 68,41 53,50 58,36 45,26 61,26" />
+        <!-- Star Specular & Core -->
+        <circle cx="68" cy="32" r="5" fill="#FEF08A" />
+        <!-- Floating Sparkle Dust (✦ Diamonds) -->
+        <path d="M 32 20 Q 32 26 38 26 Q 32 26 32 32 Q 32 26 26 26 Q 32 26 32 20 Z" fill="#EC4899" stroke="#ffffff" stroke-width="1" />
+        <path d="M 88 68 Q 88 73 93 73 Q 88 73 88 78 Q 88 73 83 73 Q 88 73 88 68 Z" fill="#38BDF8" stroke="#ffffff" stroke-width="1" />
+        <circle cx="48" cy="14" r="2.5" fill="#FBBF24" stroke="#ffffff" stroke-width="1" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "retro-90s-doodle-sketch-star-sticker",
+    title: "Retro 90s Doodle Sketch Star Sticker PNG",
+    slug: "retro-doodle-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "float",
+    description: "Quirky 90s notebook doodle star sticker with black ink scribble hatching, hand-drawn orbital planet rings, and whimsical spiral trails. Great for scrapbook journals.",
+    tags: ["doodle star sticker","hand drawn star sticker","sketch star decal","90s doodle star png","scribble star"],
+    searchVolume: "20,100/mo",
+    defaultColor: "#FACC15",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing -->
+      <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))" />
+      <!-- Star Fill -->
+      <polygon fill="{{STAR_MAIN}}" points="50,10 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+      <!-- Hand-Drawn Ink Scribble Contour (Irregular Stroke) -->
+      <path d="M 50 10 L 62 35 L 92 35 L 67 54 L 77 83 L 50 65 L 23 83 L 33 54 L 8 35 L 38 35 Z" fill="none" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- Hatching Scribble Texture Inside Star -->
+      <line x1="38" y1="40" x2="48" y2="52" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+      <line x1="44" y1="36" x2="56" y2="50" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+      <line x1="52" y1="38" x2="62" y2="50" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+      <!-- Orbiting Mini Planet with Ring -->
+      <g transform="translate(76, 26)">
+        <ellipse cx="0" cy="0" rx="7" ry="2.5" fill="none" stroke="#EC4899" stroke-width="1.8" transform="rotate(-20)" />
+        <circle cx="0" cy="0" r="4" fill="#A855F7" stroke="#1E1E1E" stroke-width="1.5" />
+      </g>
+      <!-- Dashed Spiral Swoosh Line -->
+      <path d="M 22 75 C 16 85, 28 92, 34 85" fill="none" stroke="#1E1E1E" stroke-width="2" stroke-dasharray="3 3" stroke-linecap="round" />
+    `,
+    featured: false
+  },
+  {
+    id: "broadway-marquee-illuminated-star-sticker",
+    title: "Broadway Marquee Light Bulb Star Sticker PNG",
+    slug: "marquee-light-bulb-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "high",
+    animationType: "pulse",
+    description: "Retro Hollywood cinema marquee star sticker framed with 10 glowing incandescent light bulbs on a deep ruby red double-lined frame. Perfect for red carpet and theatre designs.",
+    tags: ["marquee star sticker","light bulb star png","broadway star decal","hollywood cinema star","theatre star sticker"],
+    searchVolume: "19,400/mo",
+    defaultColor: "#DC2626",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Contour with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.18))">
+        <!-- Outer Star Red Frame -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#ffffff" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" />
+        <!-- Inner Star Inset Face -->
+        <polygon fill="#7F1D1D" stroke="#991B1B" stroke-width="2" points="50,14 61,36 86,36 66,52 74,77 50,61 26,77 34,52 14,36 39,36" />
+        <!-- Array of 10 Glowing Light Bulbs along Points & Valleys -->
+        <!-- Tip Bulbs -->
+        <circle cx="50" cy="12" r="3.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="89" cy="35" r="3.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="75" cy="79" r="3.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="25" cy="79" r="3.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="11" cy="35" r="3.5" fill="#FEF08A" stroke="#CA8A04" stroke-width="1" />
+        <!-- Valley Bulbs -->
+        <circle cx="61" cy="35" r="3" fill="#FDE047" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="67" cy="54" r="3" fill="#FDE047" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="50" cy="62" r="3" fill="#FDE047" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="33" cy="54" r="3" fill="#FDE047" stroke="#CA8A04" stroke-width="1" />
+        <circle cx="39" cy="35" r="3" fill="#FDE047" stroke="#CA8A04" stroke-width="1" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "gift-ribbon-wrapped-star-sticker",
+    title: "Gift Ribbon Wrapped Star Sticker PNG",
+    slug: "gift-ribbon-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Festive golden star wrapped like a present with cross-tied crimson satin ribbons and a decorative top bow. Charming sticker for Christmas, birthdays, and holiday promotions.",
+    tags: ["gift ribbon star sticker","christmas star sticker","present star decal","ribbon bow star png"],
+    searchVolume: "18,200/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Gold Star Base -->
+        <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" />
+        <polygon fill="{{STAR_MAIN}}" stroke="#B45309" stroke-width="2" stroke-linejoin="round" points="50,9 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+        <!-- Vertical Red Ribbon -->
+        <rect x="45" y="10" width="10" height="72" fill="#DC2626" stroke="#991B1B" stroke-width="1.5" />
+        <!-- Horizontal Red Ribbon -->
+        <rect x="10" y="44" width="80" height="10" fill="#DC2626" stroke="#991B1B" stroke-width="1.5" />
+        <!-- Gold Ribbon Stitching -->
+        <line x1="50" y1="12" x2="50" y2="80" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="2 2" />
+        <line x1="12" y1="49" x2="88" y2="49" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="2 2" />
+        <!-- Central Decorative Ribbon Bow -->
+        <ellipse cx="43" cy="45" rx="7" ry="5" fill="#EF4444" stroke="#991B1B" stroke-width="1.5" transform="rotate(-30 43 45)" />
+        <ellipse cx="57" cy="45" rx="7" ry="5" fill="#EF4444" stroke="#991B1B" stroke-width="1.5" transform="rotate(30 57 45)" />
+        <circle cx="50" cy="49" r="4" fill="#B91C1C" stroke="#7F1D1D" stroke-width="1" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "retro-70s-walking-star-mascot-sticker",
+    title: "Retro 70s Walking Star Mascot Sticker PNG",
+    slug: "retro-70s-walking-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Vintage 1970s rubberhose animation mascot star with white cartoon gloves, red sneakers, pie eyes, and an upbeat walking stride. Trending aesthetic for indie merch and vintage tees.",
+    tags: ["vintage star mascot sticker","rubberhose star png","70s cartoon star sticker","walking star mascot decal"],
+    searchVolume: "27,000/mo",
+    defaultColor: "#FBBF24",
+    viewBox: "0 0 105 110",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.16))">
+        <!-- Walking Cartoon Limbs (Back Leg) -->
+        <path d="M 40 70 Q 30 84 26 95" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" />
+        <!-- Red Vintage Shoe Back -->
+        <ellipse cx="22" cy="98" rx="8" ry="4.5" fill="#DC2626" stroke="#1E293B" stroke-width="2" />
+        <rect x="14" y="100" width="16" height="3" rx="1.5" fill="#ffffff" stroke="#1E293B" stroke-width="1" />
+        <!-- Front Leg -->
+        <path d="M 60 70 Q 70 82 78 92" stroke="#1E293B" stroke-width="5" stroke-linecap="round" fill="none" />
+        <!-- Red Vintage Shoe Front -->
+        <ellipse cx="84" cy="95" rx="8" ry="4.5" fill="#DC2626" stroke="#1E293B" stroke-width="2" />
+        <rect x="76" y="97" width="16" height="3" rx="1.5" fill="#ffffff" stroke="#1E293B" stroke-width="1" />
+        <!-- Left Arm Swinging (Back) -->
+        <path d="M 28 48 Q 14 42 12 30" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" fill="none" />
+        <!-- White Cartoon Glove Left -->
+        <circle cx="12" cy="28" r="6" fill="#ffffff" stroke="#1E293B" stroke-width="2" />
+        <!-- Star Body with White Die-Cut Rim -->
+        <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" />
+        <polygon fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" stroke-linejoin="round" points="50,10 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+        <!-- Right Arm Swinging (Front) -->
+        <path d="M 72 48 Q 88 56 94 46" stroke="#1E293B" stroke-width="4.5" stroke-linecap="round" fill="none" />
+        <!-- White Cartoon Glove Right -->
+        <circle cx="95" cy="44" r="6" fill="#ffffff" stroke="#1E293B" stroke-width="2" />
+        <circle cx="92" cy="40" r="2.5" fill="#ffffff" />
+        <!-- Classic Pie-Eyes (Vintage Mickey/Betty Boop style) -->
+        <ellipse cx="42" cy="45" rx="4.5" ry="6.5" fill="#1E293B" />
+        <polygon points="42,45 38,42 38,47" fill="{{STAR_MAIN}}" />
+        <ellipse cx="58" cy="45" rx="4.5" ry="6.5" fill="#1E293B" />
+        <polygon points="58,45 54,42 54,47" fill="{{STAR_MAIN}}" />
+        <!-- Cheerful Smile -->
+        <path d="M 43 56 Q 50 64 57 56" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+        <circle cx="34" cy="54" r="3" fill="#FB7185" />
+        <circle cx="66" cy="54" r="3" fill="#FB7185" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "shy-blushing-baby-star-sticker",
+    title: "Shy Blushing Baby Star Sticker PNG",
+    slug: "shy-blushing-baby-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "float",
+    description: "Sweet pastel baby star with big dewy eyes, soft pink blush spots, and tiny shy hands. Adorable asset for baby showers, preschool learning apps, and kawaii stickers.",
+    tags: ["baby star sticker","cute kawaii star decal","shy star png","nursery cartoon star"],
+    searchVolume: "23,600/mo",
+    defaultColor: "#FEF08A",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <polygon fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" points="50,4 64,32 97,32 70,54 81,87 50,66 19,87 30,54 3,32 36,32" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.12))" />
+      <!-- Pastel Star Body -->
+      <polygon fill="{{STAR_MAIN}}" stroke="#2C3E50" stroke-width="2" stroke-linejoin="round" points="50,10 62,35 92,35 67,54 77,83 50,65 23,83 33,54 8,35 38,35" />
+      <!-- Oversized Dewy Baby Anime Eyes -->
+      <ellipse cx="38" cy="46" rx="5" ry="7" fill="#0F172A" />
+      <circle cx="36" cy="43" r="2.2" fill="#ffffff" />
+      <circle cx="40" cy="48" r="1.2" fill="#ffffff" />
+      <ellipse cx="62" cy="46" rx="5" ry="7" fill="#0F172A" />
+      <circle cx="60" cy="43" r="2.2" fill="#ffffff" />
+      <circle cx="64" cy="48" r="1.2" fill="#ffffff" />
+      <!-- Giant Rosy Cheeks -->
+      <ellipse cx="28" cy="54" rx="6" ry="3.5" fill="#FB7185" opacity="0.9" />
+      <ellipse cx="72" cy="54" rx="6" ry="3.5" fill="#FB7185" opacity="0.9" />
+      <!-- Shy Little Mouth -->
+      <path d="M 48 55 Q 50 57 52 55" stroke="#1E293B" stroke-width="2" stroke-linecap="round" fill="none" />
+      <!-- Tiny Hands Folded Together -->
+      <ellipse cx="45" cy="62" rx="3" ry="2" fill="#FDE047" stroke="#2C3E50" stroke-width="1.5" />
+      <ellipse cx="55" cy="62" rx="3" ry="2" fill="#FDE047" stroke="#2C3E50" stroke-width="1.5" />
+    `,
+    featured: true
+  },
+  {
+    id: "gold-star-trophy-cup-sticker",
+    title: "Gold Star Victory Trophy Cup Sticker PNG",
+    slug: "gold-star-trophy-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Gleaming golden championship trophy cup sticker with dual handles, marble base, and an embossed 5-point star badge. Ideal for gaming leaderboards and victory banners.",
+    tags: ["trophy cup star sticker","winner star trophy png","award trophy sticker","champion star cup decal"],
+    searchVolume: "21,500/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 115",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Dual Trophy Handles -->
+        <path d="M 24 25 C 8 25, 8 50, 26 50" fill="none" stroke="#D97706" stroke-width="5" stroke-linecap="round" />
+        <path d="M 24 25 C 8 25, 8 50, 26 50" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linecap="round" />
+        <path d="M 76 25 C 92 25, 92 50, 74 50" fill="none" stroke="#D97706" stroke-width="5" stroke-linecap="round" />
+        <path d="M 76 25 C 92 25, 92 50, 74 50" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linecap="round" />
+        <!-- Main Trophy Cup Body -->
+        <path d="M 25 15 L 75 15 C 75 48, 62 65, 50 65 C 38 65, 25 48, 25 15 Z" fill="{{STAR_MAIN}}" stroke="#B45309" stroke-width="2" />
+        <path d="M 29 18 L 71 18 C 71 45, 60 60, 50 60 C 40 60, 29 45, 29 18 Z" fill="#FBBF24" />
+        <!-- Trophy Stem & Base -->
+        <rect x="45" y="65" width="10" height="15" fill="#D97706" stroke="#92400E" stroke-width="1.5" />
+        <polygon points="35,80 65,80 70,86 30,86" fill="#F59E0B" stroke="#92400E" stroke-width="1.5" />
+        <!-- Marble Plinth -->
+        <rect x="24" y="86" width="52" height="18" rx="3" fill="#1E293B" stroke="#ffffff" stroke-width="2" />
+        <!-- Embossed Gold Star on Front of Cup -->
+        <polygon fill="#ffffff" stroke="#D97706" stroke-width="1.5" points="50,25 54,34 64,34 56,41 59,50 50,44 41,50 44,41 36,34 46,34" />
+        <!-- Specular Highlight on Rim -->
+        <ellipse cx="36" cy="22" rx="4" ry="1.5" fill="#ffffff" opacity="0.8" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "clapping-character-great-job-sticker",
+    title: "Clapping Character 'Great Job' Sticker PNG",
+    slug: "clapping-great-job-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Cute minimalist cartoon character clapping hands cheerfully under an arched 'Great Job' motivational banner with tiny twinkling star accents and die-cut border.",
+    tags: ["great job sticker","clapping character sticker","well done sticker png","reward star sticker","praise sticker"],
+    searchVolume: "22,400/mo",
+    defaultColor: "#FBBF24",
+    viewBox: "0 0 100 110",
+    svgContent: `
+      <!-- White Die-Cut Contour with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Backing -->
+        <path d="M 12 40 C 12 18, 88 18, 88 40 C 96 55, 90 95, 78 102 C 65 106, 35 106, 22 102 C 10 95, 4 55, 12 40 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Curved Banner with Text 'Great Job!' -->
+        <path d="M 18 30 Q 50 16 82 30" fill="none" stroke="#2563EB" stroke-width="9" stroke-linecap="round" />
+        <path d="M 20 30 Q 50 18 80 30" fill="none" stroke="#3B82F6" stroke-width="7" stroke-linecap="round" />
+        <text x="50" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">GREAT JOB!</text>
+        <!-- Cute Minimalist White Character Body -->
+        <ellipse cx="50" cy="65" rx="26" ry="24" fill="#F8FAFC" stroke="#1E293B" stroke-width="2.5" />
+        <!-- Clapping Hands Together -->
+        <ellipse cx="44" cy="74" rx="6" ry="4" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" transform="rotate(-20 44 74)" />
+        <ellipse cx="56" cy="74" rx="6" ry="4" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" transform="rotate(20 56 74)" />
+        <!-- Clapping Motion Whiskers -->
+        <line x1="50" y1="65" x2="50" y2="61" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+        <line x1="45" y1="66" x2="42" y2="63" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+        <line x1="55" y1="66" x2="58" y2="63" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+        <!-- Happy Arc Eyes & Rosy Blush -->
+        <path d="M 39 58 Q 43 53 47 58" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round" fill="none" />
+        <path d="M 53 58 Q 57 53 61 58" stroke="#1E293B" stroke-width="2.2" stroke-linecap="round" fill="none" />
+        <circle cx="37" cy="64" r="3.5" fill="#FB7185" opacity="0.85" />
+        <circle cx="63" cy="64" r="3.5" fill="#FB7185" opacity="0.85" />
+        <path d="M 48 64 Q 50 67 52 64" stroke="#1E293B" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Twinkling Little Stars Around Banner -->
+        <polygon fill="{{STAR_MAIN}}" points="16,42 18,45 22,45 19,48 20,52 16,49 12,52 13,48 10,45 14,45" />
+        <polygon fill="{{STAR_MAIN}}" points="84,42 86,45 90,45 87,48 88,52 84,49 80,52 81,48 78,45 82,45" />
+        <polygon fill="#EC4899" points="50,40 51,43 54,43 52,45 53,48 50,46 47,48 48,45 46,43 49,43" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "boutique-shopfront-five-star-sticker",
+    title: "Boutique Shopfront 5-Star Review Sticker PNG",
+    slug: "boutique-shopfront-5-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Charming boutique shopfront building with red and yellow striped awning, arched window, and curved ribbon banner with 5 golden review rating stars below.",
+    tags: ["boutique star sticker","shop 5 star rating png","store review sticker","small business star badge"],
+    searchVolume: "18,900/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 105 115",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <rect x="18" y="24" width="68" height="58" rx="6" fill="#ffffff" stroke="#CBD5E1" stroke-width="3" />
+        <!-- Brick Building Body -->
+        <rect x="22" y="28" width="60" height="50" rx="3" fill="#FEF3C7" stroke="#1E293B" stroke-width="2" />
+        <!-- Red & Yellow Striped Awning -->
+        <path d="M 18 28 L 86 28 L 84 42 L 20 42 Z" fill="#DC2626" stroke="#1E293B" stroke-width="2" stroke-linejoin="round" />
+        <polygon points="28,28 36,28 34,42 26,42" fill="#FBBF24" />
+        <polygon points="44,28 52,28 50,42 42,42" fill="#FBBF24" />
+        <polygon points="60,28 68,28 66,42 58,42" fill="#FBBF24" />
+        <polygon points="76,28 84,28 82,42 74,42" fill="#FBBF24" />
+        <!-- Scalloped Awning Fringe -->
+        <circle cx="25" cy="42" r="3" fill="#DC2626" />
+        <circle cx="33" cy="42" r="3" fill="#FBBF24" />
+        <circle cx="41" cy="42" r="3" fill="#DC2626" />
+        <circle cx="49" cy="42" r="3" fill="#FBBF24" />
+        <circle cx="57" cy="42" r="3" fill="#DC2626" />
+        <circle cx="65" cy="42" r="3" fill="#FBBF24" />
+        <circle cx="73" cy="42" r="3" fill="#DC2626" />
+        <circle cx="81" cy="42" r="3" fill="#FBBF24" />
+        <!-- Arched Window & Door -->
+        <path d="M 30 52 A 8 8 0 0 1 46 52 L 46 72 L 30 72 Z" fill="#BAE6FD" stroke="#1E293B" stroke-width="1.8" />
+        <rect x="54" y="52" width="18" height="26" fill="#D97706" stroke="#1E293B" stroke-width="1.8" />
+        <circle cx="68" cy="65" r="1.5" fill="#FEF3C7" />
+        <!-- 5-Star Rating Curved Ribbon Banner Below -->
+        <rect x="12" y="82" width="80" height="22" rx="6" fill="#1E293B" stroke="#ffffff" stroke-width="2.5" />
+        <!-- 5 Golden Stars Row -->
+        <g fill="{{STAR_MAIN}}" transform="translate(18, 88)">
+          <polygon points="6,0 8,4 12,4 9,7 10,11 6,9 2,11 3,7 0,4 4,4" />
+          <polygon points="20,0 22,4 26,4 23,7 24,11 20,9 16,11 17,7 14,4 18,4" />
+          <polygon points="34,0 36,4 40,4 37,7 38,11 34,9 30,11 31,7 28,4 32,4" />
+          <polygon points="48,0 50,4 54,4 51,7 52,11 48,9 44,11 45,7 42,4 46,4" />
+          <polygon points="62,0 64,4 68,4 65,7 66,11 62,9 58,11 59,7 56,4 60,4" />
+        </g>
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "retro-podcast-microphone-star-sticker",
+    title: "Retro Podcast Microphone & Star Sticker PNG",
+    slug: "podcast-microphone-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Vintage chrome studio broadcast microphone on a desk stand next to a glowing star icon, thumbs-up badge, and sound wave speech bubble. Essential for podcasters and streamers.",
+    tags: ["podcast star sticker","microphone star png","retro radio mic sticker","audio star badge"],
+    searchVolume: "21,000/mo",
+    defaultColor: "#0284C7",
+    viewBox: "0 0 100 110",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <path d="M 20 20 C 35 8, 75 8, 88 25 C 96 45, 92 85, 78 102 C 60 106, 30 106, 18 95 C 8 80, 8 40, 20 20 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Microphone Grille Pill Body -->
+        <rect x="36" y="24" width="28" height="42" rx="14" fill="#E2E8F0" stroke="#1E293B" stroke-width="2.5" />
+        <!-- Grille Horizontal Lines -->
+        <line x1="39" y1="36" x2="61" y2="36" stroke="#64748B" stroke-width="2" />
+        <line x1="37" y1="44" x2="63" y2="44" stroke="#64748B" stroke-width="2" />
+        <line x1="39" y1="52" x2="61" y2="52" stroke="#64748B" stroke-width="2" />
+        <line x1="50" y1="26" x2="50" y2="64" stroke="#64748B" stroke-width="1.8" />
+        <!-- U-Shaped Metal Swivel Mount -->
+        <path d="M 30 45 C 30 70, 70 70, 70 45" fill="none" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" />
+        <!-- Desk Stand Stem & Base -->
+        <line x1="50" y1="70" x2="50" y2="86" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+        <ellipse cx="50" cy="88" rx="20" ry="6" fill="#475569" stroke="#1E293B" stroke-width="2.5" />
+        <!-- Glowing Top Star Badge -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#0369A1" stroke-width="1.5" points="74,18 77,24 84,25 79,29 81,36 74,32 67,36 69,29 64,25 71,24" />
+        <polygon fill="#FBBF24" points="74,20 76,24 81,25 77,28 78,33 74,30 70,33 71,28 67,25 72,24" />
+        <!-- Sound Waves Right -->
+        <path d="M 76 46 A 8 8 0 0 1 76 62" fill="none" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M 83 41 A 15 15 0 0 1 83 67" fill="none" stroke="#0284C7" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Thumbs-up Speech Badge Left -->
+        <circle cx="24" cy="55" r="9" fill="#10B981" stroke="#ffffff" stroke-width="1.5" />
+        <path d="M 21 57 L 23 57 L 25 52 C 25 50, 27 50, 27 53 L 26 57 L 28 57 C 29 57, 29 59, 28 60 L 22 60 Z" fill="#ffffff" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "smiling-blue-ringed-planet-sticker",
+    title: "Smiling Blue Ringed Planet Sticker PNG",
+    slug: "blue-ringed-planet-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "float",
+    description: "Playful cartoon blue ringed planet smiling cheerfully with pastel purple orbital rings and surrounding diamond orbit sparkles. Cute cosmic space sticker.",
+    tags: ["planet star sticker","saturn sticker png","blue planet decal","cute space sticker","galaxy sticker"],
+    searchVolume: "23,500/mo",
+    defaultColor: "#38BDF8",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Background Path (Planet + Ring Envelope) -->
+        <ellipse cx="50" cy="50" rx="44" ry="22" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" transform="rotate(-18 50 50)" />
+        <circle cx="50" cy="50" r="34" fill="#ffffff" />
+        <!-- Planet Lower Body -->
+        <circle cx="50" cy="50" r="28" fill="{{STAR_MAIN}}" stroke="#1E293B" stroke-width="2.5" />
+        <!-- Pastel Blue Shading Band on Planet -->
+        <path d="M 23 54 A 28 28 0 0 0 77 54 Z" fill="#0284C7" opacity="0.35" />
+        <!-- Back Half of Rings -->
+        <ellipse cx="50" cy="50" rx="40" ry="14" fill="none" stroke="#C084FC" stroke-width="5" stroke-linecap="round" transform="rotate(-18 50 50)" />
+        <ellipse cx="50" cy="50" rx="40" ry="14" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" transform="rotate(-18 50 50)" />
+        <!-- Front Half of Planet (Overlapping Ring) -->
+        <path d="M 23 46 A 28 28 0 0 1 77 46 Z" fill="{{STAR_MAIN}}" />
+        <!-- Cute Kawaii Planet Face -->
+        <ellipse cx="42" cy="48" rx="3.5" ry="4.5" fill="#1E293B" />
+        <circle cx="41" cy="46" r="1.5" fill="#ffffff" />
+        <ellipse cx="58" cy="48" rx="3.5" ry="4.5" fill="#1E293B" />
+        <circle cx="57" cy="46" r="1.5" fill="#ffffff" />
+        <ellipse cx="36" cy="54" rx="4" ry="2.5" fill="#FB7185" opacity="0.85" />
+        <ellipse cx="64" cy="54" rx="4" ry="2.5" fill="#FB7185" opacity="0.85" />
+        <path d="M 47 53 Q 50 58 53 53" stroke="#1E293B" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Front Half of Ring Ringing Around Belly -->
+        <path d="M 12 58 C 22 72, 78 54, 88 42" fill="none" stroke="#C084FC" stroke-width="5" stroke-linecap="round" />
+        <path d="M 12 58 C 22 72, 78 54, 88 42" fill="none" stroke="#E879F9" stroke-width="2" stroke-linecap="round" />
+        <!-- Surrounding Sparkle Stars -->
+        <polygon fill="#FDE047" points="20,18 22,23 27,24 23,27 24,32 20,29 16,32 17,27 13,24 18,23" />
+        <polygon fill="#FDE047" points="82,72 83,75 87,76 84,78 85,82 82,80 79,82 80,78 77,76 81,75" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "dream-big-little-one-star-badge",
+    title: "'Dream BIG Little One' Star Badge Sticker PNG",
+    slug: "dream-big-little-one-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Whimsical nursery calligraphy badge sticker with text reading 'Dream BIG little one' surrounded by delicate golden stars, crescent moon, and dreamy clouds.",
+    tags: ["dream big star sticker","nursery quote sticker","little one star badge","baby room decal","calligraphy star sticker"],
+    searchVolume: "19,800/mo",
+    defaultColor: "#8B5CF6",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Circular Backing -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.13))">
+        <circle cx="50" cy="50" r="46" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" />
+        <circle cx="50" cy="50" r="42" fill="#F8FAFC" stroke="#DDD6FE" stroke-width="1.5" />
+        <circle cx="50" cy="50" r="39" fill="#EDE9FE" />
+        <!-- Cute Crescent Moon at Top -->
+        <path d="M 50 16 A 8 8 0 0 1 54 28 A 10 10 0 1 0 46 16 Z" fill="#FBBF24" />
+        <!-- Modern Calligraphy Text Stack -->
+        <text x="50" y="38" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#6B21A8" text-anchor="middle">Dream</text>
+        <text x="50" y="55" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="16" fill="#4C1D95" text-anchor="middle" letter-spacing="1">BIG</text>
+        <text x="50" y="70" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#7C3AED" text-anchor="middle">little one</text>
+        <!-- Delicate Gold Stars Framing the Text -->
+        <polygon fill="#F59E0B" points="26,36 27,39 30,39 28,41 29,44 26,42 23,44 24,41 22,39 25,39" />
+        <polygon fill="#F59E0B" points="74,36 75,39 78,39 76,41 77,44 74,42 71,44 72,41 70,39 73,39" />
+        <polygon fill="#F59E0B" points="28,68 29,70 32,70 30,72 31,74 28,73 25,74 26,72 24,70 27,70" />
+        <polygon fill="#F59E0B" points="72,68 73,70 76,70 74,72 75,74 72,73 69,74 70,72 68,70 71,70" />
+        <!-- Bottom Cloud Base -->
+        <path d="M 34 82 A 6 6 0 0 1 44 78 A 8 8 0 0 1 56 78 A 6 6 0 0 1 66 82 Z" fill="#ffffff" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "i-want-to-believe-starburst-sticker",
+    title: "'I Want to Believe' Starburst Sticker PNG",
+    slug: "i-want-to-believe-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Stylish retro sci-fi quote sticker reading 'I want to believe' with a glowing UFO flying saucer, alien beam, and twinkling 4-point starbursts. Trending aesthetic decal.",
+    tags: ["i want to believe sticker","ufo star sticker","alien starburst decal","sci-fi star sticker","retro space quote"],
+    searchVolume: "25,800/mo",
+    defaultColor: "#10B981",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <path d="M 12 18 C 30 8, 70 8, 88 18 C 96 35, 96 85, 84 98 C 65 104, 35 104, 16 98 C 4 85, 4 35, 12 18 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Night Sky Rounded Badge Inside -->
+        <path d="M 16 22 C 32 14, 68 14, 84 22 C 90 38, 90 80, 80 92 C 64 98, 36 98, 20 92 C 10 80, 10 38, 16 22 Z" fill="#0F172A" />
+        <!-- Flying Saucer UFO at Top -->
+        <ellipse cx="50" cy="34" rx="20" ry="6" fill="#38BDF8" stroke="#ffffff" stroke-width="1.5" />
+        <circle cx="50" cy="30" r="7" fill="#E2E8F0" opacity="0.8" />
+        <ellipse cx="50" cy="35" rx="22" ry="4" fill="#0284C7" />
+        <!-- Glowing Green Abduction Beam -->
+        <polygon points="40,36 60,36 74,80 26,80" fill="#10B981" opacity="0.3" />
+        <!-- Retro Starbursts in Night Sky -->
+        <path d="M 26 26 Q 26 30 30 30 Q 26 30 26 34 Q 26 30 22 30 Q 26 30 26 26 Z" fill="#FACC15" />
+        <path d="M 74 26 Q 74 30 78 30 Q 74 30 74 34 Q 74 30 70 30 Q 74 30 74 26 Z" fill="#FACC15" />
+        <circle cx="34" cy="46" r="1.5" fill="#ffffff" />
+        <circle cx="68" cy="48" r="1.5" fill="#ffffff" />
+        <!-- Bold Typographic Banner 'I WANT TO BELIEVE' -->
+        <rect x="18" y="74" width="64" height="18" rx="4" fill="#ffffff" stroke="#1E293B" stroke-width="1.8" />
+        <text x="50" y="86" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="6.5" fill="#0F172A" text-anchor="middle" letter-spacing="0.5">I WANT TO BELIEVE</text>
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "my-little-astronaut-star-badge",
+    title: "'My Little Astronaut' Star Badge Sticker PNG",
+    slug: "my-little-astronaut-star-badge-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Adorable astronaut helmet sticker with a mirrored gold visor reflecting stars, curved typography banner reading 'my little Astronaut', and cosmic sparkle accents.",
+    tags: ["my little astronaut sticker","space baby sticker","astronaut star decal","kids space badge","nursery astronaut png"],
+    searchVolume: "20,500/mo",
+    defaultColor: "#3B82F6",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Background Envelope -->
+        <circle cx="50" cy="48" r="40" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" />
+        <!-- Astronaut Helmet Bubble -->
+        <circle cx="50" cy="46" r="32" fill="#F1F5F9" stroke="#1E293B" stroke-width="2.5" />
+        <!-- Gold Visor with Reflection -->
+        <ellipse cx="50" cy="46" rx="22" ry="16" fill="#F59E0B" stroke="#1E293B" stroke-width="2" />
+        <ellipse cx="50" cy="46" rx="19" ry="13" fill="#FBBF24" />
+        <!-- Visor Starfield Reflection -->
+        <ellipse cx="44" cy="42" rx="6" ry="2" fill="#ffffff" opacity="0.8" transform="rotate(-20 44 42)" />
+        <circle cx="58" cy="48" r="1.5" fill="#ffffff" />
+        <!-- Helmet Side Radio Knobs -->
+        <rect x="14" y="42" width="6" height="10" rx="3" fill="#94A3B8" stroke="#1E293B" stroke-width="1.8" />
+        <rect x="80" y="42" width="6" height="10" rx="3" fill="#94A3B8" stroke="#1E293B" stroke-width="1.8" />
+        <!-- Typography Ribbon Banner Below -->
+        <rect x="14" y="78" width="72" height="18" rx="5" fill="#2563EB" stroke="#ffffff" stroke-width="2" />
+        <text x="50" y="90" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="7" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">my little Astronaut</text>
+        <!-- Surrounding Gold Stars -->
+        <polygon fill="#FACC15" points="24,20 25,23 28,23 26,25 27,28 24,26 21,28 22,25 20,23 23,23" />
+        <polygon fill="#FACC15" points="76,20 77,23 80,23 78,25 79,28 76,26 73,28 74,25 72,23 75,23" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "fairytale-bunny-star-crystal-sticker",
+    title: "Fairytale Bunny with Star Crystal Sticker PNG",
+    slug: "bunny-star-crystal-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Whimsical fairytale white bunny rabbit holding a glowing golden star crystal and candle lantern under the night sky. Beautiful pastel storybook sticker.",
+    tags: ["bunny with star sticker","rabbit star decal","fairytale bunny sticker","cute animal star png"],
+    searchVolume: "21,800/mo",
+    defaultColor: "#FDE047",
+    viewBox: "0 0 100 110",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- White Die-Cut Silhouette -->
+        <path d="M 32 10 C 26 25, 34 40, 36 50 C 24 55, 20 75, 24 92 C 35 106, 68 106, 78 92 C 84 75, 78 55, 68 50 C 70 40, 78 25, 70 10 C 64 25, 58 35, 56 46 C 46 35, 38 25, 32 10 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Bunny Ears -->
+        <ellipse cx="36" cy="26" rx="7" ry="18" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" transform="rotate(-15 36 26)" />
+        <ellipse cx="36" cy="26" rx="4" ry="13" fill="#FED7AA" transform="rotate(-15 36 26)" />
+        <ellipse cx="64" cy="26" rx="7" ry="18" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" transform="rotate(15 64 26)" />
+        <ellipse cx="64" cy="26" rx="4" ry="13" fill="#FED7AA" transform="rotate(15 64 26)" />
+        <!-- Bunny Head & Body -->
+        <ellipse cx="50" cy="55" rx="20" ry="18" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" />
+        <ellipse cx="50" cy="84" rx="22" ry="18" fill="#F8FAFC" stroke="#1E293B" stroke-width="2" />
+        <!-- Cute Facial Features -->
+        <circle cx="43" cy="54" r="2.5" fill="#1E293B" />
+        <circle cx="57" cy="54" r="2.5" fill="#1E293B" />
+        <ellipse cx="37" cy="59" rx="3.5" ry="2" fill="#FB7185" opacity="0.8" />
+        <ellipse cx="63" cy="59" rx="3.5" ry="2" fill="#FB7185" opacity="0.8" />
+        <polygon points="50,57 48,60 52,60" fill="#FB7185" />
+        <path d="M 47 62 Q 50 64 53 62" stroke="#1E293B" stroke-width="1.5" fill="none" stroke-linecap="round" />
+        <!-- Glowing Big Star Crystal in Bunny's Paws -->
+        <polygon fill="{{STAR_MAIN}}" stroke="#D97706" stroke-width="2" points="50,68 55,78 66,79 58,86 61,97 50,91 39,97 42,86 34,79 45,78" />
+        <circle cx="50" cy="84" r="4" fill="#ffffff" opacity="0.8" />
+        <!-- Bunny Paws Holding Star -->
+        <ellipse cx="40" cy="80" rx="4" ry="3" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+        <ellipse cx="60" cy="80" rx="4" ry="3" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "tv-monitor-three-star-rating-sticker",
+    title: "TV Monitor 3-Star Review Sticker PNG",
+    slug: "tv-three-star-rating-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "pulse",
+    description: "Flat-screen TV monitor sticker displaying a deep purple screen with three glowing golden rating stars. Great for movie reviews, streaming critiques, and rating UI.",
+    tags: ["tv star sticker","movie review sticker","3 star rating png","monitor star decal","screen review icon"],
+    searchVolume: "17,600/mo",
+    defaultColor: "#F59E0B",
+    viewBox: "0 0 100 95",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <rect x="10" y="12" width="80" height="56" rx="7" fill="#ffffff" stroke="#CBD5E1" stroke-width="3" />
+        <!-- Monitor Bezel Frame -->
+        <rect x="14" y="16" width="72" height="48" rx="4" fill="#1E293B" stroke="#0F172A" stroke-width="2" />
+        <!-- Purple Glowing Screen Face -->
+        <rect x="18" y="20" width="64" height="40" rx="2" fill="#581C87" />
+        <!-- 3 Golden Glowing Rating Stars on Screen -->
+        <g fill="{{STAR_MAIN}}" transform="translate(24, 32)">
+          <!-- Star 1 -->
+          <polygon points="8,0 10,5 15,5 11,9 13,14 8,11 3,14 5,9 1,5 6,5" />
+          <!-- Star 2 (Center) -->
+          <polygon points="26,0 28,5 33,5 29,9 31,14 26,11 21,14 23,9 19,5 24,5" />
+          <!-- Star 3 -->
+          <polygon points="44,0 46,5 51,5 47,9 49,14 44,11 39,14 41,9 37,5 42,5" />
+        </g>
+        <!-- Rating Bar Progress Dots Below Stars -->
+        <circle cx="32" cy="52" r="2" fill="#38BDF8" />
+        <circle cx="50" cy="52" r="2" fill="#38BDF8" />
+        <circle cx="68" cy="52" r="2" fill="#38BDF8" />
+        <!-- TV Stand Neck & Oval Base -->
+        <rect x="46" y="64" width="8" height="12" fill="#334155" stroke="#1E293B" stroke-width="1.8" />
+        <ellipse cx="50" cy="78" rx="24" ry="6" fill="#1E293B" stroke="#ffffff" stroke-width="2" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "mom-magical-wand-star-dust-sticker",
+    title: "'MOM MAGICAL' Star Dust Wand Sticker PNG",
+    slug: "mom-magical-star-wand-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "twinkle",
+    description: "Empowering Mother's Day sticker reading 'MOM IS MAGICAL' accompanied by a magic wand casting a swirl of sparkling golden stars, hearts, and fairy dust.",
+    tags: ["mom magical star sticker","mothers day sticker png","magic wand mom decal","fairy godmother sticker"],
+    searchVolume: "23,100/mo",
+    defaultColor: "#EC4899",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <path d="M 10 25 C 20 8, 80 8, 90 25 C 98 45, 95 85, 80 98 C 60 104, 30 104, 15 95 C 4 80, 4 45, 10 25 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Typography: MOM IS MAGICAL -->
+        <rect x="18" y="20" width="64" height="24" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1.5" />
+        <text x="50" y="36" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="14" fill="#DB2777" text-anchor="middle" letter-spacing="1">MOM</text>
+        <text x="50" y="54" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="10" fill="#9333EA" text-anchor="middle" letter-spacing="1.5">IS MAGICAL</text>
+        <!-- Tilted Magic Wand Across -->
+        <rect x="22" y="76" width="8" height="34" rx="3" transform="rotate(-55 22 76)" fill="#8B5CF6" stroke="#1E293B" stroke-width="1.8" />
+        <!-- Big Golden Star Burst Tip -->
+        <polygon fill="#FBBF24" stroke="#D97706" stroke-width="2" points="66,54 71,63 81,64 73,70 76,79 66,74 57,79 59,70 52,64 61,63" />
+        <circle cx="66" cy="67" r="3.5" fill="#FEF08A" />
+        <!-- Swirling Hearts & Mini Sparkle Stars -->
+        <polygon fill="#F59E0B" points="30,56 31,58 34,58 32,60 33,62 30,61 28,62 29,60 27,58 30,58" />
+        <polygon fill="#F59E0B" points="84,45 85,47 88,47 86,49 87,51 84,50 82,51 83,49 81,47 84,47" />
+        <path d="M 28 68 C 26 66, 23 68, 25 71 L 28 74 L 31 71 C 33 68, 30 66, 28 68 Z" fill="#F43F5E" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "pirate-crab-glowing-starfish-sticker",
+    title: "Pirate Crab with Glowing Starfish Sticker PNG",
+    slug: "pirate-crab-starfish-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Playful cartoon red crab wearing a tiny skull pirate hat and gleefully hoisting a glowing yellow 5-point starfish treasure. Cute ocean adventure sticker.",
+    tags: ["pirate crab sticker","crab with starfish png","ocean star decal","cute marine animal sticker"],
+    searchVolume: "22,900/mo",
+    defaultColor: "#EF4444",
+    viewBox: "0 0 105 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- White Die-Cut Outer Contour -->
+        <ellipse cx="52" cy="62" rx="42" ry="32" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <circle cx="52" cy="30" r="22" fill="#ffffff" />
+        <!-- Crab Legs Below -->
+        <path d="M 24 72 Q 15 82 12 90" stroke="#DC2626" stroke-width="4" stroke-linecap="round" fill="none" />
+        <path d="M 28 78 Q 20 88 18 96" stroke="#DC2626" stroke-width="4" stroke-linecap="round" fill="none" />
+        <path d="M 80 72 Q 89 82 92 90" stroke="#DC2626" stroke-width="4" stroke-linecap="round" fill="none" />
+        <path d="M 76 78 Q 84 88 86 96" stroke="#DC2626" stroke-width="4" stroke-linecap="round" fill="none" />
+        <!-- Red Crab Oval Body -->
+        <ellipse cx="52" cy="66" rx="28" ry="22" fill="{{STAR_MAIN}}" stroke="#991B1B" stroke-width="2.5" />
+        <ellipse cx="52" cy="74" rx="18" ry="10" fill="#F87171" />
+        <!-- Left Big Pincer Claw -->
+        <path d="M 26 56 Q 16 44 14 36 C 14 28, 26 28, 28 38 C 30 28, 40 32, 36 42 Z" fill="#DC2626" stroke="#991B1B" stroke-width="2" />
+        <!-- Right Pincer Holding Starfish -->
+        <path d="M 74 54 Q 84 46 88 40" stroke="#DC2626" stroke-width="5" stroke-linecap="round" fill="none" />
+        <!-- Glowing Yellow 5-Point Starfish Held Up -->
+        <polygon fill="#FBBF24" stroke="#D97706" stroke-width="2" stroke-linejoin="round" points="86,16 90,26 100,27 92,34 95,44 86,39 77,44 80,34 72,27 82,26" />
+        <circle cx="84" cy="28" r="1.5" fill="#1E293B" />
+        <circle cx="88" cy="28" r="1.5" fill="#1E293B" />
+        <path d="M 85 32 Q 86 34 87 32" stroke="#1E293B" stroke-width="1" fill="none" />
+        <!-- Pirate Bicorne Hat with Skull -->
+        <path d="M 32 36 C 32 20, 72 20, 72 36 C 60 30, 44 30, 32 36 Z" fill="#1E293B" stroke="#0F172A" stroke-width="2" />
+        <circle cx="52" cy="28" r="3.5" fill="#ffffff" />
+        <ellipse cx="52" cy="33" rx="3" ry="1.5" fill="#ffffff" />
+        <!-- Stalk Eyes & Cute Smile -->
+        <circle cx="44" cy="46" r="6" fill="#ffffff" stroke="#1E293B" stroke-width="2" />
+        <circle cx="44" cy="46" r="3" fill="#1E293B" />
+        <circle cx="60" cy="46" r="6" fill="#ffffff" stroke="#1E293B" stroke-width="2" />
+        <circle cx="60" cy="46" r="3" fill="#1E293B" />
+        <path d="M 46 64 Q 52 70 58 64" stroke="#1E293B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+        <circle cx="40" cy="65" r="3" fill="#FB7185" />
+        <circle cx="64" cy="65" r="3" fill="#FB7185" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "kawaii-sushi-roll-star-mascot-sticker",
+    title: "Kawaii Sushi Roll Star Mascot Sticker PNG",
+    slug: "kawaii-sushi-star-mascot-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "basic",
+    animationType: "float",
+    description: "Cheerful kawaii sushi roll character with smiling anime face, pink salmon sashimi topping, tiny raised hands, and floating golden star sparkles.",
+    tags: ["sushi star sticker","kawaii food sticker","cute sushi png","salmon sushi decal","japanese food star"],
+    searchVolume: "24,000/mo",
+    defaultColor: "#FB923C",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- White Die-Cut Contour -->
+        <rect x="18" y="24" width="64" height="64" rx="16" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" />
+        <!-- Dark Green Nori Seaweed Wrap -->
+        <rect x="22" y="38" width="56" height="46" rx="12" fill="#14532D" stroke="#052E16" stroke-width="2.5" />
+        <!-- Fluffy White Rice Filling Body -->
+        <rect x="26" y="42" width="48" height="38" rx="8" fill="#F8FAFC" />
+        <!-- Salmon Sashimi Topping on Head -->
+        <path d="M 22 38 C 22 26, 78 26, 78 38 Z" fill="{{STAR_MAIN}}" stroke="#C2410C" stroke-width="2" />
+        <path d="M 32 30 Q 50 36 68 30" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8" />
+        <path d="M 26 34 Q 50 40 74 34" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.8" />
+        <!-- Kawaii Smiling Face -->
+        <ellipse cx="40" cy="56" rx="3.5" ry="5" fill="#1E293B" />
+        <circle cx="39" cy="54" r="1.5" fill="#ffffff" />
+        <ellipse cx="60" cy="56" rx="3.5" ry="5" fill="#1E293B" />
+        <circle cx="59" cy="54" r="1.5" fill="#ffffff" />
+        <ellipse cx="34" cy="62" rx="4" ry="2.5" fill="#FB7185" opacity="0.85" />
+        <ellipse cx="66" cy="62" rx="4" ry="2.5" fill="#FB7185" opacity="0.85" />
+        <path d="M 46 62 Q 50 67 54 62" stroke="#1E293B" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Tiny Raised Hands Happily -->
+        <ellipse cx="18" cy="54" rx="4" ry="3" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+        <ellipse cx="82" cy="54" rx="4" ry="3" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+        <!-- Floating Golden Star Sparkles -->
+        <polygon fill="#FBBF24" points="18,18 20,22 24,23 21,25 22,29 18,27 15,29 16,25 13,23 17,22" />
+        <polygon fill="#FBBF24" points="82,20 84,24 88,25 85,27 86,31 82,29 79,31 80,27 77,25 81,24" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "torah-scroll-star-of-david-sticker",
+    title: "Torah Scroll & Star of David Sticker PNG",
+    slug: "torah-scroll-star-david-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Traditional Jewish Torah scroll unfurled showing Hebrew script accents, embroidered golden Star of David (Magen David), and warm Shabbat candle flames.",
+    tags: ["star of david sticker","torah scroll sticker png","jewish star decal","magen david sticker","hanukkah torah star"],
+    searchVolume: "18,400/mo",
+    defaultColor: "#1D4ED8",
+    viewBox: "0 0 100 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- Die-Cut Background Envelope -->
+        <rect x="12" y="16" width="76" height="74" rx="10" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" />
+        <!-- Dual Wooden Scroll Rollers -->
+        <!-- Left Roller -->
+        <rect x="16" y="10" width="8" height="84" rx="4" fill="#B45309" stroke="#78350F" stroke-width="1.8" />
+        <circle cx="20" cy="10" r="6" fill="#FBBF24" stroke="#B45309" stroke-width="1.5" />
+        <circle cx="20" cy="94" r="6" fill="#FBBF24" stroke="#B45309" stroke-width="1.5" />
+        <!-- Right Roller -->
+        <rect x="76" y="10" width="8" height="84" rx="4" fill="#B45309" stroke="#78350F" stroke-width="1.8" />
+        <circle cx="80" cy="10" r="6" fill="#FBBF24" stroke="#B45309" stroke-width="1.5" />
+        <circle cx="80" cy="94" r="6" fill="#FBBF24" stroke="#B45309" stroke-width="1.5" />
+        <!-- Unfurled Parchment Body -->
+        <rect x="24" y="20" width="52" height="64" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5" />
+        <!-- Royal Blue Velvet Mantle Cover Strip -->
+        <rect x="30" y="24" width="40" height="56" rx="4" fill="{{STAR_MAIN}}" stroke="#1E40AF" stroke-width="1.5" />
+        <!-- Golden Star of David (Magen David) Hexagram in Center -->
+        <polygon fill="none" stroke="#FDE047" stroke-width="2.5" stroke-linejoin="round" points="50,36 62,56 38,56" />
+        <polygon fill="none" stroke="#FDE047" stroke-width="2.5" stroke-linejoin="round" points="50,62 62,42 38,42" />
+        <circle cx="50" cy="49" r="2.5" fill="#FBBF24" />
+        <!-- Golden Scroll Trim Lace -->
+        <line x1="32" y1="28" x2="68" y2="28" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="2 2" />
+        <line x1="32" y1="76" x2="68" y2="76" stroke="#FBBF24" stroke-width="1.5" stroke-dasharray="2 2" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "hanukkah-gift-dreidel-star-sticker",
+    title: "Hanukkah Gift & Dreidel Star Sticker PNG",
+    slug: "hanukkah-gift-dreidel-star-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "pulse",
+    description: "Festive Hanukkah holiday gift box with blue ribbons, spinning wooden dreidel, Star of David emblem, and sweet jelly donut (sufganiyah). Light and love greeting sticker.",
+    tags: ["hanukkah star sticker","dreidel sticker png","jewish holiday decal","star of david gift sticker"],
+    searchVolume: "19,200/mo",
+    defaultColor: "#2563EB",
+    viewBox: "0 0 105 105",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))">
+        <!-- Die-Cut Background Envelope -->
+        <path d="M 12 45 C 12 25, 45 10, 85 18 C 96 35, 96 85, 84 98 C 55 104, 25 104, 14 90 C 8 75, 8 55, 12 45 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Royal Blue Gift Box -->
+        <rect x="18" y="44" width="46" height="42" rx="4" fill="{{STAR_MAIN}}" stroke="#1E40AF" stroke-width="2" />
+        <rect x="14" y="38" width="54" height="12" rx="3" fill="#1D4ED8" stroke="#1E40AF" stroke-width="2" />
+        <!-- Golden Cross Ribbons -->
+        <rect x="38" y="38" width="8" height="48" fill="#FBBF24" />
+        <!-- Big Ribbon Bow on Top -->
+        <ellipse cx="36" cy="34" rx="8" ry="5" fill="#FDE047" stroke="#D97706" stroke-width="1.5" transform="rotate(-25 36 34)" />
+        <ellipse cx="48" cy="34" rx="8" ry="5" fill="#FDE047" stroke="#D97706" stroke-width="1.5" transform="rotate(25 48 34)" />
+        <circle cx="42" cy="36" r="3.5" fill="#D97706" />
+        <!-- Star of David on Box Front -->
+        <polygon fill="none" stroke="#FEF08A" stroke-width="1.8" points="42,56 50,68 34,68" />
+        <polygon fill="none" stroke="#FEF08A" stroke-width="1.8" points="42,72 50,60 34,60" />
+        <!-- Spinning Wooden Dreidel Right -->
+        <g transform="translate(66, 42)">
+          <rect x="10" y="4" width="5" height="10" rx="2" fill="#B45309" />
+          <polygon points="4,14 20,14 18,32 6,32" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+          <polygon points="6,32 18,32 12,42" fill="#F8FAFC" stroke="#1E293B" stroke-width="1.8" />
+          <!-- Hebrew Nun/Shin letter -->
+          <text x="12" y="26" font-family="system-ui, serif" font-weight="900" font-size="10" fill="#2563EB" text-anchor="middle">ש</text>
+        </g>
+        <!-- Floating Little Star Sparkles -->
+        <polygon fill="#FBBF24" points="78,16 80,20 84,21 81,23 82,27 78,25 75,27 76,23 73,21 77,20" />
+      </g>
+    `,
+    featured: false
+  },
+  {
+    id: "crescent-moon-cloud-celestial-badge-sticker",
+    title: "Crescent Moon on Soft Cloud Sticker PNG",
+    slug: "crescent-moon-soft-cloud-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "moderate",
+    animationType: "float",
+    description: "Serene sleeping golden crescent moon nestled against a puffy white cloud with twinkling miniature stars. Iconic celestial die-cut sticker for planners and stationery.",
+    tags: ["moon and cloud sticker","crescent moon sticker png","celestial star sticker","sleeping moon decal","nursery moon sticker"],
+    searchVolume: "26,400/mo",
+    defaultColor: "#FBBF24",
+    viewBox: "0 0 100 100",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.14))">
+        <!-- Fluffy Cloud Base Backing -->
+        <path d="M 14 68 C 14 55, 26 50, 34 52 C 38 42, 52 38, 62 44 C 70 38, 84 44, 86 55 C 92 60, 92 74, 84 80 C 78 84, 20 84, 14 68 Z" fill="#ffffff" stroke="#CBD5E1" stroke-width="3" stroke-linejoin="round" />
+        <path d="M 18 68 C 18 58, 28 54, 35 56 C 39 46, 52 43, 60 48 C 68 43, 80 48, 82 58 C 88 62, 88 74, 80 78 L 18 78 Z" fill="#F8FAFC" />
+        <!-- Smiling Golden Crescent Moon Nestled Inside Cloud -->
+        <path d="M 44 14 C 64 14, 76 34, 68 54 C 62 42, 50 36, 36 38 C 30 26, 36 18, 44 14 Z" fill="{{STAR_MAIN}}" stroke="#D97706" stroke-width="2" stroke-linejoin="round" />
+        <!-- Sleeping Face on Moon -->
+        <path d="M 52 28 Q 56 32 60 28" stroke="#78350F" stroke-width="1.8" stroke-linecap="round" fill="none" />
+        <circle cx="62" cy="34" r="2.5" fill="#FB7185" opacity="0.8" />
+        <path d="M 54 36 Q 58 38 60 35" stroke="#78350F" stroke-width="1.5" stroke-linecap="round" fill="none" />
+        <!-- Tiny Hanging / Twinkling Stars -->
+        <polygon fill="#F59E0B" points="26,38 28,42 32,43 29,45 30,49 26,47 22,49 23,45 20,43 24,42" />
+        <polygon fill="#EC4899" points="78,28 79,31 82,31 80,33 81,36 78,34 75,36 76,33 74,31 77,31" />
+        <polygon fill="#38BDF8" points="74,68 75,70 78,70 76,72 77,75 74,73 71,75 72,72 70,70 73,70" />
+      </g>
+    `,
+    featured: true
+  },
+  {
+    id: "magical-witch-cauldron-star-dust-sticker",
+    title: "Magical Witch Cauldron & Star Dust Sticker PNG",
+    slug: "witch-cauldron-star-dust-sticker-png",
+    category: "stickers",
+    categoryName: "Star Stickers",
+    level: "high",
+    animationType: "pulse",
+    description: "Whimsical black cast-iron witch cauldron overflowing with glowing purple potion bubbles, hearts, and explosive golden star dust. Cute Halloween magic sticker.",
+    tags: ["witch cauldron sticker","cauldron star dust png","magic potion sticker","halloween star decal","witchcraft sticker"],
+    searchVolume: "24,800/mo",
+    defaultColor: "#9333EA",
+    viewBox: "0 0 100 110",
+    svgContent: `
+      <!-- White Die-Cut Backing with Drop Shadow -->
+      <g filter="drop-shadow(0 4px 6px rgba(0,0,0,0.16))">
+        <!-- White Die-Cut Envelope Background -->
+        <path d="M 12 55 C 12 35, 30 12, 70 12 C 90 25, 96 65, 84 96 C 65 106, 35 106, 16 96 C 8 80, 8 65, 12 55 Z" fill="#ffffff" stroke="#E2E8F0" stroke-width="3" stroke-linejoin="round" />
+        <!-- Cauldron Legs -->
+        <ellipse cx="28" cy="94" rx="4" ry="7" fill="#1E293B" stroke="#0F172A" stroke-width="2" />
+        <ellipse cx="72" cy="94" rx="4" ry="7" fill="#1E293B" stroke="#0F172A" stroke-width="2" />
+        <ellipse cx="50" cy="96" rx="4" ry="7" fill="#1E293B" stroke="#0F172A" stroke-width="2" />
+        <!-- Iron Cauldron Belly -->
+        <path d="M 20 60 C 20 90, 80 90, 80 60 Z" fill="#1E293B" stroke="#0F172A" stroke-width="2.5" />
+        <ellipse cx="50" cy="58" rx="33" ry="8" fill="#334155" stroke="#0F172A" stroke-width="2.5" />
+        <!-- Glowing Purple Magic Potion -->
+        <ellipse cx="50" cy="58" rx="28" ry="6" fill="{{STAR_MAIN}}" />
+        <ellipse cx="50" cy="58" rx="24" ry="4" fill="#C084FC" />
+        <!-- Bubbling Potion Spheres -->
+        <circle cx="36" cy="46" r="7" fill="#C084FC" stroke="#ffffff" stroke-width="1.5" />
+        <circle cx="58" cy="40" r="9" fill="#A855F7" stroke="#ffffff" stroke-width="1.5" />
+        <circle cx="48" cy="30" r="6" fill="#E879F9" stroke="#ffffff" stroke-width="1.5" />
+        <!-- Floating Sparkle Stars & Magic Glints -->
+        <polygon fill="#FBBF24" stroke="#D97706" stroke-width="1.5" points="50,6 54,16 64,17 56,24 59,34 50,28 41,34 44,24 36,17 46,16" />
+        <circle cx="50" cy="20" r="3" fill="#FEF08A" />
+        <!-- Mini Accent Stars Around Steam -->
+        <polygon fill="#FDE047" points="24,28 25,30 28,30 26,32 27,34 24,33 21,34 22,32 20,30 23,30" />
+        <polygon fill="#FDE047" points="80,32 81,34 84,34 82,36 83,38 80,37 77,38 78,36 76,34 79,34" />
+        <polygon fill="#38BDF8" points="76,54 77,56 80,56 78,58 79,60 76,59 73,60 74,58 72,56 75,56" />
+      </g>
+    `,
+    featured: true
+  },
+  {
     id: "animated-twinkling-sparkle-star",
     title: "Animated Twinkling Sparkle Star PNG & SVG",
     slug: "animated-twinkling-star-png",
