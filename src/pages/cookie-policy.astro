@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Cookie, ShieldCheck, ArrowLeft, CheckCircle2, Settings, ExternalLink, Mail } from 'lucide-react';
+
+const lastUpdated = "September 16, 2026";
+
+const cookieSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  'name': 'Cookie Policy | StarPNG',
+  'description': 'Cookie Policy for StarPNG. Learn how we use cookies, Google AdSense DoubleClick DART cookies, analytics, and how you can manage or disable cookies.',
+  'url': 'https://starpng.com/cookie-policy/',
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'StarPNG',
+    'url': 'https://starpng.com/'
+  }
+};
+---
+
+<BaseLayout
+  title="Cookie Policy | StarPNG"
+  description="Learn about the cookies and tracking technologies used on StarPNG, including Google AdSense advertising cookies, and how to manage your cookie preferences."
+  canonical="https://starpng.com/cookie-policy/"
+  schema={cookieSchema}
+>
+  <div class="py-12 md:py-16 bg-[#fafafa]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 flex items-center gap-2 text-xs text-[#8f8f8f]" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#171717] transition-colors flex items-center gap-1">
+          <ArrowLeft class="w-3.5 h-3.5" /> Back to Home
+        </a>
+        <span>/</span>
+        <span class="text-[#171717] font-medium">Cookie Policy</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="mb-10 p-8 md:p-10 bg-white rounded-2xl border border-[#ebebeb] shadow-xs relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 text-xs font-mono uppercase tracking-wider mb-4">
+          <Cookie class="w-3.5 h-3.5 text-amber-600" />
+          <span>Tracking &amp; Cookie Transparency</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight leading-tight">
+          Cookie Policy
+        </h1>
+        <p class="mt-3 text-sm text-[#8f8f8f] font-mono">
+          Last Updated &amp; Effective Date: {lastUpdated}
+        </p>
+        <p class="mt-4 text-sm sm:text-base text-[#4d4d4d] leading-relaxed">
+          This Cookie Policy explains how StarPNG ("we", "us", or "our") uses cookies and similar tracking technologies when you visit our website at <a href="https://starpng.com" class="text-blue-600 hover:underline">https://starpng.com</a>. It details what these technologies are, why we use them, and your rights to control their use.
+        </p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-12 shadow-xs space-y-10 text-sm text-[#4d4d4d] leading-relaxed">
+        
+        <!-- Section 1: What Are Cookies -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            1. What Are Cookies?
+          </h2>
+          <p>
+            Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work efficiently, provide personalized experiences, retain preferences, and deliver relevant advertisements.
+          </p>
+          <p>
+            Cookies set by the website owner (in this case, StarPNG) are called "first-party cookies". Cookies set by parties other than the website owner are called "third-party cookies". Third-party cookies enable third-party features or functionality to be provided on or through the website (e.g., interactive advertising and analytics).
+          </p>
+        </section>
+
+        <!-- Section 2: Why We Use Cookies -->
+        <section class="space-y-4 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            2. Categories of Cookies We Use
+          </h2>
+          <p>
+            We classify the cookies utilized on StarPNG into the following distinct categories:
+          </p>
+
+          <div class="space-y-4">
+            <!-- Essential Cookies -->
+            <div class="p-5 rounded-xl bg-[#fafafa] border border-[#ebebeb] space-y-2">
+              <div class="font-semibold text-sm text-[#171717] flex items-center justify-between">
+                <span>A. Strictly Necessary &amp; Functional Cookies</span>
+                <span class="text-[10px] font-mono uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">First-Party</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#4d4d4d]">
+                These cookies and local storage tokens are essential to provide you with services available through our Website and to use some of its features. Specifically, they remember your UI states (e.g., whether Live Animation is enabled, active catalog filters, and customized color selections in the Procedural Star Studio).
+              </p>
+            </div>
+
+            <!-- Advertising & Google AdSense Cookies -->
+            <div class="p-5 rounded-xl bg-blue-50/50 border border-blue-200 space-y-2.5">
+              <div class="font-semibold text-sm text-blue-950 flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                  <Cookie class="w-4 h-4 text-blue-600" /> B. Google AdSense &amp; Advertising Cookies
+                </span>
+                <span class="text-[10px] font-mono uppercase bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">AdSense Partner</span>
+              </div>
+              <p class="text-xs sm:text-sm text-blue-900/90 leading-relaxed">
+                Third-party vendors, including <strong>Google</strong>, use cookies to serve advertisements based on a user's prior visits to StarPNG or other websites:
+              </p>
+              <ul class="list-disc list-inside space-y-1.5 text-xs text-blue-950 pl-2">
+                <li>
+                  <strong>DoubleClick DART Cookie:</strong> Used by Google in the ads served on publisher websites displaying AdSense ads. When users visit our website and either view or click on an ad, a cookie may be dropped on that end user's browser.
+                </li>
+                <li>
+                  <strong>Frequency Capping:</strong> Ensures you do not see the same advertisement repeatedly.
+                </li>
+                <li>
+                  <strong>Combating Fraud &amp; Abuse:</strong> Detects and prevents invalid click traffic or automated bot activities.
+                </li>
+                <li>
+                  <strong>Aggregated Reporting:</strong> Helps advertisers evaluate ad campaign performance without personally identifying you.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Analytics Cookies -->
+            <div class="p-5 rounded-xl bg-[#fafafa] border border-[#ebebeb] space-y-2">
+              <div class="font-semibold text-sm text-[#171717] flex items-center justify-between">
+                <span>C. Performance &amp; Analytics Cookies</span>
+                <span class="text-[10px] font-mono uppercase bg-purple-100 text-purple-800 px-2 py-0.5 rounded">Analytics</span>
+              </div>
+              <p class="text-xs sm:text-sm text-[#4d4d4d]">
+                These cookies collect aggregate, non-personal information about how visitors use StarPNG (e.g., which star categories are most popular, download speeds, and Core Web Vitals). This helps us improve website performance and user navigation.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Third-Party Cookie Disclosures -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            3. Detailed Cookie Specifications
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse border border-[#ebebeb]">
+              <thead>
+                <tr class="bg-[#f4f4f4] text-[#171717]">
+                  <th class="p-2.5 border border-[#ebebeb]">Provider</th>
+                  <th class="p-2.5 border border-[#ebebeb]">Cookie Name</th>
+                  <th class="p-2.5 border border-[#ebebeb]">Purpose</th>
+                  <th class="p-2.5 border border-[#ebebeb]">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="p-2.5 border border-[#ebebeb] font-semibold">Google AdSense</td>
+                  <td class="p-2.5 border border-[#ebebeb] font-mono">_gads, _gac, IDE</td>
+                  <td class="p-2.5 border border-[#ebebeb]">Ad delivery, frequency capping, fraud prevention</td>
+                  <td class="p-2.5 border border-[#ebebeb]">13 months</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 border border-[#ebebeb] font-semibold">Google AdSense</td>
+                  <td class="p-2.5 border border-[#ebebeb] font-mono">DSID, FPAU</td>
+                  <td class="p-2.5 border border-[#ebebeb]">User identification across advertising networks</td>
+                  <td class="p-2.5 border border-[#ebebeb]">3 months - 1 year</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 border border-[#ebebeb] font-semibold">StarPNG (Local)</td>
+                  <td class="p-2.5 border border-[#ebebeb] font-mono">localStorage</td>
+                  <td class="p-2.5 border border-[#ebebeb]">Studio color preset memory &amp; live animation toggle state</td>
+                  <td class="p-2.5 border border-[#ebebeb]">Persistent</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Section 4: How to Manage and Opt-Out of Cookies -->
+        <section class="space-y-4 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <Settings class="w-5 h-5 text-amber-600" /> 4. How Can You Control Cookies?
+          </h2>
+          <p>
+            You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights in the following ways:
+          </p>
+          
+          <!-- Opt-Out Links -->
+          <div class="space-y-2 bg-[#fafafa] p-5 rounded-xl border border-[#ebebeb]">
+            <h3 class="font-semibold text-sm text-[#171717]">Direct Advertising Opt-Out Portals:</h3>
+            <ul class="space-y-2 text-xs sm:text-sm">
+              <li>
+                <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-1 font-medium">
+                  Google Ads Personalization Settings <ExternalLink class="w-3.5 h-3.5" />
+                </a>
+                <span class="text-xs text-[#8f8f8f] block">Turn off personalized ad tracking directly within your Google Account.</span>
+              </li>
+              <li>
+                <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-1 font-medium">
+                  Digital Advertising Alliance (DAA) WebChoices <ExternalLink class="w-3.5 h-3.5" />
+                </a>
+                <span class="text-xs text-[#8f8f8f] block">Opt out of multi-vendor personalized cookies in one dashboard.</span>
+              </li>
+              <li>
+                <a href="https://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline flex items-center gap-1 font-medium">
+                  European Interactive Digital Advertising Alliance (EDAA) <ExternalLink class="w-3.5 h-3.5" />
+                </a>
+                <span class="text-xs text-[#8f8f8f] block">For visitors located in the European Union and the United Kingdom.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Browser Management -->
+          <div class="space-y-2">
+            <h3 class="font-semibold text-sm text-[#171717]">Browser-Level Cookie Controls:</h3>
+            <p class="text-xs sm:text-sm text-[#4d4d4d]">
+              Most browsers allow you to refuse or accept cookies, delete existing cookies, or receive notification when a new cookie is set. Consult your browser's official help documentation:
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+              <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg border border-[#ebebeb] hover:border-[#171717] text-center text-xs font-medium text-[#171717] transition-all bg-[#fafafa]">
+                Google Chrome
+              </a>
+              <a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg border border-[#ebebeb] hover:border-[#171717] text-center text-xs font-medium text-[#171717] transition-all bg-[#fafafa]">
+                Mozilla Firefox
+              </a>
+              <a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg border border-[#ebebeb] hover:border-[#171717] text-center text-xs font-medium text-[#171717] transition-all bg-[#fafafa]">
+                Apple Safari
+              </a>
+              <a href="https://support.microsoft.com/en-us/windows/microsoft-edge-browsing-data-and-privacy-bb8174ba-9d73-dcf2-9b4a-9c82f4cbe77f" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg border border-[#ebebeb] hover:border-[#171717] text-center text-xs font-medium text-[#171717] transition-all bg-[#fafafa]">
+                Microsoft Edge
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Updates & Contact -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <Mail class="w-5 h-5 text-amber-600" /> 5. Questions About Our Cookie Policy
+          </h2>
+          <p>
+            If you have any questions or feedback about our use of cookies or other technologies, please email us at <a href="mailto:privacy@starpng.com" class="text-blue-600 hover:underline">privacy@starpng.com</a> or visit our <a href="/contact/" class="text-blue-600 hover:underline">Contact Us</a> page.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

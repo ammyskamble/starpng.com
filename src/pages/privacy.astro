@@ -1,0 +1,228 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ShieldCheck, Lock, Eye, ArrowLeft, CheckCircle2, AlertCircle, Cookie, FileText, Mail } from 'lucide-react';
+
+const lastUpdated = "September 16, 2026";
+
+const privacySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  'name': 'Privacy Policy | StarPNG',
+  'description': 'Comprehensive Privacy Policy for StarPNG, detailing data collection, Google AdSense ad serving, cookie disclosures, CCPA, and GDPR rights.',
+  'url': 'https://starpng.com/privacy/',
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'StarPNG',
+    'url': 'https://starpng.com/'
+  }
+};
+---
+
+<BaseLayout
+  title="Privacy Policy | StarPNG"
+  description="StarPNG Privacy Policy. Full disclosures regarding Google AdSense cookies, CCPA rights, GDPR compliance, log data, and user transparency."
+  canonical="https://starpng.com/privacy/"
+  schema={privacySchema}
+>
+  <div class="py-12 md:py-16 bg-[#fafafa]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 flex items-center gap-2 text-xs text-[#8f8f8f]" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#171717] transition-colors flex items-center gap-1">
+          <ArrowLeft class="w-3.5 h-3.5" /> Back to Home
+        </a>
+        <span>/</span>
+        <span class="text-[#171717] font-medium">Privacy Policy</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="mb-10 p-8 md:p-10 bg-white rounded-2xl border border-[#ebebeb] shadow-xs relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-800 border border-blue-200 text-xs font-mono uppercase tracking-wider mb-4">
+          <ShieldCheck class="w-3.5 h-3.5 text-blue-600" />
+          <span>Legal Transparency</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight leading-tight">
+          Privacy Policy
+        </h1>
+        <p class="mt-3 text-sm text-[#8f8f8f] font-mono">
+          Last Updated &amp; Effective Date: {lastUpdated}
+        </p>
+        <p class="mt-4 text-sm sm:text-base text-[#4d4d4d] leading-relaxed">
+          At StarPNG (accessible via <a href="https://starpng.com" class="text-blue-600 hover:underline">https://starpng.com</a>), your privacy is of paramount importance to us. This Privacy Policy document outlines the types of personal and non-personal information collected and recorded by StarPNG and how we use, safeguard, and disclose it.
+        </p>
+      </div>
+
+      <!-- Main Privacy Content -->
+      <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-12 shadow-xs space-y-10 text-sm text-[#4d4d4d] leading-relaxed">
+        
+        <!-- Quick Summary Box -->
+        <div class="p-5 rounded-xl bg-amber-50/60 border border-amber-200 text-amber-950 space-y-2">
+          <div class="font-semibold text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 text-amber-900">
+            <CheckCircle2 class="w-4 h-4 text-amber-600" /> Key Privacy Takeaways
+          </div>
+          <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm text-amber-900/90 leading-normal">
+            <li><strong>Zero Account Registration:</strong> You do not need to create an account, provide your name, or enter your credit card to download assets.</li>
+            <li><strong>Google AdSense Advertising:</strong> We use third-party advertising vendors, including Google, who use cookies to serve ads based on your prior visits to this or other websites.</li>
+            <li><strong>Opt-Out Options:</strong> You can opt out of personalized Google advertising at any time by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="underline font-semibold">Google Ads Settings</a>.</li>
+            <li><strong>Local Clipboard Processing:</strong> 1-Click PNG and SVG copies are rendered entirely within your local browser sandbox and are never uploaded or tracked on our servers.</li>
+          </ul>
+        </div>
+
+        <!-- Section 1: Information We Collect -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            1. Information We Collect
+          </h2>
+          <p>
+            When you visit StarPNG, we may collect information in the following ways:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2">
+            <li>
+              <strong>Directly Provided Information:</strong> When you voluntarily contact us via email or contact forms for customer support, bug reports, or legal inquiries, we collect your name, email address, and the contents of your message.
+            </li>
+            <li>
+              <strong>Log Files &amp; Standard Server Telemetry:</strong> Like almost all web servers, StarPNG follows a standard procedure of using log files. The information inside the log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable and are used solely for analyzing trends, administering the site, preventing DDoS attacks, and tracking aggregate traffic.
+            </li>
+            <li>
+              <strong>Local Device Storage:</strong> We use browser <code>localStorage</code> purely to remember your UI preferences, such as your custom studio color selections, active level filters, or animation toggles. This data remains on your device and is never transmitted to our backend.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Section 2: Google AdSense & Third-Party Advertising (MANDATORY ADSENSE DISCLOSURE) -->
+        <section class="space-y-4 pt-6 border-t border-[#ebebeb]">
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+            <Cookie class="w-3.5 h-3.5" /> AdSense Compliance Requirement
+          </div>
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            2. Google AdSense &amp; Third-Party Advertising
+          </h2>
+          <p>
+            StarPNG works with third-party advertising partners, including <strong>Google AdSense</strong>, to serve advertisements on our website:
+          </p>
+          <div class="space-y-3 bg-[#fafafa] p-5 rounded-xl border border-[#ebebeb]">
+            <p>
+              <strong>DoubleClick DART Cookie &amp; Advertising Cookies:</strong>
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-xs sm:text-sm pl-2">
+              <li>
+                Third-party vendors, including <strong>Google</strong>, use cookies to serve ads based on a user's prior visits to StarPNG or other websites across the Internet.
+              </li>
+              <li>
+                Google's use of advertising cookies enables it and its partners to serve ads to our visitors based on their visit to StarPNG and/or other sites on the Internet.
+              </li>
+              <li>
+                Users may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-medium">Google Ads Settings</a>.
+              </li>
+              <li>
+                Alternatively, you can opt out of third-party vendor cookies for personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-medium">www.aboutads.info</a> or <a href="https://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-medium">Your Online Choices</a>.
+              </li>
+            </ul>
+          </div>
+          <p>
+            Third-party ad servers or ad networks use technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on StarPNG, which are sent directly to users' browsers. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.
+          </p>
+          <p class="text-xs text-[#8f8f8f]">
+            Note: StarPNG has no access to or control over these cookies that are used by third-party advertisers. We encourage you to consult the respective Privacy Policies of these third-party ad servers for more detailed information.
+          </p>
+        </section>
+
+        <!-- Section 3: Cookies & Web Beacons -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            3. Cookies &amp; Tracking Technologies
+          </h2>
+          <p>
+            StarPNG uses "cookies" to store information including visitors' preferences and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.
+          </p>
+          <p>
+            You can choose to disable cookies through your individual browser options. Detailed information about cookie management with specific web browsers can be found at the browsers' respective websites. For detailed guidance, please review our dedicated <a href="/cookie-policy/" class="text-blue-600 hover:underline font-medium">Cookie Policy</a>.
+          </p>
+        </section>
+
+        <!-- Section 4: GDPR Data Protection Rights -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            4. GDPR Data Protection Rights (EEA &amp; UK Users)
+          </h2>
+          <p>
+            If you are a resident of the European Economic Area (EEA) or the United Kingdom, you have certain data protection rights under the General Data Protection Regulation (GDPR). We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2">
+            <li><strong>The right to access:</strong> You have the right to request copies of your personal data.</li>
+            <li><strong>The right to rectification:</strong> You have the right to request that we correct any information you believe is inaccurate.</li>
+            <li><strong>The right to erasure ("Right to be Forgotten"):</strong> You have the right to request that we erase your personal data under certain conditions.</li>
+            <li><strong>The right to restrict processing:</strong> You have the right to request that we restrict the processing of your personal data.</li>
+            <li><strong>The right to object to processing:</strong> You have the right to object to our processing of your personal data.</li>
+            <li><strong>The right to data portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you.</li>
+          </ul>
+          <p>
+            If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us at <a href="mailto:privacy@starpng.com" class="text-blue-600 underline font-medium">privacy@starpng.com</a>.
+          </p>
+        </section>
+
+        <!-- Section 5: CCPA / CPRA Privacy Rights -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            5. California Privacy Rights (CCPA / CPRA)
+          </h2>
+          <p>
+            Under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA), California residents are entitled to specific disclosures:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2">
+            <li><strong>Right to Know:</strong> You have the right to request disclosure of the categories and specific pieces of personal data collected over the past 12 months.</li>
+            <li><strong>Right to Delete:</strong> You have the right to request the deletion of personal data collected from you.</li>
+            <li><strong>Right to Opt-Out of Sale or Sharing:</strong> StarPNG does NOT sell your personal information for monetary compensation. However, third-party advertising cookies may be classified as "sharing" under California law. You can opt out via your browser privacy settings or the Google Ads opt-out link mentioned above.</li>
+            <li><strong>Non-Discrimination:</strong> We will not discriminate against you for exercising any of your CCPA rights.</li>
+          </ul>
+        </section>
+
+        <!-- Section 6: Children's Online Privacy Protection (COPPA) -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            6. Children's Privacy (COPPA)
+          </h2>
+          <p>
+            Protecting children's privacy online is especially important. StarPNG does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately, and we will use our best efforts to promptly remove such information from our records.
+          </p>
+        </section>
+
+        <!-- Section 7: External Links -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            7. Third-Party Websites &amp; External Links
+          </h2>
+          <p>
+            Our website may contain links to external sites (such as creative tools like Canva or Figma, Google, or open-source documentation). StarPNG's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers or services for more detailed information.
+          </p>
+        </section>
+
+        <!-- Section 8: Changes to This Policy -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            8. Changes to This Privacy Policy
+          </h2>
+          <p>
+            We may update our Privacy Policy from time to time to reflect technological, operational, or legal changes. Any modifications will be posted on this page with an updated "Last Updated" date. We advise you to review this page periodically for any changes.
+          </p>
+        </section>
+
+        <!-- Section 9: Contact Information -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <Mail class="w-5 h-5 text-blue-600" /> 9. Contact Us
+          </h2>
+          <p>
+            If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please do not hesitate to contact our designated Privacy Compliance Team:
+          </p>
+          <div class="p-4 bg-[#fafafa] rounded-xl border border-[#ebebeb] text-xs sm:text-sm space-y-1.5 font-mono">
+            <div><strong>Email:</strong> <a href="mailto:privacy@starpng.com" class="text-blue-600 hover:underline">privacy@starpng.com</a></div>
+            <div><strong>Inquiries Form:</strong> <a href="/contact/" class="text-blue-600 hover:underline">https://starpng.com/contact/</a></div>
+            <div><strong>Mailing Address:</strong> StarPNG Legal Department, 100 Pine Street, Suite 1250, San Francisco, CA 94111, United States</div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

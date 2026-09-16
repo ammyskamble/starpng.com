@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ShieldCheck, FileCheck, ArrowLeft, CheckCircle2, AlertTriangle, Mail, Scale } from 'lucide-react';
+
+const lastUpdated = "September 16, 2026";
+
+const dmcaSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  'name': 'DMCA & Copyright Compliance Policy | StarPNG',
+  'description': 'Digital Millennium Copyright Act (DMCA) notice, takedown procedures, and designated copyright agent information for StarPNG.',
+  'url': 'https://starpng.com/dmca/',
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'StarPNG',
+    'url': 'https://starpng.com/'
+  }
+};
+---
+
+<BaseLayout
+  title="DMCA & Copyright Policy | StarPNG"
+  description="StarPNG DMCA Policy. Learn how to submit copyright takedown requests or counter-notices under the Digital Millennium Copyright Act (17 U.S.C. § 512)."
+  canonical="https://starpng.com/dmca/"
+  schema={dmcaSchema}
+>
+  <div class="py-12 md:py-16 bg-[#fafafa]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 flex items-center gap-2 text-xs text-[#8f8f8f]" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#171717] transition-colors flex items-center gap-1">
+          <ArrowLeft class="w-3.5 h-3.5" /> Back to Home
+        </a>
+        <span>/</span>
+        <span class="text-[#171717] font-medium">DMCA Policy</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="mb-10 p-8 md:p-10 bg-white rounded-2xl border border-[#ebebeb] shadow-xs relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 text-purple-800 border border-purple-200 text-xs font-mono uppercase tracking-wider mb-4">
+          <Scale class="w-3.5 h-3.5 text-purple-600" />
+          <span>Copyright Compliance</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight leading-tight">
+          DMCA &amp; Copyright Policy
+        </h1>
+        <p class="mt-3 text-sm text-[#8f8f8f] font-mono">
+          Last Updated: {lastUpdated}
+        </p>
+        <p class="mt-4 text-sm sm:text-base text-[#4d4d4d] leading-relaxed">
+          StarPNG respects the intellectual property rights of artists, creators, and copyright holders. In accordance with the Digital Millennium Copyright Act (17 U.S.C. § 512), StarPNG will respond expeditiously to notices of alleged copyright infringement that are reported to our designated agent.
+        </p>
+      </div>
+
+      <!-- Main Content -->
+      <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-12 shadow-xs space-y-10 text-sm text-[#4d4d4d] leading-relaxed">
+        
+        <!-- Commitment Box -->
+        <div class="p-5 rounded-xl bg-purple-50/60 border border-purple-200 text-purple-950 space-y-2">
+          <div class="font-semibold text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 text-purple-900">
+            <FileCheck class="w-4 h-4 text-purple-600" /> Original Vectors &amp; Public Domain Commitment
+          </div>
+          <p class="text-xs sm:text-sm text-purple-900/90 leading-relaxed">
+            All star graphics on StarPNG are procedural mathematical shapes, custom-coded vector illustrations, or contributed assets dedicated to the Public Domain under Creative Commons CC0. We do not knowingly host proprietary or copyrighted assets belonging to third parties without authorization.
+          </p>
+        </div>
+
+        <!-- Section 1: Filing a Takedown Notice -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            1. How to Submit a Valid DMCA Takedown Notice
+          </h2>
+          <p>
+            If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement and is accessible on StarPNG, please send a written notification to our Designated Copyright Agent containing all of the following statutory requirements:
+          </p>
+          <div class="space-y-2.5 bg-[#fafafa] p-5 rounded-xl border border-[#ebebeb] text-xs sm:text-sm">
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-[#171717] shrink-0">1.</span>
+              <span>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-[#171717] shrink-0">2.</span>
+              <span>Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site are covered by a single notification, a representative list of such works.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-[#171717] shrink-0">3.</span>
+              <span>Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, including the exact URL link(s) on StarPNG.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-[#171717] shrink-0">4.</span>
+              <span>Information reasonably sufficient to permit StarPNG to contact you, such as an address, telephone number, and, if available, an electronic mail address.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-[#171717] shrink-0">5.</span>
+              <span>A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="font-bold text-[#171717] shrink-0">6.</span>
+              <span>A statement that the information in the notification is accurate, and under penalty of perjury, that you are authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Designated Agent Information -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <Mail class="w-5 h-5 text-purple-600" /> 2. Designated Copyright Agent
+          </h2>
+          <p>
+            Please direct all DMCA notices and copyright communications to our Designated Copyright Agent:
+          </p>
+          <div class="p-5 bg-[#fafafa] rounded-xl border border-[#ebebeb] text-xs sm:text-sm space-y-2 font-mono">
+            <div><strong>Attn:</strong> StarPNG DMCA Agent / Legal Department</div>
+            <div><strong>Email:</strong> <a href="mailto:dmca@starpng.com" class="text-blue-600 hover:underline">dmca@starpng.com</a></div>
+            <div><strong>Postal Address:</strong> StarPNG Copyright Agent, 100 Pine Street, Suite 1250, San Francisco, CA 94111, United States</div>
+          </div>
+        </section>
+
+        <!-- Section 3: Counter-Notification Procedure -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            3. Counter-Notification Procedure
+          </h2>
+          <p>
+            If material that you submitted or published on StarPNG has been removed or disabled as a result of a DMCA takedown notice, and you believe that this removal was due to a mistake or misidentification (for example, the material is public domain or licensed under CC0), you may send a written Counter-Notice to our Designated Agent.
+          </p>
+          <p>
+            The Counter-Notice must comply with 17 U.S.C. § 512(g)(3) and include your physical or electronic signature, identification of the removed material, a statement under penalty of perjury that the material was removed by mistake, and your consent to federal court jurisdiction.
+          </p>
+        </section>
+
+        <!-- Section 4: Repeat Infringer Policy -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            4. Repeat Infringer Policy
+          </h2>
+          <p>
+            StarPNG maintains a strict policy of terminating the privileges and access of any user or contributor who repeatedly infringes upon the copyrights of others.
+          </p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

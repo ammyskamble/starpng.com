@@ -10,6 +10,7 @@ interface Props {
   ogImage?: string;
   keywords?: string;
   schema?: Record<string, any>;
+  noindex?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   ogImage = 'https://starpng.com/og-image.png',
   keywords = 'star png, gold star png, 5 star rating png, y2k star png, aesthetic star png, star transparent background, star vector svg, free star clipart',
   schema,
+  noindex = false,
 } = Astro.props;
 
 const defaultSchema = {
@@ -60,6 +62,7 @@ const defaultSchema = {
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

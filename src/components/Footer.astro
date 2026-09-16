@@ -4,11 +4,11 @@ const currentYear = new Date().getFullYear();
 
 <footer class="w-full bg-[#fafafa] border-t border-[#ebebeb] pt-16 pb-12 text-[#4d4d4d]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-[#ebebeb]">
-      <!-- Brand & Mission -->
-      <div class="md:col-span-1 space-y-4">
-        <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-md bg-[#171717] text-white flex items-center justify-center">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-[#ebebeb]">
+      <!-- Brand & Mission (Col 1) -->
+      <div class="sm:col-span-2 md:col-span-1 space-y-4">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-7 h-7 rounded-md bg-[#171717] text-white flex items-center justify-center transition-transform group-hover:scale-105">
             <svg viewBox="0 0 100 100" class="w-3.5 h-3.5 fill-amber-400">
               <polygon points="50,5 63,33 95,35 70,56 78,87 50,70 22,87 30,56 5,35 37,33" />
             </svg>
@@ -16,53 +16,70 @@ const currentYear = new Date().getFullYear();
           <span class="font-semibold text-base text-[#171717] tracking-tight">
             StarPNG<span class="text-[#8f8f8f] font-normal">.com</span>
           </span>
-        </div>
+        </a>
         <p class="text-xs text-[#8f8f8f] leading-relaxed">
           The open repository for 100% verified transparent Star PNGs and vector SVGs. Zero fake checkerboard backgrounds, zero download countdowns, zero account gates.
         </p>
-        <div class="text-[11px] font-mono text-[#8f8f8f]">
-          Free for personal & commercial design projects under CC0 License.
+        <div class="inline-flex items-center gap-1.5 text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-medium">
+          <span>CC0 1.0 Public Domain</span>
         </div>
       </div>
 
-      <!-- Categories Links -->
+      <!-- Categories Links (Col 2) -->
       <div>
         <h4 class="text-xs font-semibold uppercase tracking-wider text-[#171717] mb-3 font-mono">
-          Popular Categories
+          Star Categories
         </h4>
         <ul class="space-y-2 text-xs">
-          <li><a href="/stars/ratings/" class="hover:text-[#171717] transition-colors">5 Star Rating PNGs</a></li>
+          <li><a href="/stars/ratings/" class="hover:text-[#171717] transition-colors">5-Star Ratings</a></li>
+          <li><a href="/stars/stickers/" class="hover:text-[#171717] transition-colors">Star Stickers</a></li>
+          <li><a href="/stars/animated/" class="hover:text-[#171717] transition-colors">Live Animated Stars</a></li>
           <li><a href="/stars/y2k/" class="hover:text-[#171717] transition-colors">Y2K Cyber Stars</a></li>
+          <li><a href="/stars/3d/" class="hover:text-[#171717] transition-colors">3D &amp; Glossy Stars</a></li>
           <li><a href="/stars/gold/" class="hover:text-[#171717] transition-colors">Metallic Gold Stars</a></li>
-          <li><a href="/stars/aesthetic/" class="hover:text-[#171717] transition-colors">Aesthetic Sparkles</a></li>
-          <li><a href="/stars/outline/" class="hover:text-[#171717] transition-colors">Star Outlines & Badges</a></li>
         </ul>
       </div>
 
-      <!-- Design Features -->
+      <!-- Features & Tools (Col 3) -->
       <div>
         <h4 class="text-xs font-semibold uppercase tracking-wider text-[#171717] mb-3 font-mono">
-          StarPNG Features
+          Tools &amp; Features
         </h4>
         <ul class="space-y-2 text-xs">
-          <li><a href="#catalog" class="hover:text-[#171717] transition-colors">1-Click Clipboard Copy</a></li>
-          <li><a href="#catalog" class="hover:text-[#171717] transition-colors">In-Browser Color Customizer</a></li>
-          <li><a href="#catalog" class="hover:text-[#171717] transition-colors">4K Ultra HD Export (2048px)</a></li>
-          <li><a href="#catalog" class="hover:text-[#171717] transition-colors">Scalable Vector SVG Downloads</a></li>
-          <li><a href="#transparency-guide" class="hover:text-[#171717] transition-colors">Real vs Fake PNG Guide</a></li>
+          <li><a href="/generator/" class="hover:text-[#171717] transition-colors font-medium text-amber-800">Procedural Star Studio</a></li>
+          <li><a href="/#catalog" class="hover:text-[#171717] transition-colors">1-Click Clipboard Copy</a></li>
+          <li><a href="/#catalog" class="hover:text-[#171717] transition-colors">In-Browser Colorizer</a></li>
+          <li><a href="/#catalog" class="hover:text-[#171717] transition-colors">4K Ultra HD (2048px)</a></li>
+          <li><a href="/#catalog" class="hover:text-[#171717] transition-colors">Scalable Vector SVGs</a></li>
+          <li><a href="/#faq" class="hover:text-[#171717] transition-colors">Figma &amp; Canva Tips</a></li>
         </ul>
       </div>
 
-      <!-- SEO Keywords & Resources -->
+      <!-- Company & About (Col 4) -->
       <div>
         <h4 class="text-xs font-semibold uppercase tracking-wider text-[#171717] mb-3 font-mono">
-          Designer Resources
+          About &amp; Trust
         </h4>
         <ul class="space-y-2 text-xs">
-          <li><a href="#faq" class="hover:text-[#171717] transition-colors">Frequently Asked Questions</a></li>
-          <li><a href="#commercial-use" class="hover:text-[#171717] transition-colors">Commercial Licensing Info</a></li>
-          <li><a href="#figma-canva" class="hover:text-[#171717] transition-colors">Figma & Canva Workflow</a></li>
-          <li><span class="text-[#8f8f8f]">Sitemap / RSS feeds</span></li>
+          <li><a href="/about/" class="hover:text-[#171717] transition-colors">About StarPNG</a></li>
+          <li><a href="/contact/" class="hover:text-[#171717] transition-colors">Contact Support</a></li>
+          <li><a href="/terms/#license" class="hover:text-[#171717] transition-colors">Commercial CC0 License</a></li>
+          <li><a href="/about/#standards" class="hover:text-[#171717] transition-colors">Quality Standards</a></li>
+          <li><a href="/#faq" class="hover:text-[#171717] transition-colors">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & AdSense Compliance (Col 5) -->
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-wider text-[#171717] mb-3 font-mono">
+          Legal &amp; Policies
+        </h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="/privacy/" class="hover:text-[#171717] transition-colors font-medium">Privacy Policy</a></li>
+          <li><a href="/terms/" class="hover:text-[#171717] transition-colors font-medium">Terms of Service</a></li>
+          <li><a href="/cookie-policy/" class="hover:text-[#171717] transition-colors font-medium">Cookie Policy</a></li>
+          <li><a href="/dmca/" class="hover:text-[#171717] transition-colors font-medium">DMCA &amp; Copyright</a></li>
+          <li><a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" class="hover:text-[#171717] transition-colors text-[#8f8f8f]">Ad Choices &amp; Opt-Out</a></li>
         </ul>
       </div>
     </div>
@@ -72,9 +89,16 @@ const currentYear = new Date().getFullYear();
       <div>
         &copy; {currentYear} StarPNG.com. All rights reserved. Crafted for creators, web developers, and designers.
       </div>
-      <div class="flex items-center gap-6">
-        <span>No Cookies &bull; No Trackers</span>
-        <span>Ultra-fast Core Web Vitals</span>
+      <div class="flex flex-wrap items-center gap-4 sm:gap-6 text-[11px]">
+        <a href="/privacy/" class="hover:text-[#171717] transition-colors">Privacy</a>
+        <span>&bull;</span>
+        <a href="/terms/" class="hover:text-[#171717] transition-colors">Terms</a>
+        <span>&bull;</span>
+        <a href="/cookie-policy/" class="hover:text-[#171717] transition-colors">Cookies</a>
+        <span>&bull;</span>
+        <a href="/dmca/" class="hover:text-[#171717] transition-colors">DMCA</a>
+        <span>&bull;</span>
+        <a href="/contact/" class="hover:text-[#171717] transition-colors">Contact</a>
       </div>
     </div>
   </div>

@@ -3,6 +3,42 @@ import { EXTRA_STAR_ASSETS } from './extra/index.ts';
 export type StarLevel = 'basic' | 'moderate' | 'high';
 export type AnimationType = 'twinkle' | 'pulse' | 'spin' | 'float' | 'shooting';
 
+// 1. Faceted Filtering: Styles (Visual Aesthetics)
+export type StarStyle =
+  | '3d'
+  | 'y2k'
+  | 'futuristic'
+  | 'gold'
+  | 'neon'
+  | 'sparkle'
+  | 'aesthetic'
+  | 'geometric'
+  | 'outline'
+  | 'flat';
+
+// 2. Faceted Filtering: Use Case & Function
+export type StarUseCase =
+  | 'ratings'
+  | 'interface'
+  | 'badges'
+  | 'frames'
+  | 'stickers'
+  | 'characters'
+  | 'celestial'
+  | 'shapes';
+
+// 3. Format-Level Grouping
+export type AssetFormat = 'svg' | 'png' | 'animated';
+
+// 4. Semantic Industry Tags
+export type IndustryTag =
+  | 'gaming'
+  | 'ecommerce'
+  | 'astronomy'
+  | 'ui-apps'
+  | 'creators'
+  | 'education';
+
 export interface StarAsset {
   id: string;
   title: string;
@@ -19,6 +55,12 @@ export interface StarAsset {
   viewBox: string;
   svgContent: string;
   featured?: boolean;
+  // Faceted metadata
+  style?: StarStyle;
+  useCase?: StarUseCase;
+  formats?: AssetFormat[];
+  primaryFormat?: AssetFormat;
+  industries?: IndustryTag[];
 }
 
 export const LEVELS = [
@@ -27,6 +69,48 @@ export const LEVELS = [
   { id: 'moderate', name: 'Moderate (Y2K, Glow & Aesthetic)' },
   { id: 'high', name: 'High-Level (3D, Flares & FX)' },
 ] as const;
+
+export const STYLES: { id: StarStyle | 'all'; name: string }[] = [
+  { id: 'all', name: 'All Styles' },
+  { id: '3d', name: '3D & Glossy' },
+  { id: 'y2k', name: 'Y2K Cyber' },
+  { id: 'neon', name: 'Neon & Glow' },
+  { id: 'gold', name: 'Gold & Metallic' },
+  { id: 'sparkle', name: 'Sparkle & Twinkle' },
+  { id: 'geometric', name: 'Geometric & Compass' },
+  { id: 'outline', name: 'Outlines & Seals' },
+  { id: 'futuristic', name: 'Futuristic & AI' },
+  { id: 'aesthetic', name: 'Aesthetic & Cute' },
+  { id: 'flat', name: 'Minimal & Flat' },
+];
+
+export const USE_CASES: { id: StarUseCase | 'all'; name: string }[] = [
+  { id: 'all', name: 'All Functions' },
+  { id: 'ratings', name: '5-Star Ratings' },
+  { id: 'interface', name: 'UI & App Icons' },
+  { id: 'badges', name: 'Badges & Ribbons' },
+  { id: 'frames', name: 'Frames & Borders' },
+  { id: 'stickers', name: 'Stickers & Decals' },
+  { id: 'characters', name: 'Star Bears & Mascots' },
+  { id: 'celestial', name: 'Moon & Celestial' },
+  { id: 'shapes', name: 'Isolated Star Shapes' },
+];
+
+export const FORMAT_OPTIONS: { id: AssetFormat | 'all'; label: string; badge: string; desc: string }[] = [
+  { id: 'all', label: 'All Formats', badge: 'ALL', desc: 'Browse all 346 assets' },
+  { id: 'svg', label: 'Vector SVG', badge: 'SVG', desc: 'Crisp scalable UI vectors' },
+  { id: 'png', label: 'Transparent PNG', badge: 'PNG', desc: 'High-res alpha raster & stickers' },
+  { id: 'animated', label: 'Animated (CSS/SVG)', badge: 'LIVE', desc: 'Twinkling, pulsing & spinning stars' },
+];
+
+export const INDUSTRIES: { id: IndustryTag; name: string; emoji: string; description: string }[] = [
+  { id: 'gaming', name: 'Gaming & Gamification', emoji: '🎮', description: 'Level stars, XP, achievements & power-ups' },
+  { id: 'ecommerce', name: 'E-Commerce & Reviews', emoji: '🛒', description: '5-star reviews, trust badges & sale starbursts' },
+  { id: 'astronomy', name: 'Space & Astronomy', emoji: '🚀', description: 'Constellations, Polaris, comets & celestial moons' },
+  { id: 'ui-apps', name: 'UI & Web Apps', emoji: '💻', description: 'Favorites, bookmarks, wishlists & action buttons' },
+  { id: 'creators', name: 'Social & Creators', emoji: '📱', description: 'Story stickers, stream overlays & kawaii mascots' },
+  { id: 'education', name: 'Education & Awards', emoji: '🎓', description: 'Grading stickers, 1st place ribbons & certificate frames' },
+];
 
 export const CATEGORIES = [
   { id: 'all', name: 'All Stars', slug: '' },
@@ -4881,11 +4965,168 @@ const BASE_STAR_ASSETS: StarAsset[] = [
   },
 ];
 
-export const STAR_ASSETS: StarAsset[] = [
+export function enrichStarAsset(raw: StarAsset): StarAsset {
+  const isAnimated = Boolean(raw.isAnimated || raw.animationType);
+
+  // 1. Determine Use Case / Function:
+  let useCase: StarUseCase = raw.useCase || 'shapes';
+  if (!raw.useCase) {
+    if (raw.category === 'ratings') useCase = 'ratings';
+    else if (raw.category === 'interface') useCase = 'interface';
+    else if (raw.category === 'badges') useCase = 'badges';
+    else if (raw.category === 'frames') useCase = 'frames';
+    else if (raw.category === 'stickers') useCase = 'stickers';
+    else if (raw.category === 'characters') useCase = 'characters';
+    else if (raw.category === 'celestial') useCase = 'celestial';
+    else {
+      const text = `${raw.title} ${raw.tags.join(' ')} ${raw.id}`.toLowerCase();
+      if (text.includes('rating') || text.includes('review')) useCase = 'ratings';
+      else if (text.includes('frame') || text.includes('border') || text.includes('arch')) useCase = 'frames';
+      else if (text.includes('badge') || text.includes('ribbon') || text.includes('medal') || text.includes('seal') || text.includes('rosette')) useCase = 'badges';
+      else if (text.includes('sticker') || text.includes('decal')) useCase = 'stickers';
+      else if (text.includes('bear') || text.includes('mascot') || text.includes('bunny')) useCase = 'characters';
+      else if (text.includes('moon') || text.includes('planet') || text.includes('celestial') || text.includes('cloud')) useCase = 'celestial';
+      else if (text.includes('icon') || text.includes('ui') || text.includes('button') || text.includes('bookmark') || text.includes('favorite') || text.includes('shield')) useCase = 'interface';
+      else useCase = 'shapes';
+    }
+  }
+
+  // 2. Determine Aesthetic Style:
+  let style: StarStyle = raw.style || 'flat';
+  if (!raw.style) {
+    if (raw.category === '3d') style = '3d';
+    else if (raw.category === 'y2k') style = 'y2k';
+    else if (raw.category === 'futuristic') style = 'futuristic';
+    else if (raw.category === 'gold') style = 'gold';
+    else if (raw.category === 'neon') style = 'neon';
+    else if (raw.category === 'sparkle') style = 'sparkle';
+    else if (raw.category === 'aesthetic') style = 'aesthetic';
+    else if (raw.category === 'geometric') style = 'geometric';
+    else if (raw.category === 'outline') style = 'outline';
+    else {
+      const text = `${raw.title} ${raw.tags.join(' ')} ${raw.description}`.toLowerCase();
+      if (text.includes('3d') || text.includes('faceted') || text.includes('crystal') || text.includes('volumetric') || text.includes('gem')) style = '3d';
+      else if (text.includes('y2k') || text.includes('cyber') || text.includes('2000s')) style = 'y2k';
+      else if (text.includes('neon') || text.includes('glow') || text.includes('pulsar')) style = 'neon';
+      else if (text.includes('gold') || text.includes('metallic') || text.includes('golden') || text.includes('brass')) style = 'gold';
+      else if (text.includes('sparkle') || text.includes('twinkle') || text.includes('glint') || text.includes('flare')) style = 'sparkle';
+      else if (text.includes('geometric') || text.includes('compass') || text.includes('polaris') || text.includes('north star')) style = 'geometric';
+      else if (text.includes('outline') || text.includes('stroke') || text.includes('wireframe') || text.includes('line art')) style = 'outline';
+      else if (text.includes('futuristic') || text.includes('ai') || text.includes('sci-fi') || text.includes('quantum') || text.includes('cyberpunk')) style = 'futuristic';
+      else if (text.includes('cute') || text.includes('kawaii') || text.includes('pastel') || text.includes('blushing')) style = 'aesthetic';
+      else style = 'flat';
+    }
+  }
+
+  // 3. Determine Formats:
+  const formats: AssetFormat[] = raw.formats || (isAnimated ? ['svg', 'png', 'animated'] : ['svg', 'png']);
+  let primaryFormat: AssetFormat = raw.primaryFormat || (isAnimated ? 'animated' : 'svg');
+  if (!raw.primaryFormat) {
+    if (isAnimated) {
+      primaryFormat = 'animated';
+    } else if (raw.category === 'stickers' || raw.category === 'characters' || style === '3d') {
+      primaryFormat = 'png';
+    } else {
+      primaryFormat = 'svg';
+    }
+  }
+
+  // 4. Determine Semantic Industries:
+  let industries: IndustryTag[] = raw.industries ? [...raw.industries] : [];
+  if (industries.length === 0) {
+    const text = `${raw.title} ${raw.tags.join(' ')} ${raw.description} ${raw.category}`.toLowerCase();
+    
+    // Gaming & Gamification
+    if (
+      text.includes('game') || text.includes('gaming') || text.includes('level') ||
+      text.includes('arcade') || text.includes('quest') || text.includes('retro') ||
+      text.includes('shield') || text.includes('power') || text.includes('8-bit') ||
+      text.includes('achievement') || text.includes('xp') || raw.category === 'futuristic' ||
+      raw.category === 'neon'
+    ) {
+      industries.push('gaming');
+    }
+
+    // E-Commerce & Reviews
+    if (
+      text.includes('rating') || text.includes('review') || text.includes('customer') ||
+      text.includes('store') || text.includes('bestseller') || text.includes('discount') ||
+      text.includes('sale') || text.includes('trust') || text.includes('product') ||
+      text.includes('guarantee') || text.includes('price') || raw.category === 'ratings'
+    ) {
+      industries.push('ecommerce');
+    }
+
+    // Space & Astronomy
+    if (
+      text.includes('polaris') || text.includes('compass') || text.includes('moon') ||
+      text.includes('astronomy') || text.includes('space') || text.includes('comet') ||
+      text.includes('celestial') || text.includes('constellation') || text.includes('galaxy') ||
+      text.includes('orbit') || text.includes('shooting') || raw.category === 'celestial' ||
+      raw.category === 'geometric'
+    ) {
+      industries.push('astronomy');
+    }
+
+    // UI & Web Apps
+    if (
+      text.includes('ui') || text.includes('interface') || text.includes('app') ||
+      text.includes('bookmark') || text.includes('favorite') || text.includes('wishlist') ||
+      text.includes('verified') || text.includes('button') || text.includes('navigation') ||
+      raw.category === 'interface' || raw.category === 'outline'
+    ) {
+      industries.push('ui-apps');
+    }
+
+    // Social & Creators
+    if (
+      text.includes('sticker') || text.includes('decal') || text.includes('bear') ||
+      text.includes('mascot') || text.includes('kawaii') || text.includes('cute') ||
+      text.includes('y2k') || text.includes('stream') || text.includes('overlay') ||
+      text.includes('instagram') || text.includes('aesthetic') || raw.category === 'stickers' ||
+      raw.category === 'characters' || raw.category === 'y2k' || raw.category === 'aesthetic'
+    ) {
+      industries.push('creators');
+    }
+
+    // Education & Awards
+    if (
+      text.includes('award') || text.includes('badge') || text.includes('ribbon') ||
+      text.includes('medal') || text.includes('certificate') || text.includes('diploma') ||
+      text.includes('trophy') || text.includes('honor') || text.includes('first place') ||
+      text.includes('gold star') || text.includes('school') || text.includes('reward') ||
+      raw.category === 'badges' || raw.category === 'frames' || raw.category === 'gold'
+    ) {
+      industries.push('education');
+    }
+
+    // Fallback if none matched
+    if (industries.length === 0) {
+      if (raw.category === '3d' || raw.category === 'sparkle') {
+        industries.push('gaming', 'creators');
+      } else {
+        industries.push('ui-apps', 'ecommerce');
+      }
+    }
+  }
+
+  return {
+    ...raw,
+    isAnimated,
+    useCase,
+    style,
+    formats,
+    primaryFormat,
+    industries,
+  };
+}
+
+const RAW_STAR_ASSETS: StarAsset[] = [
   ...BASE_STAR_ASSETS,
   ...EXTRA_STAR_ASSETS,
 ];
 
+export const STAR_ASSETS: StarAsset[] = RAW_STAR_ASSETS.map(enrichStarAsset);
 
 export function getStarsByLevel(level: string): StarAsset[] {
   if (!level || level === 'all') return STAR_ASSETS;
@@ -4899,4 +5140,27 @@ export function getStarBySlug(slug: string): StarAsset | undefined {
 export function getStarsByCategory(category: string): StarAsset[] {
   if (!category || category === 'all') return STAR_ASSETS;
   return STAR_ASSETS.filter((s) => s.category === category);
+}
+
+export function getStarsByStyle(style: string): StarAsset[] {
+  if (!style || style === 'all') return STAR_ASSETS;
+  return STAR_ASSETS.filter((s) => s.style === style);
+}
+
+export function getStarsByUseCase(useCase: string): StarAsset[] {
+  if (!useCase || useCase === 'all') return STAR_ASSETS;
+  return STAR_ASSETS.filter((s) => s.useCase === useCase);
+}
+
+export function getStarsByFormat(format: string): StarAsset[] {
+  if (!format || format === 'all') return STAR_ASSETS;
+  if (format === 'animated') return STAR_ASSETS.filter((s) => s.isAnimated);
+  if (format === 'svg') return STAR_ASSETS.filter((s) => s.primaryFormat === 'svg' || s.formats?.includes('svg'));
+  if (format === 'png') return STAR_ASSETS.filter((s) => s.primaryFormat === 'png' || s.formats?.includes('png'));
+  return STAR_ASSETS;
+}
+
+export function getStarsByIndustry(industry: string): StarAsset[] {
+  if (!industry || industry === 'all') return STAR_ASSETS;
+  return STAR_ASSETS.filter((s) => s.industries?.includes(industry as IndustryTag));
 }

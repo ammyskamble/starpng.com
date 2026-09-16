@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { FileText, ShieldCheck, ArrowLeft, CheckCircle2, AlertTriangle, Scale, Lock, Mail } from 'lucide-react';
+
+const lastUpdated = "September 16, 2026";
+
+const termsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  'name': 'Terms of Service | StarPNG',
+  'description': 'Terms of Service and License terms for StarPNG. Details on Creative Commons CC0 Public Domain commercial use, acceptable use, and procedural generator policies.',
+  'url': 'https://starpng.com/terms/',
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'StarPNG',
+    'url': 'https://starpng.com/'
+  }
+};
+---
+
+<BaseLayout
+  title="Terms of Service | StarPNG"
+  description="StarPNG Terms of Service. Understand our CC0 Public Domain commercial license, acceptable use policy, and terms governing your use of StarPNG.com."
+  canonical="https://starpng.com/terms/"
+  schema={termsSchema}
+>
+  <div class="py-12 md:py-16 bg-[#fafafa]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 flex items-center gap-2 text-xs text-[#8f8f8f]" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#171717] transition-colors flex items-center gap-1">
+          <ArrowLeft class="w-3.5 h-3.5" /> Back to Home
+        </a>
+        <span>/</span>
+        <span class="text-[#171717] font-medium">Terms of Service</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="mb-10 p-8 md:p-10 bg-white rounded-2xl border border-[#ebebeb] shadow-xs relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-mono uppercase tracking-wider mb-4">
+          <Scale class="w-3.5 h-3.5 text-emerald-600" />
+          <span>User Agreement &amp; CC0 License</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight leading-tight">
+          Terms of Service
+        </h1>
+        <p class="mt-3 text-sm text-[#8f8f8f] font-mono">
+          Last Updated &amp; Effective Date: {lastUpdated}
+        </p>
+        <p class="mt-4 text-sm sm:text-base text-[#4d4d4d] leading-relaxed">
+          Welcome to StarPNG. These Terms of Service ("Terms") govern your access to and use of StarPNG.com (the "Website"), our asset catalog, customizer tools, and procedural generator studio. By accessing or using our Website, you agree to be bound by these Terms.
+        </p>
+      </div>
+
+      <!-- Main Terms Content -->
+      <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-12 shadow-xs space-y-10 text-sm text-[#4d4d4d] leading-relaxed">
+        
+        <!-- License Highlight Box -->
+        <div id="license" class="p-5 rounded-xl bg-emerald-50/70 border border-emerald-200 text-emerald-950 space-y-2.5">
+          <div class="font-semibold text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 text-emerald-900">
+            <CheckCircle2 class="w-4 h-4 text-emerald-600" /> Creative Commons CC0 1.0 Public Domain License
+          </div>
+          <p class="text-xs sm:text-sm text-emerald-900 leading-relaxed">
+            All star graphics, SVG vector codes, transparent PNGs, star stickers, animated SVGs, and procedural exports made available directly by StarPNG are released under the <strong>Creative Commons CC0 1.0 Universal Public Domain Dedication</strong>.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs text-emerald-900 font-medium">
+            <div class="flex items-center gap-1.5">✓ 100% Free for Commercial &amp; Personal Use</div>
+            <div class="flex items-center gap-1.5">✓ No Attribution or Backlinks Required</div>
+            <div class="flex items-center gap-1.5">✓ Modify, Recolor &amp; Remix Freely</div>
+            <div class="flex items-center gap-1.5">✓ Unlimited Web, Mobile App &amp; Print Distribution</div>
+          </div>
+        </div>
+
+        <!-- Section 1: Acceptance of Terms -->
+        <section class="space-y-3">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            1. Acceptance of Terms
+          </h2>
+          <p>
+            By accessing, browsing, copying assets from, or downloading files from StarPNG, you acknowledge that you have read, understood, and agreed to be bound by these Terms, as well as our <a href="/privacy/" class="text-blue-600 hover:underline">Privacy Policy</a> and <a href="/cookie-policy/" class="text-blue-600 hover:underline">Cookie Policy</a>. If you do not agree to all of these terms, you are prohibited from using the Website and its services.
+          </p>
+        </section>
+
+        <!-- Section 2: Intellectual Property & Permitted Uses -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            2. Asset Licensing &amp; Permitted Uses
+          </h2>
+          <p>
+            StarPNG was founded on the philosophy that foundational vector shapes and design building blocks should be accessible to everyone without predatory paywalls or attribution traps.
+          </p>
+          <div class="space-y-2 bg-[#fafafa] p-5 rounded-xl border border-[#ebebeb]">
+            <h3 class="font-semibold text-sm text-[#171717]">You ARE Permitted To:</h3>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm pl-2">
+              <li>Use any asset in client work, commercial websites, SaaS applications, games, marketing banners, software products, and merchandise.</li>
+              <li>Incorporate star vectors and PNGs into logos, trademarks, and brand identity assets as part of a larger, unique composition.</li>
+              <li>Download up to 4K Ultra HD transparent PNGs and edit the raw SVG markup using design software such as Figma, Adobe Illustrator, Canva, or Photoshop.</li>
+              <li>Re-distribute or package assets inside open-source code repositories (e.g., GitHub, npm packages, UI component libraries).</li>
+            </ul>
+          </div>
+          <div class="space-y-2 bg-[#fafafa] p-5 rounded-xl border border-[#ebebeb]">
+            <h3 class="font-semibold text-sm text-[#171717]">You Are NOT Permitted To:</h3>
+            <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm pl-2">
+              <li>Claim exclusive copyright ownership over raw, unmodified CC0 star assets from StarPNG.</li>
+              <li>Bulk scrape the entire StarPNG database using automated scrapers or bots to create a mirror or clone website that misrepresents itself as StarPNG.</li>
+              <li>Use StarPNG assets in any manner that promotes illegal activities, hate speech, defamation, or infringement of third-party trademarks.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 3: Procedural Star Generator Studio -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            3. Procedural Star Generator Studio
+          </h2>
+          <p>
+            StarPNG provides a browser-based mathematical vector generator studio allowing users to customize geometry, rays, flare angles, neon glow radius, and color gradients:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2">
+            <li>Any vector graphic or PNG generated by you using the generator is processed client-side within your browser.</li>
+            <li>We do not retain copies or claim copyright ownership of custom star configurations created by you.</li>
+            <li>Generated assets inherit the CC0 Public Domain dedication for your convenience and unencumbered commercial use.</li>
+          </ul>
+        </section>
+
+        <!-- Section 4: Advertisements & Third-Party Services -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            4. Advertisements &amp; Google AdSense
+          </h2>
+          <p>
+            StarPNG is supported by advertising revenue, including ads served by <strong>Google AdSense</strong> and other third-party ad networks. By using StarPNG, you acknowledge and agree that:
+          </p>
+          <ul class="list-disc list-inside space-y-2 pl-2">
+            <li>Advertisements may be displayed alongside or integrated into the catalog and generator pages.</li>
+            <li>StarPNG does not endorse, guarantee, or assume responsibility for any product, service, or website advertised through third-party ad banners.</li>
+            <li>Interacting with an advertisement may redirect you to third-party web properties subject to their own respective terms and privacy statements.</li>
+          </ul>
+        </section>
+
+        <!-- Section 5: Disclaimer of Warranties -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            5. Disclaimer of Warranties
+          </h2>
+          <div class="p-4 bg-gray-50 border border-gray-200 rounded-xl text-xs sm:text-sm font-mono text-[#4d4d4d] leading-relaxed">
+            THE WEBSITE, ASSETS, GENERATOR TOOLS, AND ALL CONTENT ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, OR NON-INFRINGEMENT.
+          </div>
+          <p>
+            StarPNG makes no warranty that the website will meet your requirements, be uninterrupted, timely, secure, or error-free, or that any errors in the assets will be corrected.
+          </p>
+        </section>
+
+        <!-- Section 6: Limitation of Liability -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            6. Limitation of Liability
+          </h2>
+          <p>
+            In no event shall StarPNG, its owners, operators, developers, or affiliates be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, including but not limited to damages for loss of profits, goodwill, data, business interruption, or other intangible losses resulting from the use or inability to use the Website or its assets.
+          </p>
+        </section>
+
+        <!-- Section 7: DMCA & Copyright Infringement -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            7. DMCA &amp; Intellectual Property Complaints
+          </h2>
+          <p>
+            StarPNG respects the intellectual property rights of others. If you believe that any content on StarPNG infringes upon your copyright or trademark, please follow the formal takedown procedure outlined in our <a href="/dmca/" class="text-blue-600 hover:underline font-medium">DMCA Policy</a> or contact us directly at <a href="mailto:dmca@starpng.com" class="text-blue-600 underline font-medium">dmca@starpng.com</a>.
+          </p>
+        </section>
+
+        <!-- Section 8: Governing Law & Jurisdiction -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight">
+            8. Governing Law
+          </h2>
+          <p>
+            These Terms shall be governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law principles. Any dispute arising out of or related to these Terms shall be resolved in the state or federal courts located in San Francisco County, California.
+          </p>
+        </section>
+
+        <!-- Section 9: Contact -->
+        <section class="space-y-3 pt-6 border-t border-[#ebebeb]">
+          <h2 class="text-xl font-bold text-[#171717] tracking-tight flex items-center gap-2">
+            <Mail class="w-5 h-5 text-emerald-600" /> 9. Questions &amp; Legal Inquiries
+          </h2>
+          <p>
+            For any questions or clarifications regarding these Terms of Service, please contact us:
+          </p>
+          <div class="p-4 bg-[#fafafa] rounded-xl border border-[#ebebeb] text-xs sm:text-sm space-y-1.5 font-mono">
+            <div><strong>Email:</strong> <a href="mailto:legal@starpng.com" class="text-blue-600 hover:underline">legal@starpng.com</a></div>
+            <div><strong>Contact Center:</strong> <a href="/contact/" class="text-blue-600 hover:underline">https://starpng.com/contact/</a></div>
+            <div><strong>Entity:</strong> StarPNG Legal Compliance, 100 Pine Street, Suite 1250, San Francisco, CA 94111</div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>

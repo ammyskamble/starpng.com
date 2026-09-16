@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AssetCopyButton from '../../components/AssetCopyButton';
-import { STAR_ASSETS, CATEGORIES, getStarsByCategory, type StarAsset } from '../../data/stars';
+import { STAR_ASSETS, CATEGORIES, STYLES, USE_CASES, INDUSTRIES, getStarsByCategory, type StarAsset } from '../../data/stars';
 import { injectColorShades } from '../../utils/colorUtils';
-import { ArrowLeft, Tag, Sparkles, ShieldCheck, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Tag, Sparkles, ShieldCheck, ExternalLink, FileCode, Layers, Palette, LayoutGrid, Gamepad2 } from 'lucide-react';
 
 export function getStaticPaths() {
   return STAR_ASSETS.map((star) => ({
@@ -24,6 +24,8 @@ const related = getStarsByCategory(star.category)
 
 // Category metadata lookup
 const categoryLabel = CATEGORIES.find((c) => c.id === star.category)?.name ?? star.categoryName;
+const styleLabel = STYLES.find((s) => s.id === star.style)?.name ?? star.style;
+const useCaseLabel = USE_CASES.find((u) => u.id === star.useCase)?.name ?? star.useCase;
 
 // Level badge config
 const levelConfig = {
@@ -119,18 +121,39 @@ const assetSchema = {
 
         <!-- Right: Asset Info + Actions -->
         <div class="space-y-6">
-          <!-- Category + Level badges -->
+          <!-- Faceted Badges: Category, Style, Function, Format, Level -->
           <div class="flex items-center gap-2 flex-wrap">
             <a
               href={`/stars/${star.category}/`}
               class="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-50 text-amber-800 border border-amber-200 hover:bg-amber-100 transition-colors"
             >
-              <Sparkles class="w-3 h-3" />
+              <Sparkles class="w-3 h-3 text-amber-500" />
               {categoryLabel}
             </a>
+
+            {star.style && (
+              <span class="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-purple-50 text-purple-800 border border-purple-200">
+                <Palette class="w-3 h-3 text-purple-600" />
+                Style: {styleLabel}
+              </span>
+            )}
+
+            {star.useCase && (
+              <span class="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <LayoutGrid class="w-3 h-3 text-emerald-600" />
+                {useCaseLabel}
+              </span>
+            )}
+
+            <span class="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+              <FileCode class="w-3 h-3 text-blue-500" />
+              {star.primaryFormat === 'png' ? '32-Bit PNG' : star.isAnimated ? 'Animated SVG' : 'Vector SVG'}
+            </span>
+
             <span class={`inline-flex items-center text-[11px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full border ${level.cls}`}>
               {level.label}
             </span>
+
             {star.isAnimated && (
               <span class="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-1 rounded-full bg-green-50 text-green-700 border border-green-200">
                 <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
@@ -200,6 +223,26 @@ const assetSchema = {
               Open Generator <ExternalLink class="w-3 h-3" />
             </a>
           </div>
+
+          <!-- Semantic Industry & Utility Tags -->
+          {star.industries && star.industries.length > 0 && (
+            <div>
+              <div class="flex items-center gap-1.5 text-[11px] font-mono text-[#8f8f8f] uppercase tracking-wider mb-2">
+                <Gamepad2 class="w-3 h-3 text-blue-500" /> Industry & Use Cases
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                {star.industries.map((indKey) => {
+                  const ind = INDUSTRIES.find((i) => i.id === indKey);
+                  return (
+                    <span class="inline-flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-900 border border-blue-200 font-medium">
+                      <span>{ind?.emoji}</span>
+                      <span>{ind?.name}</span>
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           <!-- Tags -->
           {star.tags.length > 0 && (

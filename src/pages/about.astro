@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Sparkles, ShieldCheck, Heart, ArrowLeft, CheckCircle2, Cpu, FileCode, Users, Wand2, ArrowRight } from 'lucide-react';
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  'name': 'About StarPNG - Our Mission & Story',
+  'description': 'Learn about StarPNG, the open repository for 100% verified transparent Star PNG images, vector SVGs, and procedural star generators with zero fake checkerboards.',
+  'url': 'https://starpng.com/about/',
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'StarPNG',
+    'url': 'https://starpng.com/'
+  }
+};
+---
+
+<BaseLayout
+  title="About Us - The 100% Real Alpha Star Repository | StarPNG"
+  description="Discover the story and mission behind StarPNG: ending fake checkerboard PNGs, providing free vector SVGs without Flaticon paywalls, and empowering creators with procedural design tools."
+  canonical="https://starpng.com/about/"
+  schema={aboutSchema}
+>
+  <div class="py-12 md:py-16 bg-[#fafafa]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Breadcrumb -->
+      <nav class="mb-6 flex items-center gap-2 text-xs text-[#8f8f8f]" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-[#171717] transition-colors flex items-center gap-1">
+          <ArrowLeft class="w-3.5 h-3.5" /> Back to Home
+        </a>
+        <span>/</span>
+        <span class="text-[#171717] font-medium">About Us</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <div class="mb-10 p-8 md:p-12 bg-white rounded-2xl border border-[#ebebeb] shadow-xs relative overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200 text-xs font-mono uppercase tracking-wider mb-4">
+          <Sparkles class="w-3.5 h-3.5 text-amber-500" />
+          <span>Our Story &amp; Mission</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight leading-tight">
+          Democratizing Flawless Vector &amp; Transparent Star Graphics
+        </h1>
+        <p class="mt-4 text-base sm:text-lg text-[#4d4d4d] leading-relaxed">
+          StarPNG was created by designers and web developers who were frustrated by the "fake checkerboard" epidemic on Google Images and predatory subscription paywalls on legacy icon directories.
+        </p>
+      </div>
+
+      <!-- Main Story & Core Values -->
+      <div class="space-y-8">
+        
+        <!-- The Problem We Solved -->
+        <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-10 shadow-xs space-y-4">
+          <h2 class="text-2xl font-bold text-[#171717] tracking-tight flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-mono text-sm font-bold border border-red-200">1</span>
+            The Problem: The "Fake Checkerboard" Epidemic
+          </h2>
+          <p class="text-sm text-[#4d4d4d] leading-relaxed">
+            Every digital designer has experienced the frustration: you search for a "star PNG transparent background", click what appears to be a transparent image with a grey-and-white grid, paste it into Figma, Canva, or Photoshop — only to discover that the fake checkerboard is literally baked into the image as solid white and grey pixels.
+          </p>
+          <p class="text-sm text-[#4d4d4d] leading-relaxed">
+            Meanwhile, legacy icon platforms like Flaticon advertise "free stars", but lock clean vector SVG downloads and commercial licensing behind a mandatory $12/month subscription paywall, or demand complex attribution backlinks that ruin clean UI designs.
+          </p>
+        </div>
+
+        <!-- The Solution: StarPNG -->
+        <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-10 shadow-xs space-y-4">
+          <h2 class="text-2xl font-bold text-[#171717] tracking-tight flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-mono text-sm font-bold border border-emerald-200">2</span>
+            Our Solution: 100% True 32-Bit Alpha &amp; Free SVGs
+          </h2>
+          <p class="text-sm text-[#4d4d4d] leading-relaxed">
+            StarPNG was engineered as an open, accessible alternative:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-[#fafafa] border border-[#ebebeb] space-y-1.5">
+              <div class="font-semibold text-xs font-mono uppercase text-[#171717] flex items-center gap-1.5">
+                <CheckCircle2 class="w-4 h-4 text-emerald-500" /> 100% Real Alpha Transparency
+              </div>
+              <p class="text-xs text-[#8f8f8f]">
+                Every asset features an authentic 32-bit RGBA alpha channel. Zero baked-in fake checkerboards, guaranteed.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#fafafa] border border-[#ebebeb] space-y-1.5">
+              <div class="font-semibold text-xs font-mono uppercase text-[#171717] flex items-center gap-1.5">
+                <FileCode class="w-4 h-4 text-blue-500" /> Free Vector SVGs
+              </div>
+              <p class="text-xs text-[#8f8f8f]">
+                Download raw SVG code with zero paywalls. Scale from 16px favicons to billboard sizes with pixel precision.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#fafafa] border border-[#ebebeb] space-y-1.5">
+              <div class="font-semibold text-xs font-mono uppercase text-[#171717] flex items-center gap-1.5">
+                <ShieldCheck class="w-4 h-4 text-purple-500" /> Creative Commons CC0
+              </div>
+              <p class="text-xs text-[#8f8f8f]">
+                Universal Public Domain dedication. Free for commercial client projects, games, merchandise, and print without attribution.
+              </p>
+            </div>
+            <div class="p-4 rounded-xl bg-[#fafafa] border border-[#ebebeb] space-y-1.5">
+              <div class="font-semibold text-xs font-mono uppercase text-[#171717] flex items-center gap-1.5">
+                <Cpu class="w-4 h-4 text-amber-500" /> Procedural Star Generator
+              </div>
+              <p class="text-xs text-[#8f8f8f]">
+                Generate infinite mathematical star geometries from 3 to 32 points with 3D gem faceting, lens flares, and neon glows.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How We Keep StarPNG Free -->
+        <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-10 shadow-xs space-y-4">
+          <h2 class="text-2xl font-bold text-[#171717] tracking-tight flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-mono text-sm font-bold border border-blue-200">3</span>
+            How We Sustain StarPNG (Ethical Advertising)
+          </h2>
+          <p class="text-sm text-[#4d4d4d] leading-relaxed">
+            Hosting thousands of 4K transparent PNGs, live animated SVGs, and powering high-performance CDN delivery costs money. Instead of charging subscription fees or locking downloads behind registration gates, StarPNG is supported by ethical, non-intrusive advertisements served through trusted partners like <strong>Google AdSense</strong>.
+          </p>
+          <p class="text-sm text-[#4d4d4d] leading-relaxed">
+            We adhere strictly to Google's Better Ads Standards: you will never encounter pop-under traps, deceptive download buttons, or malicious redirect scripts on StarPNG.
+          </p>
+        </div>
+
+        <!-- Editorial Standards & Quality Assurance -->
+        <div class="bg-white rounded-2xl border border-[#ebebeb] p-8 md:p-10 shadow-xs space-y-4">
+          <h2 class="text-2xl font-bold text-[#171717] tracking-tight flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center font-mono text-sm font-bold border border-amber-200">4</span>
+            Quality Assurance &amp; Curation Standards
+          </h2>
+          <p class="text-sm text-[#4d4d4d] leading-relaxed">
+            Every star asset on StarPNG is curated or generated through rigorous mathematical coordinate checks:
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-sm text-[#4d4d4d] pl-2">
+            <li><strong>Sub-Pixel Boundary Alignment:</strong> Geometry points are aligned to pixel grids to eliminate blurry rendering at small icon scales (16px, 24px, 32px).</li>
+            <li><strong>Dynamic Shading Injection:</strong> Vectors are coded with mathematical tint and shade stops, allowing seamless recoloring to any custom hex code without clipping.</li>
+            <li><strong>Pure SVG Vectors:</strong> No baked raster bitmaps are disguised inside SVG tags; all vectors consist of mathematical paths and polygons.</li>
+          </ul>
+        </div>
+
+        <!-- Team & Contact CTA -->
+        <div class="bg-[#171717] text-white rounded-2xl p-8 md:p-10 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 class="text-xl font-bold tracking-tight mb-2">Have a question or custom request?</h3>
+            <p class="text-sm text-[#a0a0a0] max-w-md leading-relaxed">
+              We love hearing from designers, game developers, educators, and creators worldwide. Reach out anytime!
+            </p>
+          </div>
+          <a
+            href="/contact/"
+            class="px-6 py-3 rounded-full bg-amber-400 text-[#171717] font-semibold text-sm hover:bg-amber-300 transition-colors flex items-center gap-2 shrink-0"
+          >
+            Contact Our Team <ArrowRight class="w-4 h-4" />
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</BaseLayout>
